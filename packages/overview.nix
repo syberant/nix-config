@@ -7,16 +7,20 @@
 
 	environment.systemPackages = with pkgs; [
 		# Some defaults
-		curl wget vim git tmux
+		curl wget vim git tmux tree
+
+		# Security
+		gnupg
+		#password-store
 
 		# Development prerequisites
-		gnumake gcc
+		gnumake gcc binutils
 
 		# Personal development
 		rustup
 
 		# Personal choices
-		neovim nnn lf st
+		neovim nnn lf st fzf unison
 
 		# Replacements for defaults
 		exa bat ripgrep
@@ -37,6 +41,9 @@
 		python3
 
 		# Graphical defaults
-		firefox
+		firefox zathura signal-desktop
+
+		# Productivity
+		#texlive-combined-full-2018
 	];
 }
