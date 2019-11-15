@@ -7,8 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./macbook-specific.nix
+      ./current_host/hardware-configuration.nix
+      ./current_host/main.nix
       ./packages/overview.nix
     ];
 
