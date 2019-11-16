@@ -11,7 +11,7 @@
 
 		# Security
 		gnupg
-		#password-store
+		pass
 
 		# Development prerequisites
 		gnumake gcc binutils
@@ -20,7 +20,7 @@
 		rustup
 
 		# Personal choices
-		neovim nnn lf st fzf unison
+		neovim nnn lf st unison yadm
 
 		# Replacements for defaults
 		exa bat ripgrep
@@ -32,7 +32,7 @@
 		sxhkd
 
 		# Utilities for CLI UX
-		fzf
+		fzf tig
 
 		# Hardware debugging utilities
 		pciutils usbutils
@@ -41,9 +41,9 @@
 		python3
 
 		# Graphical defaults
-		firefox zathura signal-desktop
+		firefox zathura signal-desktop sxiv
 
 		# Productivity
-		#texlive-combined-full-2018
+		texlive.combined.scheme-full
 	];
 }

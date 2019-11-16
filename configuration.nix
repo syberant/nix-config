@@ -74,7 +74,7 @@
   # hardware.opengl.driSupport32Bit = true;
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
- 
+
   # Enable i3 as desktop/window manager
   services.xserver.windowManager.i3 = {
     enable = true;
@@ -83,6 +83,15 @@
       feh
       rxvt_unicode
       i3status
+    ];
+  };
+
+  # Enable compton
+  services.compton = {
+    enable = true;
+    opacityRules = [
+      "90:class_g = 'st-256color' && enabled"
+      "70:class_g = 'st-256color' && !enabled"
     ];
   };
 
