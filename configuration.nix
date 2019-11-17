@@ -66,6 +66,17 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  # Fonts
+  fonts = {
+    fonts = with pkgs; [
+      source-code-pro
+    ];
+
+    fontconfig = {
+      defaultFonts.monospace = [ "Source Code Pro" ];
+    };
+  };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -90,8 +101,9 @@
   services.compton = {
     enable = true;
     opacityRules = [
-      "90:class_g = 'st-256color' && enabled"
-      "70:class_g = 'st-256color' && !enabled"
+      "90:class_g = 'st-256color'"
+      # "90:class_g = 'st-256color' && enabled"
+      # "70:class_g = 'st-256color' && !enabled"
     ];
   };
 
