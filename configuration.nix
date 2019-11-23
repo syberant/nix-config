@@ -77,6 +77,12 @@
     };
   };
 
+  # Hide mouse after a while
+  services.unclutter = {
+    enable = true;
+    extraOptions = [ "noevents" "idle 2" ];
+  };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
