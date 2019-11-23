@@ -86,8 +86,14 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    xkbOptions = "caps:swapescape";
+    # xkbOptions = "ctrl:swapescape";
   };
+
+  # Bind caps-lock to both escape AND ctrl
+  environment.systemPackages = with pkgs; [ xcape ];
+  services.xserver.xkbOptions = "ctrl:nocaps";
+  services.xserver.displayManager.sessionCommands = "${pkgs.xcape}/bin/xcape -e 'Control_L=Escape'";
+
   # hardware.opengl.driSupport32Bit = true;
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
