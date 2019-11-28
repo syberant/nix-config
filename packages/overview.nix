@@ -16,7 +16,6 @@
 		gnumake gcc binutils
 
 		# Personal development
-		rustup
 
 		# Personal choices
 		neovim nnn lf st unison yadm
@@ -37,7 +36,7 @@
 		pciutils usbutils
 
 		# Programming languages
-		python3
+		python3 rustup swift
 
 		# Graphical defaults
 		firefox zathura signal-desktop sxiv
