@@ -2,7 +2,6 @@
 
 {
 	imports = [
-		./emacs.nix
 	];
 
 	environment.systemPackages = with pkgs; [
@@ -45,5 +44,8 @@
 
 		# Productivity
 		texlive.combined.scheme-full
-	];
+	] ++ [
+        # Custom
+        (import ./emacs.nix {inherit pkgs; })
+    ];
 }
