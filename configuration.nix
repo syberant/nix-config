@@ -89,10 +89,19 @@
     # xkbOptions = "ctrl:swapescape";
   };
 
+  # Packages for key binding and delay setting
+  environment.systemPackages = with pkgs; [ xcape xorg.xset ];
+
   # Bind caps-lock to both escape AND ctrl
-  environment.systemPackages = with pkgs; [ xcape ];
   services.xserver.xkbOptions = "ctrl:nocaps";
-  services.xserver.displayManager.sessionCommands = "${pkgs.xcape}/bin/xcape -e 'Control_L=Escape'";
+
+  services.xserver.displayManager.sessionCommands = builtins.foldl' (a: b: a + "\n" + b) "" [
+    # Bind caps-lock to escape if tapped
+    "${pkgs.xcape}/bin/xcape -e 'Control_L=Escape'"
+
+    # Set repetition delay
+    "${pkgs.xorg.xset}/bin/xset r rate 170"
+  ];
 
   # hardware.opengl.driSupport32Bit = true;
   # services.xserver.layout = "us";
