@@ -8,9 +8,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Networking
   networking.hostName = "nixos-macbook"; # Define your hostname.
   networking.enableB43Firmware = true;
 
+  # Trackpad configuration
   services.xserver.synaptics = {
     #enable = true;
     twoFingerScroll = true;
@@ -25,6 +27,17 @@
     scrollMethod = "twofinger";
     naturalScrolling = true;
   };
+
+  # Backlight
+  environment.systemPackages = [
+    pkgs.xorg.xbacklight
+  ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    mba6x_bl
+
+    # Webcam
+    facetimehd
+  ];
 
   # Battery life tweaks
   services.tlp.enable = true;
