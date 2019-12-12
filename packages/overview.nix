@@ -24,22 +24,28 @@
 		exa bat ripgrep
 
 		# Fluff
-		neofetch cmatrix
+		neofetch cmatrix xdotool
+
+        # Relaxing
+        newsboat mpv
 
 		# Utilities for UX
-		sxhkd
+		sxhkd xorg.xrandr
 
 		# Utilities for CLI UX
-		fzf tig
+		fzf tig entr
 
 		# Hardware debugging utilities
 		pciutils usbutils
+
+        # Software debugging
+        xorg.xev
 
 		# Programming languages
 		python3 rustup swift
 
 		# Graphical defaults
-		firefox zathura signal-desktop sxiv
+		firefox zathura signal-desktop sxiv chromium thunderbird
 
 		# Productivity
 		texlive.combined.scheme-full
