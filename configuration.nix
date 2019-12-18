@@ -10,6 +10,7 @@
       ./current_host/hardware-configuration.nix
       ./current_host/main.nix
       ./packages/overview.nix
+      ./modules/default.nix
     ];
 
   networking.networkmanager.enable = true; # Enables wireless support via NetworkManager.
@@ -86,22 +87,7 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    # xkbOptions = "ctrl:swapescape";
   };
-
-  # Packages for key binding and delay setting
-  environment.systemPackages = with pkgs; [ xcape xorg.xset ];
-
-  # Bind caps-lock to both escape AND ctrl
-  services.xserver.xkbOptions = "ctrl:nocaps";
-
-  services.xserver.displayManager.sessionCommands = builtins.foldl' (a: b: a + "\n" + b) "" [
-    # Bind caps-lock to escape if tapped
-    "${pkgs.xcape}/bin/xcape -e 'Control_L=Escape'"
-
-    # Set repetition delay
-    "${pkgs.xorg.xset}/bin/xset r rate 170"
-  ];
 
   # hardware.opengl.driSupport32Bit = true;
   # services.xserver.layout = "us";
