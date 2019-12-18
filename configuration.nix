@@ -13,6 +13,11 @@
       ./modules/default.nix
     ];
 
+  # My custom derivations live here
+  environment.extraInit = "export NIX_PATH=custompkgs=/etc/nixos/custompkgs/default.nix:$NIX_PATH";
+
+  programs.rupa_z.enable = true;
+
   networking.networkmanager.enable = true; # Enables wireless support via NetworkManager.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
