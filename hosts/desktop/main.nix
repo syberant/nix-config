@@ -12,11 +12,13 @@
   boot.loader.grub.useOSProber = true;
 
   # Mount additional filesystems
-  fileSystems."/home".device = "/dev/disk/by-label/home";
+  #fileSystems."/home".device = "/dev/disk/by-label/home";
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
   # Get Xserver working
-  services.xserver.videoDrivers = [ "intel" ];
-  boot.kernelModules = [ "i915" ];
+  nixpkgs.config.allowUnfree = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.driSupport32Bit = true;
+  #boot.kernelModules = [ "i915" ];
 }
