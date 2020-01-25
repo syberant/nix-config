@@ -21,4 +21,9 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.driSupport32Bit = true;
   #boot.kernelModules = [ "i915" ];
+
+  environment.systemPackages = with pkgs; [
+        minecraft
+        freeciv
+  ];
 }

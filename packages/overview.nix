@@ -16,6 +16,7 @@
 		gnumake gcc binutils
 
 		# Personal development
+        zeal
 
 		# Personal choices
 		neovim nnn lf st unison yadm
@@ -24,13 +25,13 @@
 		exa bat ripgrep
 
 		# Fluff
-		neofetch cmatrix xdotool
+		neofetch cmatrix xdotool htop
 
         # Relaxing
         newsboat mpv
 
 		# Utilities for UX
-		sxhkd xorg.xrandr
+		sxhkd xorg.xrandr redshift
 
 		# Utilities for CLI UX
 		fzf tig entr
@@ -42,7 +43,7 @@
         xorg.xev
 
 		# Programming languages
-		python3 rustup swift
+		python3 rustup #swift
 
 		# Graphical defaults
 		firefox zathura signal-desktop sxiv chromium thunderbird
