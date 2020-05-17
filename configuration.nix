@@ -89,6 +89,12 @@
     extraOptions = [ "noevents" "idle 2" ];
   };
 
+  # Keyboard delay
+  services.xserver.autoRepeatDelay = 250;
+
+  # GPG config
+  programs.gnupg.agent.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
