@@ -8,11 +8,8 @@
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.loader.grub.device = "/dev/nvme0n1"; # or "nodev" for efi only
   /* boot.loader.grub.useOSProber = true; */
-
-  # Mount additional filesystems
-  #fileSystems."/home".device = "/dev/disk/by-label/home";
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
@@ -20,7 +17,6 @@
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.driSupport32Bit = true;
-  #boot.kernelModules = [ "i915" ];
 
   environment.systemPackages = with pkgs; [
         minecraft
