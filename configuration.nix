@@ -89,6 +89,9 @@
     extraOptions = [ "noevents" "idle 2" ];
   };
 
+  # GPG config
+  programs.gnupg.agent.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
