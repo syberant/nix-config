@@ -51,16 +51,4 @@
 
   # Map keys on startup
   services.xserver.displayManager.sessionCommands = "bash ~/.config/keymaps/macbook-air-number-fix.sh";
-
-  # Block distracting websites
-  networking.extraHosts = ''
-    0.0.0.0 reddit.com
-    ::0 reddit.com
-    0.0.0.0 www.reddit.com
-    ::0 www.reddit.com
-    0.0.0.0 youtube.com
-    ::0 youtube.com
-    0.0.0.0 www.youtube.com
-    ::0 www.youtube.com
-  '';
 }
