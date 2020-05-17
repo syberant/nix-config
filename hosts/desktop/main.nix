@@ -25,5 +25,10 @@
   environment.systemPackages = with pkgs; [
         minecraft
         freeciv
+
+        # For World of Tanks
+        wine-staging
+        winetricks
+        vulkan-loader
   ];
 }
