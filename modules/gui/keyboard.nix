@@ -17,29 +17,21 @@ in {
             default = true;
             description = "If enabled, caps lock will be mapped to control.";
         };
-
-        repetition_delay = mkOption {
-            type = types.string;
-            default = "180";
-            description = "Amount of milliseconds delay before a key starts repeating.";
-        };
 	};
 
-	config =
-        mkIf cfg.control_as_escape {
+	config = let
+        control_as_escape = mkIf cfg.control_as_escape {
             environment.systemPackages = [ pkgs.xcape ];
 
             services.xserver.displayManager.sessionCommands = ''
                 ${pkgs.xcape}/bin/xcape -e 'Control_L=Escape'
             '';
-        } // mkIf cfg.caps_lock_to_control {
+        };
+        caps_lock_to_control = mkIf cfg.caps_lock_to_control {
             services.xserver.xkbOptions = "ctrl:nocaps";
-        } // {
-
-        # Repetition delay
-        environment.systemPackages = [ pkgs.xorg.xset ];
-        services.xserver.displayManager.sessionCommands = ''
-            ${pkgs.xorg.xset}/bin/xset r rate ${cfg.repetition_delay}
-        '';
-    };
+        };
+    in mkMerge [
+        control_as_escape
+        caps_lock_to_control
+    ];
 }
