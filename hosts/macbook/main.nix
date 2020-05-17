@@ -28,11 +28,16 @@
     naturalScrolling = true;
   };
 
-  # Backlight
-  environment.systemPackages = [
-    pkgs.xorg.xbacklight
+  # VirtualBox
+  # users.extraGroups.vboxusers.members = [ "sybrand" ];
+  # virtualisation.virtualbox.host.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    # Backlight
+    xorg.xbacklight
   ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
+    # Backlight
     mba6x_bl
 
     # Webcam
