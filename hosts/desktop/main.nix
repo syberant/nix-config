@@ -13,6 +13,10 @@
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
+  # Virtualbox
+  users.extraGroups.vboxusers.members = [ "sybrand" ];
+  virtualisation.virtualbox.host.enable = true;
+
   # Get Xserver working
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
