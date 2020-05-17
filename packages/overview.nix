@@ -16,6 +16,7 @@
 		gnumake gcc binutils
 
 		# Personal development
+        zeal tokei
 
 		# Personal choices
 		neovim nnn lf st unison yadm
@@ -30,7 +31,7 @@
         newsboat mpv
 
 		# Utilities for UX
-		sxhkd xorg.xrandr
+		sxhkd xorg.xrandr xcape
 
 		# Utilities for CLI UX
 		fzf tig entr
@@ -42,13 +43,16 @@
         xorg.xev
 
 		# Programming languages
-		python3 rustup swift
+		python3 rustup swift octave
 
 		# Graphical defaults
 		firefox zathura signal-desktop sxiv chromium thunderbird
 
 		# Productivity
 		texlive.combined.scheme-full
+        anki
+        unzip
+        libreoffice
 	] ++ [
         # Custom
         (import ./emacs.nix {inherit pkgs; })
