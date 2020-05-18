@@ -17,6 +17,11 @@ in {
             default = true;
             description = "If enabled, caps lock will be mapped to control.";
         };
+
+        key_mappings = mkOption {
+            type = types.listOf types.str;
+            default = [];
+        };
 	};
 
 	config = let
@@ -30,8 +35,14 @@ in {
         caps_lock_to_control = mkIf cfg.caps_lock_to_control {
             services.xserver.xkbOptions = "ctrl:nocaps";
         };
+        key_mappings =
+            let code = map (a: ''xmodmap -e "keycode '' + a + ''"'') cfg.key_mappings;
+            in {
+                services.xserver.displayManager.sessionCommands = builtins.concatStringsSep "\n" code;
+            };
     in mkMerge [
         control_as_escape
         caps_lock_to_control
+        key_mappings
     ];
 }

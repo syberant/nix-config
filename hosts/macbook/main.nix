@@ -50,5 +50,16 @@
   powerManagement.enable = true;
 
   # Map keys on startup
-  services.xserver.displayManager.sessionCommands = "bash ~/.config/keymaps/macbook-air-number-fix.sh";
+  gui.keyboard.key_mappings = [
+    "232 = 1 exclam"
+    "233 = 2 at"
+    "128 = 3 numbersign"
+    "212 = 4 dollar"
+    "237 = 5 percent"
+    "238 = 6 asciicircum"
+    "173 = 7 ampersand"
+    "172 = 8 asterisk"
+    "171 = 9 parenleft"
+    "121 = 0 parenright"
+  ];
 }
