@@ -31,4 +31,10 @@
         winetricks
         vulkan-loader
   ];
+
+  # Block distracting websites
+  blacklist_ip.distractions = {
+    reddit = true;
+    youtube = true;
+  };
 }
