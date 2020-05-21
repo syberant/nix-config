@@ -2,9 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, ... }:
 
-{
+let pkgs = let
+    inherit (import <nixpkgs> {}) fetchFromGitHub;
+    nixpkgs = fetchFromGitHub {
+        owner = "NixOS";
+        repo = "nixpkgs-channels";
+        rev = "f45ccd9d20b4e90e43c4562b9941ea1dbd8f07a4";
+        sha256 = "10476ij19glhs2yy1pmvm0azd75ifjchpfbljn7h1cnnpii1xprc";
+    };
+  in import nixpkgs {};
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./current_host/hardware-configuration.nix
@@ -12,6 +21,7 @@
       ./packages/overview.nix
       ./modules/default.nix
     ];
+
 
   # Configure overlays
   nixpkgs.overlays = [
