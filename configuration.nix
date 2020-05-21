@@ -14,7 +14,10 @@
     ];
 
   # Configure overlays
-  nixpkgs.overlays = [ (import ./overlays/added_packages.nix) ];
+  nixpkgs.overlays = [
+    (import ./overlays/added_packages.nix)
+    (import ./overlays/explicit_configuration.nix)
+  ];
 
   # My custom derivations live here
   environment.extraInit = "export NIX_PATH=custompkgs=/etc/nixos/custompkgs/default.nix:$NIX_PATH";
@@ -110,6 +113,7 @@
   # Enable i3 as desktop/window manager
   services.xserver.windowManager.i3 = {
     enable = true;
+    configFile = "${./config/i3/config}";
     extraPackages = with pkgs; [
       dmenu
       feh
