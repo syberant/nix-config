@@ -1,13 +1,12 @@
 # load it at beginning of interactive shell
 /* programs.bash.interactiveShellInit = ". rupa_z_init"; */
 
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 
 with lib;
 
 let
     cfg = config.programs.rupa_z;
-    custompkgs = import <custompkgs> {};
 in {
     options.programs.rupa_z = {
         enable = mkOption {
@@ -29,8 +28,8 @@ in {
     };
 
     config = mkIf cfg.enable {
-        environment.interactiveShellInit =  mkIf cfg.onInteractive ". ${custompkgs.rupa_z}/bin/rupa_z_init";
+        environment.interactiveShellInit =  mkIf cfg.onInteractive ". ${pkgs.rupa_z}/bin/rupa_z_init";
 
-        environment.systemPackages = [ custompkgs.rupa_z ];
+        environment.systemPackages = [ pkgs.rupa_z ];
     };
 }

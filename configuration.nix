@@ -13,6 +13,9 @@
       ./modules/default.nix
     ];
 
+  # Configure overlays
+  nixpkgs.overlays = [ (import ./overlays/added_packages.nix) ];
+
   # My custom derivations live here
   environment.extraInit = "export NIX_PATH=custompkgs=/etc/nixos/custompkgs/default.nix:$NIX_PATH";
 
