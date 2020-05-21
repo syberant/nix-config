@@ -19,7 +19,7 @@
         zeal tokei
 
 		# Personal choices
-		neovim nnn lf st unison yadm
+		nnn lf st unison yadm
 
 		# Replacements for defaults
 		exa bat ripgrep
@@ -56,5 +56,6 @@
 	] ++ [
         # Custom
         (import ./emacs.nix {inherit pkgs; })
+        (import ./neovim {inherit pkgs; })
     ];
 }
