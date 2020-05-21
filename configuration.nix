@@ -15,8 +15,8 @@
 
   # Configure overlays
   nixpkgs.overlays = [
-    (import ./overlays/added_packages.nix)
-    (import ./overlays/explicit_configuration.nix)
+    (import ./overlays/added_packages)
+    (import ./overlays/explicit_configuration)
   ];
 
   # My custom derivations live here

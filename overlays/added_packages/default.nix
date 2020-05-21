@@ -1,3 +1,3 @@
 self: super: {
-    rupa_z = super.callPackage ../custompkgs/rupa_z {};
+    rupa_z = super.callPackage ./rupa_z {};
 }

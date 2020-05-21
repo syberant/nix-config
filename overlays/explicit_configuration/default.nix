@@ -6,7 +6,7 @@ self: super: {
       buildInputs = [ super.makeWrapper ];
       paths = [ super.mpv ];
       postBuild = ''
-        wrapProgram "$out/bin/mpv" --add-flags "--config-dir=${../config/mpv}"
+        wrapProgram "$out/bin/mpv" --add-flags "--config-dir=${../../config/mpv}"
       '';
     };
 
@@ -16,7 +16,7 @@ self: super: {
       buildInputs = [ super.makeWrapper ];
       paths = [ super.tmux ];
       postBuild = ''
-        wrapProgram "$out/bin/tmux" --add-flags "-f ${../config/tmux/tmux.conf}"
+        wrapProgram "$out/bin/tmux" --add-flags "-f ${../../config/tmux/tmux.conf}"
       '';
     };
 }
