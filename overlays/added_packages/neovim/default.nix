@@ -22,6 +22,9 @@ pkgs.neovim.override {
                 gruvbox
                 colorizer
                 seoul256-vim
+
+		# Markdown
+		vim-pandoc-syntax
             ];
         };
 
