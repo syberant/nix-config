@@ -1,0 +1,5 @@
+# Colorful output for ls by default
+alias ls='ls --color=auto'
+
+# Use neovim instead of vim
+alias vi=nvim

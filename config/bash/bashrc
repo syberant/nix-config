@@ -1,0 +1,24 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Set prompt
+PS1='[\u@\h \W]\$ '
+
+# Use neovim as editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# Quit to current directory in nnn
+export NNN_TMPFILE="/tmp/nnn"
+n() {
+        nnn "$@"
+
+        if [ -f $NNN_TMPFILE ]; then
+                . $NNN_TMPFILE
+                rm -f $NNN_TMPFILE > /dev/null
+        fi
+}

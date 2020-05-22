@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, ... }:
+{ config, lib, ... }:
 
 let pkgs = let
     inherit (import <nixpkgs> {}) fetchFromGitHub;
@@ -142,4 +142,9 @@ in {
   # should.
   system.stateVersion = "19.09"; # Did you read the comment?
 
+  # Programs
+  programs = {
+    bash.interactiveShellInit = builtins.readFile ./config/bash/bashrc +
+      lib.optionalString (builtins.pathExists ./config/bash/bash_aliases) ". ${./config/bash/bash_aliases}";
+  };
 }
