@@ -18,7 +18,8 @@ in {
     [ # Include the results of the hardware scan.
       ./current_host/hardware-configuration.nix
       ./current_host/main.nix
-      ./packages/overview.nix
+      ./configuration/packages/overview.nix
+      ./configuration/desktop-environment.nix
       ./modules/default.nix
     ];
 
@@ -81,49 +82,12 @@ in {
     };
   };
 
-  # Hide mouse after a while
-  services.unclutter = {
-    enable = true;
-    extraOptions = [ "noevents" "idle 2" ];
-  };
-
-
   # GPG config
   programs.gnupg.agent.enable = true;
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-
-    # Keyboard delay
-    autoRepeatDelay = 250;
-  };
 
   # hardware.opengl.driSupport32Bit = true;
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable i3 as desktop/window manager
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    configFile = "${./config/i3/config}";
-    extraPackages = with pkgs; [
-      dmenu
-      feh
-      rxvt_unicode
-      i3status
-    ];
-  };
-
-  # Enable compton
-  services.compton = {
-    enable = true;
-    opacityRules = [
-      "90:class_g = 'st-256color'"
-      # "90:class_g = 'st-256color' && enabled"
-      # "70:class_g = 'st-256color' && !enabled"
-    ];
-  };
 
   # Enable a nice Display Manager for logging in.
   services.xserver.displayManager.sddm.enable = true;
