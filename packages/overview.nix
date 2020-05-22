@@ -16,7 +16,7 @@
 		gnumake gcc binutils
 
 		# Personal development
-        zeal tokei
+        zeal tokei myNeovim
 
 		# Personal choices
 		nnn lf st unison yadm
@@ -56,6 +56,5 @@
 	] ++ [
         # Custom
         (import ./emacs.nix {inherit pkgs; })
-        (import ./neovim {inherit pkgs; })
     ];
 }
