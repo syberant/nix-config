@@ -4,32 +4,13 @@
 { pkgs, ... }:
 
 pkgs.neovim.override {
-    configure = {
-        packages.myVimPackage = with pkgs.vimPlugins; {
-            start = [
-                # Easy editing
-                vim-trailing-whitespace
-                vim-easymotion
+    configure = let
+    	modules = [ (import ./modules/main.nix {inherit pkgs;}) (import ./modules/markdown.nix {inherit pkgs;}) ];
+	plugins = builtins.foldl' (a: b: a ++ b.plugins) [] modules;
+	code = builtins.foldl' (a: b: a + "\n" + b.code) "" modules;
+    in {
+        packages.myVimPackage.start = plugins;
 
-                # Aesthetics
-                lightline-vim
-
-                    # Focus mode
-                    #limelight-vim
-                    #goyo
-
-                # Colour theme
-                gruvbox
-                colorizer
-                seoul256-vim
-
-		# Markdown
-		vim-pandoc-syntax
-            ];
-        };
-
-        customRC =
-            builtins.readFile "${./main.vim}" +
-            builtins.readFile "${./markdown.vim}";
+        customRC = code;
     };
 }
