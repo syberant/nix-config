@@ -126,7 +126,7 @@ exec --no-startup-id st -n dropdown
 	# Dropdown gets moved into scratchpad automatically
 for_window [instance="dropdown"] move scratchpad
 	# Scratchpad takes up entire width but isn't that tall
-for_window [instance="dropdown"] resize set 1920 350
+for_window [instance="dropdown"] resize set 100 ppt 40 ppt
 	# Scratchpad is moved to the topleft corner
 for_window [instance="dropdown"] move position 0 0
 
