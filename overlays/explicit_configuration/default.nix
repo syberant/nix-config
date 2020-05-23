@@ -19,4 +19,14 @@ self: super: {
         wrapProgram "$out/bin/tmux" --add-flags "-f ${../../config/tmux/tmux.conf}"
       '';
     };
+
+    # polybar
+    polybar = super.symlinkJoin {
+      name = "polybar";
+      buildInputs = [ super.makeWrapper ];
+      paths = [ super.polybarFull ];
+      postBuild = ''
+        wrapProgram "$out/bin/polybar" --add-flags "-c ${../../config/polybar/config}"
+      '';
+    };
 }

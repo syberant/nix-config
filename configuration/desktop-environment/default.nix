@@ -19,8 +19,9 @@
     # Enable i3 as desktop/window manager
     windowManager.i3 = {
 	enable = true;
-	configFile = "${../../config/i3/config}";
+	configFile = import ./i3-config-file.nix;
 	extraPackages = with pkgs; [
+	  polybar
 	  dmenu
 	  feh
 	  rxvt_unicode
