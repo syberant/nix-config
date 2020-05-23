@@ -19,7 +19,7 @@ in {
       ./current_host/hardware-configuration.nix
       ./current_host/main.nix
       ./configuration/packages/overview.nix
-      ./configuration/desktop-environment.nix
+      ./configuration/desktop-environment/default.nix
       ./modules/default.nix
     ];
 

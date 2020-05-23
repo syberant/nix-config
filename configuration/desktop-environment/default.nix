@@ -19,7 +19,7 @@
     # Enable i3 as desktop/window manager
     windowManager.i3 = {
 	enable = true;
-	configFile = "${../config/i3/config}";
+	configFile = "${../../config/i3/config}";
 	extraPackages = with pkgs; [
 	  dmenu
 	  feh
