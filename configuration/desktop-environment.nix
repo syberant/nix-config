@@ -24,7 +24,6 @@
 	  dmenu
 	  feh
 	  rxvt_unicode
-	  i3status
 	];
     };
   };
