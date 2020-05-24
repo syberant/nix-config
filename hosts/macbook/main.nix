@@ -62,4 +62,6 @@
     "171 = 9 parenleft"
     "121 = 0 parenright"
   ];
+
+  programs.polybar.wlanInterface = "wlp3s0";
 }
