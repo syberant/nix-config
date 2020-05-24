@@ -21,7 +21,9 @@
 	enable = true;
 	configFile = import ./i3-config-file.nix;
 	extraPackages = with pkgs; [
-	  polybar
+	  (polybar.override {
+	  	configFile = ../../config/polybar/config;
+	  })
 	  dmenu
 	  feh
 	  rxvt_unicode

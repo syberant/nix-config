@@ -1,4 +1,4 @@
-self: super: {
+self: super: let lib = super.lib; in {
     # mpv
     # NOTE: sets a config DIRECTORY instead of a single file
     mpv = super.symlinkJoin {
@@ -21,12 +21,12 @@ self: super: {
     };
 
     # polybar
-    polybar = super.symlinkJoin {
+    polybar = lib.makeOverridable ({ configFile }: super.symlinkJoin {
       name = "polybar";
       buildInputs = [ super.makeWrapper ];
       paths = [ super.polybarFull ];
-      postBuild = ''
-        wrapProgram "$out/bin/polybar" --add-flags "-c ${../../config/polybar/config}"
+      postBuild = lib.optionalString (! isNull configFile) ''
+	 wrapProgram "$out/bin/polybar" --add-flags "-c ${configFile}"
       '';
-    };
+    }) { configFile = null; };
 }
