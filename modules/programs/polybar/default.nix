@@ -48,7 +48,7 @@ in {
     config = mkIf cfg.enable {
         environment.systemPackages = [(pkgs.polybar.override {
 		configFile = optionalString cfg.enableConfigFile (builtins.toFile "polybar-config" (
-			cfg.configLines + ''
+			cfg.configLines + "\n" + ''
 				[module/wlan]
 				type = internal/network
 				interface = ${cfg.wlanInterface}
@@ -59,13 +59,13 @@ in {
 				label-connected = %essid% %local_ip%
 
 				format-disconnected = <label-disconnected>
-				format-disconnected-underline = \$\{self.format-connected-underline\}
+				format-disconnected-underline = ''${self.format-connected-underline}
 				label-disconnected = disconnected
-				label-disconnected-foreground = \$\{colors.foreground-alt\}
+				label-disconnected-foreground = ''${colors.foreground-alt}
 
 				ramp-signal-0 = 
-				ramp-signal-foreground = \$\{colors.foreground-alt\}
-			'' +
+				ramp-signal-foreground = ''${colors.foreground-alt}
+			'' + "\n" +
 			optionalString cfg.useDefaultModules builtins.readFile ./defaultModules.conf
 		));
 	})];
