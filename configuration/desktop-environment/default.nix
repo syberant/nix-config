@@ -21,9 +21,6 @@
 	enable = true;
 	configFile = import ./i3-config-file.nix;
 	extraPackages = with pkgs; [
-	  (polybar.override {
-	  	configFile = ../../config/polybar/config;
-	  })
 	  dmenu
 	  feh
 	  rxvt_unicode
@@ -39,5 +36,11 @@
       # "90:class_g = 'st-256color' && enabled"
       # "70:class_g = 'st-256color' && !enabled"
     ];
+  };
+
+  programs.polybar = {
+  	enable = true;
+	enableConfigFile = true;
+	configLines = builtins.readFile ./polybar-config-file;
   };
 }

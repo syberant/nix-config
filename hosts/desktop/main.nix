@@ -37,4 +37,8 @@
     reddit = true;
     youtube = true;
   };
+
+  programs.polybar = {
+  	wlanInterface = "wlp2s0f0u3";
+  };
 }
