@@ -56,7 +56,7 @@ in {
 
 				format-connected = <ramp-signal> <label-connected>
 				format-connected-underline = #9f78e1
-				label-connected = %essid% %local_ip%
+				label-connected = %local_ip%
 
 				format-disconnected = <label-disconnected>
 				format-disconnected-underline = ''${self.format-connected-underline}
