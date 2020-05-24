@@ -20,6 +20,16 @@ self: super: let lib = super.lib; in {
       '';
     };
 
+    # sxhkd
+    sxhkd = super.symlinkJoin {
+      name = "sxhkd";
+      buildInputs = [ super.makeWrapper ];
+      paths = [ super.sxhkd ];
+      postBuild = ''
+        wrapProgram "$out/bin/sxhkd" --add-flags "-c ${../../config/sxhkd/sxhkdrc}"
+      '';
+    };
+
     # polybar
     polybar = lib.makeOverridable ({ configFile }: super.symlinkJoin {
       name = "polybar";

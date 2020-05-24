@@ -1,0 +1,7 @@
+# Sound up and down
+XF86Audio{LowerVolume,RaiseVolume}
+    amixer set Master 5%{-,+}
+
+# Toggle sound
+XF86AudioMute
+    amixer set Master toggle
