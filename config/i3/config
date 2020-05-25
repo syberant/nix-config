@@ -26,6 +26,10 @@ font pango:monospace 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+# Configure the gaps in i3-gaps
+gaps inner 5
+gaps outer 2
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

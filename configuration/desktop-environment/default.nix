@@ -20,6 +20,7 @@
     windowManager.i3 = {
 	enable = true;
 	configFile = import ./i3-config-file.nix;
+	package = pkgs.i3-gaps;
 	extraPackages = with pkgs; [
 	  dmenu
 	  feh
