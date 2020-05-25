@@ -207,6 +207,3 @@ bindsym $mod+s mode "mouse"
 
 # Load the background from the previous time
 exec ~/.fehbg
-
-# Start sxhkd
-exec sxhkd &
