@@ -205,12 +205,6 @@ mode "mouse" {
 
 bindsym $mod+s mode "mouse"
 
-mode "don't capture keypresses" {
-    bindsym $mod+Escape mode "default"
-}
-
-bindsym $mod+Escape mode "don't capture keypresses"
-
 # Load the background from the previous time
 exec ~/.fehbg
 
