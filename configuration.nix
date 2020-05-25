@@ -20,6 +20,7 @@ in {
       ./current_host/main.nix
       ./configuration/packages/overview.nix
       ./configuration/desktop-environment/default.nix
+      ./configuration/mpd.nix
       ./modules/default.nix
     ];
 
