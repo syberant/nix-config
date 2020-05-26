@@ -46,8 +46,8 @@ in {
     };
 
     config = mkIf cfg.enable {
-        environment.systemPackages = [(pkgs.polybar.override {
-		configFile = optionalString cfg.enableConfigFile (builtins.toFile "polybar-config" (
+        environment.systemPackages = [(pkgs.polybar.override { flags = [
+		(optionalString cfg.enableConfigFile ("-c " + builtins.toFile "polybar-config" (
 			cfg.configLines + "\n" + ''
 				[module/wlan]
 				type = internal/network
@@ -67,7 +67,7 @@ in {
 				ramp-signal-foreground = ''${colors.foreground-alt}
 			'' + "\n" +
 			optionalString cfg.useDefaultModules builtins.readFile ./defaultModules.conf
-		));
-	})];
+		)))
+	];})];
     };
 }

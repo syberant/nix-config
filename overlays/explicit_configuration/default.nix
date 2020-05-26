@@ -1,4 +1,7 @@
-self: super: let lib = super.lib; in {
+self: super: let
+	lib = super.lib;
+	overridable_flags = import ./overridable_flags.nix;
+in {
     # mpv
     # NOTE: sets a config DIRECTORY instead of a single file
     mpv = super.symlinkJoin {
@@ -31,12 +34,9 @@ self: super: let lib = super.lib; in {
     };
 
     # polybar
-    polybar = lib.makeOverridable ({ configFile }: super.symlinkJoin {
-      name = "polybar";
-      buildInputs = [ super.makeWrapper ];
-      paths = [ super.polybarFull ];
-      postBuild = lib.optionalString (! isNull configFile) ''
-	 wrapProgram "$out/bin/polybar" --add-flags "-c ${configFile}"
-      '';
-    }) { configFile = null; };
+    polybar = overridable_flags {
+    	name = "polybar";
+	derivation = super.polybarFull;
+	pkgs = super;
+    };
 }
