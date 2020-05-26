@@ -4,33 +4,24 @@ self: super: let
 in {
     # mpv
     # NOTE: sets a config DIRECTORY instead of a single file
-    mpv = super.symlinkJoin {
-      name = "mpv";
-      buildInputs = [ super.makeWrapper ];
-      paths = [ super.mpv ];
-      postBuild = ''
-        wrapProgram "$out/bin/mpv" --add-flags "--config-dir=${../../config/mpv}"
-      '';
+    mpv = overridable_flags {
+    	name = "mpv";
+	derivation = super.mpv;
+	pkgs = super;
     };
 
     # tmux
-    tmux = super.symlinkJoin {
-      name = "tmux";
-      buildInputs = [ super.makeWrapper ];
-      paths = [ super.tmux ];
-      postBuild = ''
-        wrapProgram "$out/bin/tmux" --add-flags "-f ${../../config/tmux/tmux.conf}"
-      '';
+    tmux = overridable_flags {
+    	name = "tmux";
+	derivation = super.tmux;
+	pkgs = super;
     };
 
     # sxhkd
-    sxhkd = super.symlinkJoin {
-      name = "sxhkd";
-      buildInputs = [ super.makeWrapper ];
-      paths = [ super.sxhkd ];
-      postBuild = ''
-        wrapProgram "$out/bin/sxhkd" --add-flags "-c ${../../config/sxhkd/sxhkdrc}"
-      '';
+    sxhkd = overridable_flags {
+	name = "sxhkd";
+	derivation = super.sxhkd;
+	pkgs = super;
     };
 
     # polybar

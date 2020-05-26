@@ -6,7 +6,7 @@
 
 	environment.systemPackages = with pkgs; [
 		# Some defaults
-		curl wget vim git tmux tree
+		curl wget vim git tree
 
 		# Security
 		gnupg
@@ -28,10 +28,10 @@
 		neofetch cmatrix xdotool htop
 
         # Relaxing
-        newsboat mpv
+        newsboat
 
 		# Utilities for UX
-		sxhkd xorg.xrandr redshift
+		xorg.xrandr redshift
 
 		# Utilities for CLI UX
 		fzf tig entr
@@ -56,5 +56,17 @@
 	] ++ [
         # Custom
         (import ./emacs.nix {inherit pkgs; })
+
+	(pkgs.sxhkd.override {
+		flags = [ "-c ${../../config/sxhkd/sxhkdrc}" ];
+	})
+
+	(pkgs.tmux.override {
+		flags = [ "-f ${../../config/tmux/tmux.conf}" ];
+	})
+
+	(pkgs.mpv.override {
+		flags = [ "--config-dir=${../../config/mpv}" ];
+	})
     ];
 }
