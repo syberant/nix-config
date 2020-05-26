@@ -5,3 +5,13 @@ XF86Audio{LowerVolume,RaiseVolume}
 # Toggle sound
 XF86AudioMute
     amixer set Master toggle
+
+# Toggle playing/pausing mpd
+XF86AudioPlay
+    mpc toggle
+
+XF86AudioPrev
+    mpc prev
+
+XF86AudioNext
+    mpc next
