@@ -22,14 +22,6 @@ in {
             '';
         };
 
-        useDefaultModules = mkOption {
-            type = types.bool;
-            default = true;
-            description = ''
-                Appends the base modules onto the config file.
-            '';
-        };
-
         configLines = mkOption {
             type = types.nullOr types.str;
             default = null;
@@ -45,29 +37,16 @@ in {
 	};
     };
 
-    config = mkIf cfg.enable {
-        environment.systemPackages = [(pkgs.polybar.override { flags = [
-		(optionalString cfg.enableConfigFile ("-c " + builtins.toFile "polybar-config" (
-			cfg.configLines + "\n" + ''
-				[module/wlan]
-				type = internal/network
-				interface = ${cfg.wlanInterface}
-				interval = 3.0
-
-				format-connected = <ramp-signal> <label-connected>
-				format-connected-underline = #9f78e1
-				label-connected = %local_ip%
-
-				format-disconnected = <label-disconnected>
-				format-disconnected-underline = ''${self.format-connected-underline}
-				label-disconnected = disconnected
-				label-disconnected-foreground = ''${colors.foreground-alt}
-
-				ramp-signal-0 = 
-				ramp-signal-foreground = ''${colors.foreground-alt}
-			'' + "\n" +
-			optionalString cfg.useDefaultModules builtins.readFile ./defaultModules.conf
-		)))
-	];})];
+    config = let
+    	file = import ../../../configuration/generators/polybar.nix {
+		wlanInterface = cfg.wlanInterface;
+		extraConfig = cfg.configLines;
+	};
+    in mkIf cfg.enable {
+        environment.systemPackages = [(
+	    pkgs.polybar.override { flags = [
+		(optionalString cfg.enableConfigFile "-c ${file}")
+	    ];}
+	)];
     };
 }
