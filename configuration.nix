@@ -30,8 +30,6 @@ in {
     (import ./overlays/explicit_configuration)
   ];
 
-  programs.rupa_z.enable = true;
-
   networking.networkmanager.enable = true; # Enables wireless support via NetworkManager.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -85,9 +83,6 @@ in {
     };
   };
 
-  # GPG config
-  programs.gnupg.agent.enable = true;
-
   # hardware.opengl.driSupport32Bit = true;
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
@@ -108,10 +103,4 @@ in {
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "19.09"; # Did you read the comment?
-
-  # Programs
-  programs = {
-    bash.interactiveShellInit = builtins.readFile ./configuration/dotfiles/bash/bashrc +
-      lib.optionalString (builtins.pathExists ./configuration/dotfiles/bash/bash_aliases) ". ${./configuration/dotfiles/bash/bash_aliases}";
-  };
 }
