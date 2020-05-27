@@ -58,15 +58,15 @@
         (import ./emacs.nix {inherit pkgs; })
 
 	(pkgs.sxhkd.override {
-		flags = [ "-c ${../../config/sxhkd/sxhkdrc}" ];
+		flags = [ "-c ${../dotfiles/sxhkd/sxhkdrc}" ];
 	})
 
 	(pkgs.tmux.override {
-		flags = [ "-f ${../../config/tmux/tmux.conf}" ];
+		flags = [ "-f ${../dotfiles/tmux/tmux.conf}" ];
 	})
 
 	(pkgs.mpv.override {
-		flags = [ "--config-dir=${../../config/mpv}" ];
+		flags = [ "--config-dir=${../dotfiles/mpv}" ];
 	})
     ];
 }

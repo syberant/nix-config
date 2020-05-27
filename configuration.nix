@@ -111,7 +111,7 @@ in {
 
   # Programs
   programs = {
-    bash.interactiveShellInit = builtins.readFile ./config/bash/bashrc +
-      lib.optionalString (builtins.pathExists ./config/bash/bash_aliases) ". ${./config/bash/bash_aliases}";
+    bash.interactiveShellInit = builtins.readFile ./configuration/dotfiles/bash/bashrc +
+      lib.optionalString (builtins.pathExists ./configuration/dotfiles/bash/bash_aliases) ". ${./configuration/dotfiles/bash/bash_aliases}";
   };
 }
