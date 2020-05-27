@@ -30,4 +30,11 @@ in {
 	derivation = super.polybarFull;
 	pkgs = super;
     };
+
+    # ncmpcpp
+    ncmpcpp = overridable_flags {
+    	name = "ncmpcpp";
+	derivation = super.ncmpcpp;
+	pkgs = super;
+    };
 }

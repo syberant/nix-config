@@ -22,5 +22,10 @@
     '';
   };
 
-  environment.systemPackages = [ pkgs.mpc_cli pkgs.ncmpcpp ];
+  environment.systemPackages = [
+	pkgs.mpc_cli
+  	(pkgs.ncmpcpp.override {
+		flags = [ "--config ${../config/ncmpcpp/ncmpcpp.conf}" "--bindings ${../config/ncmpcpp/bindings.conf}" ];
+	})
+  ];
 }
