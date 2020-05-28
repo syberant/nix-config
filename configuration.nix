@@ -30,12 +30,8 @@ in {
     (import ./overlays/explicit_configuration)
   ];
 
-  networking.networkmanager.enable = true; # Enables wireless support via NetworkManager.
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Enables wireless support via NetworkManager.
+  networking.networkmanager.enable = true;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -56,15 +52,6 @@ in {
     publish.enable = true;
     publish.addresses = true;
   };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
