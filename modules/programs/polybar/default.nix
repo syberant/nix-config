@@ -43,10 +43,10 @@ in {
 		extraConfig = cfg.configLines;
 	};
     in mkIf cfg.enable {
-        environment.systemPackages = [(
-	    pkgs.polybar.override { flags = [
-		(optionalString cfg.enableConfigFile "-c ${file}")
-	    ];}
-	)];
+        environment.systemPackages = lib.singleton (
+	    pkgs.polybar.override { flags = lib.singleton (
+		optionalString cfg.enableConfigFile "-c ${file}"
+	    );}
+	);
     };
 }
