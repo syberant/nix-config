@@ -61,6 +61,15 @@
     "172 = 8 asterisk"
     "171 = 9 parenleft"
     "121 = 0 parenright"
+
+    # Remap fn buttons
+    # Original fn functionality still available with shift
+    "73 = XF86AudioPrev F7"
+    "74 = XF86AudioPlay F8"
+    "75 = XF86AudioNext F9"
+    "76 = XF86AudioMute F10"
+    "95 = XF86AudioLowerVolume F11"
+    "96 = XF86AudioRaiseVolume F12"
   ];
 
   programs.polybar.wlanInterface = "wlp3s0";
