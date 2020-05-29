@@ -42,6 +42,5 @@
   programs.polybar = {
   	enable = true;
 	enableConfigFile = true;
-	configLines = builtins.readFile ./polybar-config-file;
   };
 }

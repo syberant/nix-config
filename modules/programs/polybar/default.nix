@@ -23,8 +23,8 @@ in {
         };
 
         configLines = mkOption {
-            type = types.nullOr types.str;
-            default = null;
+            type = types.str;
+            default = "";
             description = ''
 	    	Configuration for in the config file.
             '';
