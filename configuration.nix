@@ -21,6 +21,7 @@ in {
       ./configuration/packages/overview.nix
       ./configuration/desktop-environment/default.nix
       ./configuration/mpd.nix
+      ./configuration/mandarin.nix
       ./modules/default.nix
     ];
 
