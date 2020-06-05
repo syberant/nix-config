@@ -105,7 +105,7 @@ ramp-signal-foreground = ''${colors.foreground-alt}
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ''${colors.foreground-alt}
 format-prefix-underline = ''${colors.secondary}
 
