@@ -15,6 +15,7 @@
 
     # Keyboard delay
     autoRepeatDelay = 250;
+    xkbOptions = "compose:ralt";
 
     # Enable i3 as desktop/window manager
     windowManager.i3 = {
