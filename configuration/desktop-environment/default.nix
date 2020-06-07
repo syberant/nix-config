@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
-{
+let lib = pkgs.lib;
+in {
   imports = [ ];
 
   # Hide mouse after a while
@@ -40,8 +41,14 @@
     ];
   };
 
+  # Polybar
   programs.polybar = {
   	enable = true;
 	enableConfigFile = true;
   };
+
+  # Dunst
+  environment.systemPackages = lib.singleton (pkgs.dunst.override {
+  	flags = lib.singleton "-config ${../dotfiles/dunst/config}";
+  });
 }

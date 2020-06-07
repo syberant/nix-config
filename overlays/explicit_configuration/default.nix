@@ -37,4 +37,11 @@ in {
 	derivation = super.ncmpcpp;
 	pkgs = super;
     };
+
+    # dunst
+    dunst = overridable_flags {
+	name = "dunst";
+	derivation = super.dunst;
+	pkgs = super;
+    };
 }
