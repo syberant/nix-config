@@ -58,10 +58,6 @@
         # Custom
         (import ./emacs.nix {inherit pkgs; })
 
-	(pkgs.sxhkd.override {
-		flags = [ "-c ${../dotfiles/sxhkd/sxhkdrc}" ];
-	})
-
 	(pkgs.tmux.override {
 		flags = [ "-f ${../dotfiles/tmux/tmux.conf}" ];
 	})

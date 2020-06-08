@@ -21,7 +21,7 @@ in {
     # Enable i3 as desktop/window manager
     windowManager.i3 = {
 	enable = true;
-	configFile = import ./i3-config-file.nix;
+	configFile = import ./i3-config-file.nix { inherit pkgs; };
 	package = pkgs.i3-gaps;
 	extraPackages = with pkgs; [
 	  dmenu
