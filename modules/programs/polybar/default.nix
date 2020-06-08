@@ -35,12 +35,19 @@ in {
 	    default = "";
 	    description = "Interface name for wlan, for example wlp2s0f0u3.";
 	};
+
+	showBattery = mkOption {
+	    type = types.bool;
+	    default = false;
+	    description = "Whether to show the charge rate.";
+	};
     };
 
     config = let
     	file = import ../../../configuration/generators/polybar.nix {
 		wlanInterface = cfg.wlanInterface;
 		extraConfig = cfg.configLines;
+		showBattery = cfg.showBattery;
 	};
     in mkIf cfg.enable {
         environment.systemPackages = lib.singleton (

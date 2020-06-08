@@ -1,4 +1,4 @@
-{ wlanInterface ? "unspecified", extraConfig ? "", ... }:
+{ wlanInterface ? "unspecified", extraConfig ? "", showBattery ? false, ... }:
 
 builtins.toFile "polybar-config" ''
 
@@ -64,7 +64,7 @@ font-4 = FontAwesome5Brands:style=Regular:size=11;2
 
 modules-left = i3
 modules-center = pulseaudio mpd
-modules-right = wlan memory cpu date
+modules-right = wlan ${if showBattery then "battery" else ""} memory cpu date
 
 tray-position = right
 tray-padding = 2
