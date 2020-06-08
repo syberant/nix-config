@@ -24,7 +24,8 @@ in {
 	configFile = pkgs.writeText "i3-config-file" (
 		builtins.readFile ../dotfiles/i3/config +
 		"exec_always --no-startup-id polybar example &" +
-		"exec ${pkgs.sxhkd}/bin/sxhkd -c ${../dotfiles/sxhkd/sxhkdrc} &"
+		"exec ${pkgs.sxhkd}/bin/sxhkd -c ${../dotfiles/sxhkd/sxhkdrc} &" +
+		"exec ${pkgs.dunst}/bin/dunst -config ${../dotfiles/dunst/config} &"
 	);
 	package = pkgs.i3-gaps;
 	extraPackages = with pkgs; [
@@ -50,9 +51,4 @@ in {
   	enable = true;
 	enableConfigFile = true;
   };
-
-  # Dunst
-  environment.systemPackages = lib.singleton (pkgs.dunst.override {
-  	flags = lib.singleton "-config ${../dotfiles/dunst/config}";
-  });
 }
