@@ -21,7 +21,11 @@ in {
     # Enable i3 as desktop/window manager
     windowManager.i3 = {
 	enable = true;
-	configFile = import ./i3-config-file.nix { inherit pkgs; };
+	configFile = pkgs.writeText "i3-config-file" (
+		builtins.readFile ../dotfiles/i3/config +
+		"exec_always --no-startup-id polybar example &" +
+		"exec ${pkgs.sxhkd}/bin/sxhkd -c ${../dotfiles/sxhkd/sxhkdrc} &"
+	);
 	package = pkgs.i3-gaps;
 	extraPackages = with pkgs; [
 	  dmenu
