@@ -28,7 +28,7 @@ background = #DD202020
 background-alt = #444
 ;foreground = ''${xrdb:color7:#222}
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #777
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
@@ -262,35 +262,36 @@ bar-volume-empty-foreground = ''${colors.foreground-alt}
 [module/battery]
 type = internal/battery
 battery = "BAT0"
-adapter = "AC"
-full-at = 100
+adapter = "ADP1"
+;full-at = 100
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging = <label-charging>
+format-charging-prefix = " "
+format-charging-prefix-foreground = ''${colors.foreground-alt}
+label-charging = %percentage_raw%%
+format-charging-underline = #55aa55
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ''${self.format-charging-underline}
+label-discharging = %percentage_raw%%
+format-discharging-underline = #ff5555
 
-format-full-prefix = " "
-format-full-prefix-foreground = ''${colors.foreground-alt}
+format-full = FULL
 format-full-underline = ''${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 ramp-capacity-foreground = ''${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ''${colors.foreground-alt}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
 animation-discharging-foreground = ''${colors.foreground-alt}
-animation-discharging-framerate = 750
+animation-discharging-framerate = 500
 
 [module/temperature]
 type = internal/temperature
