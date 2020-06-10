@@ -30,6 +30,9 @@
     };
     in import pinned_pkgs { config = config.nixpkgs.config; };
 
+  # Prevent state from accumulating.
+  boot.cleanTmpDir = true; # Clean /tmp on boot.
+
   # Enables wireless support via NetworkManager.
   networking.networkmanager.enable = true;
 
