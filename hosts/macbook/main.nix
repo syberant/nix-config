@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./hardware-configuration.nix
+    ../../configuration/common.nix
+  ];
+
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
 

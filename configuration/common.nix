@@ -2,34 +2,33 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 
-let pkgs = let
-    inherit (import <nixpkgs> {}) fetchFromGitHub;
-    nixpkgs = fetchFromGitHub {
+{
+  imports =
+    [
+      ./packages/overview.nix
+      ./desktop-environment/default.nix
+      ./mpd.nix
+      ./mandarin.nix
+      ../modules/default.nix
+    ];
+
+  # Configure overlays
+  nixpkgs.overlays = [
+    (import ../overlays/added_packages)
+    (import ../overlays/explicit_configuration)
+  ];
+
+  # Set pkgs
+  nixpkgs.pkgs =
+    let pinned_pkgs = (import <nixpkgs> {}).fetchFromGitHub {
         owner = "NixOS";
         repo = "nixpkgs-channels";
         rev = "f45ccd9d20b4e90e43c4562b9941ea1dbd8f07a4";
         sha256 = "10476ij19glhs2yy1pmvm0azd75ifjchpfbljn7h1cnnpii1xprc";
     };
-  in import nixpkgs {};
-in {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./current_host/hardware-configuration.nix
-      ./current_host/main.nix
-      ./configuration/packages/overview.nix
-      ./configuration/desktop-environment/default.nix
-      ./configuration/mpd.nix
-      ./configuration/mandarin.nix
-      ./modules/default.nix
-    ];
-
-  # Configure overlays
-  nixpkgs.overlays = [
-    (import ./overlays/added_packages)
-    (import ./overlays/explicit_configuration)
-  ];
+    in import pinned_pkgs { config = config.nixpkgs.config; };
 
   # Enables wireless support via NetworkManager.
   networking.networkmanager.enable = true;
