@@ -18,13 +18,6 @@
   networking.enableB43Firmware = true;
 
   # Trackpad configuration
-  services.xserver.synaptics = {
-    #enable = true;
-    twoFingerScroll = true;
-    buttonsMap = [ 1 3 2 ];
-    tapButtons = false;
-  };
-
   services.xserver.libinput = {
     enable = true;
     tapping = false;
@@ -32,22 +25,6 @@
     scrollMethod = "twofinger";
     naturalScrolling = true;
   };
-
-  # VirtualBox
-  # users.extraGroups.vboxusers.members = [ "sybrand" ];
-  # virtualisation.virtualbox.host.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    # Backlight
-    xorg.xbacklight
-  ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    # Backlight
-    mba6x_bl
-
-    # Webcam
-    facetimehd
-  ];
 
   # Battery life tweaks
   services.tlp.enable = true;
