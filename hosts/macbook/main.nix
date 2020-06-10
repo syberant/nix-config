@@ -26,6 +26,9 @@
     naturalScrolling = true;
   };
 
+  # Webcam
+  hardware.facetimehd.enable = true;
+
   # Battery life tweaks
   services.tlp.enable = true;
   services.upower.enable = true;
