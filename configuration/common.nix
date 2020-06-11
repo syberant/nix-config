@@ -18,6 +18,7 @@
   nixpkgs.overlays = [
     (import ../overlays/added_packages)
     (import ../overlays/explicit_configuration)
+    (import ../overlays/nur.nix)
   ];
 
   # Set pkgs
