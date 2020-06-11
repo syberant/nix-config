@@ -14,7 +14,7 @@
 		pass
 
 		# Development prerequisites
-		gnumake gcc binutils
+		gnumake gcc
 
 		# Personal development
         zeal tokei myNeovim
