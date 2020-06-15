@@ -133,9 +133,16 @@ for_window [instance="dropdown"] move scratchpad
 for_window [instance="dropdown"] resize set 100 ppt 40 ppt
 	# Scratchpad is moved to the topleft corner
 for_window [instance="dropdown"] move position 0 0
+	# Toggle scratchpad, -x means exact
+bindsym $mod+d exec pgrep -fx "st -n dropdown" || st -n dropdown & ; [instance="dropdown"] scratchpad show
 
-# Toggle scratchpad
-bindsym $mod+d [instance="dropdown"] scratchpad show
+# Define todo-list
+set $todoCmd st -n todo -e nvim /home/sybrand/Notities/todo.md
+exec --no-startup-id $todoCmd
+for_window [instance="todo"] resize set 80 ppt 80 ppt
+for_window [instance="todo"] move position center
+for_window [instance="todo"] move scratchpad
+bindsym $mod+i exec pgrep -fx "$todoCmd" || $todoCmd & sleep 0.1 && i3-msg [instance="todo"] scratchpad show
 
 # Open a cheatsheet
 bindsym $mod+p exec xdg-open ~/Cheatsheets/$(ls -1 ~/Cheatsheets | dmenu)
