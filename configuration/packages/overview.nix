@@ -8,14 +8,7 @@
 
 	environment.systemPackages = with pkgs; [
 		# Some defaults
-		curl wget vim tree
-                git
-                (nur.repos.syberant.pass-git-helper.override {
-                  configFile = writeText "pass-git-helper-config" ''
-                    [github.com*]
-                    target=github.com
-                  '';
-                })
+		curl wget vim git tree
 
 		# Security
 		gnupg
