@@ -3,11 +3,19 @@
 {
 	imports = [
 		./programs.nix
+                ./git.nix
 	];
 
 	environment.systemPackages = with pkgs; [
 		# Some defaults
-		curl wget vim git tree
+		curl wget vim tree
+                git
+                (nur.repos.syberant.pass-git-helper.override {
+                  configFile = writeText "pass-git-helper-config" ''
+                    [github.com*]
+                    target=github.com
+                  '';
+                })
 
 		# Security
 		gnupg
