@@ -24,7 +24,7 @@ in {
 	configFile = pkgs.writeText "i3-config-file" (
 		builtins.readFile ../dotfiles/i3/config +
 		"exec_always --no-startup-id polybar example &" +
-		"exec ${pkgs.sxhkd}/bin/sxhkd -c ${../dotfiles/sxhkd/sxhkdrc} &" +
+		"exec ${pkgs.sxhkd}/bin/sxhkd -c ${import ../generators/sxhkdrc.nix {inherit pkgs;}} &" +
 		"exec ${pkgs.dunst}/bin/dunst -config ${../dotfiles/dunst/config} &"
 	);
 	package = pkgs.i3-gaps;

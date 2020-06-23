@@ -79,7 +79,10 @@
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Disable shutdown on power key
-  services.logind.extraConfig = "HandlePowerKey=ignore";
+  services.logind.extraConfig = ''
+    HandlePowerKey=ignore
+    HandleSuspendKey=ignore
+  '';
 
   # Enable a nice Display Manager for logging in.
   services.xserver.displayManager.sddm.enable = true;
