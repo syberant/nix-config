@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./sync.nix
     ./hardware-configuration.nix
     ../../configuration/common.nix
   ];
