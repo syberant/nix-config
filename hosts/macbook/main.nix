@@ -58,8 +58,8 @@
     "96 = XF86AudioRaiseVolume F12"
   ];
 
-  programs.polybar = {
+  systemInfo = {
   	wlanInterface = "wlp3s0";
-	showBattery = true;
+	hasBattery = true;
   };
 }

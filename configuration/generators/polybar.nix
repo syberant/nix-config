@@ -1,9 +1,6 @@
-{ wlanInterface ? "unspecified", extraConfig ? "", showBattery ? false, ... }:
+{ config, ... }:
 
 builtins.toFile "polybar-config" ''
-
-${extraConfig}
-
 ;==========================================================
 ;
 ;
@@ -64,7 +61,7 @@ font-4 = FontAwesome5Brands:style=Regular:size=11;2
 
 modules-left = i3
 modules-center = pulseaudio mpd
-modules-right = wlan ${if showBattery then "battery" else ""} memory cpu date
+modules-right = wlan ${if config.hasBattery then "battery" else ""} memory cpu date
 
 tray-position = right
 tray-padding = 2
@@ -86,7 +83,7 @@ cursor-scroll = ns-resize
 
 [module/wlan]
 type = internal/network
-interface = ${wlanInterface}
+interface = ${config.wlanInterface}
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>

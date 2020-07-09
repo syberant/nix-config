@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let lib = pkgs.lib;
 in {
@@ -23,7 +23,7 @@ in {
 	enable = true;
 	configFile = pkgs.writeText "i3-config-file" (
 		builtins.readFile ../dotfiles/i3/config +
-		"exec_always --no-startup-id polybar example &" +
+		"exec_always --no-startup-id ${pkgs.polybar}/bin/polybar -c ${import ../generators/polybar.nix { config = config.systemInfo; }} example &" +
 		"exec ${pkgs.sxhkd}/bin/sxhkd -c ${import ../generators/sxhkdrc.nix {inherit pkgs;}} &" +
 		"exec ${pkgs.dunst}/bin/dunst -config ${../dotfiles/dunst/config} &"
 	);
@@ -44,11 +44,5 @@ in {
       # "90:class_g = 'st-256color' && enabled"
       # "70:class_g = 'st-256color' && !enabled"
     ];
-  };
-
-  # Polybar
-  programs.polybar = {
-  	enable = true;
-	enableConfigFile = true;
   };
 }

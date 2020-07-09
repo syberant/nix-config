@@ -43,7 +43,5 @@
     youtube = true;
   };
 
-  programs.polybar = {
-  	wlanInterface = "wlp2s0f0u3";
-  };
+  systemInfo.wlanInterface = "wlp2s0f0u3";
 }
