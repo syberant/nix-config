@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./minecraft.nix
     ./hardware-configuration.nix
     ../../configuration/common.nix
   ];
