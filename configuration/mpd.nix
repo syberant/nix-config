@@ -10,7 +10,9 @@
     # Use personal music directory
     # Requires read acces on music directory itself and execute priviliges on parent directories.
     # chmod 710 /home/sybrand
+    # FIXME: TODO: find better way
     musicDirectory = "/home/sybrand/Media/Music";
+    playlistDirectory = "/home/sybrand/Media/Music/Playlists";
     group = "users";
 
     extraConfig = ''
