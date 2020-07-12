@@ -1,0 +1,47 @@
+From 2abbff89de2ad884cb60e0d64439e1821bbdfb95 Mon Sep 17 00:00:00 2001
+From: Sybrand Aarnoutse <sybrand@neuralcoding.com>
+Date: Sun, 12 Jul 2020 23:16:47 +0200
+Subject: [PATCH] Add viewcumulative function
+
+---
+ dwm.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/dwm.c b/dwm.c
+index 4465af1..045efa5 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -227,6 +227,7 @@ static void updatetitle(Client *c);
+ static void updatewindowtype(Client *c);
+ static void updatewmhints(Client *c);
+ static void view(const Arg *arg);
++static void viewcumulative(const Arg *arg);
+ static Client *wintoclient(Window w);
+ static Monitor *wintomon(Window w);
+ static int xerror(Display *dpy, XErrorEvent *ee);
+@@ -2044,6 +2045,22 @@ view(const Arg *arg)
+ 	arrange(selmon);
+ }
+ 
++void
++viewcumulative(const Arg *arg)
++{
++	// TODO: refuse to move when viewing multiple tags
++	unsigned int next = selmon->tagset[selmon->seltags] << arg->i;
++	if (arg->i < 0) next = selmon->tagset[selmon->seltags] >> -arg->i;
++
++	if (next == 0) next = TAGMASK ^ (TAGMASK>>1);
++	if ((next & TAGMASK) == 0) next = 1;
++
++	selmon->seltags ^= 1;
++	selmon->tagset[selmon->seltags] = next;
++	focus(NULL);
++	arrange(selmon);
++}
++
+ Client *
+ wintoclient(Window w)
+ {
+-- 
+2.25.4
+
