@@ -10,6 +10,8 @@ let dwm = pkgs.dwm.overrideAttrs (old: {
   patches = [
     ../dotfiles/dwm/dwm-viewcumulative-6.2.diff
 
+    pkgs.nur.repos.syberant.dwm-patches.swallow
+
     # Considered patches:
     # namedscratchpads
     # swallow
@@ -21,7 +23,7 @@ in {
     manage = "window";
     name = "dwm";
     start = ''
-      ${dwm}/bin/dwm &
+      ${dwm}/bin/dwm 2> /tmp/dwm_log_err > /tmp/dwm_log &
       waitPID=$!
 
       #${pkgs.polybar}/bin/polybar -c ${import ../generators/polybar.nix { config = config.systemInfo; }} example &
