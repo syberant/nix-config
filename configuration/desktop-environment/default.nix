@@ -3,6 +3,9 @@
 {
   imports = [ ./common.nix ];
 
+  # Set i3 as default session
+  services.xserver.displayManager.defaultSession = "none+i3";
+
   # Enable i3 as desktop/window manager
   services.xserver.windowManager.i3 = {
       enable = true;
