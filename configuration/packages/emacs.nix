@@ -20,9 +20,11 @@ let
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
     magit          # ; Integrate git <C-x g>
-    zerodark-theme # ; Nicolas' theme
+    gruvbox-theme  # ; Gruvbox theme
+    use-package
   ]) ++ (with epkgs.melpaPackages; [
     evil # Vim keybindings
+    evil-org # For org mode
     #undo-tree      # ; <C-x u> to show the undo tree
     #zoom-frm       # ; increase/decrease font size for all buffers %lt;C-x C-+>
   ]) ++ (with epkgs.elpaPackages; [
