@@ -85,9 +85,6 @@
     HandleSuspendKey=ignore
   '';
 
-  # Enable a nice Display Manager for logging in.
-  services.xserver.displayManager.sddm.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sybrand = {
     isNormalUser = true;
