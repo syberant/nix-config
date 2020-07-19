@@ -31,8 +31,15 @@
   hardware.facetimehd.enable = true;
 
   # Battery life tweaks
-  services.tlp.enable = true;
-  services.upower.enable = true;
+  services.tlp = {
+    enable = true;
+    extraConfig = ''
+      ENERGY_PERF_POLICY_ON_BAT=power
+      ENERGY_PERF_POLICY_ON_AC=balance-performance
+    '';
+  };
+  services.thermald.enable = true;
+  #services.upower.enable = true;
   powerManagement.enable = true;
 
   # Map keys on startup
