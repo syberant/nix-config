@@ -4,6 +4,7 @@
 	imports = [
 		./programs.nix
                 ./git.nix
+                ./home-manager.nix
 	];
 
 	environment.systemPackages = with pkgs; [
@@ -48,7 +49,7 @@
 		python3 rustup swift octave
 
 		# Graphical defaults
-		firefox zathura signal-desktop sxiv chromium thunderbird
+		zathura signal-desktop sxiv chromium thunderbird
 
 		# Productivity
 		texlive.combined.scheme-full
