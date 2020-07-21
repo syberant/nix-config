@@ -1,21 +1,6 @@
 { pkgs, config, ... }:
 
-with pkgs.lib;
-
-let dwm = pkgs.dwm.overrideAttrs (old: rec {
-  #src = /home/sybrand/Documents/Programmeren/C/dwm;
-
-  nativeBuildInputs = [ pkgs.git ];
-
-  patchPhase = singleton ''
-    eval "$prePatch"
-  '' ++ builtins.map (file: ''
-    echo "Patching using patch ${file}"
-    git apply -C0 --exclude="config.h" --exclude="config.def.h" ${file}
-  '') patches ++ singleton ''
-    eval "$postPatch"
-  '';
-
+let dwm = pkgs.nur.repos.syberant.dwm.override {
   patches = [
     ../dotfiles/dwm/dwm-viewcumulative-6.2.diff
 
@@ -28,16 +13,8 @@ let dwm = pkgs.dwm.overrideAttrs (old: rec {
     # keymodes
   ];
 
-  postPatch = ''
-    echo "Moving ${../dotfiles/dwm/config.h} to config.h"
-    cp ${../dotfiles/dwm/config.h} config.h
-
-    echo "Rule is declared as follows, make sure your config.h matches!"
-    printf "\n"
-    sed -n '/const Layout \*lt\[2\];/,+100p ; /} Rule;/q' dwm.c | sed 1,3d
-    printf "\n"
-  '';
-});
+  configh = ../dotfiles/dwm/config.h;
+};
 in {
   services.xserver.displayManager.session = [{
     manage = "window";
