@@ -1,9 +1,9 @@
 self: super: {
   nur = import (builtins.fetchTarball
-    (let rev = "12e5d21e28281ffd11b4ce9346c45811c3393fcf";
+    (let rev = "518bb7cb3a967bd14c8970c5ba9650f7d410f9d9";
     in {
       url = "https://github.com/nix-community/NUR/archive/${rev}.tar.gz";
-      sha256 = "0j2w2g7ly13a0ykikaz135l9rmgd4k6lw5m38qpjbd9440m70shp";
+      sha256 = "0ds5s2wzzj25gyibjigm00nc0xymgn03mwxn1gcsj6j3jsfyflpp";
     })
     ) {
       pkgs = super;

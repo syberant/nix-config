@@ -1,16 +1,13 @@
 { pkgs, config, ... }:
 
 let dwm = pkgs.nur.repos.syberant.dwm.override {
-  patches = [
+  patches = with pkgs.nur.repos.syberant.dwm-patches; [
     ../dotfiles/dwm/dwm-viewcumulative-6.2.diff
 
-    pkgs.nur.repos.syberant.dwm-patches.swallow
-    pkgs.nur.repos.syberant.dwm-patches.namedscratchpads
-
-    # Considered patches:
-    # namedscratchpads
-    # swallow
-    # keymodes
+    swallow
+    namedscratchpads
+    #floatrules
+    actualfullscreen
   ];
 
   configh = ../dotfiles/dwm/config.h;
