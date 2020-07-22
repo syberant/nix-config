@@ -34,6 +34,7 @@ static const Rule rules[] = {
 
 	// scratchpads
 	{ NULL,       NULL,       "Scratchpad",     0,      1,           1,		0,		-1,		's' },
+	{ NULL,       NULL,       "Todo_Neovim",    0,      1,           1,		0,		-1,		'n' },
 };
 
 /* layout(s) */
@@ -66,6 +67,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"s", "st", "-t", "Scratchpad", NULL};
+static const char *vimtodocmd[] = {"n", "st", "-t", "Todo_Neovim", "-e", "nvim", "/home/sybrand/Notities/todo.md", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -101,6 +103,7 @@ static Key keys[] = {
 
 	// namedscratchpads
 	{ MODKEY,			XK_d,      togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,			XK_i,      togglescratch,  {.v = vimtodocmd } },
 
 	// unused
 	//{ MODKEY,                       XK_b,      togglebar,      {0} },
