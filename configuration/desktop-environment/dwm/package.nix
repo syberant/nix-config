@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs ? import <nixpkgs> {overlays = [(import /etc/nixos/overlays/nur.nix)];} }:
 
 pkgs.nur.repos.syberant.dwm.override {
   patches = with pkgs.nur.repos.syberant.dwm-patches; [
