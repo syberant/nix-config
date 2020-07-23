@@ -9,7 +9,7 @@
     [
       ./packages/overview.nix
       ./desktop-environment/default.nix
-      ./desktop-environment/dwm.nix
+      ./desktop-environment/dwm
       ./mpd.nix
       ./mandarin.nix
       ../modules/default.nix
