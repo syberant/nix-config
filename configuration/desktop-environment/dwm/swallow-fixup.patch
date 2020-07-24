@@ -1,0 +1,12 @@
+--- dwm.c	2020-07-24 10:17:00.730810877 +0200
++++ dwm.c	2020-07-24 10:28:42.783467812 +0200
+@@ -94,7 +94,8 @@ struct Client {
+ 	int basew, baseh, incw, inch, maxw, maxh, minw, minh;
+ 	int bw, oldbw;
+ 	unsigned int tags;
+-	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isterminal, noswallow;
++	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
++	int isterminal, noswallow;
+ 	pid_t pid;
+ 	Client *next;
+ 	Client *snext;

@@ -27,14 +27,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   isterminal	noswallow	monitor 	scratchkey */
-	{ "Gimp",     NULL,       NULL,       0,            1,           0,		0,		-1,		0 },
-	{ "st-256color", NULL,    NULL,       0,            0,           1,		0,		-1,		0 },
-	{ NULL,       NULL,       "Event Tester",   0,      0,           0,		1,		-1,		0 }, // xev
+	/* class      instance    title       tags mask     isfloating   isterminal	noswallow	monitor 	scratchkey 	float{x,y,w,h,borderpx}*/
+	{ "Gimp",     NULL,       NULL,       0,            1,           0,		0,		-1 },
+	{ "st-256color", NULL,    NULL,       0,            0,           1,		0,		-1 },
+	{ NULL,       NULL,       "Event Tester",   0,      0,           0,		1,		-1 }, // xev
 
 	// scratchpads
-	{ NULL,       NULL,       "Scratchpad",     0,      1,           1,		0,		-1,		's' },
-	{ NULL,       NULL,       "Todo_Neovim",    0,      1,           1,		0,		-1,		'n' },
+	{ NULL,       NULL,       "Scratchpad",     0,      1,           1,		0,		-1,		's',		200,0,1040,700,4 },
+	{ NULL,       NULL,       "Todo_Neovim",    0,      1,           1,		0,		-1,		'n',		200,0,1040,700,4 },
 };
 
 /* layout(s) */
