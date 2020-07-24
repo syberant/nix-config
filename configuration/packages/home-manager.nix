@@ -1,11 +1,6 @@
 { pkgs, ... }:
 
-let
-  rev = "4bd0ca2cd793b3f057d114bd6a3183419f52ca49";
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/rycee/home-manager/archive/${rev}.tar.gz";
-    sha256 = "15sdvnfv4fzjqn2rj4ifavg23h7sinwiqay44lgn9mk8namp91id";
-  };
+let home-manager = (import /etc/nixos/nix/sources.nix).home-manager;
 in {
   imports = [ (import "${home-manager}/nixos") ];
 

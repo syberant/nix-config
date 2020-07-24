@@ -23,14 +23,7 @@
   ];
 
   # Set pkgs
-  nixpkgs.pkgs =
-    let pinned_pkgs = (import <nixpkgs> {}).fetchFromGitHub {
-        owner = "NixOS";
-        repo = "nixpkgs-channels";
-        rev = "f45ccd9d20b4e90e43c4562b9941ea1dbd8f07a4";
-        sha256 = "10476ij19glhs2yy1pmvm0azd75ifjchpfbljn7h1cnnpii1xprc";
-    };
-    in import pinned_pkgs { config = config.nixpkgs.config; };
+  nixpkgs.pkgs = import (import ../nix/sources.nix).nixpkgs-channels { config = config.nixpkgs.config; };
 
   # Prevent state from accumulating.
   boot.cleanTmpDir = true; # Clean /tmp on boot.
