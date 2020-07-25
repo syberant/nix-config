@@ -40,9 +40,7 @@ in {
       ENERGY_PERF_POLICY_ON_AC=balance-performance
     '';
   };
-  services.thermald.enable = true;
-  #services.upower.enable = true;
-  powerManagement.enable = true;
+  powerManagement.powertop.enable = true;
 
   # Map keys on startup
   gui.keyboard.key_mappings = [
