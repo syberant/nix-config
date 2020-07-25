@@ -7,6 +7,7 @@ pkgs.nur.repos.syberant.dwm.override {
     { file = swallow; fixupPatch = ./swallow-fixup.patch; }
     namedscratchpads
     actualfullscreen
+    cyclelayouts
     { file = floatrules; type = "git"; }
   ];
 
