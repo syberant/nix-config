@@ -24,7 +24,8 @@ in {
   ];
 
   # Set pkgs
-  nixpkgs.pkgs = import nixpkgs { inherit (config.nixpkgs) config; };
+  # NOTE: this always lags one boot (or switch) behind...
+  # TODO: maybe make a warning or something if this discrepancy happens.
   nix.nixPath = [
     "nixpkgs=${nixpkgs}"
     "nixos-config=/etc/nixos/configuration.nix"
