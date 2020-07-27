@@ -4,7 +4,8 @@
 
 { pkgs, config, lib, ... }:
 
-{
+let nixpkgs = (import ../nix/sources.nix).nixpkgs-channels;
+in {
   imports =
     [
       ./packages/overview.nix
@@ -23,7 +24,12 @@
   ];
 
   # Set pkgs
-  nixpkgs.pkgs = import (import ../nix/sources.nix).nixpkgs-channels { config = config.nixpkgs.config; };
+  # NOTE: this always lags one boot (or switch) behind...
+  # TODO: maybe make a warning or something if this discrepancy happens.
+  nix.nixPath = [
+    "nixpkgs=${nixpkgs}"
+    "nixos-config=/etc/nixos/configuration.nix"
+  ];
 
   # Prevent state from accumulating.
   boot.cleanTmpDir = true; # Clean /tmp on boot.

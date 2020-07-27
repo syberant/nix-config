@@ -46,7 +46,8 @@
         xorg.xev
 
 		# Programming languages
-		python3 rustup swift octave
+		python3 rustup octave
+                #swift # Doesn't work on latest unstable
 
 		# Graphical defaults
 		zathura signal-desktop sxiv chromium thunderbird

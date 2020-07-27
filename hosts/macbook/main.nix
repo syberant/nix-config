@@ -33,9 +33,15 @@ in {
   hardware.facetimehd.enable = true;
 
   # Battery life tweaks
+  # - view usage with powerstat
   services.tlp = {
     enable = true;
     extraConfig = ''
+      # force battery mode even on AC
+      TLP_DEFAULT_MODE=BAT
+      TLP_PERSISTANT_DEFAULT=1
+
+      # manually set performance policy
       ENERGY_PERF_POLICY_ON_BAT=power
       ENERGY_PERF_POLICY_ON_AC=balance-performance
     '';
