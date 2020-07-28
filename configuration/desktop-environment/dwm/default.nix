@@ -2,11 +2,15 @@
 
 let confdir = ../..;
 in {
+  environment.systemPackages = [ (import ./package.nix {inherit pkgs;}) ];
+
   services.xserver.displayManager.session = [{
     manage = "window";
     name = "dwm";
     start = ''
-      ${import ./package.nix {inherit pkgs;}}/bin/dwm 2> /tmp/dwm_log_err > /tmp/dwm_log &
+      while true; do
+        dwm 2> /tmp/dwm_log_stderr > /tmp/dwm_log_stdout
+      done &
       waitPID=$!
 
       #${pkgs.polybar}/bin/polybar -c ${import "${confdir}/generators/polybar.nix" { config = config.systemInfo; }} example &
