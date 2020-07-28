@@ -8,6 +8,7 @@ pkgs.nur.repos.syberant.dwm.override {
     namedscratchpads
     actualfullscreen
     cyclelayouts
+    anybar
     { file = floatrules; type = "git"; }
   ];
 
