@@ -72,7 +72,7 @@ in {
   ];
 
   systemInfo = {
-  	wlanInterface = "wlp3s0";
-	hasBattery = true;
+    wlanInterface = "wlp3s0";
+    hasBattery = true;
   };
 }

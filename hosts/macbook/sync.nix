@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
   systemd.user.timers.unison_sync = {
@@ -18,13 +18,9 @@
     after = [ "network.target" ];
     environment.HOME = "/home/sybrand";
 
-    unitConfig = {
-      ConditionACPower = true;
-    };
+    unitConfig = { ConditionACPower = true; };
 
-    serviceConfig = {
-      Type = "oneshot";
-    };
+    serviceConfig = { Type = "oneshot"; };
 
     script = ''
       ${pkgs.unison}/bin/unison -sshcmd="${pkgs.openssh}/bin/ssh" -sshargs="-i /home/sybrand/.ssh/id_rsa_sync" -auto -batch -ui text nixos-desktop

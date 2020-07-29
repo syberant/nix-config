@@ -2,7 +2,8 @@
 
 # From https://nixos.wiki/wiki/MPD
 {
-  hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
+  hardware.pulseaudio.extraConfig =
+    "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
 
   services.mpd = {
     enable = true;
@@ -16,18 +17,21 @@
     group = "users";
 
     extraConfig = ''
-	audio_output {
-		type "pulse"
-		name "Pulseaudio"
-		server "127.0.0.1"
-	}
+      audio_output {
+      	type "pulse"
+      	name "Pulseaudio"
+      	server "127.0.0.1"
+      }
     '';
   };
 
   environment.systemPackages = [
-	pkgs.mpc_cli
-  	(pkgs.ncmpcpp.override {
-		flags = [ "--config ${./dotfiles/ncmpcpp/ncmpcpp.conf}" "--bindings ${./dotfiles/ncmpcpp/bindings.conf}" ];
-	})
+    pkgs.mpc_cli
+    (pkgs.ncmpcpp.override {
+      flags = [
+        "--config ${./dotfiles/ncmpcpp/ncmpcpp.conf}"
+        "--bindings ${./dotfiles/ncmpcpp/bindings.conf}"
+      ];
+    })
   ];
 }

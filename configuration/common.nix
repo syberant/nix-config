@@ -6,15 +6,14 @@
 
 let nixpkgs = (import ../nix/sources.nix).nixpkgs-channels;
 in {
-  imports =
-    [
-      ./packages/overview.nix
-      ./desktop-environment/default.nix
-      ./desktop-environment/dwm
-      ./mpd.nix
-      ./mandarin.nix
-      ../modules/default.nix
-    ];
+  imports = [
+    ./packages/overview.nix
+    ./desktop-environment/default.nix
+    ./desktop-environment/dwm
+    ./mpd.nix
+    ./mandarin.nix
+    ../modules/default.nix
+  ];
 
   # Configure overlays
   nixpkgs.overlays = [
@@ -26,10 +25,8 @@ in {
   # Set pkgs
   # NOTE: this always lags one boot (or switch) behind...
   # TODO: maybe make a warning or something if this discrepancy happens.
-  nix.nixPath = [
-    "nixpkgs=${nixpkgs}"
-    "nixos-config=/etc/nixos/configuration.nix"
-  ];
+  nix.nixPath =
+    [ "nixpkgs=${nixpkgs}" "nixos-config=/etc/nixos/configuration.nix" ];
 
   # Prevent state from accumulating.
   boot.cleanTmpDir = true; # Clean /tmp on boot.
@@ -63,15 +60,9 @@ in {
 
   # Fonts
   fonts = {
-    fonts = with pkgs; [
-      source-code-pro
-      font-awesome_5
-      font-awesome_4
-    ];
+    fonts = with pkgs; [ source-code-pro font-awesome_5 font-awesome_4 ];
 
-    fontconfig = {
-      defaultFonts.monospace = [ "Source Code Pro" ];
-    };
+    fontconfig = { defaultFonts.monospace = [ "Source Code Pro" ]; };
   };
 
   # hardware.opengl.driSupport32Bit = true;
@@ -94,7 +85,8 @@ in {
       "video"
     ];
     # Temporary password, should be changed later on
-    initialHashedPassword = "$6$2u98e8ah8KrK2m6Q$SDyp6asDzhuIXAZgiNXYjM9lpFsuB5jRfss.6HxpErbMW7AFU76ufd.xULHHkiBqqv0../zsrm.R4DauUk/u6.";
+    initialHashedPassword =
+      "$6$2u98e8ah8KrK2m6Q$SDyp6asDzhuIXAZgiNXYjM9lpFsuB5jRfss.6HxpErbMW7AFU76ufd.xULHHkiBqqv0../zsrm.R4DauUk/u6.";
   };
 
   # This value determines the NixOS release with which your system is to be
