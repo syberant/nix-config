@@ -19,7 +19,7 @@
 		gnumake gcc
 
 		# Personal development
-        zeal tokei myNeovim
+        zeal tokei myNeovim niv
 
 		# Personal choices
 		nnn lf st unison yadm
@@ -48,6 +48,9 @@
 		# Programming languages
 		python3 rustup octave
                 #swift # Doesn't work on latest unstable
+
+                # Formatters
+                nixfmt
 
 		# Graphical defaults
 		zathura signal-desktop sxiv chromium thunderbird
