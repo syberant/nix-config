@@ -35,6 +35,12 @@ set number
 set relativenumber
 set numberwidth=3
 
+" tab setting
+set tabstop=4
+set softtabstop=4
+set expandtab
+set shiftwidth=4
+
 " wrapping settings
 set wrap lbr
 noremap <buffer> <silent> k gk
