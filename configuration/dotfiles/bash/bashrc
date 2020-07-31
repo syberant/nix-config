@@ -22,3 +22,8 @@ n() {
                 rm -f $NNN_TMPFILE > /dev/null
         fi
 }
+
+# Set history preferences
+export HISTSIZE=10000
+export HISTFILESIZE=1000000
+export HISTCONTROL=ignoredups # ignore duplicates happening right after one another
