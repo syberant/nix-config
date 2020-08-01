@@ -1,75 +1,95 @@
 { config, pkgs, ... }:
 
 {
-	imports = [
-		./programs.nix
-                ./git.nix
-                ./home-manager.nix
-	];
+  imports = [ ./programs.nix ./git.nix ./home-manager.nix ];
 
-	environment.systemPackages = with pkgs; [
-		# Some defaults
-		curl wget vim git tree
+  environment.systemPackages = with pkgs;
+    [
+      # Some defaults
+      curl
+      wget
+      vim
+      git
+      tree
 
-		# Security
-		gnupg
-		pass
+      # Security
+      gnupg
+      pass
 
-		# Development prerequisites
-		gnumake gcc
+      # Development prerequisites
+      gnumake
+      gcc
 
-		# Personal development
-        zeal tokei myNeovim niv
+      # Personal development
+      zeal
+      tokei
+      myNeovim
+      niv
 
-		# Personal choices
-		nnn lf st unison yadm
+      # Personal choices
+      nnn
+      lf
+      st
+      unison
+      yadm
 
-		# Replacements for defaults
-		exa bat ripgrep
+      # Replacements for defaults
+      exa
+      bat
+      ripgrep
 
-		# Fluff
-		neofetch cmatrix xdotool htop
+      # Fluff
+      neofetch
+      cmatrix
+      xdotool
+      htop
 
-        # Relaxing
-        newsboat
+      # Relaxing
+      newsboat
 
-		# Utilities for UX
-		xorg.xrandr redshift
+      # Utilities for UX
+      xorg.xrandr
+      redshift
 
-		# Utilities for CLI UX
-		fzf tig entr
+      # Utilities for CLI UX
+      fzf
+      tig
+      entr
 
-		# Hardware debugging utilities
-		pciutils usbutils
+      # Hardware debugging utilities
+      pciutils
+      usbutils
 
-        # Software debugging
-        xorg.xev
+      # Software debugging
+      xorg.xev
 
-		# Programming languages
-		python3 rustup octave
-                #swift # Doesn't work on latest unstable
+      # Programming languages
+      python3
+      rustup
+      octave
+      #swift # Doesn't work on latest unstable
 
-                # Formatters
-                nixfmt
+      # Formatters
+      nixfmt
 
-		# Graphical defaults
-		zathura signal-desktop sxiv chromium thunderbird
+      # Graphical defaults
+      zathura
+      signal-desktop
+      sxiv
+      chromium
+      thunderbird
 
-		# Productivity
-		texlive.combined.scheme-full
-        anki
-        unzip
-        libreoffice
-	] ++ [
-        # Custom
-        (import ./emacs.nix {inherit pkgs; })
+      # Productivity
+      texlive.combined.scheme-full
+      anki
+      unzip
+      libreoffice
+    ] ++ [
+      # Custom
+      (import ./emacs.nix { inherit pkgs; })
 
-	(pkgs.tmux.override {
-		flags = [ "-f ${../dotfiles/tmux/tmux.conf}" ];
-	})
+      (pkgs.tmux.override { flags = [ "-f ${../dotfiles/tmux/tmux.conf}" ]; })
 
-	(pkgs.mpv.override {
-		flags = [ "--config-dir=${../dotfiles/mpv}" ];
-	})
+      (pkgs.mpv.override { flags = [ "--config-dir=${../dotfiles/mpv}" ]; })
     ];
 }
