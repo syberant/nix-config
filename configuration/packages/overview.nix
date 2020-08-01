@@ -38,7 +38,7 @@
       bat
       ripgrep
       fd
-      dust
+      du-dust
 
       # Fluff
       neofetch
