@@ -33,16 +33,19 @@
       unison
       yadm
 
-      # Replacements for defaults
-      exa
+      # Rust coreutils
+      lsd
       bat
       ripgrep
+      fd
+      dust
 
       # Fluff
       neofetch
       cmatrix
       xdotool
       htop
+      ytop
 
       # Relaxing
       newsboat
@@ -55,6 +58,7 @@
       fzf
       tig
       entr
+      starship
 
       # Hardware debugging utilities
       pciutils
