@@ -15,7 +15,7 @@ in {
         vimium
         umatrix
         ublock-origin
-        # browserpass
+        browserpass
 
         # Zhongwen Chinese Popup Dictionary
     ];
