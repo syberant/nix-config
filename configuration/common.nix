@@ -4,7 +4,7 @@
 
 { pkgs, config, lib, ... }:
 
-let nixpkgs = (import ../nix/sources.nix).nixpkgs-channels;
+let nixpkgs = (import ../nix/sources.nix).nixpkgs;
 in {
   imports = [
     ./packages/overview.nix
