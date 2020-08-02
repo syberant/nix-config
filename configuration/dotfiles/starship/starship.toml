@@ -1,0 +1,21 @@
+add_newline = false
+
+[character]
+symbol = '$'
+
+[line_break]
+disabled = true
+
+[directory]
+fish_style_pwd_dir_length = 1
+
+[cmd_duration]
+min_time = 2_000
+
+[git_status]
+# Prevent long loading times
+disabled = true
+# Count changes
+untracked_count.enabled = true
+modfied_count.enabled = true
+show_sync_count.enabled = true

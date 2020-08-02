@@ -5,8 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Set prompt
-PS1='[\u@\h \W]\$ '
+# Use starship for prompt
+eval "$(starship init bash)"
 
 # Use neovim as editor
 export VISUAL=nvim
