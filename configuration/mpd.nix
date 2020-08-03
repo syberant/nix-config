@@ -27,11 +27,6 @@
 
   environment.systemPackages = [
     pkgs.mpc_cli
-    (pkgs.ncmpcpp.override {
-      flags = [
-        "--config ${./dotfiles/ncmpcpp/ncmpcpp.conf}"
-        "--bindings ${./dotfiles/ncmpcpp/bindings.conf}"
-      ];
-    })
+    pkgs.ncmpcpp
   ];
 }

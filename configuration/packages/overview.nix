@@ -11,6 +11,7 @@
       vim
       git
       tree
+      tmux
 
       # Security
       gnupg
@@ -49,6 +50,7 @@
 
       # Relaxing
       newsboat
+      mpv
 
       # Utilities for UX
       xorg.xrandr
@@ -91,9 +93,5 @@
     ] ++ [
       # Custom
       (import ./emacs.nix { inherit pkgs; })
-
-      (pkgs.tmux.override { flags = [ "-f ${../dotfiles/tmux/tmux.conf}" ]; })
-
-      (pkgs.mpv.override { flags = [ "--config-dir=${../dotfiles/mpv}" ]; })
     ];
 }
