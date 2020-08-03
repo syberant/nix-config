@@ -27,10 +27,7 @@
     '';
 
     shellAliases = {
-      "ls" = "ls --color=auto";
-      "ls -l" = "lsd --icon=never -l";
-      "ls -al" = "lsd --icon=never -al";
-      "ls -la" = "lsd --icon=never -al";
+      "ls" = "lsd --icon=never";
       vi = "nvim";
     };
   };
