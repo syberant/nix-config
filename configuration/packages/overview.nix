@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./programs.nix ./git.nix ./home-manager.nix ];
+  imports = [ ./programs.nix ./git.nix ];
 
   environment.systemPackages = with pkgs;
     [

@@ -10,6 +10,7 @@ in {
     ./packages/overview.nix
     ./desktop-environment/default.nix
     ./desktop-environment/dwm
+    ./home-manager
     ./mpd.nix
     ./mandarin.nix
     ../modules/default.nix
