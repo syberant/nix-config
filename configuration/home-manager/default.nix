@@ -10,6 +10,7 @@ in {
     ./shell.nix
     ./firefox.nix
     ./fzf.nix
+    ./git.nix
   ];
 
   # TODO: use home-manager from nur XOR find out why that isn't possible...
