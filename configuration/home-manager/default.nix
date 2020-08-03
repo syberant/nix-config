@@ -9,6 +9,7 @@ in {
     ./bash.nix
     ./shell.nix
     ./firefox.nix
+    ./fzf.nix
   ];
 
   # TODO: use home-manager from nur XOR find out why that isn't possible...
