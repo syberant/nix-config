@@ -10,10 +10,6 @@
       # Use starship for prompt
       eval "$(starship init bash)"
 
-      # Set program preferences
-      export VISUAL=nvim
-      export EDITOR=nvim
-
       # Quit to current directory in nnn
       export NNN_TMPFILE="/tmp/nnn"
       n() {

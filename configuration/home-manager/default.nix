@@ -13,4 +13,14 @@ in {
 
   # TODO: use home-manager from nur XOR find out why that isn't possible...
   #imports = [ pkgs.nur.repos.rycee.modules.home-manager ];
+
+  home-manager.users.sybrand.xdg.enable = true;
+
+  # Use .profile used by home-manager
+  environment.loginShellInit = ''
+    if [ -e $HOME/.profile ]
+    then
+        . $HOME/.profile
+    fi
+  '';
 }
