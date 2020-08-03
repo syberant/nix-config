@@ -7,6 +7,15 @@
     userName = "Sybrand Aarnoutse";
     userEmail = "sybrand@neuralcoding.com";
 
+    delta = {
+      enable = true;
+      options = {
+        number = true;
+        syntax-theme = "Monokai Extended";
+        file-style = "bright-yellow";
+      };
+    };
+
     extraConfig = {
       credential.helper = let
         dotfile = pkgs.writeText "pass-git-helper-config" ''
