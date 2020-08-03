@@ -17,6 +17,8 @@
     };
 
     extraConfig = {
+      pull.ff = "only";
+
       credential.helper = let
         dotfile = pkgs.writeText "pass-git-helper-config" ''
           [github.com*]
