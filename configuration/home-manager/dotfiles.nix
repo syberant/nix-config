@@ -1,7 +1,8 @@
-{ ... }:
+{ config, ... }:
 
 {
-  home-manager.users.sybrand.xdg.configFile = {
-    "starship.toml".source = ../dotfiles/starship/starship.toml;
+  home-manager.users.sybrand.home.file."\.config" = {
+    recursive = true;
+    source = ../linkFiles/.config;
   };
 }
