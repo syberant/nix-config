@@ -16,6 +16,9 @@ in {
   # TODO: use home-manager from nur XOR find out why that isn't possible...
   #imports = [ pkgs.nur.repos.rycee.modules.home-manager ];
 
+  # Remove dependency on NIX_PATH
+  home-manager.useGlobalPkgs = true;
+
   home-manager.users.sybrand.xdg.enable = true;
 
   # Use .profile used by home-manager
