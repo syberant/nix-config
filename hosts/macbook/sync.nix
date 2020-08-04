@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   systemd.user.timers.unison_sync = {
@@ -23,7 +23,7 @@
     serviceConfig = { Type = "oneshot"; };
 
     script = ''
-      ${pkgs.unison}/bin/unison -sshcmd="${pkgs.openssh}/bin/ssh" -sshargs="-i /home/sybrand/.ssh/id_rsa_sync" -auto -batch -ui text nixos-desktop
+      ${pkgs.unison}/bin/unison -sshcmd="${pkgs.openssh}/bin/ssh" -sshargs="-i ${config.sops.secrets.desktop-ssh-key.path}" -auto -batch -ui text nixos-desktop
     '';
   };
 }
