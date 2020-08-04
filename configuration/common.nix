@@ -13,6 +13,7 @@ in {
     ./home-manager
     ./mpd.nix
     ./mandarin.nix
+    ./secrets
     ../modules/default.nix
   ];
 
