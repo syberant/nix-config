@@ -4,6 +4,7 @@ let nixos-hardware = (import ../../nix/sources.nix).nixos-hardware;
 in {
   imports = [
     ./sync.nix
+    ./ssh.nix
     (nixos-hardware + "/apple/macbook-air/6")
     ./hardware-configuration.nix
     ../../configuration/common.nix
