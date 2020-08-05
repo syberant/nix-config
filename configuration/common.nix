@@ -14,6 +14,7 @@ in {
     ./mpd.nix
     ./mandarin.nix
     ./secrets
+    ./emacs
     ../modules/default.nix
   ];
 

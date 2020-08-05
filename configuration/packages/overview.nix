@@ -90,8 +90,5 @@
       anki
       unzip
       libreoffice
-    ] ++ [
-      # Custom
-      (import ./emacs.nix { inherit pkgs; })
     ];
 }
