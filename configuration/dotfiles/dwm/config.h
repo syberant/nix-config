@@ -37,6 +37,7 @@ static const Rule rules[] = {
 	// scratchpads
 	{ NULL,       NULL,       "Scratchpad",     0,      1,           1,		0,		-1,		's',		200,0,1040,700,4 },
 	{ NULL,       NULL,       "Todo_Neovim",    0,      1,           1,		0,		-1,		'n',		200,0,1040,700,4 },
+	{ NULL,       NULL,       "Todo_Org",       0,      1,           1,		0,		-1,		'o',		200,0,1040,700,4 },
 };
 
 /* layout(s) */
@@ -71,6 +72,7 @@ static const char *termcmd[]  = { "st", NULL };
 /*First arg only serves to match against key in rules*/
 static const char *scratchpadcmd[] = {"s", "st", "-t", "Scratchpad", NULL};
 static const char *vimtodocmd[] = {"n", "st", "-t", "Todo_Neovim", "-e", "nvim", "/home/sybrand/Notities/todo.md", NULL};
+static const char *orgagendacmd[] = {"o", "emacsclient", "-c", "-F", "'(title . \"Todo_Org\")", "-e", "(load \"~/.config/emacs/agenda.el\")", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -104,6 +106,7 @@ static Key keys[] = {
 
 	// namedscratchpads
 	{ MODKEY,			XK_d,      togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,			XK_a,      togglescratch,  {.v = orgagendacmd } },
 	{ MODKEY,			XK_i,      togglescratch,  {.v = vimtodocmd } },
 
 	// cyclelayouts
