@@ -25,6 +25,8 @@
     tokei
     myNeovim
     niv
+    # For codecup
+    nur.repos.syberant.caia
 
     # Personal choices
     nnn
