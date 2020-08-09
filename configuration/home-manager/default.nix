@@ -7,10 +7,11 @@ in {
     ./dotfiles.nix
 
     ./bash.nix
-    ./shell.nix
     ./firefox.nix
     ./fzf.nix
     ./git.nix
+    ./shell.nix
+    ./ssh.nix
   ];
 
   # TODO: use home-manager from nur XOR find out why that isn't possible...
