@@ -1,0 +1,10 @@
+set shell sh
+# set internal field separator (IFS) to "\n" for shell commands
+set ifs "\n"
+
+# Use the xdg standard for opening files
+cmd open &xdg-open $f
+
+# Get syntax highlighting with bat
+set color256 true
+set previewer ~/.config/lf/preview

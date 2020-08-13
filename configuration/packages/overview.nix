@@ -62,6 +62,7 @@
     tig
     entr
     starship
+    poppler_utils
 
     # Hardware debugging utilities
     pciutils

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case "$1" in
+    *.tar*) tar tf "$1";;
+    *.zip) unzip -l "$1";;
+    *.pdf) pdftotext -layout "$1" -;;
+    *) bat -p --color=always --line-range :100 $1;;
+esac
