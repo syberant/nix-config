@@ -12,6 +12,7 @@ in {
     ./git.nix
     ./shell.nix
     ./ssh.nix
+    ./xdg.nix
   ];
 
   # TODO: use home-manager from nur XOR find out why that isn't possible...
@@ -19,8 +20,6 @@ in {
 
   # Remove dependency on NIX_PATH
   home-manager.useGlobalPkgs = true;
-
-  home-manager.users.sybrand.xdg.enable = true;
 
   # Use .profile used by home-manager
   environment.loginShellInit = ''
