@@ -73,12 +73,13 @@
 
     # Programming languages
     python3
-    rustup
+    # rustc cargo
     octave
     #swift # Doesn't work on latest unstable
 
     # Formatters
     nixfmt
+    rustfmt
 
     # Graphical defaults
     zathura
