@@ -25,6 +25,13 @@
           target=github.com
         '';
       in "${pkgs.gitAndTools.pass-git-helper}/bin/pass-git-helper -m ${dotfile}";
+
+      commit.template = builtins.toFile "git-commit-template" ''
+
+
+        # Title goes up here, remember to keep it short! Further comments go in the body below.
+
+      '';
     };
   };
 }
