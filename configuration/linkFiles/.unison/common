@@ -1,0 +1,20 @@
+path = Documents/CGU_6E
+path = Documents/CGU_6E
+path = Documents/Persoonlijk
+path = Literatuur
+path = Media/Music
+path = Notities
+path = Agenda
+
+path = Documents/Programmeren
+ignore = Name target
+ignore = Name a.out
+ignore = Name ipch
+ignore = Name .DS_Store
+
+path = .gnupg
+ignore = Path .gnupg/random_seed
+path = .password-store
+
+auto = true
+

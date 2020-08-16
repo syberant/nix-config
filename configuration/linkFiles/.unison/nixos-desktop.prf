@@ -1,0 +1,4 @@
+root = /home/sybrand
+root = ssh://sybrand@nixos-desktop.local
+
+include common
