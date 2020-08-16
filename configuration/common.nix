@@ -72,6 +72,9 @@ in {
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
+  # Set dwm as default DE
+  services.xserver.displayManager.defaultSession = "none+dwm";
+
   # Disable shutdown on power key
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
