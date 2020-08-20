@@ -11,6 +11,7 @@ in {
     ./desktop-environment/default.nix
     ./desktop-environment/dwm
     ./home-manager
+    ./shell-environments.nix
     ./mpd.nix
     ./mandarin.nix
     ./secrets
