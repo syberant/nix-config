@@ -16,6 +16,15 @@
       };
     };
 
+    aliases = {
+      ci = "commit";
+      st = "status";
+      lg =
+        "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit";
+      graph =
+        "log --graph --all --pretty=format:'%Cred%h%Creset %ad | [%C(bold blue)%an%Creset] %Cgreen%d%Creset %s' --date=iso";
+    };
+
     extraConfig = {
       pull.ff = "only";
 
