@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home-manager.users.sybrand.programs.git = {
+  programs.git = {
     enable = true;
 
     userName = "Sybrand Aarnoutse";

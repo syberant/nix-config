@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  home-manager.users.sybrand.programs.bash = {
+  programs.bash = {
     enable = true;
     historyControl = [ "erasedups" ];
     historyFileSize = 1000000;

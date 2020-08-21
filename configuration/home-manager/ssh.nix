@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  home-manager.users.sybrand.programs.ssh = {
+  programs.ssh = {
     enable = true;
 
     matchBlocks."lilo.science.ru.nl" = {

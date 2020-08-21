@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  home-manager.users.sybrand.xdg = { enable = true; };
+  xdg = { enable = true; };
 }

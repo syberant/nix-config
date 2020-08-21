@@ -1,9 +1,7 @@
 { pkgs, ... }:
 
 {
-  #environment.systemPackages = [ pkgs.firefox ];
-
-  home-manager.users.sybrand.programs.firefox = {
+  programs.firefox = {
     enable = true;
     package = pkgs.firefox;
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
