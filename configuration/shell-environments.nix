@@ -9,6 +9,8 @@ in {
 
   programs.shell-environments = {
     modules = {
+      base.include = [ "fixenv" ];
+
       rust-coreutils = {
         extraPackages = with pkgs; [ bat lsd ripgrep fd ];
         bashrc = ''
@@ -32,12 +34,11 @@ in {
           # TODO: fix tmux stubbornly sourcing ~/.bashrc
           export TMUX_TMPDIR=$TMP
         '';
-        include = [ "fixenv" ];
       }
       {
         name = "rust";
         extraPackages = with pkgs; [ rustc cargo rustfmt myNeovim ];
-        include = [ "rust-coreutils" "fixenv" ];
+        include = [ "rust-coreutils" ];
         bashrc = ''
           alias vi=nvim
           export EDITOR=nvim
