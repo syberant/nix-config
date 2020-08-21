@@ -32,6 +32,10 @@
         dotfile = pkgs.writeText "pass-git-helper-config" ''
           [github.com*]
           target=github.com
+
+          [gitlab.science.ru.nl*]
+          target=science.ru.nl
+          skip_username=10
         '';
       in "${pkgs.gitAndTools.pass-git-helper}/bin/pass-git-helper -m ${dotfile}";
 
