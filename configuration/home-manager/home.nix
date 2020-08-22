@@ -2,14 +2,14 @@
 
 {
   imports = [
-    ./dotfiles.nix
+    ./modules/dotfiles.nix
 
-    ./bash.nix
-    ./firefox.nix
-    ./fzf.nix
-    ./git.nix
-    ./shell.nix
-    ./ssh.nix
-    ./xdg.nix
+    ./modules/bash.nix
+    ./modules/firefox.nix
+    ./modules/fzf.nix
+    ./modules/git.nix
+    ./modules/shell.nix
+    ./modules/ssh.nix
+    ./modules/xdg.nix
   ];
 }
