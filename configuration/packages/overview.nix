@@ -90,6 +90,7 @@
 
     # Productivity
     texlive.combined.scheme-full
+    pandoc
     anki
     unzip
     libreoffice
