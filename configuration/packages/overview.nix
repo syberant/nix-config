@@ -87,6 +87,7 @@
     sxiv
     chromium
     thunderbird
+    scrot
 
     # Productivity
     texlive.combined.scheme-full
