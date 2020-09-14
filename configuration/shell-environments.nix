@@ -18,6 +18,15 @@ in {
         '';
       };
 
+      myNeovim = {
+        extraPackages = with pkgs; [ myNeovim ];
+        bashrc = ''
+          alias vi=nvim
+          export EDITOR=nvim
+          export VISUAL=nvim
+        '';
+      };
+
       # Fix variables that should be passed through, TERM gets appropriate value for tmux
       fixenv.bashrc = ''
         export HOME=/home/sybrand
@@ -37,13 +46,14 @@ in {
       }
       {
         name = "rust";
-        extraPackages = with pkgs; [ rustc cargo rustfmt myNeovim ];
-        include = [ "rust-coreutils" ];
-        bashrc = ''
-          alias vi=nvim
-          export EDITOR=nvim
-          export VISUAL=nvim
-        '';
+        extraPackages = with pkgs; [ rustc cargo rustfmt ];
+        include = [ "rust-coreutils" "myNeovim" ];
+      }
+      {
+        name = "agda";
+        extraPackages = with pkgs;
+          [ (agda.withPackages (p: with p; [ standard-library ])) ];
+        include = [ "myNeovim" ];
       }
     ];
   };
