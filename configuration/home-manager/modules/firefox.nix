@@ -28,6 +28,12 @@
         "app.update.auto" = false;
         "signon.rememberSignons" = false;
 
+        # Clean up empty tab
+        "browser.newtabpage.activity-stream.feeds.section.highlights" = false;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        "browser.newtabpage.activity-stream.feeds.snippets" = false;
+        "browser.newtabpage.activity-stream.feeds.topsites" = false;
+
         # TODO: use Duckduckgo as default search engine
       };
     in {
