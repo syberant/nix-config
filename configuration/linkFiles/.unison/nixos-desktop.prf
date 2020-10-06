@@ -1,4 +1,4 @@
 root = /home/sybrand
-root = ssh://sybrand@nixos-desktop.local
+root = ssh://sybrand@192.168.178.30
 
 include common
