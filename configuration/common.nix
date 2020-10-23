@@ -14,6 +14,7 @@ in {
     ./shell-environments.nix
     ./mpd.nix
     ./mandarin.nix
+    ./printing.nix
     ./secrets
     ./emacs
     ../modules/default.nix
