@@ -11,6 +11,7 @@ import qualified Data.Map as Map
 import XMonad.StackSet (focusDown, focusUp)
 import XMonad.Actions.CycleWS (nextWS, prevWS)
 import Foreign.C.Types (CInt (..))
+import XMonad.Hooks.ManageDocks
 
 myTerminal = "st"
 
@@ -58,8 +59,15 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   , ((modm .|. shiftMask, xK_q), spawn "notify-send 'Recompiling xmonad...'; xmonad --recompile; xmonad --restart")
   ]
 
+myLayoutHook =
+    avoidStruts tall
+        where tall = Tall 1 (3/100) (1/2)
+
+myStartupHook = do
+    spawn "autostart_xmonad"
+
 main = do
-    xmonad $ def {
+    xmonad $ docks def {
         borderWidth        = 2,
         terminal           = myTerminal,
         normalBorderColor  = "#000000",
@@ -67,5 +75,6 @@ main = do
 
         modMask = mod4Mask,
         keys = myKeys,
-        focusFollowsMouse = True
+        layoutHook = myLayoutHook,
+        startupHook = myStartupHook
     }
