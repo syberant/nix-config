@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 {
-  services.xserver.displayManager.xmonad = {
+  services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
   };
