@@ -60,8 +60,10 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   , ((modm, xK_k), windows focusUp >> mouseFollowsFocus)
   -- Previous workspace
   , ((modm .|. controlMask, xK_j), prevWS)
+  , ((controlMask, xK_Left), prevWS)
   -- Next workspace
   , ((modm .|. controlMask, xK_k), nextWS)
+  , ((controlMask, xK_Right), nextWS)
   -- Restart xmonad
   , ((modm .|. shiftMask, xK_q), spawn "notify-send 'Recompiling xmonad...'; xmonad --recompile; xmonad --restart")
   ]
