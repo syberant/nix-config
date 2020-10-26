@@ -12,6 +12,9 @@ import XMonad.StackSet (focusDown, focusUp)
 import XMonad.Actions.CycleWS (nextWS, prevWS)
 import Foreign.C.Types (CInt (..))
 import XMonad.Hooks.ManageDocks
+import XMonad.Util.NamedScratchpad (NamedScratchpad (NS), namedScratchpadAction, namedScratchpadManageHook)
+import qualified XMonad.Util.NamedScratchpad as NS
+import qualified XMonad.StackSet as W
 
 myTerminal = "st"
 
@@ -42,6 +45,10 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   -- Launch application launcher
   , ((modm, xK_space), spawn "dmenu_run")
 
+  ---- Scratchpads
+  -- Dropdown terminal
+  , ((modm, xK_d), namedScratchpadAction myScratchpads "scratchpad")
+
   ---- xmonad
   -- Kill focused window
   , ((modm, xK_w), kill)
@@ -59,12 +66,23 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   , ((modm .|. shiftMask, xK_q), spawn "notify-send 'Recompiling xmonad...'; xmonad --recompile; xmonad --restart")
   ]
 
+myScratchpads = [ NS
+                    { NS.name = "scratchpad"
+                    , NS.cmd = "st -n scratchpad"
+                    , NS.query = resource =? "scratchpad"
+                    , NS.hook = NS.customFloating $ W.RationalRect 0.1 0.1 0.8 0.8
+                    }
+                ]
+
 myLayoutHook =
     avoidStruts tall
         where tall = Tall 1 (3/100) (1/2)
 
 myStartupHook = do
     spawn "autostart_xmonad"
+
+myManageHook =
+  namedScratchpadManageHook myScratchpads <> manageDocks
 
 main = do
     xmonad $ docks def {
@@ -76,5 +94,6 @@ main = do
         modMask = mod4Mask,
         keys = myKeys,
         layoutHook = myLayoutHook,
+        manageHook = myManageHook,
         startupHook = myStartupHook
     }
