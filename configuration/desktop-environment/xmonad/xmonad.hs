@@ -30,6 +30,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   ---- Scratchpads
   -- Dropdown terminal
   , ((modm, xK_d), namedScratchpadAction myScratchpads "scratchpad")
+  , ((modm, xK_i), namedScratchpadAction myScratchpads "todo")
 
   ---- xmonad
   -- Kill focused window
@@ -40,6 +41,12 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   , ((modm, xK_j), windows focusDown >> mouseFollowsFocus)
   -- Focus previous window
   , ((modm, xK_k), windows focusUp >> mouseFollowsFocus)
+  -- Swap focused window with master
+   , ((modm .|. shiftMask, xK_Return), windows W.swapMaster)
+   -- Swap focused window with below window
+  , ((modm .|. shiftMask, xK_j), windows W.swapDown)
+  -- Swap focused window with above window
+  , ((modm .|. shiftMask, xK_k), windows W.swapUp)
   -- Previous workspace
   , ((modm .|. controlMask, xK_j), prevWS)
   , ((controlMask, xK_Left), prevWS)
@@ -55,6 +62,12 @@ myScratchpads = [ NS
                     , NS.cmd = "st -n scratchpad -e tmux new-session -A -t scratchpad"
                     , NS.query = resource =? "scratchpad"
                     , NS.hook = NS.customFloating $ W.RationalRect 0.1 0.1 0.8 0.8
+                    }
+                , NS
+                    { NS.name = "todo"
+                    , NS.cmd = "st -n todo -e nvim ~/Notities/todo.md"
+                    , NS.query = resource =? "todo"
+                    , NS.hook = NS.customFloating $ W.RationalRect 0.2 0.1 0.6 0.8
                     }
                 ]
 
