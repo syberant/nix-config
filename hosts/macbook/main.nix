@@ -64,6 +64,8 @@ in {
 
     # Remap fn buttons
     # Original fn functionality still available with shift
+    "67 = XF86MonBrightnessDown F1"
+    "68 = XF86MonBrightnessUp F2"
     "73 = XF86AudioPrev F7"
     "74 = XF86AudioPlay F8"
     "75 = XF86AudioNext F9"

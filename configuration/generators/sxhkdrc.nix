@@ -1,6 +1,10 @@
 { pkgs }:
 
 pkgs.writeText "sxhkd-config" ''
+  # Brightness up and down
+  XF86MonBrightness{Up,Down}
+      ${pkgs.brightnessctl}/bin/brightnessctl set {+5%,5%-}
+
   # Sound up and down
   XF86Audio{LowerVolume,RaiseVolume}
       amixer set Master 5%{-,+}
