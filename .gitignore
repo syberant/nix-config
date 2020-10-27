@@ -1,2 +1,4 @@
 configuration.nix
 result
+*.hi
+*.o
