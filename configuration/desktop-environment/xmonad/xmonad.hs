@@ -54,6 +54,7 @@ myPromptConfig = def
     , height = 25
     , sorter = fuzzySort
     , searchPredicate = fuzzyMatch
+    , alwaysHighlight = True
     , font = myFont 10
     -- Colours
     , bgColor = nord0
