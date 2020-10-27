@@ -30,7 +30,7 @@ alert = #bd2c40
 
 ; Nord colorscheme
 ; https://github.com/Yucklys/polybar-nord-theme
-background = #DD2E3440
+background = #2E3440
 buffer = #4c566a
 foreground = #D8DEE9
 nord6 = #ECEFF4
