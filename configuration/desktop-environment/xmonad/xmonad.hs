@@ -11,6 +11,11 @@ import qualified Data.Map                    as Map
 import           XMonad.Actions.CycleWS      (nextWS, prevWS)
 import           XMonad.Hooks.EwmhDesktops   (ewmh)
 import           XMonad.Hooks.ManageDocks
+import           XMonad.Layout.Fullscreen    (fullscreenSupport)
+import           XMonad.Prompt               as Prompt
+import           XMonad.Prompt.FuzzyMatch    (fuzzyMatch, fuzzySort)
+import           XMonad.Prompt.Window        (WindowPrompt (Bring, Goto),
+                                              allWindows, windowPrompt)
 import           XMonad.StackSet             (focusDown, focusUp)
 import qualified XMonad.StackSet             as W
 import           XMonad.Util.NamedScratchpad (NamedScratchpad (NS),
@@ -22,6 +27,40 @@ import qualified XMonad.Util.NamedScratchpad as NS
 import           MouseFollowsFocus           (mouseFollowsFocus)
 
 myTerminal = "st"
+
+myFont size = "xft:DejaVu Sans Mono:size=" <> show size <> ":antialias=true:autohint=true"
+
+-- Nord
+nord0 =  "#2E3440"
+nord1 =  "#3B4252"
+nord2 =  "#434C5E"
+nord3 =  "#4C566A"
+nord4 =  "#D8DEE9"
+nord5 =  "#E5E9F0"
+nord6 =  "#ECEFF4"
+nord7 =  "#8FBCBB"
+nord8 =  "#88C0D0"
+nord9 =  "#81A1C1"
+nord10 =  "#5E81AC"
+nord11 =  "#BF616A"
+nord12 =  "#D08770"
+nord13 =  "#EBCB8B"
+nord14 =  "#A3BE8C"
+nord15 =  "#B48EAD"
+
+myPromptConfig = def
+    { position = CenteredAt (1/8) (3/4)
+    , height = 25
+    , sorter = fuzzySort
+    , searchPredicate = fuzzyMatch
+    , font = myFont 10
+    -- Colours
+    , bgColor = nord0
+    , fgColor = nord10
+    , bgHLight = nord0
+    , fgHLight = nord8
+    , borderColor = nord7
+    }
 
 myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   ---- Applications
@@ -35,7 +74,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   , ((modm, xK_d), namedScratchpadAction myScratchpads "scratchpad")
   , ((modm, xK_i), namedScratchpadAction myScratchpads "todo")
 
-  ---- xmonad
+  ---- Window managing
   -- Kill focused window
   , ((modm, xK_w), kill)
   -- Next layout
@@ -50,12 +89,18 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   , ((modm .|. shiftMask, xK_j), windows W.swapDown)
   -- Swap focused window with above window
   , ((modm .|. shiftMask, xK_k), windows W.swapUp)
+
+  ---- Move between workspaces
   -- Previous workspace
   , ((modm .|. controlMask, xK_j), prevWS)
   , ((controlMask, xK_Left), prevWS)
   -- Next workspace
   , ((modm .|. controlMask, xK_k), nextWS)
   , ((controlMask, xK_Right), nextWS)
+    -- Go to window
+  , ((modm, xK_g), windowPrompt myPromptConfig Goto allWindows)
+
+  ---- xmonad
   -- Restart xmonad
   , ((modm .|. shiftMask, xK_q), spawn "notify-send 'Recompiling xmonad...'; xmonad --recompile; xmonad --restart")
   ]
@@ -85,11 +130,11 @@ myManageHook =
   namedScratchpadManageHook myScratchpads <> manageDocks
 
 main = do
-    xmonad $ ewmh $ docks def {
+    xmonad $ ewmh $ docks $ fullscreenSupport def {
         borderWidth        = 2,
         terminal           = myTerminal,
-        normalBorderColor  = "#000000",
-        focusedBorderColor = "#d3f5f5",
+        normalBorderColor  = nord3,
+        focusedBorderColor = nord7,
 
         modMask = mod4Mask,
         keys = myKeys,
