@@ -1,22 +1,24 @@
 -- Much was shamelessly copied from https://github.com/splintah/xmonad-splintah/blob/master/xmonad-splintah/src/Main.hs
 
-import XMonad
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
-import System.IO
+import           System.IO
+import           XMonad
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Util.EZConfig        (additionalKeys)
+import           XMonad.Util.Run             (spawnPipe)
 
-import qualified Data.Map as Map
-import XMonad.StackSet (focusDown, focusUp)
-import XMonad.Actions.CycleWS (nextWS, prevWS)
-import XMonad.Hooks.ManageDocks
-import XMonad.Util.NamedScratchpad (NamedScratchpad (NS), namedScratchpadAction, namedScratchpadManageHook)
+import qualified Data.Map                    as Map
+import           XMonad.Actions.CycleWS      (nextWS, prevWS)
+import           XMonad.Hooks.ManageDocks
+import           XMonad.StackSet             (focusDown, focusUp)
+import qualified XMonad.StackSet             as W
+import           XMonad.Util.NamedScratchpad (NamedScratchpad (NS),
+                                              namedScratchpadAction,
+                                              namedScratchpadManageHook)
 import qualified XMonad.Util.NamedScratchpad as NS
-import qualified XMonad.StackSet as W
 
 -- Own modules (well, for now just shamelessly ripped from splintah's config)
-import MouseFollowsFocus (mouseFollowsFocus)
+import           MouseFollowsFocus           (mouseFollowsFocus)
 
 myTerminal = "st"
 
