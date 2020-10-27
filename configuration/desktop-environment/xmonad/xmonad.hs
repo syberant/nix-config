@@ -1,13 +1,8 @@
 -- Much was shamelessly copied from https://github.com/splintah/xmonad-splintah/blob/master/xmonad-splintah/src/Main.hs
 
-import           System.IO
-import           XMonad
-import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.ManageDocks
-import           XMonad.Util.EZConfig        (additionalKeys)
-import           XMonad.Util.Run             (spawnPipe)
-
 import qualified Data.Map                    as Map
+
+import           XMonad
 import           XMonad.Actions.CycleWS      (nextWS, prevWS)
 import           XMonad.Actions.DwmPromote
 import           XMonad.Hooks.EwmhDesktops   (ewmh)
