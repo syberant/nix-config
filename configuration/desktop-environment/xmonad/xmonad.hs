@@ -9,6 +9,7 @@ import           XMonad.Util.Run             (spawnPipe)
 
 import qualified Data.Map                    as Map
 import           XMonad.Actions.CycleWS      (nextWS, prevWS)
+import           XMonad.Actions.DwmPromote
 import           XMonad.Hooks.EwmhDesktops   (ewmh)
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Layout.Fullscreen    (fullscreenSupport)
@@ -89,7 +90,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   -- Focus previous window
   , ((modm, xK_k), windows focusUp >> mouseFollowsFocus)
   -- Swap focused window with master
-   , ((modm .|. shiftMask, xK_Return), windows W.swapMaster)
+   , ((modm .|. shiftMask, xK_Return), dwmpromote)
    -- Swap focused window with below window
   , ((modm .|. shiftMask, xK_j), windows W.swapDown)
   -- Swap focused window with above window
