@@ -23,8 +23,9 @@ import           XMonad.Util.NamedScratchpad (NamedScratchpad (NS),
                                               namedScratchpadManageHook)
 import qualified XMonad.Util.NamedScratchpad as NS
 
--- Own modules (well, for now just shamelessly ripped from splintah's config)
+-- Own modules (well, partially, MouseFollowsFocus is blatantly stolen from splintah, I guess I just want to say they're nonstandard)
 import           MouseFollowsFocus           (mouseFollowsFocus)
+import           TmuxPrompt                  (tmuxPrompt)
 
 myTerminal = "st"
 
@@ -73,6 +74,9 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   -- Dropdown terminal
   , ((modm, xK_d), namedScratchpadAction myScratchpads "scratchpad")
   , ((modm, xK_i), namedScratchpadAction myScratchpads "todo")
+
+  ---- Prompts
+  , ((modm, xK_t), tmuxPrompt myPromptConfig)
 
   ---- Window managing
   -- Kill focused window
