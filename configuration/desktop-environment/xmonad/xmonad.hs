@@ -9,6 +9,7 @@ import           XMonad.Util.Run             (spawnPipe)
 
 import qualified Data.Map                    as Map
 import           XMonad.Actions.CycleWS      (nextWS, prevWS)
+import           XMonad.Hooks.EwmhDesktops   (ewmh)
 import           XMonad.Hooks.ManageDocks
 import           XMonad.StackSet             (focusDown, focusUp)
 import qualified XMonad.StackSet             as W
@@ -84,7 +85,7 @@ myManageHook =
   namedScratchpadManageHook myScratchpads <> manageDocks
 
 main = do
-    xmonad $ docks def {
+    xmonad $ ewmh $ docks def {
         borderWidth        = 2,
         terminal           = myTerminal,
         normalBorderColor  = "#000000",

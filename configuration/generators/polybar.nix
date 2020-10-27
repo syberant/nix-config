@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, polybar ? { modules-left = ""; }, ... }:
 
 builtins.toFile "polybar-config" ''
 ;==========================================================
@@ -21,14 +21,23 @@ builtins.toFile "polybar-config" ''
 
 [colors]
 ;background = ''${xrdb:color0:#222}
-background = #DD202020
 background-alt = #444
 ;foreground = ''${xrdb:color7:#222}
-foreground = #dfdfdf
 foreground-alt = #777
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+
+; Nord colorscheme
+; https://github.com/Yucklys/polybar-nord-theme
+background = #DD2E3440
+buffer = #4c566a
+foreground = #D8DEE9
+nord6 = #ECEFF4
+nord7 = #8FBCBB
+nord8 = #88C0D0
+nord9 = #81A1C1
+urgent = #BF616A
 
 [bar/example]
 ;monitor = ''${env:MONITOR:HDMI-1}
@@ -59,7 +68,7 @@ font-2 = FontAwesome:style=Regular:size=11;2
 font-3 = FontAwesome5Free:style=Regular:size=11;2
 font-4 = FontAwesome5Brands:style=Regular:size=11;2
 
-modules-left = i3
+modules-left = ${polybar.modules-left}
 modules-center = pulseaudio mpd
 modules-right = wlan ${if config.hasBattery then "battery" else ""} memory cpu date
 
@@ -161,6 +170,24 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
+[module/ewmh]
+type = internal/xworkspaces
+enable-scroll = false
+
+label-active-underline = ''${colors.nord7}
+label-active-foreground = ''${colors.nord7}
+label-active-padding = 1
+
+label-occupied-underline = ''${colors.nord9}
+label-occupied-foreground = ''${colors.nord9}
+label-occupied-padding = 1
+
+label-empty-foreground = ''${colors.buffer}
+label-empty-padding = 1
+
+label-urgent-foreground = ''${colors.urgent}
+label-urgent-background = ''${colors.foreground}
+label-urgent-padding = 1
 
 [module/mpd]
 type = internal/mpd
