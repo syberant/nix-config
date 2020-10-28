@@ -1,13 +1,17 @@
 { pkgs, ... }:
 
 {
-  plugins = with pkgs.vimPlugins; [ vim-nix neoformat ];
+  plugins = with pkgs.vimPlugins; [ neoformat ];
 
-  # TODO: integrate dependency on nixfmt into this module
   code = ''
+    let g:neoformat_nix_nixfmt = {
+      \ 'exe' : '${pkgs.nixfmt}/bin/nixfmt',
+      \ 'stdin' : 1,
+    \ }
+
     augroup nix
       autocmd!
-      autocmd BufWritePre *.nix undojoin | Neoformat nixfmt
+      autocmd BufWritePre *.nix undojoin | Neoformat! nix
     augroup END
   '';
 }

@@ -1,8 +1,17 @@
 { pkgs, ... }:
 
 {
-  plugins = with pkgs.vimPlugins; [ vim-stylish-haskell ];
+  plugins = with pkgs.vimPlugins; [ neoformat ];
   code = ''
-    let g:stylish_haskell_command = "${pkgs.stylish-haskell}/bin/stylish-haskell"
+    let g:neoformat_haskell_stylishhaskell = {
+      \ 'exe' : '${pkgs.stylish-haskell}/bin/stylish-haskell',
+      \ 'stdin' : 1,
+    \ }
+
+    augroup haskell
+      autocmd!
+      autocmd BufWritePre *.hs undojoin | Neoformat! haskell
+    augroup END
+
   '';
 }

@@ -2,10 +2,17 @@
 
 # TODO: syntax checking with syntastic
 {
-  plugins = with pkgs.vimPlugins; [ rust-vim ];
+  plugins = with pkgs.vimPlugins; [ neoformat ];
 
   code = ''
-    let g:rustfmt_autosave = 1
-    let g:rustfmt_command = '${pkgs.rustfmt}/bin/rustfmt'
+    let g:neoformat_rust_rustfmt = {
+      \ 'exe' : '${pkgs.rustfmt}/bin/rustfmt',
+      \ 'stdin' : 1,
+    \ }
+
+    augroup rust
+      autocmd!
+      autocmd BufWritePre *.rs undojoin | Neoformat! rust
+    augroup END
   '';
 }
