@@ -24,4 +24,4 @@ getSessions = io $ do
     return $ lines strings
 
 startTmux :: String -> X ()
-startTmux s = runInTerm "" $ "tmux a -t " ++ s
+startTmux s = runInTerm "" $ "tmux new-session -A -t " ++ s
