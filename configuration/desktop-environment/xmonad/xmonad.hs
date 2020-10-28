@@ -108,7 +108,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
 
 myScratchpads = [ NS
                     { NS.name = "scratchpad"
-                    , NS.cmd = "st -n scratchpad -e tmux new-session -A -t scratchpad"
+                    , NS.cmd = "st -n scratchpad -e tmux new-session -A -s scratchpad"
                     , NS.query = resource =? "scratchpad"
                     , NS.hook = NS.customFloating $ W.RationalRect 0.1 0.1 0.8 0.8
                     }
