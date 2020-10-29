@@ -23,6 +23,18 @@
         "url": "https://github.com/rycee/home-manager/archive/4bd0ca2cd793b3f057d114bd6a3183419f52ca49.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nix-neovim": {
+        "branch": "main",
+        "description": "Declaratively configure neovim with the magic of nix!",
+        "homepage": null,
+        "owner": "syberant",
+        "repo": "nix-neovim",
+        "rev": "36082ecb85d2dd66aaa47ecfe943ae5ec47012eb",
+        "sha256": "0qpavrrqr65cddgfv5hpi4njhbg0lnf00b85nz0kmzi5rl2wv6ix",
+        "type": "tarball",
+        "url": "https://github.com/syberant/nix-neovim/archive/36082ecb85d2dd66aaa47ecfe943ae5ec47012eb.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixos-hardware": {
         "branch": "master",
         "description": "A collection of NixOS modules covering hardware quirks.",

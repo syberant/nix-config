@@ -4,6 +4,7 @@ let
   nur-no-pkgs = import (import ../nix/sources.nix).NUR {
     #repoOverrides.syberant = import /home/sybrand/Documents/Programmeren/Nix/nur-packages { };
   };
+  sources = import ../nix/sources.nix;
 in {
   imports = [ nur-no-pkgs.repos.syberant.modules.shell-environments ];
 
@@ -19,7 +20,13 @@ in {
       };
 
       myNeovim = {
-        extraPackages = with pkgs; [ myNeovim ];
+        extraPackages = with pkgs;
+          [
+            (import sources.nix-neovim {
+              inherit pkgs;
+              configuration = ./packages/neovim.nix;
+            })
+          ];
         bashrc = ''
           alias vi=nvim
           export EDITOR=nvim

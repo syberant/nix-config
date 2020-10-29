@@ -3,8 +3,6 @@
 let
   sources = import ../../nix/sources.nix;
   nixpkgs-git = import sources.nixpkgs-git { config.allowUnfree = true; };
-  customNeovim =
-    import /home/sybrand/Documents/Programmeren/Nix/nix-neovim/neovim.nix;
 in {
   imports = [ ./programs.nix ];
 
@@ -28,7 +26,7 @@ in {
     # Personal development
     zeal
     tokei
-    (customNeovim {
+    (import sources.nix-neovim {
       inherit pkgs;
       configuration = ./neovim.nix;
     })
