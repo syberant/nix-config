@@ -9,8 +9,27 @@
   neoformat.enable = true;
   lightline.enable = true;
   colourscheme.gruvbox.enable = true;
+  nerdcommenter.enable = true;
+  gitgutter.enable = true;
+  vim-surround.enable = true;
+  vim-which-key = {
+    enable = true;
+    showkeys = [ "<Space>" ];
+  };
 
-  output.config_file = ''
+  base = {
+    leader = "\\<space>";
+
+    search.enable = true;
+    wrapping.enable = true;
+    files.enable = true;
+  };
+
+  output.extraConfig = ''
+    map <leader>; <Plug>NERDCommenterToggle
+
+    set timeoutlen=300
+
     " wrapping settings
     set wrap lbr
     noremap <buffer> <silent> k gk
