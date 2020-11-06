@@ -90,6 +90,8 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   , ((modm .|. shiftMask, xK_j), windows W.swapDown)
   -- Swap focused window with above window
   , ((modm .|. shiftMask, xK_k), windows W.swapUp)
+  -- Floating
+  , ((modm, xK_t), withFocused $ windows . W.sink)
 
   ---- Move between workspaces
   -- Previous workspace
