@@ -40,5 +40,5 @@
     " Better escaping? Don't exactly know why this is here.
     tnoremap <Esc> <c-\><c-n>
     inoremap <Esc> <Esc><Esc>
-  '';
+  '' + builtins.readFile ./keybindings.vim;
 }
