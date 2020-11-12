@@ -6,4 +6,7 @@ let
     inherit pkgs;
     configuration = ./configuration.nix;
   };
-in { home.packages = [ myNeovim ]; }
+in {
+  home.packages = [ myNeovim ];
+}
+# in { }

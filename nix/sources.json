@@ -29,10 +29,10 @@
         "homepage": null,
         "owner": "syberant",
         "repo": "nix-neovim",
-        "rev": "e0e9f9bf405ebc82eb408f53837690bbc5c010e2",
-        "sha256": "0j3sqk5n81a6mb6bgwr31j964dyhzk2q8lbavqzrlhq8jchbcgas",
+        "rev": "3fc6f1edf593b1b3176850714e0d8f03ad751a58",
+        "sha256": "17jmwa668rmpr4j3nyxf848piizcdwcp25css77a2qk8fpj5swcw",
         "type": "tarball",
-        "url": "https://github.com/syberant/nix-neovim/archive/e0e9f9bf405ebc82eb408f53837690bbc5c010e2.tar.gz",
+        "url": "https://github.com/syberant/nix-neovim/archive/3fc6f1edf593b1b3176850714e0d8f03ad751a58.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-hardware": {
