@@ -24,7 +24,7 @@ in {
           [
             (import sources.nix-neovim {
               inherit pkgs;
-              configuration = ./packages/neovim.nix;
+              configuration = ./home-manager/modules/neovim/configuration.nix;
             })
           ];
         bashrc = ''

@@ -26,10 +26,6 @@ in {
     # Personal development
     zeal
     tokei
-    (import sources.nix-neovim {
-      inherit pkgs;
-      configuration = ./neovim.nix;
-    })
     niv
     # For codecup
     nur.repos.syberant.caia
