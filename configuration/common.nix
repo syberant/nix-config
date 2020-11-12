@@ -11,7 +11,6 @@ in {
     ./desktop-environment/default.nix
     ./desktop-environment/xmonad
     ./home-manager
-    # ./shell-environments.nix
     ./mpd.nix
     ./mandarin.nix
     ./printing.nix
