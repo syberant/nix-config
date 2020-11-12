@@ -24,7 +24,11 @@ in {
           [
             (import sources.nix-neovim {
               inherit pkgs;
-              configuration = ./home-manager/modules/neovim/configuration.nix;
+              configuration = {
+                languages.rust.enable = true;
+                colourscheme.gruvbox.enable = true;
+                lightline.enable = true;
+              };
             })
           ];
         bashrc = ''
