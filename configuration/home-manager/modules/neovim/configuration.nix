@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  imports = [ ./lsp ];
+
   languages = {
     nix.enable = true;
     haskell.enable = true;
@@ -16,6 +18,7 @@
     enable = true;
     showkeys = [ "<Space>" ];
   };
+  lsp.enable = true;
 
   base = {
     leader = "\\<space>";
@@ -24,6 +27,8 @@
     wrapping.enable = true;
     files.enable = true;
   };
+
+  output.package = pkgs.callPackage ./nightly.nix { };
 
   output.extraConfig = ''
     map <leader>; <Plug>NERDCommenterToggle
