@@ -60,7 +60,7 @@ myPromptConfig = def
     , borderColor = nord7
     }
 
-myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
+myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList $ [
   ---- Applications
   -- Launch terminal
   ((modm, xK_Return), spawn myTerminal)
@@ -91,7 +91,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   -- Swap focused window with above window
   , ((modm .|. shiftMask, xK_k), windows W.swapUp)
   -- Floating
-  , ((modm, xK_t), withFocused $ windows . W.sink)
+  , ((modm .|. shiftMask, xK_t), withFocused $ windows . W.sink)
 
   ---- Move between workspaces
   -- Previous workspace
@@ -106,6 +106,11 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList [
   ---- xmonad
   -- Restart xmonad
   , ((modm .|. shiftMask, xK_q), spawn "notify-send 'Recompiling xmonad...'; xmonad --recompile; xmonad --restart")
+  ]
+  <>
+  [ ((modm .|. m, k), windows $ f i)
+  | (i, k) <- zip (XMonad.workspaces conf) [xK_1..xK_9]
+  , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
   ]
 
 myScratchpads = [ NS
