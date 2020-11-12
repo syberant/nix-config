@@ -75,7 +75,7 @@ in {
 
     # Programming languages
     python3
-    # rustc cargo
+    cargo
     octave
     #swift # Doesn't work on latest unstable
 

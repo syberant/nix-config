@@ -1,3 +1,6 @@
+# Largely copied from a great blog post:
+# https://sharksforarms.dev/posts/neovim-rust/
+
 { pkgs, lib, config, ... }:
 
 with lib;
@@ -58,6 +61,10 @@ in {
       set updatetime=300
       " Show diagnostic popup on cursor hold
       autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
+
+      " have a fixed column for the diagnostics to appear in
+      " this removes the jitter when warnings/errors flow in
+      set signcolumn=yes
 
       " Enable type inlay hints
       autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
