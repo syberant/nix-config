@@ -8,7 +8,7 @@ let nixpkgs = (import ../nix/sources.nix).nixpkgs;
 in {
   imports = [
     ./packages/overview.nix
-    ./desktop-environment/default.nix
+    ./desktop-environment/i3
     ./desktop-environment/xmonad
     ./home-manager
     ./mpd.nix
