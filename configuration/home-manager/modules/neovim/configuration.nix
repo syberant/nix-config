@@ -30,6 +30,8 @@
 
   output.package = pkgs.callPackage ./nightly.nix { };
 
+  output.plugins = with pkgs.vimPlugins; [ fzf-vim fzfWrapper ];
+
   output.extraConfig = ''
     map <leader>; <Plug>NERDCommenterToggle
 

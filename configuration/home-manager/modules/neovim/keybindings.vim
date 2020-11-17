@@ -39,10 +39,16 @@ let g:which_key_map['w'] = {
 " Formatting/finding
 nnoremap <silent> <leader>ff :Neoformat<CR>
 nnoremap <silent> <leader>fs :nohlsearch<CR>
+nnoremap <silent> <leader>fo :GFiles<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>f/ :Rg<CR>
 
 " Which-key
 let g:which_key_map['f'] = {
   \ 'name' : '+find/misc' ,
   \ 'f' : [':Neoformat', 'format-file'],
   \ 's' : [':nohlsearch', 'hide-search'],
+  \ 'o' : [':GFiles', 'fzf-open-file'],
+  \ 'b' : [':Buffers', 'fzf-buffers'],
+  \ '/' : [':Rg', 'fzf-ripgrep'],
 \ }
