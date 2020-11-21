@@ -1,6 +1,27 @@
-{ config, polybar ? { modules-left = ""; }, ... }:
+# Use callPackage
+{ config, polybar ? { modules-left = ""; }, stdenv, fetchFromGitHub, python3, writeText, ... }:
 
-builtins.toFile "polybar-config" ''
+let polypomo = stdenv.mkDerivation {
+  name = "polypomo";
+  src = fetchFromGitHub {
+    owner = "unode";
+    repo = "polypomo";
+    rev = "86df2b1a2d4af7b2d581f7feca7de924d3858a34";
+    sha256 = "0gy6w31vyw7ihblcyl2brk297mvyzc3mc8nnpikhqk3b50pb2xnx";
+  };
+
+  patchPhase = ''
+    sed 's|^#!/usr/bin/env python3|#!${python3}/bin/python3|' -i polypomo
+    sed 's/^TOMATO.*/TOMATO = "🍅"/' -i polypomo
+    sed 's/^BREAK.*/BREAK = " "/' -i polypomo
+  '';
+
+  installPhase = ''
+    mkdir -p $out
+    mv polypomo $out/polypomo
+  '';
+};
+in writeText "polybar-config" ''
 ;==========================================================
 ;
 ;
@@ -69,7 +90,7 @@ font-3 = FontAwesome5Free:style=Regular:size=11;2
 font-4 = FontAwesome5Brands:style=Regular:size=11;2
 
 modules-left = ${polybar.modules-left}
-modules-center = pulseaudio mpd
+modules-center = polypomo pulseaudio mpd
 modules-right = wlan ${if config.hasBattery then "battery" else ""} memory cpu date
 
 tray-position = right
@@ -347,4 +368,17 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+; Pomodoro timer!
+[module/polypomo]
+type = custom/script
+exec = ${polypomo}/polypomo --worktime 1500 --breaktime 300
+tail = true
+
+label = %output%
+click-left = ${polypomo}/polypomo toggle
+click-right = ${polypomo}/polypomo end
+click-middle = ${polypomo}/polypomo lock
+scroll-up = ${polypomo}/polypomo time +60
+scroll-down = ${polypomo}/polypomo time -60
 ''

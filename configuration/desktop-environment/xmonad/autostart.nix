@@ -6,7 +6,7 @@ let
   autostart = pkgs.writeScriptBin "autostart_xmonad" ''
     # TODO: use polybar dwm module or add EWMH patch to dwm
     ${pkgs.polybar}/bin/polybar -c ${
-      import "${confdir}/generators/polybar.nix" {
+      pkgs.callPackage "${confdir}/generators/polybar.nix" {
         config = config.systemInfo;
         inherit polybar;
       }
