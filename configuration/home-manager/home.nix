@@ -13,5 +13,6 @@
     ./modules/ssh.nix
     ./modules/tmux.nix
     ./modules/xdg.nix
+    ./modules/z.nix
   ];
 }
