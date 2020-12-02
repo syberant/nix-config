@@ -25,6 +25,7 @@
     shellAliases = {
       "ls" = "lsd --icon=never";
       vi = "nvim";
+      open = "xdg-open";
     };
   };
 }
