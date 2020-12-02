@@ -21,6 +21,7 @@ import qualified XMonad.Util.NamedScratchpad as NS
 
 -- Own modules (well, partially, MouseFollowsFocus is blatantly stolen from splintah, I guess I just want to say they're nonstandard)
 import           MouseFollowsFocus           (mouseFollowsFocus)
+import           OpenFilePrompt              (openFilePrompt)
 import           TmuxPrompt                  (tmuxPrompt)
 
 myTerminal = "st"
@@ -74,6 +75,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList $ [
 
   ---- Prompts
   , ((modm, xK_t), tmuxPrompt myPromptConfig)
+  , ((modm, xK_o), openFilePrompt myPromptConfig)
 
   ---- Window managing
   -- Kill focused window

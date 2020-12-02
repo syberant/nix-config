@@ -8,5 +8,8 @@
     enableContribAndExtras = true;
   };
 
-  environment.systemPackages = with pkgs; [ libnotify ];
+  environment.systemPackages = with pkgs; [
+    libnotify 
+    (pkgs.callPackage ../scripts/fzfmenu.nix {})
+  ];
 }
