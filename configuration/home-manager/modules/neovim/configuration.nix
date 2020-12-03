@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./lsp ];
+  imports = [ ./lsp ./treesitter.nix ];
 
   languages = {
     nix.enable = true;
