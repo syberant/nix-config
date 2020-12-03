@@ -19,12 +19,20 @@ in {
       -- nvim_lsp object
       local nvim_lsp = require'nvim_lsp'
 
-      -- function to attach completion and diagnostics
-      -- when setting up lsp
+      -- function to attach completion when setting up lsp
       local on_attach = function(client)
           require'completion'.on_attach(client)
-          require'diagnostic'.on_attach(client)
       end
+
+      -- handle diagnostics
+      -- https://github.com/nvim-lua/diagnostic-nvim/issues/73
+      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+          virtual_text = true,
+          signs = true,
+          update_in_insert = false,
+        }
+      )
 
       -- Enable rust_analyzer
       ${optionalString config.languages.rust.enable ''
@@ -50,17 +58,11 @@ in {
       " Keybindings
       nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 
-      " Visualize diagnostics
-      let g:diagnostic_enable_virtual_text = 1
-      let g:diagnostic_trimmed_virtual_text = '40'
-      " Don't show diagnostics while in insert mode
-      let g:diagnostic_insert_delay = 1
-
       " Set updatetime for CursorHold
       " 300ms of no cursor movement to trigger CursorHold
       set updatetime=300
       " Show diagnostic popup on cursor hold
-      autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
+      autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
       " have a fixed column for the diagnostics to appear in
       " this removes the jitter when warnings/errors flow in
@@ -74,7 +76,6 @@ in {
     output.plugins = with pkgs.vimPlugins; [
       nvim-lspconfig
       (pkgs.callPackage ./completion-nvim.nix { })
-      (pkgs.callPackage ./diagnostic-nvim.nix { })
       (pkgs.callPackage ./lsp_extensions.nix { })
     ];
   };

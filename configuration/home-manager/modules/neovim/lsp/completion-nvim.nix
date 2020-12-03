@@ -6,7 +6,7 @@ vimUtils.buildVimPluginFrom2Nix {
   src = fetchFromGitHub {
     owner = "nvim-lua";
     repo = "completion-nvim";
-    rev = "3b6774ed1c1b4720efe3385f06883483f5e16884";
-    sha256 = "1vldm13lbfmphim946lnyl30276chw4gnnnq2hxnf67k8a9x8ssc";
+    rev = "936bbd17577101a4ffb07ea7f860f77dd8007d43";
+    sha256 = "1z399q3v36hx2ipj1fhxcc051pi4q0lifyglmclxi5zkbmm0z6a7";
   };
 }

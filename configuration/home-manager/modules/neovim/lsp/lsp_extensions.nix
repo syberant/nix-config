@@ -6,7 +6,7 @@ vimUtils.buildVimPluginFrom2Nix {
   src = fetchFromGitHub {
     owner = "nvim-lua";
     repo = "lsp_extensions.nvim";
-    rev = "eaa389f8a80d9700cc2c3bce787b00b61761a0f0";
-    sha256 = "0zndlyn3xgzxwshjk79yfva5914xchzg9v8qimfgn7jlmn5ljhwm";
+    rev = "25951aca067b3a22f303f59d8eac2101d861850a";
+    sha256 = "0bl7y9xpvlmisizyyykjskxmrg01s6p7nkgdfskx14dv2f8dmv8q";
   };
 }

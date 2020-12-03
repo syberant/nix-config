@@ -1,12 +1,10 @@
-{ neovim-unwrapped, fetchFromGitHub, tree-sitter }:
+{ fetchFromGitHub }:
 
-neovim-unwrapped.overrideAttrs (old: {
-  version = "0.5.0";
-  src = fetchFromGitHub {
-    owner = "neovim";
-    repo = "neovim";
-    rev = "432f3240f171e857beb3d1a554cbd8a649bb38ae";
-    sha256 = "1drgaxnaazbv086pmy63254xm2madh8gl50kaynhbdwrrkxwcfzh";
+let
+  nightly-overlay = fetchFromGitHub {
+    owner = "mjlbach";
+    repo = "neovim-nightly-overlay";
+    rev = "ccd925476217ed251644fbc2f1e9e93b48c894f8";
+    sha256 = "051q01l0gbf43vydra093nq3g1kijdhc2dymnd9rmxmn2ycbw6bb";
   };
-  # buildInputs = old.buildInputs ++ [ tree-sitter ];
-})
+in (import "${nightly-overlay}/default.nix" { } { }).neovim-nightly

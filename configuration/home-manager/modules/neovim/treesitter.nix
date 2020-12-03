@@ -25,8 +25,8 @@ in {
         src = pkgs.fetchFromGitHub {
           owner = "nvim-treesitter";
           repo = "nvim-treesitter";
-          rev = "6eca8d2f3860e7d76b0b524877c13206c2900b01";
-          sha256 = "02am1iaa61nn9yrzq9rfvryz8wk3hnjacixzljk74dblc6n0bmii";
+          rev = "407ff057db0216afd3b36d8564980a13de9614e6";
+          sha256 = "19l7vbp0hmcnqy5nikfyqy3qdk3a26j3jmcaypky959s1hy6kab9";
         };
       })
     ];
