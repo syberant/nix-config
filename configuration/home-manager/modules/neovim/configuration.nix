@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./lsp ./treesitter.nix ];
+  imports = [ ./lsp ./treesitter.nix ./vimtex.nix ];
 
   languages = {
     nix.enable = true;

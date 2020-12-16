@@ -52,3 +52,18 @@ let g:which_key_map['f'] = {
   \ 'b' : [':Buffers', 'fzf-buffers'],
   \ '/' : [':Rg', 'fzf-ripgrep'],
 \ }
+
+" LaTeX
+nnoremap <leader>ll :VimtexCompile<CR>
+nnoremap <leader>lc :VimtexCountWords<CR>
+nnoremap <leader>le :VimtexErrors<CR>
+nnoremap <leader>lv :VimtexView<CR>
+
+" Which-key
+let g:which_key_map['l'] = {
+  \ 'name' : '+LaTeX' ,
+  \ 'l' : [':VimtexCompile', 'vimtex-compile'],
+  \ 'c' : [':VimtexCountWords', 'count-words'],
+  \ 'e' : [':VimtexErrors', 'open-errors'],
+  \ 'v' : [':VimtexView', 'open-pdf'],
+\ }
