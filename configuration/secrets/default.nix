@@ -1,13 +1,12 @@
-{ config, ... }:
+{ config, secrets, ... }:
 
 let
-  secretsPath = /secrets/nixos-configuration/secrets;
+  # secretsPath = /secrets/nixos-configuration/secrets;
   user = config.users.users.sybrand.name;
 in {
-  imports = [ "${(import ../../nix/sources.nix).sops-nix}/modules/sops" ];
+  sops.validateSopsFiles = false;
 
-  sops.defaultSopsFile = let path = secretsPath + "/../secrets.yaml";
-  in assert builtins.pathExists path; path;
+  sops.defaultSopsFile = secrets + "/secrets.yaml";
 
   # Allow user to read keys
   users.users.sybrand.extraGroups = [ config.users.groups.keys.name ];
@@ -15,7 +14,8 @@ in {
   sops.secrets.freedns = { };
   sops.secrets.desktop-ssh-key = {
     format = "binary";
-    sopsFile = secretsPath + "/secret-desktop-ssh-key";
+    # sopsFile = secretsPath + "/secret-desktop-ssh-key";
+    sopsFile = secrets + "/secrets/secret-desktop-ssh-key";
     owner = user;
   };
 }

@@ -1,9 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs-git, ... }:
 
-let
-  sources = import ../../nix/sources.nix;
-  nixpkgs-git = import sources.nixpkgs-git { config.allowUnfree = true; };
-in {
+{
   imports = [ ./programs.nix ];
 
   environment.systemPackages = with pkgs; [

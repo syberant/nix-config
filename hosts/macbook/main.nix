@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixos-hardware, ... }:
 
-let nixos-hardware = (import ../../nix/sources.nix).nixos-hardware;
-in {
+{
   imports = [
     ./sync.nix
     ./ssh.nix

@@ -2,13 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, config, lib, ... }:
+{ self, pkgs, config, lib, ... }:
 
-let nixpkgs = (import ../nix/sources.nix).nixpkgs;
-in {
+{
   imports = [
     ./packages/overview.nix
-    ./desktop-environment/i3
+    # ./desktop-environment/i3
     ./desktop-environment/xmonad
     ./home-manager
     ./mpd.nix
@@ -19,18 +18,16 @@ in {
     ../modules/default.nix
   ];
 
-  # Configure overlays
-  nixpkgs.overlays = [
-    (import ../overlays/added_packages)
-    (import ../overlays/explicit_configuration)
-    (import ../overlays/nur.nix)
-  ];
+  # Use experimental flakes
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 
-  # Set pkgs
-  # NOTE: this always lags one boot (or switch) behind...
-  # TODO: maybe make a warning or something if this discrepancy happens.
-  nix.nixPath =
-    [ "nixpkgs=${nixpkgs}" "nixos-config=/etc/nixos/configuration.nix" ];
+  # Let 'nixos-version --json' know about the Git revision of this flake.
+  system.configurationRevision = pkgs.lib.mkIf (self ? rev) self.rev;
 
   # Prevent state from accumulating.
   boot.cleanTmpDir = true; # Clean /tmp on boot.

@@ -1,0 +1,149 @@
+{
+  "nodes": {
+    "NUR": {
+      "locked": {
+        "lastModified": 1608370973,
+        "narHash": "sha256-6fHLX+ynD4rOQPM4pWiYweklI9ipfL8WNdGVJPlyhP8=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "3f4ab37b56ea3842e45422a459a94b402cf43b4e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1604441492,
+        "narHash": "sha256-Wo7WqdwNQnWHmhyZuhVLrAEpCuZl88cA9ttxkiCTekY=",
+        "owner": "rycee",
+        "repo": "home-manager",
+        "rev": "63f299b3347aea183fc5088e4d6c4a193b334a41",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rycee",
+        "ref": "release-20.09",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nix-neovim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1605208182,
+        "narHash": "sha256-lxwTIv3yk4Rn42vDaWnabIh6mIPf8oADbETOpFNkKo0=",
+        "owner": "syberant",
+        "repo": "nix-neovim",
+        "rev": "10b35e0ea21a802b5f7061282f1bd4467deec992",
+        "type": "github"
+      },
+      "original": {
+        "owner": "syberant",
+        "repo": "nix-neovim",
+        "type": "github"
+      }
+    },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1607254103,
+        "narHash": "sha256-oU+aVtY3vIY0hGNUJM5RKdhx6ipuFDdn3farszfys/0=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "87522b29a276a4cab5718e5309aa7d74bc7de75a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1608062904,
+        "narHash": "sha256-QVaxOnGwZoBtNTlnAV0aeC30ASeJpo583wjotmhpOtg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "647cc06986c1ae4a2bb05298e0cf598723e42970",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-20.09",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-git": {
+      "locked": {
+        "lastModified": 1608363953,
+        "narHash": "sha256-/gAJNaV0a9Yqx8i2CXkkw3H7LhL5Tw3aUao51S9AVKc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "453c116254abe3d7b6b9938ff8092447333db1aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "NUR": "NUR",
+        "home-manager": "home-manager",
+        "nix-neovim": "nix-neovim",
+        "nixos-hardware": "nixos-hardware",
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-git": "nixpkgs-git",
+        "secrets": "secrets",
+        "sops-nix": "sops-nix"
+      }
+    },
+    "secrets": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-dXxMYP0H6blWugQFZy0/NA4CAQj3MpLjUZ8Pdk/tkko=",
+        "path": "/secrets/nixos-configuration",
+        "type": "path"
+      },
+      "original": {
+        "path": "/secrets/nixos-configuration",
+        "type": "path"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1608002285,
+        "narHash": "sha256-NRTuYRlVUFMyCGQK3CGxzyvIiZY6PnnKAG5B/QLK8M4=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "797e7552776441a018e0a7299b5ba647aed40ffe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
