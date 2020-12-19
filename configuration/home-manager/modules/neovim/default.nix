@@ -1,12 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, nix-neovim, ... }:
 
 let
-  sources = import ../../../../nix/sources.nix;
-  myNeovim = import sources.nix-neovim {
+  myNeovim = import nix-neovim {
     inherit pkgs;
     configuration = ./configuration.nix;
   };
 in {
   home.packages = [ myNeovim ];
 }
-# in { }

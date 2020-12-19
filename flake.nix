@@ -19,6 +19,8 @@
       flake = false;
     };
 
+    neovim-nightly.url = "github:mjlbach/neovim-nightly-overlay";
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +33,7 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-git, nixos-hardware, NUR, home-manager
-    , sops-nix, nix-neovim, secrets }:
+    , sops-nix, nix-neovim, neovim-nightly, secrets }:
 
     let
       specialArgs = {
@@ -40,12 +42,32 @@
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config = { allowUnfree = true; };
-          overlays = [ NUR.overlay (import ./overlays/explicit_configuration) ];
+          overlays = [
+            NUR.overlay
+            neovim-nightly.overlay
+            (import ./overlays/explicit_configuration)
+          ];
         };
 
         nixpkgs-git = import nixpkgs-git {
           system = "x86_64-linux";
           config = { allowUnfree = true; };
+        };
+      };
+      # https://github.com/cideM/dotfiles/blob/master/flake.nix
+      hm-nixos-as-super = { config, ... }: {
+        # Submodules have merge semantics, making it possible to amend
+        # the `home-manager.users` submodule for additional functionality.
+        options.home-manager.users = let lib = specialArgs.pkgs.lib;
+        in lib.mkOption {
+          type = lib.types.attrsOf (lib.types.submoduleWith {
+            modules = [ ];
+            # Makes specialArgs available to Home Manager modules as well.
+            specialArgs = specialArgs // {
+              # Allow accessing the parent NixOS configuration.
+              super = config;
+            };
+          });
         };
       };
     in {
@@ -57,6 +79,7 @@
           ./hosts/macbook/main.nix
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
+          hm-nixos-as-super
           {
             # Pin nixpkgs in registry
             nix.registry.nixpkgs.flake = nixpkgs;
