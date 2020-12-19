@@ -85,12 +85,22 @@
             nix.registry.nixpkgs.flake = nixpkgs;
           }
         ];
-
       };
 
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./hosts/desktop/main.nix ];
+        inherit specialArgs;
+
+        modules = [
+          ./hosts/desktop/main.nix
+          sops-nix.nixosModules.sops
+          home-manager.nixosModules.home-manager
+          hm-nixos-as-super
+          {
+            # Pin nixpkgs in registry
+            nix.registry.nixpkgs.flake = nixpkgs;
+          }
+        ];
       };
     };
 }
