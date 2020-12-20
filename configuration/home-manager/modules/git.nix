@@ -32,6 +32,7 @@
         dotfile = pkgs.writeText "pass-git-helper-config" ''
           [github.com*]
           target=github.com
+          skip_username=10
 
           [gitlab.science.ru.nl*]
           target=science.ru.nl
