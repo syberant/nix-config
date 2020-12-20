@@ -25,7 +25,8 @@
     };
 
     secrets = {
-      url = "/secrets/nixos-configuration";
+      # Private repository (and encrypted, I'm not that careless)
+      url = "git+https://github.com/syberant/secrets.git";
       flake = false;
     };
   };

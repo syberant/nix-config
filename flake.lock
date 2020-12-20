@@ -237,13 +237,17 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-dXxMYP0H6blWugQFZy0/NA4CAQj3MpLjUZ8Pdk/tkko=",
-        "path": "/secrets/nixos-configuration",
-        "type": "path"
+        "lastModified": 1596560447,
+        "narHash": "sha256-TF/GeegyKiJaDvzxkZ0tkRpMhtAhvVTPyGUnP+8soe4=",
+        "ref": "master",
+        "rev": "8651ca83bfa9ae1dc945305e6af2ae3184b9614a",
+        "revCount": 4,
+        "type": "git",
+        "url": "https://github.com/syberant/secrets.git"
       },
       "original": {
-        "path": "/secrets/nixos-configuration",
-        "type": "path"
+        "type": "git",
+        "url": "https://github.com/syberant/secrets.git"
       }
     },
     "sops-nix": {
