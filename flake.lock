@@ -123,13 +123,18 @@
       }
     },
     "nix-neovim": {
-      "flake": false,
+      "inputs": {
+        "neovim-nightly": "neovim-nightly",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1605208182,
-        "narHash": "sha256-lxwTIv3yk4Rn42vDaWnabIh6mIPf8oADbETOpFNkKo0=",
+        "lastModified": 1608460084,
+        "narHash": "sha256-rOOhHQRvVA6IPhuihXtR7BfubtpEIU5taR0iUc9hpFc=",
         "owner": "syberant",
         "repo": "nix-neovim",
-        "rev": "10b35e0ea21a802b5f7061282f1bd4467deec992",
+        "rev": "951e32a807610e627f2fa40566033f83c9669450",
         "type": "github"
       },
       "original": {
@@ -221,7 +226,6 @@
       "inputs": {
         "NUR": "NUR",
         "home-manager": "home-manager",
-        "neovim-nightly": "neovim-nightly",
         "nix-neovim": "nix-neovim",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",

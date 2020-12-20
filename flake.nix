@@ -16,10 +16,8 @@
 
     nix-neovim = {
       url = "github:syberant/nix-neovim";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    neovim-nightly.url = "github:mjlbach/neovim-nightly-overlay";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -33,7 +31,7 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-git, nixos-hardware, NUR, home-manager
-    , sops-nix, nix-neovim, neovim-nightly, secrets }:
+    , sops-nix, nix-neovim, secrets }:
 
     let
       specialArgs = {
@@ -44,7 +42,6 @@
           config = { allowUnfree = true; };
           overlays = [
             NUR.overlay
-            neovim-nightly.overlay
             (import ./overlays/explicit_configuration)
           ];
         };
