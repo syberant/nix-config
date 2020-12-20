@@ -18,12 +18,20 @@
     ../modules/default.nix
   ];
 
-  # Use experimental flakes
   nix = {
+    # Use experimental flakes
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+
+    # Save space
+    autoOptimiseStore = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
   # Let 'nixos-version --json' know about the Git revision of this flake.
