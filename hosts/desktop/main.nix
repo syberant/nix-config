@@ -3,7 +3,6 @@
 {
   imports = [
     ./freedns.nix
-    ./minecraft.nix
     ./hardware-configuration.nix
     ../../configuration/common.nix
   ];
