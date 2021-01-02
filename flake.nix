@@ -41,10 +41,7 @@
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config = { allowUnfree = true; };
-          overlays = [
-            NUR.overlay
-            (import ./overlays/explicit_configuration)
-          ];
+          overlays = [ NUR.overlay (import ./overlays/explicit_configuration) ];
         };
 
         nixpkgs-git = import nixpkgs-git {
@@ -99,6 +96,18 @@
             nix.registry.nixpkgs.flake = nixpkgs;
           }
         ];
+      };
+
+      apps."x86_64-linux".neovim = let
+        configuration = {
+          imports =
+            [ ./configuration/home-manager/modules/neovim/configuration.nix ];
+
+          output.enableDevConfig = true;
+        };
+      in {
+        type = "app";
+        program = "${nix-neovim.fromConfig configuration}/bin/nvim";
       };
     };
 }
