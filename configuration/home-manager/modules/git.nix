@@ -31,7 +31,7 @@
       credential.helper = let
         dotfile = pkgs.writeText "pass-git-helper-config" ''
           [github.com*]
-          target=github.com
+          target=github-access-token
           skip_username=10
 
           [gitlab.science.ru.nl*]
