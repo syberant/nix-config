@@ -94,6 +94,7 @@
     anki
     unzip
     libreoffice
+    okular # PDF Editor
 
     # Proprietary stuff
     nixpkgs-git.discord
