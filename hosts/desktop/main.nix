@@ -18,6 +18,11 @@
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
+  # Unique ID for zfs
+  networking.hostId = "b590f6d7";
+  # Enable trim for SSD
+  # services.zfs.trim.enable = true;
+
   # Virtualbox
   users.extraGroups.vboxusers.members = [ "sybrand" ];
   virtualisation.virtualbox.host.enable = true;

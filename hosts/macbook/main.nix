@@ -9,6 +9,11 @@
     ../../configuration/common.nix
   ];
 
+  # Unique ID for zfs
+  networking.hostId = "fec9e12c";
+  # Enable trim for SSD
+  services.zfs.trim.enable = true;
+
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
 

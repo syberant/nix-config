@@ -40,6 +40,11 @@
   # Prevent state from accumulating.
   boot.cleanTmpDir = true; # Clean /tmp on boot.
 
+  # Enable zfs support
+  boot.supportedFilesystems = [ "zfs" ];
+  # Scrub zfs pools, defaults to weekly
+  services.zfs.autoScrub.enable = true;
+
   # Enables wireless support via NetworkManager.
   networking.networkmanager.enable = true;
 
