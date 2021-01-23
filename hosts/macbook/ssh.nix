@@ -6,7 +6,7 @@
 
     matchBlocks."nixos-desktop" = {
       user = "sybrand";
-      hostname = "vlindersingel.crabdance.com";
+      hostname = "192.168.178.30";
       identityFile = [ config.sops.secrets.desktop-ssh-key.path ];
       identitiesOnly = true;
     };
