@@ -45,7 +45,7 @@
   # Block distracting websites
   blacklist_ip.distractions = {
     reddit = true;
-    youtube = true;
+    # youtube = true;
   };
 
   systemInfo.wlanInterface = "wlp2s0f0u3";
