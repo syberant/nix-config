@@ -5,7 +5,7 @@ import qualified Data.Map                    as Map
 import           XMonad
 import           XMonad.Actions.CycleWS      (nextWS, prevWS)
 import           XMonad.Actions.DwmPromote
-import           XMonad.Hooks.EwmhDesktops   (ewmh)
+import           XMonad.Hooks.EwmhDesktops   (ewmh, fullscreenEventHook)
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Layout.Fullscreen    (fullscreenSupport)
 import           XMonad.Prompt               as Prompt
@@ -130,7 +130,7 @@ myScratchpads = [ NS
                 ]
 
 myLayoutHook =
-    avoidStruts tall
+    avoidStruts $ tall ||| Full
         where tall = Tall 1 (3/100) (1/2)
 
 myStartupHook = do
@@ -140,7 +140,7 @@ myManageHook =
   namedScratchpadManageHook myScratchpads <> manageDocks
 
 main = do
-    xmonad $ ewmh $ docks $ fullscreenSupport def {
+    xmonad $ ewmh $ docks def {
         borderWidth        = 2,
         terminal           = myTerminal,
         normalBorderColor  = nord3,
@@ -150,5 +150,6 @@ main = do
         keys = myKeys,
         layoutHook = myLayoutHook,
         manageHook = myManageHook,
+        handleEventHook = fullscreenEventHook,
         startupHook = myStartupHook
     }
