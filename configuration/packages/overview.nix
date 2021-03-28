@@ -96,6 +96,9 @@
     libreoffice
     okular # PDF Editor
 
+    # Mathematics and other study-related programs
+    geogebra6
+
     # Proprietary stuff
     nixpkgs-git.discord
   ];
