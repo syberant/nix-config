@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./sloth.nix
     ./freedns.nix
     ./hardware-configuration.nix
     ../../configuration/common.nix
