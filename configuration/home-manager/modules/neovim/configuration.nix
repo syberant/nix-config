@@ -19,6 +19,7 @@
     showkeys = [ "<Space>" ];
   };
   lsp.enable = true;
+  treesitter.enable = true;
 
   base = {
     leader = "\\<space>";
