@@ -78,6 +78,12 @@
           {
             # Pin nixpkgs in registry
             nix.registry.nixpkgs.flake = nixpkgs;
+
+            # Pin NIX_PATH
+            nix.nixPath = [
+              "nixpkgs=${nixpkgs}"
+              "nixos-config=/etc/nixos/configuration.nix"
+            ];
           }
         ];
       };
@@ -94,6 +100,12 @@
           {
             # Pin nixpkgs in registry
             nix.registry.nixpkgs.flake = nixpkgs;
+
+            # Pin NIX_PATH
+            nix.nixPath = [
+              "nixpkgs=${nixpkgs}"
+              "nixos-config=/etc/nixos/configuration.nix"
+            ];
           }
         ];
       };
