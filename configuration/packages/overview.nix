@@ -24,8 +24,6 @@
     zeal
     tokei
     niv
-    # For codecup
-    nur.repos.syberant.caia
 
     # Personal choices
     nnn
