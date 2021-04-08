@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.browserpass.enable = true;
@@ -12,6 +12,21 @@
       ublock-origin
 
       # Zhongwen Chinese Popup Dictionary
+      (buildFirefoxXpiAddon {
+        pname = "zhongwen";
+        version = "5.10.0";
+
+        addonId = "{dedb3663-6f13-4c6c-bf0f-5bd111cb2c79}";
+        url = "https://addons.mozilla.org/firefox/downloads/file/3701579/zhongwen_the_popular_chinese_learning_tool-5.10.0-an+fx.xpi";
+        sha256 = "Rfn0rs/9jhyjYh8mvggyodsK0APdYATZmf5C5lJh6ow=";
+
+        meta = with lib; {
+          homepage = "https://github.com/cschiller/zhongwen";
+          description = "Official Firefox port of the Zhongwen Chrome extension. Chinese-English dictionary and learning tool.";
+          license = licenses.gpl2;
+          platforms = platforms.all;
+        };
+      })
     ];
 
     profiles = let
