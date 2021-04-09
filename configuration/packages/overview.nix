@@ -49,6 +49,7 @@
     # Relaxing
     newsboat
     mpv
+    nur.repos.syberant.ytfzf
 
     # Utilities for UX
     xorg.xrandr
