@@ -1,9 +1,0 @@
-# Pick 1080p format videos
-ytdl-format="(bestvideo[height<=720]+bestaudio)[ext=webm]/bestvideo[height<=720]+bestaudio/best[height<=720]/bestvideo+bestaudio/best"
-
-# Use hardware accelerated video output
-vo="gpu,"
-hwdec=auto
-
-# Launch in fullscreen by default
-fullscreen

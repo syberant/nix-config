@@ -9,6 +9,7 @@
     ./modules/fzf.nix
     ./modules/git.nix
     ./modules/neovim
+    ./modules/mpv.nix
     ./modules/shell.nix
     ./modules/ssh.nix
     ./modules/tmux.nix

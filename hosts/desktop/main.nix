@@ -49,5 +49,11 @@
     # youtube = true;
   };
 
+  # Watch yt on a bigger screen
+  home-manager.users.sybrand.programs.mpv.config = {
+    ytdl-format = "bestvideo[height<=1440]+bestaudio";
+    sub-font-size = 40;
+  };
+
   systemInfo.wlanInterface = "wlp2s0f0u3";
 }
