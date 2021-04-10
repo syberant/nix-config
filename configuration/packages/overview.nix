@@ -29,7 +29,6 @@
     nnn
     lf
     st
-    unison
     yadm
 
     # Rust coreutils

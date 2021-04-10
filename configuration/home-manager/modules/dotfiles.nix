@@ -13,10 +13,5 @@
       recursive = true;
       source = "${linkFiles}/.gnupg";
     };
-
-    ".unison" = {
-      recursive = true;
-      source = "${linkFiles}/.unison";
-    };
   };
 }
