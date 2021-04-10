@@ -3,6 +3,7 @@
 {
   imports = [
     ./sloth.nix
+    ./syncthing.nix
     ./freedns.nix
     ./hardware-configuration.nix
     ../../configuration/common.nix
