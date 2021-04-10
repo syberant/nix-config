@@ -3,6 +3,7 @@
 {
   imports = [
     ./sync.nix
+    ./syncthing.nix
     ./ssh.nix
     nixos-hardware.nixosModules.apple-macbook-air-6
     ./hardware-configuration.nix
