@@ -24,6 +24,8 @@
       "/home/${user}/Literatuur".devices = [ "nixos-macbook" ];
       "/home/${user}/Media/Music".devices = [ "nixos-macbook" ];
       "/home/${user}/.password-store".devices = [ "nixos-macbook" ];
+      "/home/${user}/Notities".devices = [ "nixos-macbook" ];
+      "/home/${user}/Agenda".devices = [ "nixos-macbook" ];
     };
   };
 }

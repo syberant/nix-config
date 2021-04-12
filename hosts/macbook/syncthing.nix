@@ -25,6 +25,8 @@
       "/home/${user}/Literatuur" = {};
       "/home/${user}/Media/Music" = {};
       "/home/${user}/.password-store" = {};
+      "/home/${user}/Notities" = {};
+      "/home/${user}/Agenda" = {};
     };
   };
 }
