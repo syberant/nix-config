@@ -45,10 +45,13 @@
   ];
 
   # Block distracting websites
-  blacklist_ip.distractions = {
-    reddit = true;
-    # youtube = true;
-  };
+  blacklist_ip.distractions.blockedSites = [
+    "reddit.com"
+    # "youtube.com"
+    "nos.nl"
+    "bbc.com"
+    "arstechnica.com"
+  ];
 
   # Watch yt on a bigger screen
   home-manager.users.sybrand.programs.mpv.config = {
