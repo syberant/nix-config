@@ -19,6 +19,7 @@
     # Development prerequisites
     gnumake
     gcc
+    manpages
 
     # Personal development
     zeal
@@ -59,6 +60,7 @@
     entr
     starship
     poppler_utils
+    file
 
     # Hardware debugging utilities
     pciutils
