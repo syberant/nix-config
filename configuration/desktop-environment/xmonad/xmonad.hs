@@ -123,7 +123,7 @@ myScratchpads = [ NS
                     }
                 , NS
                     { NS.name = "todo"
-                    , NS.cmd = "st -n todo -e nvim ~/Notities/todo.md"
+                    , NS.cmd = "st -n todo -e nvim '+au TextChanged * :wa' '+au InsertLeave * :wa' ~/Notities/todo.md"
                     , NS.query = resource =? "todo"
                     , NS.hook = NS.customFloating $ W.RationalRect 0.2 0.1 0.6 0.8
                     }
