@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./brightness.nix
     ./sloth.nix
     ./syncthing.nix
     ./freedns.nix
