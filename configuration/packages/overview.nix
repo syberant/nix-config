@@ -88,6 +88,7 @@
     scrot
 
     # Productivity
+    obsidian
     texlive.combined.scheme-full
     pandoc
     anki
