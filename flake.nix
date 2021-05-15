@@ -16,7 +16,8 @@
 
     nix-neovim = {
       url = "github:syberant/nix-neovim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
+      inputs.nixpkgs.follows = "nixpkgs-git";
     };
 
     sops-nix = {
@@ -110,16 +111,26 @@
         ];
       };
 
-      apps."x86_64-linux".neovim = let
+      apps."x86_64-linux" = let
         configuration = {
           imports =
             [ ./configuration/home-manager/modules/neovim/configuration.nix ];
-
-          output.enableDevConfig = true;
         };
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        bin = nix-neovim.fromConfig configuration;
       in {
-        type = "app";
-        program = "${nix-neovim.fromConfig configuration}/bin/nvim";
+        neovim = {
+          type = "app";
+          program = "${bin}/bin/nvim";
+        };
+
+        neovim-debug = {
+          type = "app";
+          program = "" + pkgs.writeScript "dev-nix-neovim" ''
+            echo 'Opening ${bin.passthru.customRC}'
+            ${bin}/bin/nvim ${bin.passthru.customRC} $@
+          '';
+        };
       };
     };
 }

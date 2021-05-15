@@ -33,6 +33,8 @@
 
   output.plugins = with pkgs.vimPlugins; [ fzf-vim fzfWrapper ];
 
+  output.path = pkgs.stdenv.initialPath;
+
   output.extraConfig = ''
     map <leader>; <Plug>NERDCommenterToggle
 

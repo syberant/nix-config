@@ -10,6 +10,11 @@ in {
   options.lsp = { enable = mkEnableOption "LSP"; };
 
   config = mkIf cfg.enable {
+    # https://discourse.nixos.org/t/rust-src-not-found-and-other-misadventures-of-developing-rust-on-nixos/11570/2
+    output.makeWrapper = "--set RUST_SRC_PATH ${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+
+    output.path = with pkgs; [ cargo rustc rustfmt ];
+
     output.config_file = ''
       set completeopt=menuone,noinsert,noselect
       set shortmess+=c
@@ -17,7 +22,7 @@ in {
       lua <<EOF
 
       -- nvim_lsp object
-      local nvim_lsp = require'nvim_lsp'
+      local nvim_lsp = require'lspconfig'
 
       -- function to attach completion when setting up lsp
       local on_attach = function(client)
@@ -37,8 +42,8 @@ in {
       -- Enable rust_analyzer
       ${optionalString config.languages.rust.enable ''
         nvim_lsp.rust_analyzer.setup({
-          on_attach=on_attach;
-          cmd={ "${pkgs.rust-analyzer}/bin/rust-analyzer" };
+          on_attach = on_attach,
+          cmd = { "${pkgs.rust-analyzer}/bin/rust-analyzer" },
         })
       ''}
 
@@ -75,8 +80,8 @@ in {
 
     output.plugins = with pkgs.vimPlugins; [
       nvim-lspconfig
-      (pkgs.callPackage ./completion-nvim.nix { })
-      (pkgs.callPackage ./lsp_extensions.nix { })
+      lsp_extensions-nvim
+      completion-nvim
     ];
   };
 }
