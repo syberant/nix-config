@@ -1,7 +1,8 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./lsp ./treesitter.nix ./vimtex.nix ];
+  imports =
+    [ ./lsp ./telescope.nix ./treesitter.nix ./vimtex.nix ];
 
   languages = {
     nix.enable = true;
@@ -14,10 +15,6 @@
   nerdcommenter.enable = true;
   gitgutter.enable = true;
   vim-surround.enable = true;
-  vim-which-key = {
-    enable = true;
-    showkeys = [ "<Space>" ];
-  };
   lsp.enable = true;
   treesitter.enable = true;
 
@@ -31,14 +28,13 @@
 
   output.package = pkgs.neovim-nightly;
 
-  output.plugins = with pkgs.vimPlugins; [ fzf-vim fzfWrapper ];
+  # output.plugins = with pkgs.vimPlugins; [];
 
-  output.path = pkgs.stdenv.initialPath;
+  output.pure = true;
+  output.path = with pkgs; stdenv.initialPath ++ [ xclip ];
 
   output.extraConfig = ''
     map <leader>; <Plug>NERDCommenterToggle
-
-    set timeoutlen=300
 
     " wrapping settings
     set wrap lbr
@@ -50,5 +46,10 @@
     " Better escaping? Don't exactly know why this is here.
     tnoremap <Esc> <c-\><c-n>
     inoremap <Esc> <Esc><Esc>
+
+    " TODO: Set clipboard tool with g:clipboard
   '' + builtins.readFile ./keybindings.vim;
+
+  which-key-nvim.enable = true;
+  base.timeoutlen = 400;
 }

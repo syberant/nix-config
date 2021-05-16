@@ -4,6 +4,8 @@
 with lib;
 
 {
+  output.path = with pkgs; [ pkgs.texlive.combined.scheme-full procps zathura ];
+
   output.config_file = ''
     let g:vimtex_quickfix_open_on_warning = 0
     let g:vimtex_compiler_latexmk = {
@@ -32,6 +34,7 @@ with lib;
         \}
 
     let g:tex_flavor = 'latex'
+    let g:vimtex_view_general_viewer = 'zathura'
   '';
 
   output.plugins = with pkgs.vimPlugins; [ vimtex ];

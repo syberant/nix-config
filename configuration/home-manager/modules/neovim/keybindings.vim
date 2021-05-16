@@ -1,7 +1,3 @@
-" TODO: use lazy loading instead so this ugly hack isn't needed
-autocmd VimEnter * call which_key#register('<Space>', "g:which_key_map")
-let g:which_key_map = {}
-
 " Window keybindings
 " Move focus
 nnoremap <silent> <leader>wh <C-w>h
@@ -18,40 +14,14 @@ nnoremap <silent> <leader>wn <C-w>n
 " Close
 nnoremap <silent> <leader>wc <C-w>c
 
-" Which-key
-let g:which_key_map['w'] = {
-    \ 'name' : '+windows' ,
-    \ 'o' : ['<C-W>w'     , 'other-window']          ,
-    \ 'c' : ['<C-W>c'     , 'delete-window']         ,
-    \ 'h' : ['<C-W>h'     , 'window-left']           ,
-    \ 'j' : ['<C-W>j'     , 'window-below']          ,
-    \ 'l' : ['<C-W>l'     , 'window-right']          ,
-    \ 'k' : ['<C-W>k'     , 'window-up']             ,
-    \ '=' : ['<C-W>='     , 'balance-window']        ,
-    \ 's' : ['<C-W>s'     , 'split-window-below']    ,
-    \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
-    \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-    \ 'J' : [':resize +5'  , 'expand-window-below']   ,
-    \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-    \ 'K' : [':resize -5'  , 'expand-window-up']      ,
-    \ }
 
 " Formatting/finding
 nnoremap <silent> <leader>ff :Neoformat<CR>
 nnoremap <silent> <leader>fs :nohlsearch<CR>
-nnoremap <silent> <leader>fo :GFiles<CR>
-nnoremap <silent> <leader>fb :Buffers<CR>
-nnoremap <silent> <leader>f/ :Rg<CR>
+nnoremap <silent> <leader>fo :Telescope find_files<CR>
+nnoremap <silent> <leader>fb :Telescope buffers<CR>
+nnoremap <silent> <leader>f/ :Telescope live_grep<CR>
 
-" Which-key
-let g:which_key_map['f'] = {
-  \ 'name' : '+find/misc' ,
-  \ 'f' : [':Neoformat', 'format-file'],
-  \ 's' : [':nohlsearch', 'hide-search'],
-  \ 'o' : [':GFiles', 'fzf-open-file'],
-  \ 'b' : [':Buffers', 'fzf-buffers'],
-  \ '/' : [':Rg', 'fzf-ripgrep'],
-\ }
 
 " LaTeX
 nnoremap <leader>ll :VimtexCompile<CR>
@@ -59,11 +29,3 @@ nnoremap <leader>lc :VimtexCountWords<CR>
 nnoremap <leader>le :VimtexErrors<CR>
 nnoremap <leader>lv :VimtexView<CR>
 
-" Which-key
-let g:which_key_map['l'] = {
-  \ 'name' : '+LaTeX' ,
-  \ 'l' : [':VimtexCompile', 'vimtex-compile'],
-  \ 'c' : [':VimtexCountWords', 'count-words'],
-  \ 'e' : [':VimtexErrors', 'open-errors'],
-  \ 'v' : [':VimtexView', 'open-pdf'],
-\ }
