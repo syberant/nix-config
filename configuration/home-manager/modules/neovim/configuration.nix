@@ -31,6 +31,7 @@
   # output.plugins = with pkgs.vimPlugins; [];
 
   output.pure = true;
+  output.makeWrapper = "--set LUA_PATH '${./lua}/?.lua;;'";
   output.path = with pkgs; stdenv.initialPath ++ [ xclip ];
 
   output.extraConfig = ''
@@ -47,8 +48,11 @@
     tnoremap <Esc> <c-\><c-n>
     inoremap <Esc> <Esc><Esc>
 
+    " Keybindings
+    :lua require'keybindings'
+
     " TODO: Set clipboard tool with g:clipboard
-  '' + builtins.readFile ./keybindings.vim;
+  '';
 
   which-key-nvim.enable = true;
   base.timeoutlen = 400;
