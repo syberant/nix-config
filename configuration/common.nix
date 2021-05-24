@@ -13,6 +13,7 @@
     ./mpd.nix
     ./mandarin.nix
     ./printing.nix
+    ./redshift.nix
     ./syncthing.nix
     ./secrets
     ./emacs
