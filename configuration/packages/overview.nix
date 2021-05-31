@@ -100,6 +100,6 @@
     geogebra6
 
     # Proprietary stuff
-    nixpkgs-git.discord
+    discord
   ];
 }
