@@ -25,4 +25,8 @@ pkgs.writeText "sxhkd-config" ''
 
   XF86{Sleep,PowerOff}
       ${pkgs.nur.repos.syberant.powermenu} {#,#}
+
+  # Take screenshot
+  {super + ,}Print
+    ${pkgs.scrot}/bin/scrot '%Y-%m-%d_%H:%M_$wx$h.png' {,-s} -e 'mkdir -p ~/Pictures/Screenshots; mv $f ~/Pictures/Screenshots'
 ''
