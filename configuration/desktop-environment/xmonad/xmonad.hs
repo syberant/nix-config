@@ -69,9 +69,9 @@ myKeys conf@XConfig {XMonad.modMask = modm} = Map.fromList $ [
   , ((modm, xK_space), spawn "dmenu_run")
 
   ---- Scratchpads
-  -- Dropdown terminal
   , ((modm, xK_d), namedScratchpadAction myScratchpads "scratchpad")
   , ((modm, xK_i), namedScratchpadAction myScratchpads "todo")
+  , ((modm, xK_e), namedScratchpadAction myScratchpads "astroid")
 
   ---- Prompts
   , ((modm, xK_t), tmuxPrompt myPromptConfig)
@@ -126,6 +126,12 @@ myScratchpads = [ NS
                     , NS.cmd = "st -n todo -e nvim '+au TextChanged * :wa' '+au InsertLeave * :wa' ~/Notities/todo.md"
                     , NS.query = resource =? "todo"
                     , NS.hook = NS.customFloating $ W.RationalRect 0.2 0.1 0.6 0.8
+                    }
+                , NS
+                    { NS.name = "astroid"
+                    , NS.cmd = "astroid"
+                    , NS.query = className =? ".astroid-wrapped"
+                    , NS.hook = NS.customFloating $ W.RationalRect 0.1 0.1 0.8 0.80
                     }
                 ]
 
