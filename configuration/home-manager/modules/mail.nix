@@ -29,7 +29,21 @@ in {
     gmail = gmailBase "sybrandaarnoutse@gmail.com";
     spam = gmailBase "sybrand.s.y.b@gmail.com" // { realName = "Sybrand"; };
 
-    radboud = emailBase "sybrandaarnoutse@science.ru.nl" // {
+    # https://wiki.icis-intra.cs.ru.nl/Email#Local_Email_client_using_IMAP.2FSMTP
+    # radboud = emailBase "sybrand.aarnoutse@student.ru.nl" // {
+      # # userName = "ru\\u1064134";
+      # userName = "s1064134";
+      # passwordCommand = "pass show mail.ru.nl";
+
+      # imap.host = "mail.ru.nl";
+      # smtp = {
+        # host = "smtp-auth.ru.nl";
+        # port = 587;
+        # tls.useStartTls = true;
+      # };
+    # };
+
+    science = emailBase "sybrandaarnoutse@science.ru.nl" // {
       userName = "sybrandaarnoutse";
       passwordCommand = "pass show radboud/science-account";
 
@@ -76,10 +90,7 @@ in {
       export NOTMUCH_CONFIG=/home/sybrand/.config/notmuch/notmuchrc
 
       mbsync -a
-
-      if ! (notmuch new | grep "No new mail."); then
-        # Stuff on new mail
-      fi
+      notmuch new
     '';
 
     # https://github.com/astroidmail/astroid/wiki/Configuration-Reference
@@ -102,14 +113,15 @@ in {
       # editor.markdown_processor = "pandoc --something";
       mail.close_on_success = true;
 
-      startup.queries = let acc = config.accounts.email.accounts; in {
+      startup.queries = {
         # ALL = "";
         UNREAD = "tag:unread and not tag:deleted and not tag:muted";
         TODO = "tag:TODO";
-        " neuralcoding" = "to:${acc.neuralcoding.address}";
-        " gmail" = "to:${acc.gmail.address}";
-        " spam" = "to:${acc.spam.address}";
-        " radboud" = "to:${acc.radboud.address}";
+        " neuralcoding" = "path:neuralcoding/**";
+        " gmail" = "path:gmail/**";
+        " spam" = "path:spam/**";
+        # " radboud" = "path:radboud/**";
+        " science" = "path:science/**";
       };
     };
   };
