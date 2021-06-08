@@ -23,6 +23,13 @@
       }
     ];
 
+    # Set TERM correctly
+    terminal = "screen-256color";
+
+    # Remove delay when pressing Esc
+    # http://superuser.com/a/252717/65504
+    escapeTime = 0;
+
     # Keybindings
     keyMode = "vi";
     shortcut = "a";
@@ -37,10 +44,6 @@
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi y send-keys -X copy-selection
       bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
-
-      # Remove delay when pressing Esc
-      # http://superuser.com/a/252717/65504
-      set -sg escape-time 0
     '';
   };
 }
