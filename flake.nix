@@ -3,6 +3,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.09";
     nixpkgs-git.url = "github:NixOS/nixpkgs/master";
 
+    flake-utils.url = "github:numtide/flake-utils";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     NUR = {
       url = "github:nix-community/NUR";
@@ -32,105 +34,87 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-git, nixos-hardware, NUR, home-manager
-    , sops-nix, nix-neovim, secrets }:
+  outputs = { self, flake-utils, nixpkgs, nixpkgs-git, nixos-hardware, NUR
+    , home-manager, sops-nix, nix-neovim, secrets }:
 
-    let
-      specialArgs = {
-        inherit self nixos-hardware nix-neovim secrets;
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        specialArgs = {
+          inherit self nixos-hardware nix-neovim secrets;
 
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config = { allowUnfree = true; };
-          overlays = [ NUR.overlay (import ./overlays/explicit_configuration) ];
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            overlays =
+              [ NUR.overlay (import ./overlays/explicit_configuration) ];
+          };
+
+          nixpkgs-git = import nixpkgs-git {
+            inherit system;
+            config.allowUnfree = true;
+          };
         };
-
-        nixpkgs-git = import nixpkgs-git {
-          system = "x86_64-linux";
-          config = { allowUnfree = true; };
+        # https://github.com/cideM/dotfiles/blob/master/flake.nix
+        hm-nixos-as-super = { config, ... }: {
+          # Submodules have merge semantics, making it possible to amend
+          # the `home-manager.users` submodule for additional functionality.
+          options.home-manager.users = let lib = specialArgs.pkgs.lib;
+          in lib.mkOption {
+            type = lib.types.attrsOf (lib.types.submoduleWith {
+              modules = [ ];
+              # Makes specialArgs available to Home Manager modules as well.
+              specialArgs = specialArgs // {
+                # Allow accessing the parent NixOS configuration.
+                super = config;
+              };
+            });
+          };
         };
-      };
-      # https://github.com/cideM/dotfiles/blob/master/flake.nix
-      hm-nixos-as-super = { config, ... }: {
-        # Submodules have merge semantics, making it possible to amend
-        # the `home-manager.users` submodule for additional functionality.
-        options.home-manager.users = let lib = specialArgs.pkgs.lib;
-        in lib.mkOption {
-          type = lib.types.attrsOf (lib.types.submoduleWith {
-            modules = [ ];
-            # Makes specialArgs available to Home Manager modules as well.
-            specialArgs = specialArgs // {
-              # Allow accessing the parent NixOS configuration.
-              super = config;
-            };
-          });
+        sharedModule = {
+          imports = [
+            sops-nix.nixosModules.sops
+            home-manager.nixosModules.home-manager
+            hm-nixos-as-super
+          ];
+
+          # Pin nixpkgs in registry
+          nix.registry.nixpkgs.flake = nixpkgs;
+
+          # Pin NIX_PATH
+          nix.nixPath = [
+            "nixpkgs=${nixpkgs}"
+            "nixos-config=/etc/nixos/configuration.nix"
+          ];
         };
-      };
-    in {
-      nixosConfigurations.nixos-macbook = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        inherit specialArgs;
-
-        modules = [
-          ./hosts/macbook/main.nix
-          sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
-          hm-nixos-as-super
-          {
-            # Pin nixpkgs in registry
-            nix.registry.nixpkgs.flake = nixpkgs;
-
-            # Pin NIX_PATH
-            nix.nixPath = [
-              "nixpkgs=${nixpkgs}"
-              "nixos-config=/etc/nixos/configuration.nix"
-            ];
-          }
-        ];
-      };
-
-      nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        inherit specialArgs;
-
-        modules = [
-          ./hosts/desktop/main.nix
-          sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
-          hm-nixos-as-super
-          {
-            # Pin nixpkgs in registry
-            nix.registry.nixpkgs.flake = nixpkgs;
-
-            # Pin NIX_PATH
-            nix.nixPath = [
-              "nixpkgs=${nixpkgs}"
-              "nixos-config=/etc/nixos/configuration.nix"
-            ];
-          }
-        ];
-      };
-
-      apps."x86_64-linux" = let
-        configuration = {
-          imports =
-            [ ./configuration/home-manager/modules/neovim/configuration.nix ];
-        };
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
-        bin = nix-neovim.fromConfig configuration;
       in {
-        neovim = {
-          type = "app";
-          program = "${bin}/bin/nvim";
+        nixosConfigurations.nixos-macbook = nixpkgs.lib.nixosSystem {
+          inherit specialArgs system;
+
+          modules = [ ./hosts/macbook/main.nix sharedModule ];
         };
 
-        neovim-debug = {
-          type = "app";
-          program = "" + pkgs.writeScript "dev-nix-neovim" ''
-            echo 'Opening ${bin.passthru.customRC}'
-            ${bin}/bin/nvim ${bin.passthru.customRC} $@
-          '';
+        nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
+          inherit specialArgs system;
+
+          modules = [ ./hosts/desktop/main.nix sharedModule ];
         };
-      };
-    };
+
+        apps = let
+          configuration = {
+            imports =
+              [ ./configuration/home-manager/modules/neovim/configuration.nix ];
+          };
+          bin = nix-neovim.fromConfig configuration;
+          mkApp = flake-utils.lib.mkApp;
+        in {
+          neovim = mkApp { drv = bin; };
+
+          neovim-debug = mkApp {
+            drv = specialArgs.pkgs.writeScriptBin "neovim-debug" ''
+              echo 'Opening ${bin.passthru.customRC}'
+              ${bin}/bin/nvim ${bin.passthru.customRC} $@
+            '';
+          };
+        };
+      });
 }

@@ -33,6 +33,21 @@
     },
     "flake-utils": {
       "locked": {
+        "lastModified": 1622445595,
+        "narHash": "sha256-m+JRe6Wc5OZ/mKw2bB3+Tl0ZbtyxxxfnAWln8Q5qs+Y=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "7d706970d94bc5559077eb1a6600afddcd25a7c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "locked": {
         "lastModified": 1618217525,
         "narHash": "sha256-WGrhVczjXTiswQaoxQ+0PTfbLNeOQM6M36zvLn78AYg=",
         "owner": "numtide",
@@ -86,7 +101,7 @@
     "neovim-nightly": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "gitignore": "gitignore",
         "neovim-nightly": "neovim-nightly_2",
         "nixpkgs": "nixpkgs",
@@ -226,6 +241,7 @@
     "root": {
       "inputs": {
         "NUR": "NUR",
+        "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nix-neovim": "nix-neovim",
         "nixos-hardware": "nixos-hardware",
