@@ -295,13 +295,17 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-7/EzGq5n4wiCYTX85NNU6GRwt/NGZ1I3Nz7+Kd6h708=",
-        "path": "/home/sybrand/Documents/Programmeren/Nix/xmonad",
-        "type": "path"
+        "lastModified": 1623365104,
+        "narHash": "sha256-rSDR3qlJmPrsZagpzWW+NQEpi8MFVq/iKAi4e/U2OZM=",
+        "owner": "syberant",
+        "repo": "xmonad-sybrand",
+        "rev": "21bccf69d87760e8442097a4efd4451fcc823327",
+        "type": "github"
       },
       "original": {
-        "path": "/home/sybrand/Documents/Programmeren/Nix/xmonad",
-        "type": "path"
+        "owner": "syberant",
+        "repo": "xmonad-sybrand",
+        "type": "github"
       }
     }
   },
