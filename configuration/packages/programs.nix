@@ -6,7 +6,5 @@
       enable = true;
       enableSSHSupport = true;
     };
-
-    geary.enable = true;
   };
 }
