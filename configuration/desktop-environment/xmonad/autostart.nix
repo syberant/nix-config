@@ -15,6 +15,6 @@ let
       import (confdir + "/generators/sxhkdrc.nix") { inherit pkgs; }
     } &
     ${pkgs.dunst}/bin/dunst -config ${confdir + "/dotfiles/dunst/config"} &
-    ~/.fehbg
+    ~/.fehbg || feh --bg-fill ${./background.jpg}
   '';
 in { environment.systemPackages = with pkgs; [ autostart feh ]; }
