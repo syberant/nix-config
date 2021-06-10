@@ -1,13 +1,15 @@
 { pkgs, config, ... }:
 
 {
-  imports = [ ./autostart.nix ../common.nix ];
-
-  services.xserver.windowManager.xmonad-sybrand = {
+  services.xserver = {
     enable = true;
+    sybrand-desktop-environment = {
+      enable = true;
+      impureConfig = true;
+    };
+    displayManager.defaultSession = "none+xmonad";
   };
 
-  environment.systemPackages = with pkgs; [
-    (pkgs.callPackage ../scripts/fzfmenu.nix { })
-  ];
+  environment.systemPackages = with pkgs;
+    [ (pkgs.callPackage ../scripts/fzfmenu.nix { }) ];
 }

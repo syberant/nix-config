@@ -295,7 +295,7 @@
         ]
       },
       "locked": {
-        "narHash": "sha256-sOTOcxIiHgCXxg7lu5mMv0WsmXXMd7FLlxvDGDRQc2w=",
+        "narHash": "sha256-VsTtOHohkMdOB1soI6OcldlyOYneKpuaZwVKi2v9pIg=",
         "path": "/home/sybrand/Documents/Programmeren/Nix/xmonad",
         "type": "path"
       },
