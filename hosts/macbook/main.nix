@@ -6,7 +6,6 @@
     ./ssh.nix
     nixos-hardware.nixosModules.apple-macbook-air-6
     ./hardware-configuration.nix
-    ../../configuration/common.nix
   ];
 
   # Unique ID for zfs

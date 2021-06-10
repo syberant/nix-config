@@ -54,7 +54,11 @@
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          overlays = [ xmonad-sybrand.overlay NUR.overlay (import ./overlays/explicit_configuration) ];
+          overlays = [
+            xmonad-sybrand.overlay
+            NUR.overlay
+            (import ./overlays/explicit_configuration)
+          ];
         };
 
         nixpkgs-git = import nixpkgs-git {
@@ -84,6 +88,7 @@
           home-manager.nixosModules.home-manager
           hm-nixos-as-super
           xmonad-sybrand.nixosModule
+          ./configuration/common.nix
         ];
 
         # Pin nixpkgs in registry
@@ -104,6 +109,12 @@
         inherit specialArgs system;
 
         modules = [ ./hosts/desktop/main.nix sharedModule ];
+      };
+
+      nixosConfigurations.test-vm = nixpkgs.lib.nixosSystem {
+        inherit specialArgs system;
+
+        modules = [ sharedModule { networking.hostId = "e0aa3905"; } ];
       };
     } // flake-utils.lib.eachDefaultSystem (system: {
       apps = let

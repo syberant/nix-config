@@ -1,0 +1,18 @@
+#!/bin/sh
+
+RUN=true
+
+case $1 in
+    build) RUN=;;
+esac
+
+rm -I ./*.qcow2
+
+# TODO: set msize somehow
+# https://wiki.qemu.org/Documentation/9psetup#msize
+
+sudo nixos-rebuild --flake .#test-vm build-vm \
+&& if [ -n "$RUN" ]
+then
+    ./result/bin/run-*-vm
+fi

@@ -7,7 +7,6 @@
     ./syncthing.nix
     ./freedns.nix
     ./hardware-configuration.nix
-    ../../configuration/common.nix
   ];
   # Use the GRUB 2 boot loader.
   #boot.loader.grub.enable = true;
