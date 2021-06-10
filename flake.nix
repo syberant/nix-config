@@ -3,8 +3,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.09";
     nixpkgs-git.url = "github:NixOS/nixpkgs/master";
 
+    # Flake utilities
     flake-utils.url = "github:numtide/flake-utils";
 
+    # (Semi-)official auxiliary repositories
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     NUR = {
       url = "github:nix-community/NUR";
@@ -16,17 +18,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Own flakes
+    xmonad-sybrand = {
+      # url = "github:syberant/xmonad-sybrand";
+      url = "/home/sybrand/Documents/Programmeren/Nix/xmonad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-neovim = {
       url = "github:syberant/nix-neovim";
       # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
       inputs.nixpkgs.follows = "nixpkgs-git";
     };
 
+    # Secrets
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     secrets = {
       # Private repository (and encrypted, I'm not that careless)
       url = "git+https://github.com/syberant/secrets.git";
@@ -35,7 +43,7 @@
   };
 
   outputs = { self, flake-utils, nixpkgs, nixpkgs-git, nixos-hardware, NUR
-    , home-manager, sops-nix, nix-neovim, secrets }:
+    , home-manager, sops-nix, xmonad-sybrand, nix-neovim, secrets }:
 
     let
       # TODO: utilise flake-utils for this
@@ -46,7 +54,7 @@
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          overlays = [ NUR.overlay (import ./overlays/explicit_configuration) ];
+          overlays = [ xmonad-sybrand.overlay NUR.overlay (import ./overlays/explicit_configuration) ];
         };
 
         nixpkgs-git = import nixpkgs-git {
@@ -75,6 +83,7 @@
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           hm-nixos-as-super
+          xmonad-sybrand.nixosModule
         ];
 
         # Pin nixpkgs in registry

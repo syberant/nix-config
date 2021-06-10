@@ -3,14 +3,11 @@
 {
   imports = [ ./autostart.nix ../common.nix ];
 
-  services.xserver.windowManager.xmonad = {
+  services.xserver.windowManager.xmonad-sybrand = {
     enable = true;
-    enableContribAndExtras = true;
   };
 
   environment.systemPackages = with pkgs; [
-    libnotify
     (pkgs.callPackage ../scripts/fzfmenu.nix { })
-    dmenu feh rxvt_unicode 
   ];
 }
