@@ -5,17 +5,12 @@
 { self, pkgs, config, lib, ... }:
 
 {
-  imports = [
+  imports = with lib; with builtins; let
+    hasDefault = d: hasAttr "default.nix" (readDir (./. + "/${d}"));
+    isImportable = name: kind: if kind == "directory" then hasDefault name else hasSuffix ".nix" name && name != "common.nix";
+    files = attrNames (filterAttrs isImportable (readDir ./.));
+  in map (f: ./. + "/${f}") files ++ [
     ../toml
-    ./desktop-environment/xmonad
-    ./home-manager
-    ./mpd.nix
-    ./mandarin.nix
-    ./printing.nix
-    ./redshift.nix
-    ./syncthing.nix
-    ./secrets
-    ./emacs
     ../modules/default.nix
   ];
 

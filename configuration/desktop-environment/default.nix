@@ -11,5 +11,5 @@
   };
 
   environment.systemPackages = with pkgs;
-    [ (pkgs.callPackage ../scripts/fzfmenu.nix { }) ];
+    [ (pkgs.callPackage ./scripts/fzfmenu.nix { }) ];
 }

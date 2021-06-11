@@ -1,20 +1,10 @@
-{ ... }:
+{ lib, ... }:
 
 {
-  imports = [
-    ./modules/dotfiles.nix
-
-    ./modules/bash.nix
-    ./modules/firefox.nix
-    ./modules/fzf.nix
-    ./modules/git.nix
-    ./modules/neovim
-    ./modules/mail.nix
-    ./modules/mpv.nix
-    ./modules/shell.nix
-    ./modules/ssh.nix
-    ./modules/tmux.nix
-    ./modules/xdg.nix
-    ./modules/z.nix
-  ];
+  imports = with lib; with builtins; let
+    dir = ./modules;
+    hasDefault = d: hasAttr "default.nix" (readDir (dir + "/${d}"));
+    isImportable = name: kind: if kind == "directory" then hasDefault name else hasSuffix ".nix" name;
+    files = attrNames (filterAttrs isImportable (readDir dir));
+  in map (f: dir + "/${f}") files;
 }
