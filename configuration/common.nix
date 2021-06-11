@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./packages/overview.nix
+    ./toml
     # ./desktop-environment/i3
     ./desktop-environment/xmonad
     ./home-manager

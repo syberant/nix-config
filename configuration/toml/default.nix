@@ -8,6 +8,8 @@ let
   fromList = { file, packages }:
     map (getPkg packages) (fromTOML (readFile file)).packages;
 in {
+  imports = [ ./config.nix ];
+
   environment.systemPackages = flatten (map fromList [
     {
       file = ./stable.toml;
@@ -22,12 +24,4 @@ in {
       packages = pkgs.nur;
     }
   ]);
-
-  # Configuration for certain programs via NixOS modules
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-  };
 }
