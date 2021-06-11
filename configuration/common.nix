@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./toml
+    ../toml
     ./desktop-environment/xmonad
     ./home-manager
     ./mpd.nix
