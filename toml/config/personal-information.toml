@@ -1,0 +1,7 @@
+# Set your time zone.
+time.timeZone = "Europe/Amsterdam"
+
+# My approximate location, used by redshift
+[location]
+latitude = 52.083333
+longitude = 5.116667

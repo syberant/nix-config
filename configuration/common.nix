@@ -33,41 +33,6 @@
   # Let 'nixos-version --json' know about the Git revision of this flake.
   system.configurationRevision = pkgs.lib.mkIf (self ? rev) self.rev;
 
-  # Prevent state from accumulating.
-  boot.cleanTmpDir = true; # Clean /tmp on boot.
-
-  # Enable zfs support
-  boot.supportedFilesystems = [ "zfs" ];
-  # Scrub zfs pools, defaults to weekly
-  services.zfs.autoScrub.enable = true;
-
-  # Enables wireless support via NetworkManager.
-  networking.networkmanager.enable = true;
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  #networking.interfaces.wlp3s0.useDHCP = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Amsterdam";
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Make computer discoverable through avahi
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    publish.enable = true;
-    publish.addresses = true;
-  };
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
   # Fonts
   fonts = {
     fonts = with pkgs; [ source-code-pro font-awesome_5 font-awesome_4 ];
@@ -79,28 +44,11 @@
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
-  # Set xmonad as default DE
-  services.xserver.displayManager.defaultSession = "none+xmonad";
-
   # Disable shutdown on power key
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
     HandleSuspendKey=ignore
   '';
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.sybrand = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel" # Enable ‘sudo’ for the user.
-      "networkmanager"
-      "audio"
-      "video"
-    ];
-    # Temporary password, should be changed later on
-    initialHashedPassword =
-      "$6$2u98e8ah8KrK2m6Q$SDyp6asDzhuIXAZgiNXYjM9lpFsuB5jRfss.6HxpErbMW7AFU76ufd.xULHHkiBqqv0../zsrm.R4DauUk/u6.";
-  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
