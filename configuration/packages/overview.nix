@@ -1,105 +1,33 @@
-{ config, pkgs, nixpkgs-git, ... }:
+{ lib, pkgs, nixpkgs-git, ... }:
 
-{
-  imports = [ ./programs.nix ];
+with lib;
 
-  environment.systemPackages = with pkgs; [
-    # Some defaults
-    curl
-    wget
-    vim
-    git
-    tree
-    tmux
+let
+  recurse = p: list: let h = p.${head list}; t = tail list; in if (t == [ ]) then h else recurse h t;
+  getPkg = packages: string: recurse packages (splitString "." string);
+  fromList = { file, packages }:
+    map (getPkg packages) (fromTOML (readFile file)).packages;
+in {
+  environment.systemPackages = flatten (map fromList [
+    {
+      file = ./stable.toml;
+      packages = pkgs;
+    }
+    {
+      file = ./unstable.toml;
+      packages = nixpkgs-git;
+    }
+    {
+      file = ./nur.toml;
+      packages = pkgs.nur;
+    }
+  ]);
 
-    # Security
-    gnupg
-    pass
-
-    # Development prerequisites
-    gnumake
-    gcc
-    manpages
-
-    # Personal development
-    zeal
-    tokei
-    niv
-
-    # Personal choices
-    nnn
-    lf
-    st
-    yadm
-
-    # Rust coreutils
-    lsd
-    bat
-    ripgrep
-    fd
-    du-dust
-
-    # Fluff
-    neofetch
-    cmatrix
-    xdotool
-    htop
-    ytop
-
-    # Relaxing
-    newsboat
-    nur.repos.syberant.ytfzf
-
-    # Utilities for UX
-    xorg.xrandr
-    redshift
-
-    # Utilities for CLI UX
-    fzf
-    tig
-    entr
-    starship
-    poppler_utils
-    file
-
-    # Hardware debugging utilities
-    pciutils
-    usbutils
-
-    # Software debugging
-    xorg.xev
-
-    # Programming languages
-    python3
-    cargo
-    octave
-    #swift # Doesn't work on latest unstable
-
-    # Formatters
-    nixfmt
-    rustfmt
-
-    # Graphical defaults
-    zathura
-    signal-desktop
-    sxiv
-    chromium
-    thunderbird
-    scrot
-
-    # Productivity
-    obsidian
-    texlive.combined.scheme-full
-    pandoc
-    anki
-    unzip
-    libreoffice
-    okular # PDF Editor
-
-    # Mathematics and other study-related programs
-    geogebra6
-
-    # Proprietary stuff
-    discord
-  ];
+  # Configuration for certain programs via NixOS modules
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
 }

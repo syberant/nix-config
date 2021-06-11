@@ -1,0 +1,96 @@
+packages = [
+    # Some defaults
+    "curl",
+    "wget",
+    "vim",
+    "git",
+    "tree",
+    "tmux",
+
+    # Security
+    "gnupg",
+    "pass",
+
+    # Development prerequisites
+    "gnumake",
+    "gcc",
+    "manpages",
+
+    # Personal development
+    "zeal",
+    "tokei",
+    "niv",
+
+    # Personal choices
+    "nnn",
+    "lf",
+    "st",
+    "yadm",
+
+    # Rust coreutils
+    "lsd",
+    "bat",
+    "ripgrep",
+    "fd",
+    "du-dust",
+
+    # Fluff
+    "neofetch",
+    "cmatrix",
+    "xdotool",
+    "htop",
+    "ytop",
+
+    # Relaxing
+    "newsboat",
+
+    # Utilities for UX
+    "xorg.xrandr",
+    "redshift",
+
+    # Utilities for CLI UX
+    "fzf",
+    "tig",
+    "entr",
+    "starship",
+    "poppler_utils",
+    "file",
+
+    # Hardware debugging utilities
+    "pciutils",
+    "usbutils",
+
+    # Software debugging
+    "xorg.xev",
+
+    # Programming languages
+    "python3",
+    "cargo",
+    "octave",
+
+    # Formatters
+    "nixfmt",
+    "rustfmt",
+
+    # Graphical defaults
+    "zathura",
+    "signal-desktop",
+    "sxiv",
+    "chromium",
+    "thunderbird",
+    "scrot",
+
+    # Productivity
+    "obsidian",
+    "texlive.combined.scheme-full",
+    "pandoc",
+    "anki",
+    "unzip",
+    "libreoffice",
+
+    # Mathematics and other study-related program
+    "geogebra6",
+
+    # Proprietary stuff,
+    "discord",
+]
