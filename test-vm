@@ -15,4 +15,5 @@ sudo nixos-rebuild --flake .#test-vm build-vm \
 && if [ -n "$RUN" ]
 then
     ./result/bin/run-*-vm
+    rm -I ./*.qcow2
 fi
