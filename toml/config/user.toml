@@ -9,3 +9,7 @@ extraGroups = [
 ]
 # Temporary password, should be changed later on.
 initialHashedPassword = "$6$2u98e8ah8KrK2m6Q$SDyp6asDzhuIXAZgiNXYjM9lpFsuB5jRfss.6HxpErbMW7AFU76ufd.xULHHkiBqqv0../zsrm.R4DauUk/u6."
+
+# Jotted down idea:
+# `users.mainUser` should be a NixOS option along with `users.mainUserName`
+# Then `users.${config.users.mainUserName} = config.users.mainUser`.
