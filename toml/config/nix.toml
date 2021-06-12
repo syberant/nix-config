@@ -1,0 +1,14 @@
+[nix]
+# Use experimental flakes
+package = "nixFlakes"
+extraOptions = """
+  experimental-features = nix-command flakes
+"""
+
+# Save space
+autoOptimiseStore = true
+
+[nix.gc]
+automatic = true
+dates = "monthly"
+options = "--delete-older-than 30d"

@@ -14,31 +14,8 @@
     ../modules/default.nix
   ];
 
-  nix = {
-    # Use experimental flakes
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-
-    # Save space
-    autoOptimiseStore = true;
-    gc = {
-      automatic = true;
-      dates = "monthly";
-      options = "--delete-older-than 30d";
-    };
-  };
-
   # Let 'nixos-version --json' know about the Git revision of this flake.
   system.configurationRevision = pkgs.lib.mkIf (self ? rev) self.rev;
-
-  # Fonts
-  fonts = {
-    fonts = with pkgs; [ source-code-pro font-awesome_5 font-awesome_4 ];
-
-    fontconfig = { defaultFonts.monospace = [ "Source Code Pro" ]; };
-  };
 
   # hardware.opengl.driSupport32Bit = true;
   # services.xserver.layout = "us";
