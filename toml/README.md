@@ -22,15 +22,28 @@ It also gives me some peace of mind as I can worry less about these modules beca
 
 ## Pkgs
 Unfortunately any usage of a derivation depends on the Nix language doing its magic.
-The biggest use for this is `environment.systemPackages`, as a short term solution I import the `packages` attribute of `toml/stable.toml` (there's also `unstable.toml` and `nur.toml`) which defines a list of packages that will be installed.
-The following example is equivalent to `environment.systemPackages = with pkgs; [ vim emacs nano ];`:
+The biggest use for this is `environment.systemPackages`, as a short term solution I import the `packages` attribute of `toml/stable.toml` (there's also `unstable.toml` and `nur.toml`) which defines a list of packages that will be installed:
 ```toml
 # stable.toml
+
+# Equivalent to: environment.systemPackages = with pkgs; [ vim emacs nano ];
 packages = [ "vim", "emacs", "nano" ]
 ```
 
-It might be possible to dig through the sets the TOML files return and automagically use `pkgs` whenever the `type` of a NixOS option is `derivation` or `listOf derivation`.
-This would allow for a lot more stuff to be able to be done inside TOML files.
+<!-- It might be possible to dig through the sets the TOML files return and automagically use `pkgs` whenever the `type` of a NixOS option is `package` or `listOf package`. -->
+<!-- This would allow for a lot more stuff to be able to be done inside TOML files. -->
+
+I am also experimenting with automatically mapping a list or singular string to an attribute of `pkgs` whenever the `type` of the NixOS option is `package` or `listOf package`.
+This is currently working (though not very pretty) and I'm very curious to see how well and what kind of problems pop up.
+It allows you to do stuff like this:
+```toml
+# Equivalent to: fonts.fonts = with pkgs; [ source-code-pro ];
+fonts.fonts = [ "source-code-pro" ]
+
+# Equivalent to: nix.package = pkgs.nixFlakes;
+[nix]
+package = "nixFlakes"
+```
 
 ## Other config formats
 Basically all that's needed here is a function that converts a file into a Nix set.
