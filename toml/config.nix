@@ -4,47 +4,62 @@ with lib;
 with builtins;
 
 let
-  getNestedAttr = p: list:
-    if !(hasAttr (head list) p) then
-      null
-    else
-      let
-        h = p.${head list};
-        t = tail list;
-      in if (t == [ ]) then h else getNestedAttr h t;
-  ofPkgs = p: getNestedAttr pkgs (splitString "." p);
+  # getNestedAttr :: Attr -> [ String ] -> Option<Any>
+  getNestedAttr = foldl' (state: arg: state.${arg} or null);
+  # ofPkgs :: String -> package
+  ofPkgs = p:
+    let package = getNestedAttr pkgs (splitString "." p);
+    in if package == null then throw "Could not unpack `pkgs.${p}` declared in a TOML file, pkgs doesn't have that attribute." else package;
 
+  # Does special processing so strings can be used to configure options requiring packages.
   mapTypeLeaf = { value, opts }:
-    if opts.type == types.package then
+    let
+      type = opts.type or null;
+      description = type.description or null;
+    in if type == types.package then
     # value :: package
       ofPkgs value
-    else if opts.type.description == "list of packages" then
-    # TODO: proper typechecking, Nix's equality doesn't work here
+    else if description == "list of packages" then
+    # TODO: proper typechecking, Nix's equality operator doesn't work here
     # value :: [ package ]
       map ofPkgs value
-    else if opts.type.description == "list of paths" then
-    # TODO: proper typechecking, Nix's equality doesn't work here
+    else if description == "list of paths" then
+    # TODO: proper typechecking, Nix's equality operator doesn't work here
     # value :: [ path ]
     # Used by some (e.g. fonts.fonts) instead of `listOf packages`
       map ofPkgs value
     else
     # Some other type, no need to use pkgs here.
       value;
-  mapValue = { value, opts }@attrs:
-    if opts ? type then mapTypeLeaf attrs else value;
   mapTOMLConfig = set:
     let
       rec_map = name_path: value:
-        mapValue {
+        mapTypeLeaf {
           inherit value;
           opts = getNestedAttr options name_path;
         };
     in mapAttrsRecursive rec_map set;
 
-  fromFile = file: mapTOMLConfig (fromTOML (readFile (./config + "/${file}")));
+  fromFile = file:
+    let
+      path = ./config + "/${file}";
+      rawSet = fromTOML (readFile path);
+      set = addErrorContext
+        "while parsing TOML file '${path}' (try fixing your syntax):" rawSet;
+      mapped = mapTOMLConfig set;
+      config =
+        addErrorContext "while doing special processing on TOML file '${path}':"
+        mapped;
+    in { ... }: {
+      inherit config;
+
+      # Set the file that generates this module, useful for debugging.
+      # `nixos-rebuild` uses this to tell you where an error occurred like so:
+      # … while evaluating definitions from `/nix/store/1wgf129l46kvrcnac6bsfazjf08df54f-fonts.toml':
+      _file = path;
+    };
   files = attrNames (readDir ./config);
 in {
-  # TODO: Output generated configuration for transparency
-  # TODO: Add context for better error messages
-  config = mkMerge (map fromFile files);
+  # TODO: Output generated configuration somewhere for transparency
+  imports = map fromFile files;
 }
