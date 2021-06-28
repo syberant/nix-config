@@ -46,7 +46,6 @@ packages = [
 
     # Utilities for UX
     "xorg.xrandr",
-    "redshift",
 
     # Utilities for CLI UX
     "fzf",

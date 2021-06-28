@@ -6,6 +6,7 @@
     sybrand-desktop-environment = {
       enable = true;
       impureConfig = true;
+      polybar.enablePomo = true;
     };
     displayManager.defaultSession = "none+xmonad";
   };

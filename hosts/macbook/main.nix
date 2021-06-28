@@ -77,8 +77,8 @@
     "96 = XF86AudioRaiseVolume F12"
   ];
 
-  systemInfo = {
+  services.xserver.sybrand-desktop-environment.polybar = {
     wlanInterface = "wlp3s0";
-    hasBattery = true;
+    config."bar/example".modules-right = mkOrder 50 [ "battery" ];
   };
 }

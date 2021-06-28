@@ -58,6 +58,4 @@
     ytdl-format = "bestvideo[height<=1440]+bestaudio";
     sub-font-size = 40;
   };
-
-  systemInfo.wlanInterface = "wlp2s0f0u3";
 }
