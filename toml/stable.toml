@@ -39,7 +39,6 @@ packages = [
     "cmatrix",
     "xdotool",
     "htop",
-    "ytop",
 
     # Relaxing
     "newsboat",
