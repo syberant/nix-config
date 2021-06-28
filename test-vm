@@ -1,19 +1,50 @@
 #!/bin/sh
 
 RUN=true
+ARGS=""
 
-case $1 in
-    build) RUN=;;
-esac
-
-rm -I ./*.qcow2
+while (( "$#" )); do
+    case "$1" in
+    -b|--build)
+        RUN=false
+        shift
+        ;;
+    -t|--trace)
+        ARGS="$ARGS --show-trace"
+        shift
+        ;;
+    -u|--update) # Update dependencies
+        if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+            nix flake lock --update-input $2
+            shift 2
+        else
+            echo "Error: Argument for $1 is missing" >&2
+            exit 1
+        fi
+        ;;
+    --) # Forward all further arguments to nixos-rebuild
+        shift
+        ARGS="$ARGS $@"
+        break
+        ;;
+    -*|--*=|*) # unsupported flags
+        echo "Error: Unsupported flag or argument $1" >&2
+        exit 1
+        ;;
+    esac
+done
 
 # TODO: set msize somehow
 # https://wiki.qemu.org/Documentation/9psetup#msize
 
-sudo nixos-rebuild --flake .#test-vm build-vm \
-&& if [ -n "$RUN" ]
+if sudo nixos-rebuild --flake .#test-vm build-vm $ARGS && $RUN
 then
+    # Remove all files to remove state, asks for confirmation
+    rm -i ./*.qcow2 2> /dev/null
+
+    # Run the VM
     ./result/bin/run-*-vm
-    rm -I ./*.qcow2
+
+    # Remove all files to remove state, asks for confirmation above 3 files
+    rm -I ./*.qcow2 2> /dev/null
 fi
