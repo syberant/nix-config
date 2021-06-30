@@ -27,7 +27,6 @@
     nix-neovim = {
       url = "github:syberant/nix-neovim";
       # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
-      inputs.nixpkgs.follows = "nixpkgs-git";
     };
 
     # Secrets
