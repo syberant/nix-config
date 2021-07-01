@@ -44,7 +44,6 @@ packages = [
 
     # Relaxing
     "newsboat",
-    "ytfzf",
 
     # Utilities for UX
     "xorg.xrandr",
