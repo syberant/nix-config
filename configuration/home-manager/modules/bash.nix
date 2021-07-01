@@ -20,6 +20,12 @@
               rm -f $NNN_TMPFILE > /dev/null
           fi
       }
+
+      # Enable vi mode
+      # Unfortunately bash doesn't provide this information to starship
+      $ so you will have to guess which mode you're in
+      # https://github.com/starship/starship/issues/1171#issuecomment-636972187
+      set -o vi
     '';
 
     shellAliases = {
