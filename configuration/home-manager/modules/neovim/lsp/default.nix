@@ -13,7 +13,7 @@ in {
     # https://discourse.nixos.org/t/rust-src-not-found-and-other-misadventures-of-developing-rust-on-nixos/11570/2
     output.makeWrapper = "--set RUST_SRC_PATH ${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
 
-    output.path = with pkgs; [ cargo rustc rustfmt ];
+    output.path.path = with pkgs; [ cargo rustc rustfmt ];
 
     output.config_file = ''
       set completeopt=menuone,noinsert,noselect

@@ -4,7 +4,7 @@
 with lib;
 
 {
-  output.path = with pkgs; [ pkgs.texlive.combined.scheme-full procps zathura ];
+  output.path.path = with pkgs; [ pkgs.texlive.combined.scheme-full procps zathura ];
 
   output.config_file = ''
     let g:vimtex_quickfix_open_on_warning = 0

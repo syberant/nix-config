@@ -30,9 +30,9 @@
 
   # output.plugins = with pkgs.vimPlugins; [];
 
-  output.pure = true;
+  output.path.style = "pure";
   output.makeWrapper = "--set LUA_PATH '${./lua}/?.lua;;'";
-  output.path = with pkgs; stdenv.initialPath ++ [ xclip ];
+  output.path.path = with pkgs; [ xclip ];
 
   output.extraConfig = ''
     map <leader>; <Plug>NERDCommenterToggle
