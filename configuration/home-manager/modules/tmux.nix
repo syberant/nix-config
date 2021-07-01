@@ -44,8 +44,8 @@
 
     extraConfig = ''
       # More friendly split pane
-      bind-key h split-window -h
-      bind-key v split-window -v
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
 
       # Use vim-like keybindings for copying
       bind P paste-buffer
