@@ -144,11 +144,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1625148175,
-        "narHash": "sha256-GVMKjhW30ngoD2TWczL5Cl8tMM2ElPNtBQN9z6+jxEc=",
+        "lastModified": 1625155593,
+        "narHash": "sha256-npPF7FGRhp2OLf8Pea3tLcqvpp7wCVEZtSCNBEA6g4c=",
         "owner": "syberant",
         "repo": "nix-neovim",
-        "rev": "abcdb4275313189f6caef1f8cb8d8f2d870585c3",
+        "rev": "a69f738549aca623934f0a93da4752bbd6316ba6",
         "type": "github"
       },
       "original": {
