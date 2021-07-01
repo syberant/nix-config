@@ -1,5 +1,6 @@
 #!/bin/sh
 
+SSH_IN=false
 RUN=true
 ARGS=""
 
@@ -22,6 +23,11 @@ while (( "$#" )); do
             exit 1
         fi
         ;;
+    -s|--ssh) # SSH into the machine
+        SSH_IN=true
+        export QEMU_NET_OPTS=hostfwd=tcp::2221-:22
+        shift
+        ;;
     --) # Forward all further arguments to nixos-rebuild
         shift
         ARGS="$ARGS $@"
@@ -34,17 +40,25 @@ while (( "$#" )); do
     esac
 done
 
-# TODO: set msize somehow
-# https://wiki.qemu.org/Documentation/9psetup#msize
+alias build-vm="sudo nixos-rebuild --flake '.#test-vm' build-vm $ARGS"
 
-if sudo nixos-rebuild --flake .#test-vm build-vm $ARGS && $RUN
+if build-vm 2>&1 | tee /tmp/test-vm-output && $RUN
 then
     # Remove all files to remove state, asks for confirmation
-    rm -i ./*.qcow2 2> /dev/null
+    rm -i ./*.qcow2
+
+    # Parse path to start VM
+    VM_CMD=$(cat /tmp/test-vm-output | tail -n 1 | awk 'END { print $NF}')
+
+    # Output diagnostic info
+    echo
+    echo "Running virtual machine: $VM_CMD"
+    $SSH_IN && echo "To connect via SSH use: ssh USER@localhost -p 2221" 
+    echo
 
     # Run the VM
-    ./result/bin/run-*-vm
+    $VM_CMD
 
     # Remove all files to remove state, asks for confirmation above 3 files
-    rm -I ./*.qcow2 2> /dev/null
+    rm -I ./*.qcow2
 fi
