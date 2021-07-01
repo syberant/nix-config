@@ -37,6 +37,7 @@
   environment.systemPackages = with pkgs; [
         minecraft
         freeciv
+        steam
 
         # For World of Tanks
         wine-staging

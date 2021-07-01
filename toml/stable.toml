@@ -39,6 +39,8 @@ packages = [
     "cmatrix",
     "xdotool",
     "htop",
+    "ksysguard",
+    "ksystemlog",
 
     # Relaxing
     "newsboat",
