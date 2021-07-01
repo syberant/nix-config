@@ -56,7 +56,6 @@
           overlays = [
             xmonad-sybrand.overlay
             NUR.overlay
-            (import ./overlays/explicit_configuration)
           ];
         };
 
