@@ -18,6 +18,8 @@
   lsp.enable = true;
   treesitter.enable = true;
 
+  vim-tmux-navigator.enable = true;
+
   base = {
     leader = "\\<space>";
 
@@ -30,7 +32,7 @@
 
   # output.plugins = with pkgs.vimPlugins; [];
 
-  output.path.style = "pure";
+  output.path.style = "impure";
   output.makeWrapper = "--set LUA_PATH '${./lua}/?.lua;;'";
   output.path.path = with pkgs; [ xclip ];
 

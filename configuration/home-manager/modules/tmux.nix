@@ -6,24 +6,32 @@
 
     clock24 = true;
 
-    plugins = with pkgs; [
+    plugins = with pkgs.tmuxPlugins; [
       {
-        plugin = tmuxPlugins.resurrect;
+        plugin = resurrect;
         extraConfig = ''
           set -g @resurrect-capture-pane-contents 'on'
         '';
       }
 
       {
-        plugin = tmuxPlugins.continuum;
+        plugin = continuum;
         extraConfig = ''
           set -g @continuum-restore 'on'
           set -g @continuum-save-interval '10' # Minutes
         '';
       }
+
+      {
+        plugin = vim-tmux-navigator;
+        extraConfig = ''
+          # https://github.com/christoomey/vim-tmux-navigator#restoring-clear-screen-c-l
+          bind C-l send-keys 'C-l'
+        '';
+      }
     ];
 
-    # Set TERM correctly
+    # Set TERM correctly, fixes colours
     terminal = "screen-256color";
 
     # Remove delay when pressing Esc
