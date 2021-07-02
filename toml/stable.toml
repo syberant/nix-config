@@ -59,6 +59,7 @@ packages = [
     # Hardware debugging utilities
     "pciutils",
     "usbutils",
+    "smartmontools",
 
     # Software debugging
     "xorg.xev",
