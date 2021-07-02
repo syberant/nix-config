@@ -28,6 +28,10 @@
       url = "github:syberant/nix-neovim";
       # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
     };
+    # nur-syberant = {
+      # url = "/home/sybrand/Documents/Programmeren/Nix/nur-packages";
+      # flake = false;
+    # };
 
     # Secrets
     sops-nix = {
@@ -56,6 +60,15 @@
           overlays = [
             xmonad-sybrand.overlay
             NUR.overlay
+
+            # For temporarily bypassing NUR to get my latest nur-packages
+            # (final: prev: {
+              # nur = import NUR {
+                # nurpkgs = prev;
+                # pkgs = prev;
+                # repoOverrides = { syberant = import nur-syberant { pkgs = prev; }; };
+              # };
+            # })
           ];
         };
 
