@@ -137,7 +137,7 @@
         mkApp = flake-utils.lib.mkApp;
         pkgs = import nixpkgs { inherit system; };
       in {
-        neovim = mkApp { drv = bin; };
+        neovim = mkApp { drv = bin; exePath = "/bin/nvim"; };
 
         neovim-debug = mkApp {
           drv = pkgs.writeScriptBin "neovim-debug" ''

@@ -28,8 +28,6 @@
     files.enable = true;
   };
 
-  output.package = pkgs.neovim-nightly;
-
   # output.plugins = with pkgs.vimPlugins; [];
 
   output.path.style = "impure";
