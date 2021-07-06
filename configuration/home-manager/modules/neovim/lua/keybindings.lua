@@ -41,4 +41,6 @@ wk.register({
         v = { "<cmd>Telescope help_tags<cr>", "Vim" },
         m = { "<cmd>Telescope man_pages<cr>", "Man" },
     },
+
+    [";"] = {"<Plug>NERDCommenterToggle", "Toggle Comment" },
 }, { prefix = "<leader>" })

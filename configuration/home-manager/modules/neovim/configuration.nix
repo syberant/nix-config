@@ -21,7 +21,15 @@
   vim-tmux-navigator.enable = true;
 
   base = {
-    leader = "\\<space>";
+    keybindings = {
+      leader = "\\<space>";
+      which-key-nvim = true;
+    };
+
+    options.set = {
+      wrap = true;
+      lbr = true;
+    };
 
     search.enable = true;
     wrapping.enable = true;
@@ -35,10 +43,7 @@
   output.path.path = with pkgs; [ xclip ];
 
   output.extraConfig = ''
-    map <leader>; <Plug>NERDCommenterToggle
-
     " wrapping settings
-    set wrap lbr
     noremap <buffer> <silent> k gk
     noremap <buffer> <silent> j gj
     noremap <buffer> <silent> 0 g0
@@ -54,6 +59,5 @@
     " TODO: Set clipboard tool with g:clipboard
   '';
 
-  which-key-nvim.enable = true;
   base.timeoutlen = 400;
 }
