@@ -1,8 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ ./lsp ./telescope.nix ./treesitter.nix ./vimtex.nix ];
+  imports = [ ./keybindings.nix ./lsp ./telescope.nix ./treesitter.nix ./vimtex.nix ];
 
   languages = {
     nix.enable = true;
@@ -21,11 +20,6 @@
   vim-tmux-navigator.enable = true;
 
   base = {
-    keybindings = {
-      leader = "\\<space>";
-      which-key-nvim = true;
-    };
-
     options.set = {
       wrap = true;
       lbr = true;
@@ -43,16 +37,6 @@
   output.path.path = with pkgs; [ xclip ];
 
   output.extraConfig = ''
-    " wrapping settings
-    noremap <buffer> <silent> k gk
-    noremap <buffer> <silent> j gj
-    noremap <buffer> <silent> 0 g0
-    noremap <buffer> <silent> $ g$
-
-    " Better escaping? Don't exactly know why this is here.
-    tnoremap <Esc> <c-\><c-n>
-    inoremap <Esc> <Esc><Esc>
-
     " Keybindings
     :lua require'keybindings'
 
