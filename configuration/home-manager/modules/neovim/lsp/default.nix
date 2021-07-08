@@ -10,7 +10,7 @@ in {
   options.lsp = { enable = mkEnableOption "LSP"; };
 
   config = mkIf cfg.enable {
-    base.options.set = {
+    vim.opt = {
       completeopt = "menuone,noinsert,noselect";
 
       # Set updatetime for CursorHold

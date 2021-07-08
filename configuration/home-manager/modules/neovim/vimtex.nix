@@ -4,7 +4,7 @@
 with lib;
 
 {
-  base.options.var = {
+  vim.g = {
     vimtex_quickfix_open_on_warning = 0;
 
     vimtex_compiler_latexmk = {

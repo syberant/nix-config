@@ -19,16 +19,17 @@
 
   vim-tmux-navigator.enable = true;
 
-  base = {
-    options.set = {
+    vim.opt = {
       wrap = true;
       lbr = true;
+      timeoutlen = 400;
     };
 
-    search.enable = true;
-    wrapping.enable = true;
-    files.enable = true;
-  };
+  # base = {
+    # search.enable = true;
+    # wrapping.enable = true;
+    # files.enable = true;
+  # };
 
   # output.plugins = with pkgs.vimPlugins; [];
 
@@ -42,6 +43,4 @@
 
     " TODO: Set clipboard tool with g:clipboard
   '';
-
-  base.timeoutlen = 400;
 }

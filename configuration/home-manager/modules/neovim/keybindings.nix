@@ -1,6 +1,6 @@
 {
-  base.keybindings = {
-    leader = "\\<space>";
+  vim.keybindings = {
+    leader = " ";
     which-key-nvim = true;
 
     # Documented keybindings accessible via SPC
