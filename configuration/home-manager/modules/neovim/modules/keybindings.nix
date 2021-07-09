@@ -68,6 +68,7 @@
 
       ### Miscellaneous
       ";" = {
+        mode = "";
         command = "<Plug>NERDCommenterToggle";
         label = "Toggle Comment";
       };
