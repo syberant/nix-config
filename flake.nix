@@ -133,7 +133,7 @@
           imports =
             [ ./configuration/home-manager/modules/neovim/configuration.nix ];
         };
-        bin = nix-neovim.fromConfig configuration;
+        bin = nix-neovim.buildNeovim { inherit configuration; };
         mkApp = flake-utils.lib.mkApp;
         pkgs = import nixpkgs { inherit system; };
       in {

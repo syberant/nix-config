@@ -8,18 +8,22 @@
     # Completely stateless
     ephemeral = true;
 
-    config = {lib, config, pkgs, ... }: {
+    config = { lib, config, pkgs, ... }: {
       environment.systemPackages = with pkgs; [
         gcc
         nano
         tmate
 
-        (nix-neovim.fromConfig {
-          imports = [ ../../configuration/home-manager/modules/neovim/configuration.nix ];
+        (nix-neovim.buildNeovim {
+          configuration = {
+            imports = [
+              ../../configuration/home-manager/modules/neovim/configuration.nix
+            ];
 
-          gitgutter.enable = lib.mkForce false;
-          lsp.enable = lib.mkForce false;
-          treesitter.enable = lib.mkForce false;
+            gitgutter.enable = lib.mkForce false;
+            lsp.enable = lib.mkForce false;
+            treesitter.enable = lib.mkForce false;
+          };
         })
       ];
 
@@ -34,7 +38,8 @@
 
       users.users.root = {
         isSystemUser = true;
-        initialHashedPassword = "$6$eP8CeVwT$KFCmQyM7kbtmMq5BI3mFUypxvVWYVyeemT7ZLdlVWn0Duw000cBLUGmaxioQ8BB4inMHKExHYACLo0qzKCKJM/";
+        initialHashedPassword =
+          "$6$eP8CeVwT$KFCmQyM7kbtmMq5BI3mFUypxvVWYVyeemT7ZLdlVWn0Duw000cBLUGmaxioQ8BB4inMHKExHYACLo0qzKCKJM/";
       };
     };
   };
