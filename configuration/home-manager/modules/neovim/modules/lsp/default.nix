@@ -6,6 +6,8 @@
 with lib;
 
 {
+  imports = [ ./nvim-compe.nix ];
+
   vim.opt = {
     completeopt = "menuone,noinsert,noselect";
 
