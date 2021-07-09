@@ -128,23 +128,14 @@
         modules = [ sharedModule { networking.hostId = "e0aa3905"; } ];
       };
     } // flake-utils.lib.eachDefaultSystem (system: {
-      apps = let
+      apps.neovim = let
         configuration = {
           imports =
             [ ./configuration/home-manager/modules/neovim/configuration.nix ];
         };
-        bin = nix-neovim.buildNeovim { inherit configuration; };
-        mkApp = flake-utils.lib.mkApp;
-        pkgs = import nixpkgs { inherit system; };
-      in {
-        neovim = mkApp { drv = bin; exePath = "/bin/nvim"; };
-
-        neovim-debug = mkApp {
-          drv = pkgs.writeScriptBin "neovim-debug" ''
-            echo 'Opening ${bin.passthru.customRC}'
-            ${bin}/bin/nvim ${bin.passthru.customRC} $@
-          '';
-        };
+      in flake-utils.lib.mkApp {
+        drv = nix-neovim.buildNeovim { inherit configuration; };
+        exePath = "/bin/nvim";
       };
     });
 }
