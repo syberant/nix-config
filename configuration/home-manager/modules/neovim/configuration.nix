@@ -34,7 +34,6 @@ in {
   nerdcommenter.enable = true;
   gitgutter.enable = true;
   vim-surround.enable = true;
-  lsp.enable = true;
   treesitter.enable = true;
 
   vim-tmux-navigator.enable = true;

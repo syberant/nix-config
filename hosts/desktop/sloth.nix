@@ -21,7 +21,6 @@
             ];
 
             gitgutter.enable = lib.mkForce false;
-            lsp.enable = lib.mkForce false;
             treesitter.enable = lib.mkForce false;
           };
         })
