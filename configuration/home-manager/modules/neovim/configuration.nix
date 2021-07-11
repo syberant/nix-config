@@ -44,12 +44,6 @@ in {
     timeoutlen = 400;
   };
 
-  # base = {
-    # search.enable = true;
-    # wrapping.enable = true;
-    # files.enable = true;
-  # };
-
   # output.plugins = with pkgs.vimPlugins; [];
 
   output.path.style = "impure";
