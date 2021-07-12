@@ -25,12 +25,10 @@ with lib;
   };
 
   vim.g.lightline.component_expand.lsp_status = "LspStatus";
-  vim.g.lightline.active.right = mkAfter [
-      [ "lsp_status" ]
-  ];
+  vim.g.lightline.active.right = mkAfter [ [ "lsp_status" ] ];
 
   # https://discourse.nixos.org/t/rust-src-not-found-and-other-misadventures-of-developing-rust-on-nixos/11570/2
-  output.makeWrapper =
+  output.makeWrapper = mkIf config.languages.rust.enable
     "--set RUST_SRC_PATH ${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
 
   output.config_file = ''
@@ -71,7 +69,13 @@ with lib;
     ${optionalString config.languages.rust.enable ''
       nvim_lsp.rust_analyzer.setup({
         on_attach = on_attach,
-        cmd = { "${pkgs.rust-analyzer}/bin/rust-analyzer" },
+        capabilities = lsp_status.capabilities,
+      })
+    ''}
+
+    ${optionalString config.languages.nix.enable ''
+      nvim_lsp.rnix.setup({
+        on_attach = on_attach,
         capabilities = lsp_status.capabilities,
       })
     ''}
@@ -101,5 +105,7 @@ with lib;
     lsp-status-nvim
   ];
 
-  output.path.path = with pkgs; [ cargo rustc rustfmt ];
+  output.path.path = with pkgs;
+    optionals config.languages.rust.enable [ cargo rustc rustfmt ]
+    ++ optionals config.languages.nix.enable [ rnix-lsp ];
 }
