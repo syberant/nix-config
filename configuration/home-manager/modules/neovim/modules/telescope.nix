@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  telescope.enable = true;
-
   output.extraConfig = ''
     lua <<EOF
 
@@ -19,4 +17,7 @@
 
     EOF
   '';
+
+    output.path.path = with pkgs; [ fd ripgrep ];
+    output.plugins = with pkgs.vimPlugins; [ telescope-nvim ];
 }

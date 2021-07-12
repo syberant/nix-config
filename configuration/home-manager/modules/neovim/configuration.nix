@@ -29,14 +29,10 @@ in {
     rust.enable = true;
   };
   neoformat.enable = true;
-  lightline.enable = true;
   colourscheme.gruvbox.enable = true;
   nerdcommenter.enable = true;
   gitgutter.enable = true;
-  vim-surround.enable = true;
   treesitter.enable = true;
-
-  vim-tmux-navigator.enable = true;
 
   vim.opt = {
     wrap = true;
