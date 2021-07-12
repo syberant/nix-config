@@ -20,7 +20,6 @@
               ../../configuration/home-manager/modules/neovim/configuration.nix
             ];
 
-            gitgutter.enable = lib.mkForce false;
             treesitter.enable = lib.mkForce false;
           };
         })
