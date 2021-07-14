@@ -79,6 +79,11 @@ with lib;
         capabilities = lsp_status.capabilities,
       })
     ''}
+
+    nvim_lsp.clangd.setup {
+      on_attach = on_attach,
+      capabilities = lsp_status.capabilities,
+    }
     EOF
 
     " Statusline
@@ -107,5 +112,6 @@ with lib;
 
   output.path.path = with pkgs;
     optionals config.languages.rust.enable [ cargo rustc rustfmt ]
-    ++ optionals config.languages.nix.enable [ rnix-lsp ];
+    ++ optionals config.languages.nix.enable [ rnix-lsp ]
+    ++ [ clang-tools ];
 }

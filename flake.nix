@@ -26,6 +26,7 @@
     };
     nix-neovim = {
       url = "github:syberant/nix-neovim";
+      inputs.nixpkgs.follows = "nixpkgs-git";
       # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
     };
     # nur-syberant = {
@@ -132,6 +133,8 @@
         configuration = {
           imports =
             [ ./configuration/home-manager/modules/neovim/configuration.nix ];
+
+          output.path.style = nixpkgs.lib.mkForce "pure";
         };
       in flake-utils.lib.mkApp {
         drv = nix-neovim.buildNeovim { inherit configuration; };

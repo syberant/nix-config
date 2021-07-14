@@ -53,7 +53,9 @@
     },
     "nix-neovim": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "nixpkgs-git"
+        ]
       },
       "locked": {
         "lastModified": 1626049929,
@@ -86,38 +88,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1625263542,
-        "narHash": "sha256-+3t0C4TQWE4lCeggJgwtMyW6RlRT0QC2Xp8TzE/vq14=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "e23072af788bc0cde5004f6232b898f12d26df95",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-git": {
-      "locked": {
-        "lastModified": 1625068261,
-        "narHash": "sha256-/5az0RjYl1nl/WcySVv9zUAeS51AUtn7/8V/s/cZ3Ic=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "72397829a480ae2a9f2585f35ac342cc8318185f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1624656607,
         "narHash": "sha256-jWVM6RP8WdRV1l0Z36hA/y6kl9BmasYVa9TpKkjRMLI=",
         "owner": "NixOS",
@@ -132,6 +102,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-git": {
+      "locked": {
+        "lastModified": 1626192309,
+        "narHash": "sha256-uMl42Cn1Zb3qe8Iw0Rz7x62DUEG1JPCtJNU3ZK5gEFQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4036bb94c78329292ef44c233bb42da40b8bd4d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "NUR": "NUR",
@@ -139,7 +125,7 @@
         "home-manager": "home-manager",
         "nix-neovim": "nix-neovim",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nixpkgs-git": "nixpkgs-git",
         "secrets": "secrets",
         "sops-nix": "sops-nix",
