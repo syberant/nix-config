@@ -1,4 +1,4 @@
-{ config, pkgs, nixos-hardware, ... }:
+{ lib, pkgs, nixos-hardware, ... }:
 
 {
   imports = [
@@ -27,10 +27,13 @@
   # Trackpad configuration
   services.xserver.libinput = {
     enable = true;
-    tapping = false;
-    disableWhileTyping = true;
-    scrollMethod = "twofinger";
-    naturalScrolling = true;
+
+    touchpad = {
+      tapping = false;
+      disableWhileTyping = true;
+      scrollMethod = "twofinger";
+      naturalScrolling = true;
+    };
   };
 
   # Webcam
@@ -79,6 +82,6 @@
 
   services.xserver.sybrand-desktop-environment.polybar = {
     wlanInterface = "wlp3s0";
-    config."bar/example".modules-right = mkOrder 50 [ "battery" ];
+    config."bar/example".modules-right = lib.mkOrder 50 [ "battery" ];
   };
 }
