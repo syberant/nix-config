@@ -40,15 +40,15 @@
   # - view usage with powerstat
   services.tlp = {
     enable = true;
-    extraConfig = ''
+    settings = {
       # force battery mode even on AC
-      TLP_DEFAULT_MODE=BAT
-      TLP_PERSISTANT_DEFAULT=1
+      TLP_DEFAULT_MODE = "BAT";
+      TLP_PERSISTANT_DEFAULT = 1;
 
       # manually set performance policy
-      ENERGY_PERF_POLICY_ON_BAT=power
-      ENERGY_PERF_POLICY_ON_AC=balance-performance
-    '';
+      ENERGY_PERF_POLICY_ON_BAT = "power";
+      ENERGY_PERF_POLICY_ON_AC = "balance-performance";
+    };
   };
   powerManagement.powertop.enable = true;
 
