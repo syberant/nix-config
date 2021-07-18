@@ -140,5 +140,10 @@
         drv = nix-neovim.buildNeovim { inherit configuration; };
         exePath = "/bin/nvim";
       };
+
+      apps.zet = flake-utils.lib.mkApp {
+        drv = nix-neovim.buildNeovim { configuration = ./configuration/home-manager/modules/notes/configuration.nix; };
+        exePath = "/bin/nvim";
+      };
     });
 }
