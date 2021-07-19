@@ -5,6 +5,8 @@ with builtins;
 
 let notes_path = "/home/sybrand/Notities/Zettelkasten";
 in {
+  imports = [ ../neovim/modules/base.nix ];
+
   colourscheme.gruvbox.enable = true;
 
   vim.g = {
@@ -17,6 +19,7 @@ in {
         "c++" = "cpp";
       };
       # custom_wiki2html = "script.sh";
+      auto_diary_index = 1;
     }];
     vimwiki_filetypes = [ "markdown" "pandoc" ];
 
@@ -36,6 +39,7 @@ in {
 
   vim.keybindings = {
     leader = " ";
+    which-key-nvim = true;
 
     keybindings."<leader>" = {
       "fo" = { command = "<cmd>Telescope find_files<cr>"; };
@@ -71,6 +75,12 @@ in {
           },
         },
       }
+    }
+
+    -- Only start which-key.nvim for these keys
+    -- I was getting sick and tired of it opening on random operators...
+    require('which-key').setup {
+      triggers = {"<leader>", "g", "z", "<C-w>"},
     }
 
     EOF
