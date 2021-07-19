@@ -12,7 +12,17 @@ in {
       path = notes_path;
       syntax = "markdown";
       ext = ".md";
+      nested_syntaxes = {
+        # These are in addition to the syntaxes already known to vim.
+        "c++" = "cpp";
+      };
+      # custom_wiki2html = "script.sh";
     }];
+    vimwiki_filetypes = [ "markdown" "pandoc" ];
+
+    # Pandoc syntax highlighting
+    "pandoc#syntax#conceal#urls" = 1;
+    "pandoc#syntax#codeblocks#embeds#langs" = [ "python" "cpp" "haskell" "bash=sh" ];
   };
 
   vim.opt = {
@@ -41,7 +51,7 @@ in {
     };
   };
 
-  output.plugins = with pkgs.vimPlugins; [ telescope-nvim vimwiki ];
+  output.plugins = with pkgs.vimPlugins; [ telescope-nvim vimwiki vim-pandoc-syntax ];
 
   output.path = {
     style = "pure";
@@ -67,5 +77,9 @@ in {
 
     " Cd into notes directory
     cd ${notes_path}
+
+    " Open todo list aggregator
+    " TODO: fix this so the filetype loads correctly in a less hacky way
+    autocmd VimEnter * edit 202106252212-todo-lists.md | setlocal ft=vimwiki.markdown.pandoc
   '';
 }
