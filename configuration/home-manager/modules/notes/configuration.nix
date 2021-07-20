@@ -25,7 +25,8 @@ in {
 
     # Pandoc syntax highlighting
     "pandoc#syntax#conceal#urls" = 1;
-    "pandoc#syntax#codeblocks#embeds#langs" = [ "python" "cpp" "haskell" "bash=sh" ];
+    "pandoc#syntax#codeblocks#embeds#langs" =
+      [ "python" "cpp" "haskell" "bash=sh" ];
   };
 
   vim.opt = {
@@ -42,6 +43,11 @@ in {
     which-key-nvim = true;
 
     keybindings."<leader>" = {
+      wc = {
+        command = "<cmd>execute 'edit ' . strftime('%Y%m%d%H%M.md')<cr>";
+        label = "New Note";
+      };
+
       "fo" = { command = "<cmd>Telescope find_files<cr>"; };
       "f/" = { command = "<cmd>Telescope live_grep<cr>"; };
     };
@@ -55,7 +61,11 @@ in {
     };
   };
 
-  output.plugins = with pkgs.vimPlugins; [ telescope-nvim vimwiki vim-pandoc-syntax ];
+  output.plugins = with pkgs.vimPlugins; [
+    telescope-nvim
+    vimwiki
+    vim-pandoc-syntax
+  ];
 
   output.path = {
     style = "pure";
