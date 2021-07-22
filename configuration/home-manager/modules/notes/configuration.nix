@@ -48,7 +48,7 @@ in {
         label = "New Note";
       };
 
-      "fo" = { command = "<cmd>Telescope find_files<cr>"; };
+      "fo" = { command = "<cmd>lua require'zettelescope'.find_zettel() <cr>"; };
       "f/" = { command = "<cmd>Telescope live_grep<cr>"; };
     };
 
@@ -66,6 +66,7 @@ in {
     vimwiki
     vim-pandoc-syntax
   ];
+  output.makeWrapper = "--set LUA_PATH '${./.}/?.lua;;'";
 
   output.path = {
     style = "pure";
