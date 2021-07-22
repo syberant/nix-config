@@ -5,7 +5,7 @@ with builtins;
 
 let notes_path = "/home/sybrand/Notities/Zettelkasten";
 in {
-  imports = [ ../neovim/modules/base.nix ];
+  imports = [ ../neovim/modules/base.nix ] ++ [ ./compe.nix ];
 
   colourscheme.gruvbox.enable = true;
 
