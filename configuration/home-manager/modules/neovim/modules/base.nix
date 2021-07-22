@@ -15,6 +15,12 @@
     # Searching
     ignorecase = true;
     smartcase = true;
+
+    # Wildmode
+    wildmenu = true;
+    wildignorecase = true;
+    wildignore = [ "*.o" "*~" "*.out" ];
+    wildmode = [ "longest" "list" "full" ];
   };
 
   vim.keybindings.keybindings-shortened = {
