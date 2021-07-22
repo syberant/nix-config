@@ -111,7 +111,7 @@ with lib;
   ];
 
   output.path.path = with pkgs;
-    optionals config.languages.rust.enable [ cargo rustc rustfmt ]
+    optionals config.languages.rust.enable [ cargo rustc rustfmt rust-analyzer ]
     ++ optionals config.languages.nix.enable [ rnix-lsp ]
     ++ [ clang-tools ];
 }
