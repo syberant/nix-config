@@ -36,6 +36,9 @@
     };
   };
 
+  # Bluetooth
+  hardware.bluetooth.enable = false;
+
   # Webcam
   hardware.facetimehd.enable = true;
 
