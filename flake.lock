@@ -175,11 +175,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1624876076,
-        "narHash": "sha256-e4Bi69fR2cK5DunSHArUTL6gQAy43nBqY2tc305nZes=",
+        "lastModified": 1626809874,
+        "narHash": "sha256-ePppp604H7RBh/LdegxMSct3bFPWpjQbMFPGAHq4uLM=",
         "owner": "syberant",
         "repo": "xmonad-sybrand",
-        "rev": "6d2d9839726c044ed31c1f905ca602b7727252c0",
+        "rev": "22cf0e7a5f7d685eb911c8c2234e092a5344fc02",
         "type": "github"
       },
       "original": {
