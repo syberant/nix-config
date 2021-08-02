@@ -27,25 +27,19 @@
     };
   };
 
-  output.extraConfig = ''
-    lua <<EOF
-
-      require('compe').setup{
-        enabled = true;
-        source = {
-          path = true;
-          buffer = true;
-          calc = true;
-          nvim_lsp = true;
-          nvim_lua = true;
-          tmux = {
-            disabled = false;
-            all_panes = true;
-            kind = "";
-          };
-        };
-      }
-
-    EOF
-  '';
+  plugin.setup.compe = {
+    enabled = true;
+    source = {
+      path = true;
+      buffer = true;
+      calc = true;
+      nvim_lsp = true;
+      nvim_lua = true;
+      tmux = {
+        disabled = false;
+        all_panes = true;
+        kind = "";
+      };
+    };
+  };
 }

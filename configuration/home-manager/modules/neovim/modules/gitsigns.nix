@@ -1,14 +1,10 @@
 { pkgs, ... }:
 
 {
-  output.extraConfig = ''
-    lua << EOF
-      require('gitsigns').setup {
-        -- Disable default keybindings
-        keymaps = {},
-      }
-    EOF
-  '';
+  plugin.setup.gitsigns = {
+    # Disable default keybindings
+    keymaps = {};
+  };
 
   output.plugins = with pkgs.vimPlugins; [ gitsigns-nvim ];
   output.path.path = with pkgs; [ git ];

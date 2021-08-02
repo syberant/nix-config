@@ -9,13 +9,9 @@ in {
   options.treesitter.enable = mkEnableOption "tree-sitter";
 
   config = mkIf cfg.enable {
-    output.config_file = ''
-      lua <<EOF
-      require'nvim-treesitter.configs'.setup {
-        highlight = { enable = true },
-      }
-      EOF
-    '';
+    plugin.setup."nvim-treesitter.configs" = {
+      highlight.enable = true;
+    };
 
     output.plugins = with pkgs.vimPlugins;
       [ (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars)) ];
