@@ -30,7 +30,6 @@ in {
   };
   neoformat.enable = true;
   colourscheme.gruvbox.enable = true;
-  nerdcommenter.enable = true;
   treesitter.enable = true;
 
   vim.opt = {
