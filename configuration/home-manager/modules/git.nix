@@ -27,6 +27,7 @@
 
     extraConfig = {
       pull.ff = "only";
+      init.defaultBranch = "main";
 
       credential.helper = let
         dotfile = pkgs.writeText "pass-git-helper-config" ''
