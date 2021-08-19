@@ -48,7 +48,7 @@
   # Block distracting websites
   blacklist_ip.distractions.blockedSites = [
     "reddit.com"
-    # "youtube.com"
+    "youtube.com"
     "nos.nl"
     "bbc.com"
     "arstechnica.com"
