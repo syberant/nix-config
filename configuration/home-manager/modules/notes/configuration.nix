@@ -96,6 +96,9 @@ in {
 
     EOF
 
+    " Automatically use "+ registry
+    set clipboard+=unnamedplus
+
     " Cd into notes directory
     cd ${notes_path}
 
