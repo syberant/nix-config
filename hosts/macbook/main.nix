@@ -87,4 +87,9 @@
     wlanInterface = "wlp3s0";
     config."bar/example".modules-right = lib.mkOrder 50 [ "battery" ];
   };
+
+  environment.systemPackages = with pkgs; [
+    # For debugging intel CPU behaviour.
+    # i7z
+  ];
 }
