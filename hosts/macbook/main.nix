@@ -37,7 +37,7 @@
   };
 
   # Bluetooth
-  hardware.bluetooth.enable = false;
+  hardware.bluetooth.enable = true;
 
   # Webcam
   hardware.facetimehd.enable = true;
