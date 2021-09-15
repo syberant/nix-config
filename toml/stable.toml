@@ -13,6 +13,7 @@ packages = [
 
     # Development prerequisites
     "gnumake",
+    "cmake",
     "gcc",
     "manpages",
 
@@ -90,6 +91,10 @@ packages = [
     "anki",
     "unzip",
     "libreoffice",
+
+    # CLI productivity
+    "imagemagick",
+    "ffmpeg",
 
     # Mathematics and other study-related program
     "geogebra6",
