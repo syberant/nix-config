@@ -16,6 +16,7 @@
 
     declarative.folders = {
       "/home/${user}/Documents/Radboud_Universiteit_1".devices = [ "nixos-macbook" ];
+      "/home/${user}/Documents/Radboud_Universiteit_2".devices = [ "nixos-macbook" ];
       "/home/${user}/Documents/CGU_5E".devices = [ "nixos-macbook" ];
       "/home/${user}/Documents/CGU_6E".devices = [ "nixos-macbook" ];
       "/home/${user}/Documents/Persoonlijk".devices = [ "nixos-macbook" ];
