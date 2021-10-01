@@ -38,7 +38,7 @@ in {
         key_mappings =
             let code = map (a: ''xmodmap -e "keycode '' + a + ''"'') cfg.key_mappings;
             in {
-                services.xserver.displayManager.sessionCommands = builtins.concatStringsSep "\n" code;
+                services.xserver.displayManager.sessionCommands = "bash ${pkgs.writeScript "macbook-fix-numbers" (builtins.concatStringsSep "\n" code)}";
             };
     in mkMerge [
         control_as_escape
