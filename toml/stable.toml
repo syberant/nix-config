@@ -97,7 +97,7 @@ packages = [
     "ffmpeg",
 
     # Mathematics and other study-related program
-    "geogebra6",
+    # "geogebra6",
 
     # Proprietary stuff,
     "discord",
