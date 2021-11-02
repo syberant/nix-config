@@ -1,4 +1,4 @@
 packages = [
     "ytfzf",
-    "torbrowser",
+    # "torbrowser",
 ]
