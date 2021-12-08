@@ -8,6 +8,9 @@ extraOptions = """
 # Save space
 autoOptimiseStore = true
 
+# Remove need for sudo
+trustedUsers = [ "sybrand" ]
+
 [nix.gc]
 automatic = true
 dates = "monthly"
