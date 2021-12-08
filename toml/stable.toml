@@ -40,10 +40,11 @@ packages = [
     "cmatrix",
     "xdotool",
     "htop",
-    "ksysguard",
+    "plasma-systemmonitor",
     "ksystemlog",
 
     # Relaxing
+    "ytfzf",
     "newsboat",
     "apple-music-electron", # TODO: update this to newest version and upstream into nixpkgs
 
