@@ -21,6 +21,13 @@
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
+  # Own opensnitch systemd definition until nixpkgs stable gets fixed
+  systemd.packages = with pkgs; [ opensnitch ];
+  systemd.services.opensnitchd = {
+    path = with pkgs; [ iptables ];
+    wantedBy = [ "multi-user.target" ];
+  };
+
   # Disable shutdown on power key
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
