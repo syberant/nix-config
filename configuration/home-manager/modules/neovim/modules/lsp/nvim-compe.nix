@@ -36,7 +36,8 @@
       nvim_lsp = true;
       nvim_lua = true;
       tmux = {
-        disabled = false;
+        # Disabling for now because it caused nvim to crash in tmate
+        disabled = true;
         all_panes = true;
         kind = "";
       };
