@@ -32,6 +32,8 @@
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.driSupport32Bit = true;
+  # Use last driver supporting GT 710
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
 
   environment.systemPackages = with pkgs; [
         minecraft
