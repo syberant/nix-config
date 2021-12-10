@@ -1,10 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
-    nixpkgs-git.url = "github:NixOS/nixpkgs?rev=31dfd4cef9164667e91e0dfeeb0a4ac855e2d81d";
-
-    # Flake utilities
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs-git.url =
+      "github:NixOS/nixpkgs?rev=31dfd4cef9164667e91e0dfeeb0a4ac855e2d81d";
 
     # (Semi-)official auxiliary repositories
     nixos-hardware.url = "github:NixOS/nixos-hardware";
@@ -30,8 +28,8 @@
       # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
     };
     # nur-syberant = {
-      # url = "/home/sybrand/Documents/Programmeren/Nix/nur-packages";
-      # flake = false;
+    # url = "/home/sybrand/Documents/Programmeren/Nix/nur-packages";
+    # flake = false;
     # };
 
     # Secrets
@@ -44,10 +42,14 @@
       url = "git+https://github.com/syberant/secrets.git";
       flake = false;
     };
+
+    # Misc
+    flake-utils.url = "github:numtide/flake-utils";
+    hosts.url = "github:StevenBlack/hosts";
   };
 
-  outputs = { self, flake-utils, nixpkgs, nixpkgs-git, nixos-hardware, NUR
-    , home-manager, sops-nix, xmonad-sybrand, nix-neovim, secrets }:
+  outputs = { self, nixpkgs, nixpkgs-git, nixos-hardware, NUR, home-manager
+    , sops-nix, xmonad-sybrand, nix-neovim, secrets, flake-utils, hosts }:
 
     let
       # TODO: utilise flake-utils for this
@@ -64,11 +66,11 @@
 
             # For temporarily bypassing NUR to get my latest nur-packages
             # (final: prev: {
-              # nur = import NUR {
-                # nurpkgs = prev;
-                # pkgs = prev;
-                # repoOverrides = { syberant = import nur-syberant { pkgs = prev; }; };
-              # };
+            # nur = import NUR {
+            # nurpkgs = prev;
+            # pkgs = prev;
+            # repoOverrides = { syberant = import nur-syberant { pkgs = prev; }; };
+            # };
             # })
           ];
         };
@@ -96,6 +98,7 @@
       };
       sharedModule = {
         imports = [
+          hosts.nixosModule
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           hm-nixos-as-super
@@ -142,13 +145,17 @@
       };
 
       apps.zet = flake-utils.lib.mkApp {
-        drv = nix-neovim.buildNeovim { configuration = ./configuration/home-manager/modules/notes/configuration.nix; };
+        drv = nix-neovim.buildNeovim {
+          configuration =
+            ./configuration/home-manager/modules/notes/configuration.nix;
+        };
         exePath = "/bin/nvim";
       };
 
       # I find a REPL occasionally very useful in debugging
       apps.repl = flake-utils.lib.mkApp {
-        drv = let pkgs = import nixpkgs {inherit system;}; in pkgs.writeShellScriptBin "repl" ''
+        drv = let pkgs = import nixpkgs { inherit system; };
+        in pkgs.writeShellScriptBin "repl" ''
           nix repl '${nixpkgs}'
         '';
       };
