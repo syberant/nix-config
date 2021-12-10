@@ -160,7 +160,14 @@
 
           cat >$confnix <<EOF
           let flake = builtins.getFlake "/etc/nixos";
-          in {
+          in builtins.trace ${"''"}
+            This REPL loads the following variables:
+              - pkgs, stable version
+              - nixpkgs-git, master branch, often breaks
+              - flake, the complete flake
+              - macbook, NixOS config of ./hosts/macbook
+              - desktop, NixOS config of ./hosts/desktop
+          ${"''"} {
             inherit flake;
 
             # Access the NixOS config after evaluation
