@@ -156,7 +156,25 @@
       apps.repl = flake-utils.lib.mkApp {
         drv = let pkgs = import nixpkgs { inherit system; };
         in pkgs.writeShellScriptBin "repl" ''
-          nix repl '${nixpkgs}'
+          confnix=$(mktemp)
+
+          cat >$confnix <<EOF
+          let flake = builtins.getFlake "/etc/nixos";
+          in {
+            inherit flake;
+
+            # Access the NixOS config after evaluation
+            # Useful for double-checking whether options are set like you expect them to be
+            macbook = flake.outputs.nixosConfigurations.nixos-macbook.config;
+            desktop = flake.outputs.nixosConfigurations.nixos-desktop.config;
+
+            pkgs = import "${nixpkgs}" {};
+            nixpkgs-git = import "${nixpkgs-git}" {};
+          }
+          EOF
+
+          trap "rm $confnix" EXIT
+          nix repl $confnix
         '';
       };
     });
