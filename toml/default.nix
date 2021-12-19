@@ -8,14 +8,9 @@ with pkgs.nur.repos.syberant.lib;
   imports = map importToml (getTomlFiles ./config);
 
   environment.systemPackages = let
-    recurse = p: list:
-      let
-        h = p.${head list};
-        t = tail list;
-      in if (t == [ ]) then h else recurse h t;
-    getPkg = packages: string: recurse packages (splitString "." string);
+    ofPkgs = p: getAttrFromPath (splitString "." p) pkgs;
     fromList = { file, packages }:
-      map (getPkg packages) (fromTOML (readFile file)).packages;
+      map ofPkgs (fromTOML (readFile file)).packages;
   in flatten (map fromList [
     {
       file = ./stable.toml;
