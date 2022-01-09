@@ -83,7 +83,7 @@ packages = [
     "sxiv",
     "chromium",
     "thunderbird",
-    "scrot",
+    "maim",
 
     # Productivity
     "obsidian",

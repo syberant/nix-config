@@ -24,7 +24,7 @@
     };
     nix-neovim = {
       url = "github:syberant/nix-neovim";
-      inputs.nixpkgs.follows = "nixpkgs-git";
+      inputs.nixpkgs.follows = "nixpkgs";
       # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
     };
     # nur-syberant = {

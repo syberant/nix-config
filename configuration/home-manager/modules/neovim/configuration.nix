@@ -51,3 +51,6 @@ in {
     " TODO: Set clipboard tool with g:clipboard
   '';
 }
+
+# TODO:
+# https://idie.ru/posts/vim-modern-cpp

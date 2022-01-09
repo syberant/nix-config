@@ -38,7 +38,7 @@
   environment.systemPackages = with pkgs; [
         minecraft
         freeciv
-        # steam
+        steam
 
         # For World of Tanks
         wine-staging
@@ -49,7 +49,7 @@
   # Block distracting websites
   blacklist_ip.distractions.blockedSites = [
     "reddit.com"
-    "youtube.com"
+    # "youtube.com"
     "nos.nl"
     "bbc.com"
     "arstechnica.com"

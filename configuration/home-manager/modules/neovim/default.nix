@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-git, nix-neovim, ... }:
+{ pkgs, nix-neovim, ... }:
 
 let myNeovim = nix-neovim.buildNeovim { configuration = ./configuration.nix; };
 in {
@@ -9,6 +9,6 @@ in {
     # Commented for now to try out neovide
     # (pkgs.neovim-qt.override { neovim = myNeovim; })
 
-    nixpkgs-git.neovide
+    pkgs.neovide
   ];
 }
