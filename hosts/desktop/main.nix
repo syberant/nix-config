@@ -40,6 +40,9 @@
         freeciv
         steam
 
+        # Needs overrides for macbook
+        torbrowser
+
         # For World of Tanks
         wine-staging
         winetricks

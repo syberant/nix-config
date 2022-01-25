@@ -83,7 +83,6 @@ packages = [
     "sxiv",
     "chromium",
     "thunderbird",
-    "torbrowser",
     "maim",
 
     # Productivity

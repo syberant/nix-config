@@ -88,8 +88,13 @@
     config."bar/example".modules-right = lib.mkOrder 50 [ "battery" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    # For debugging intel CPU behaviour.
-    # i7z
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      # For debugging intel CPU behaviour.
+      # i7z
+
+      # Disable hardened malloc to fix crashing on iGPU:
+      # https://github.com/NixOS/nixpkgs/issues/146401
+      (torbrowser.override { useHardenedMalloc = false; })
+    ];
 }
