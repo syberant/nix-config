@@ -20,7 +20,6 @@ packages = [
     # Personal development
     "zeal",
     "tokei",
-    "niv",
 
     # Personal choices
     "nnn",
@@ -40,7 +39,6 @@ packages = [
     "cmatrix",
     "xdotool",
     "htop",
-    "plasma-systemmonitor",
     "ksystemlog",
 
     # Relaxing
@@ -82,7 +80,6 @@ packages = [
     "signal-desktop",
     "sxiv",
     "chromium",
-    "thunderbird",
     "maim",
 
     # Productivity
