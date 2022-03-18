@@ -9,7 +9,8 @@ wk.register({
         n = { "<cmd>new", "New File" },
 
         o = { require'telescope-config'.project_files, "Find File" },
-        h = { require'telescope-config'.home_files, "Find File Global" },
+        l = { require'telescope.builtin'.find_files, "Find Local File" },
+        h = { require'telescope-config'.home_files, "Find Global File" },
         b = { require'telescope-config'.all_buffers, "Switch Buffer" },
         ["/"] = { "<cmd>Telescope live_grep<cr>", "Grep Project" },
     },

@@ -97,7 +97,7 @@ with lib;
     autocmd User LspDiagnosticsChanged call lightline#update()
 
     " Show diagnostic popup on cursor hold
-    autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+    autocmd CursorHold * lua vim.diagnostic.open_float()
 
     " Enable type inlay hints
     autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
