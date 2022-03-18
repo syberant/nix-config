@@ -1,8 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
-    nixpkgs-git.url =
-      "github:NixOS/nixpkgs?rev=31dfd4cef9164667e91e0dfeeb0a4ac855e2d81d";
+    nixpkgs-git.url = "github:NixOS/nixpkgs";
 
     # (Semi-)official auxiliary repositories
     nixos-hardware.url = "github:NixOS/nixos-hardware";
@@ -24,7 +23,8 @@
     };
     nix-neovim = {
       url = "github:syberant/nix-neovim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-git";
       # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
     };
     # nur-syberant = {

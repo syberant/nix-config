@@ -88,7 +88,7 @@
     "nix-neovim": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-git"
         ]
       },
       "locked": {
@@ -135,17 +135,16 @@
     },
     "nixpkgs-git": {
       "locked": {
-        "lastModified": 1628673284,
-        "narHash": "sha256-oG6bVURWYkh/RFfxIN9xgeTiia9lA26EkexhyPO5wHk=",
+        "lastModified": 1647607240,
+        "narHash": "sha256-Jbr1XDBSf0Zcnf6iEE/9E98XtqQ0B3d74u1FZDgje1k=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "31dfd4cef9164667e91e0dfeeb0a4ac855e2d81d",
+        "rev": "1e6df25095097535a7370fc9afc5696dbe4b0242",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "31dfd4cef9164667e91e0dfeeb0a4ac855e2d81d",
         "type": "github"
       }
     },
