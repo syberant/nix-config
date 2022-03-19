@@ -11,12 +11,12 @@
     # declarative.cert = "";
     # declarative.key = "";
 
-    declarative.devices.nixos-desktop = {
+    devices.nixos-desktop = {
       id = "MQI4ZSR-F3UWNCD-VNVB3K6-KLY7HDN-TCBFC7J-PRTSPS4-AMVYNRB-ZXYO5AN";
       introducer = true;
     };
 
-    declarative.folders = {
+    folders = {
       "/home/${user}/Documents/Radboud_Universiteit_1" = {};
       "/home/${user}/Documents/Radboud_Universiteit_2" = {};
       "/home/${user}/Documents/CGU_5E" = {};
