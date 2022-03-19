@@ -65,8 +65,8 @@ with lib;
       }
     )
 
-    -- Enable rust_analyzer
     ${optionalString config.languages.rust.enable ''
+      -- Enable rust_analyzer
       nvim_lsp.rust_analyzer.setup({
         on_attach = on_attach,
         capabilities = lsp_status.capabilities,
@@ -99,9 +99,12 @@ with lib;
     " Show diagnostic popup on cursor hold
     autocmd CursorHold * lua vim.diagnostic.open_float()
 
-    " Enable type inlay hints
-    autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-    \ lua require'lsp_extensions'.inlay_hints{ prefix = "", highlight = "Comment" }
+    ${optionalString config.languages.rust.enable ''
+      " Enable type inlay hints
+      " FIXME: https://github.com/nvim-lua/lsp_extensions.nvim/issues/30
+      " autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
+      " \ lua require'lsp_extensions'.inlay_hints{ prefix = "", highlight = "Comment" }
+    ''}
   '';
 
   output.plugins = with pkgs.vimPlugins; [

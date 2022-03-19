@@ -2,45 +2,28 @@
 
 {
   output.plugins = with pkgs.vimPlugins; [
-    nvim-compe
+    nvim-cmp
 
-    (pkgs.vimUtils.buildVimPlugin {
-      name = "compe-tmux";
-      src = pkgs.fetchFromGitHub {
-        owner = "andersevenrud";
-        repo = "compe-tmux";
-        rev = "d0256c802411e0e76c979e2b7e150f4f8a71a6b0";
-        sha256 = "vd4kUhYrDuVBCJMBNuX5EGzg2RC1mKK2bcKlPLfzObM=";
-      };
-
-      configurePhase = ''
-        substituteInPlace lua/compe_tmux/utils.lua --replace 'c ~= nil' 'c ~= nil and c.source ~= nil'
-      '';
-    })
+    # Various sources
+    cmp-path
+    cmp-buffer
+    cmp-calc
+    cmp-nvim-lua
+    cmp-nvim-lsp
+    cmp-latex-symbols
   ];
 
-  vim.keybindings.keybindings-shortened = {
-    "<cr>" = {
-      mode = "i";
-      options.expr = true;
-      command = "compe#confirm('<cr>')";
-    };
-  };
+  plugin.setup.cmp = {
+    # TODO: maybe do non-default keybindings?
+    # See :help cmp-mapping
 
-  plugin.setup.compe = {
-    enabled = true;
-    source = {
-      path = true;
-      buffer = true;
-      calc = true;
-      nvim_lsp = true;
-      nvim_lua = true;
-      tmux = {
-        # Disabling for now because it caused nvim to crash in tmate
-        disabled = true;
-        all_panes = true;
-        kind = "";
-      };
-    };
+    sources = [
+        { name = "path"; }
+        { name = "calc"; }
+        { name = "nvim_lsp"; }
+        { name = "nvim_lua"; }
+        { name = "latex_symbols"; }
+        { name = "buffer"; }
+    ];
   };
 }
