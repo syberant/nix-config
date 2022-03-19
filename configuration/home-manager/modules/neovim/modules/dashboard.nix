@@ -26,7 +26,7 @@
     dashboard_default_executive = "telescope";
     dashboard_custom_section = {
       "oldfiles" = {
-        description = [ " Open History                                 " ];
+        description = [ " Open History                                -" ];
         command = "Telescope oldfiles";
       };
       "find_files" = {
@@ -38,7 +38,7 @@
         command = "Telescope live_grep";
       };
       "new_file" = {
-        description = [ " New File                                     " ];
+        description = [ " New File                                    -" ];
         command = "enew";
       };
       "lazygit" = {
