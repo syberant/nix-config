@@ -28,6 +28,10 @@
     k = { command = "gk"; };
     "0" = { command = "g0"; };
     "$" = { command = "g$"; };
+    "Y" = {
+      command = "yy";
+      mode = "n";
+    };
   };
 
   output.config_file = ''
