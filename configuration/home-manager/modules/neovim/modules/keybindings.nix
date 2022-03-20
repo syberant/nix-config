@@ -26,6 +26,10 @@
           command = "<cmd>VimtexView<cr>";
           label = "View";
         };
+        p = {
+          command = "<cmd>lua require'mdpreview'.open_preview()<cr>";
+          label = "Pandoc View";
+        };
       };
 
 
