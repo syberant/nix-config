@@ -28,7 +28,6 @@ in {
     haskell.enable = true;
     rust.enable = true;
   };
-  neoformat.enable = true;
   colourscheme.gruvbox.enable = true;
   treesitter.enable = true;
 

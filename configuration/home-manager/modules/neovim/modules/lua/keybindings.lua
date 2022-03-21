@@ -5,7 +5,7 @@ wk.register({
     f = {
         name = "file",
 
-        f = { "<cmd>Neoformat<cr>", "Format file" },
+        f = { vim.lsp.buf.formatting, "Format file" },
         n = { "<cmd>new", "New File" },
 
         o = { require'telescope-config'.project_files, "Find File" },

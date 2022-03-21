@@ -6,7 +6,7 @@
 with lib;
 
 {
-  imports = [ ./nvim-compe.nix ];
+  imports = [ ./nvim-compe.nix ./null-ls.nix ];
 
   vim.opt = {
     completeopt = "menuone,noinsert,noselect";
@@ -50,6 +50,10 @@ with lib;
 
     function on_attach(client)
       lsp_status.on_attach(client)
+
+      -- Disable formatting for all LS, let null-ls handle this
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
     end
 
     -- nvim_lsp object
@@ -114,7 +118,7 @@ with lib;
   ];
 
   output.path.path = with pkgs;
-    optionals config.languages.rust.enable [ cargo rustc rustfmt rust-analyzer ]
+    optionals config.languages.rust.enable [ cargo rustc rust-analyzer ]
     ++ optionals config.languages.nix.enable [ rnix-lsp ]
     ++ [ clang-tools ];
 }
