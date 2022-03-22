@@ -92,11 +92,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1627906682,
-        "narHash": "sha256-uwXVTIBTdiZfdeLwnUprOptTc5JkUMWdtdMDas7mmNU=",
+        "lastModified": 1647951114,
+        "narHash": "sha256-KVJ9Jyr2HDVeAvz0QsRvCalPSJUbE/8GIMrgZm/wPbE=",
         "owner": "syberant",
         "repo": "nix-neovim",
-        "rev": "851481e398f8f076e47437ec487169c217ee61dd",
+        "rev": "dc840920b677566b1490086aade05bbbd95af508",
         "type": "github"
       },
       "original": {

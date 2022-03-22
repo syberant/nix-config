@@ -3,7 +3,7 @@
 with lib;
 with builtins;
 
-let 
+let
   getFiles = { dir, suffix ? null, allow_default ? true }:
     let
       hasDefault = d: hasAttr "default.nix" (readDir (dir + "/${d}"));
@@ -23,11 +23,6 @@ let
 in {
   imports = getNixFiles ./modules;
 
-  languages = {
-    nix.enable = true;
-    haskell.enable = true;
-    rust.enable = true;
-  };
   colourscheme.gruvbox.enable = true;
   treesitter.enable = true;
 
@@ -36,8 +31,6 @@ in {
     lbr = true;
     timeoutlen = 400;
   };
-
-  # output.plugins = with pkgs.vimPlugins; [];
 
   output.path.style = "impure";
   output.makeWrapper = "--set LUA_PATH '${./modules/lua}/?.lua;;'";

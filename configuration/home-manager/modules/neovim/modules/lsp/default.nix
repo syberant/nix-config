@@ -6,7 +6,7 @@
 with lib;
 
 {
-  imports = [ ./nvim-compe.nix ./null-ls.nix ];
+  imports = [ ./nvim-compe.nix ./null-ls.nix ./misc.nix ];
 
   vim.opt = {
     completeopt = "menuone,noinsert,noselect";
@@ -28,7 +28,7 @@ with lib;
   vim.g.lightline.active.right = mkAfter [ [ "lsp_status" ] ];
 
   # https://discourse.nixos.org/t/rust-src-not-found-and-other-misadventures-of-developing-rust-on-nixos/11570/2
-  output.makeWrapper = mkIf config.languages.rust.enable
+  output.makeWrapper =
     "--set RUST_SRC_PATH ${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
 
   output.config_file = ''
@@ -56,8 +56,15 @@ with lib;
       client.resolved_capabilities.document_range_formatting = false
     end
 
-    -- nvim_lsp object
+    -- Setup all LSPs
     local nvim_lsp = require'lspconfig'
+    local servers = {'rust_analyzer', 'rnix', 'clangd'}
+    for _, s in ipairs(servers) do
+      nvim_lsp[s].setup({
+        on_attach = on_attach,
+        capabilities = lsp_status.capabilities,
+      })
+    end
 
     -- handle diagnostics
     -- https://github.com/nvim-lua/diagnostic-nvim/issues/73
@@ -68,26 +75,6 @@ with lib;
         update_in_insert = false,
       }
     )
-
-    ${optionalString config.languages.rust.enable ''
-      -- Enable rust_analyzer
-      nvim_lsp.rust_analyzer.setup({
-        on_attach = on_attach,
-        capabilities = lsp_status.capabilities,
-      })
-    ''}
-
-    ${optionalString config.languages.nix.enable ''
-      nvim_lsp.rnix.setup({
-        on_attach = on_attach,
-        capabilities = lsp_status.capabilities,
-      })
-    ''}
-
-    nvim_lsp.clangd.setup {
-      on_attach = on_attach,
-      capabilities = lsp_status.capabilities,
-    }
     EOF
 
     " Statusline
@@ -103,12 +90,10 @@ with lib;
     " Show diagnostic popup on cursor hold
     autocmd CursorHold * lua vim.diagnostic.open_float()
 
-    ${optionalString config.languages.rust.enable ''
-      " Enable type inlay hints
-      " FIXME: https://github.com/nvim-lua/lsp_extensions.nvim/issues/30
-      " autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-      " \ lua require'lsp_extensions'.inlay_hints{ prefix = "", highlight = "Comment" }
-    ''}
+    " Enable type inlay hints
+    " FIXME: https://github.com/nvim-lua/lsp_extensions.nvim/issues/30
+    " autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
+    " \ lua require'lsp_extensions'.inlay_hints{ prefix = "", highlight = "Comment" }
   '';
 
   output.plugins = with pkgs.vimPlugins; [
@@ -117,8 +102,16 @@ with lib;
     lsp-status-nvim
   ];
 
-  output.path.path = with pkgs;
-    optionals config.languages.rust.enable [ cargo rustc rust-analyzer ]
-    ++ optionals config.languages.nix.enable [ rnix-lsp ]
-    ++ [ clang-tools ];
+  output.path.path = with pkgs; [
+    # Rust
+    cargo
+    rustc
+    rust-analyzer
+
+    # Nix
+    rnix-lsp
+
+    # C++
+    clang-tools
+  ];
 }
