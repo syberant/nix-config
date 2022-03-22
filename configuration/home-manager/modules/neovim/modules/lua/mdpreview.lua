@@ -34,7 +34,7 @@ M.markdown_compile = function()
             if ret_val == 0 then
                 print("Successfully compiled " .. filename)
             else
-                error("Error while compiling `" .. filename .. "`: " .. ret_val)
+                print("Error while compiling " .. filename)
             end
         end,
     -- Timeout of 30 seconds
