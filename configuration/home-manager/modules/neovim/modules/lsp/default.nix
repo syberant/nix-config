@@ -58,7 +58,7 @@ with lib;
 
     -- Setup all LSPs
     local nvim_lsp = require'lspconfig'
-    local servers = {'rust_analyzer', 'rnix', 'clangd'}
+    local servers = {'rust_analyzer', 'rnix', 'clangd', 'pyright'}
     for _, s in ipairs(servers) do
       nvim_lsp[s].setup({
         on_attach = on_attach,
@@ -113,5 +113,13 @@ with lib;
 
     # C++
     clang-tools
+
+    # Python
+    (writeScriptBin "pyright-langserver" ''
+      # pyright has a symlinked `./bin` which breaks Nix's `symlinkJoin`
+      # This wrapper script fixes that.
+
+      ${pyright}/bin/pyright-langserver $@
+    '')
   ];
 }

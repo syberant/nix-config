@@ -36,6 +36,8 @@ with lib;
           n.builtins.formatting.rustfmt,
           n.builtins.formatting.nixfmt,
           stylish_haskell,
+          -- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/640
+          n.builtins.formatting.black.with({ args = { "--quiet", "-" }, }),
         },
       })
     EOF
@@ -47,6 +49,7 @@ with lib;
     stylish-haskell
     nixfmt
     rustfmt
+    black
 
     # Linters
   ];
