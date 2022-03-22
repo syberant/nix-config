@@ -7,7 +7,12 @@ let
   getNixFiles = dir:
     let
       recu = n: k:
-        if k == "directory" then getNixFiles "${dir}/${n}" else if hasSuffix "nix" n then [ "${dir}/${n}" ] else [];
+        if k == "directory" then
+          getNixFiles "${dir}/${n}"
+        else if hasSuffix "nix" n then
+          [ "${dir}/${n}" ]
+        else
+          [ ];
     in flatten (mapAttrsToList recu (readDir dir));
 in {
   imports = getNixFiles ./modules;
