@@ -6,7 +6,7 @@
 with lib;
 
 {
-  imports = [ ./nvim-compe.nix ./null-ls.nix ./misc.nix ];
+  imports = [ ./nvim-compe.nix ./null-ls.nix ./misc.nix ./config/latex.nix ];
 
   vim.opt = {
     completeopt = "menuone,noinsert,noselect";
