@@ -17,7 +17,6 @@ let
 in {
   imports = getNixFiles ./modules;
 
-  colourscheme.gruvbox.enable = true;
   treesitter.enable = true;
 
   vim.opt = {
