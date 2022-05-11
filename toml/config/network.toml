@@ -14,12 +14,3 @@ stevenBlackHosts.enable = true
 # replicates the default behaviour.
 useDHCP = false
 #interfaces.wlp3s0.useDHCP = true
-
-# Firewall
-[environment]
-systemPackages = [ "opensnitch-ui" ]
-
-# Unfortunately this doesn't work yet due to a bug:
-# https://github.com/NixOS/nixpkgs/issues/148166
-# [services.opensnitch]
-# enable = true
