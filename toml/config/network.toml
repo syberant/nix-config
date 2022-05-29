@@ -14,3 +14,6 @@ stevenBlackHosts.enable = true
 # replicates the default behaviour.
 useDHCP = false
 #interfaces.wlp3s0.useDHCP = true
+
+[services.tailscale]
+enable = true
