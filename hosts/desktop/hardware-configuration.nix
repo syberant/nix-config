@@ -25,7 +25,7 @@
       fsType = "ext4";
     };
 
-  swapDevices = [ ];
-
-  nix.maxJobs = lib.mkDefault 16;
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/54c37b93-5bac-465f-9627-4f0f865e92bd"; }
+    ];
 }
