@@ -89,6 +89,7 @@ packages = [
     "anki",
     "unzip",
     "libreoffice",
+    "mendeley",
 
     # CLI productivity
     "imagemagick",
