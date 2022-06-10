@@ -1,15 +1,11 @@
 [nix]
 # Use experimental flakes
-package = "nixFlakes"
 extraOptions = """
   experimental-features = nix-command flakes
 """
 
 # Save space
-autoOptimiseStore = true
-
-# Remove need for sudo
-trustedUsers = [ "sybrand" ]
+settings.auto-optimise-store = true
 
 [nix.gc]
 automatic = true

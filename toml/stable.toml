@@ -15,7 +15,7 @@ packages = [
     "gnumake",
     "cmake",
     "gcc",
-    "manpages",
+    "man-pages",
 
     # Personal development
     "zeal",

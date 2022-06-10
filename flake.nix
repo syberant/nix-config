@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
     nixpkgs-git.url = "github:NixOS/nixpkgs";
 
     # (Semi-)official auxiliary repositories
@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-21.11";
+      url = "github:nix-community/home-manager/release-22.05";
       # inputs.nixpkgs.follows = "nixpkgs-git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -23,9 +23,9 @@
     };
     nix-neovim = {
       url = "github:syberant/nix-neovim";
-      # inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs-git";
       # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
+      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs-git";
     };
     # nur-syberant = {
     # url = "/home/sybrand/Documents/Programmeren/Nix/nur-packages";

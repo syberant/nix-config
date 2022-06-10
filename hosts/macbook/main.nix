@@ -94,6 +94,6 @@
 
       # Disable hardened malloc to fix crashing on iGPU:
       # https://github.com/NixOS/nixpkgs/issues/146401
-      (torbrowser.override { useHardenedMalloc = false; })
+      (tor-browser-bundle-bin.override { useHardenedMalloc = false; })
     ];
 }

@@ -41,7 +41,7 @@
         steam
 
         # Needs overrides for macbook
-        torbrowser
+        tor-browser-bundle-bin
 
         # For World of Tanks
         wine-staging
