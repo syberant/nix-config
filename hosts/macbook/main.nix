@@ -41,6 +41,12 @@
   # Webcam
   hardware.facetimehd.enable = true;
 
+  # Disable shutdown on power key
+  services.logind.extraConfig = ''
+    HandlePowerKey=ignore
+    HandleSuspendKey=ignore
+  '';
+
   # Battery life tweaks
   # - view usage with powerstat
   services.tlp = {
