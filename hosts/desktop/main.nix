@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -68,5 +68,6 @@
   home-manager.users.sybrand.programs.mpv.config = {
     ytdl-format = "bestvideo[height<=1440]+bestaudio";
     sub-font-size = 40;
+    vo = lib.mkForce "vdpau"; # Workaround for `gpu` variant crashing
   };
 }
