@@ -31,7 +31,7 @@
     # TODO: ensure running on hibernate resume
 
     path = with pkgs; [ coreutils ];
-    script = "echo 'ddcci 0x37' > /sys/bus/i2c/devices/i2c-5/new_device";
+    script = "echo 'ddcci 0x37' > /sys/bus/i2c/devices/i2c-5/new_device || test -e /sys/class/backlight/ddcci5";
   };
 
   # Temporarily remap F{1,2} to XF86MonBrightness{Down,Up}
