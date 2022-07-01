@@ -19,7 +19,6 @@
     xmonad-sybrand = {
       url = "github:syberant/xmonad-sybrand";
       # url = "/home/sybrand/Documents/Programmeren/Nix/xmonad";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-neovim = {
       url = "github:syberant/nix-neovim";
