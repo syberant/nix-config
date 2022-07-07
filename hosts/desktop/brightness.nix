@@ -33,8 +33,4 @@
     path = with pkgs; [ coreutils ];
     script = "echo 'ddcci 0x37' > /sys/bus/i2c/devices/i2c-5/new_device || test -e /sys/class/backlight/ddcci5";
   };
-
-  # Temporarily remap F{1,2} to XF86MonBrightness{Down,Up}
-  gui.keyboard.key_mappings =
-    [ "67 = XF86MonBrightnessDown" "68 = XF86MonBrightnessUp" ];
 }
