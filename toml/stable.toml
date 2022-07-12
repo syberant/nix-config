@@ -40,6 +40,7 @@ packages = [
     "xdotool",
     "htop",
     "ksystemlog",
+    "toipe",
 
     # Relaxing
     "ytfzf",
