@@ -6,6 +6,7 @@
     ./syncthing.nix
     ./freedns.nix
     ./hardware-configuration.nix
+    ./sleep.nix
   ];
   # Use the GRUB 2 boot loader.
   #boot.loader.grub.enable = true;
@@ -34,12 +35,6 @@
   hardware.opengl.driSupport32Bit = true;
   # Use last driver supporting GT 710
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-
-  # Hibernate when pressing power key
-  services.logind.extraConfig = ''
-    HandlePowerKey=hibernate
-    HandleSuspendKey=hibernate
-  '';
 
   environment.systemPackages = with pkgs; [
         minecraft
