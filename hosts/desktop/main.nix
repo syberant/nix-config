@@ -4,7 +4,6 @@
   imports = [
     ./brightness.nix
     ./syncthing.nix
-    ./freedns.nix
     ./hardware-configuration.nix
     ./sleep.nix
   ];
