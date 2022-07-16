@@ -1,5 +1,6 @@
 -- small script to automatically compile my markdown documents
 -- to use put `lua require'mdpreview'.open_preview()` somewhere in your keymappings
+-- TODO: Make use of vim.schedule
 
 
 local M = {}

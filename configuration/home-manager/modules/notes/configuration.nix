@@ -8,23 +8,23 @@ in {
   imports = [ ../neovim/modules/base.nix ../neovim/modules/visual/colourscheme.nix ] ++ [ ./compe.nix ];
 
   vim.g = {
-    vimwiki_list = [{
-      path = notes_path;
-      syntax = "markdown";
-      ext = ".md";
-      nested_syntaxes = {
-        # These are in addition to the syntaxes already known to vim.
-        "c++" = "cpp";
-      };
-      # custom_wiki2html = "script.sh";
-      auto_diary_index = 1;
-    }];
-    vimwiki_filetypes = [ "markdown" "pandoc" ];
+    # vimwiki_list = [{
+      # path = notes_path;
+      # syntax = "markdown";
+      # ext = ".md";
+      # nested_syntaxes = {
+        # # These are in addition to the syntaxes already known to vim.
+        # "c++" = "cpp";
+      # };
+      # # custom_wiki2html = "script.sh";
+      # auto_diary_index = 1;
+    # }];
+    # vimwiki_filetypes = [ "markdown" "pandoc" ];
 
-    # Pandoc syntax highlighting
-    "pandoc#syntax#conceal#urls" = 1;
-    "pandoc#syntax#codeblocks#embeds#langs" =
-      [ "python" "cpp" "haskell" "bash=sh" ];
+    # # Pandoc syntax highlighting
+    # "pandoc#syntax#conceal#urls" = 1;
+    # "pandoc#syntax#codeblocks#embeds#langs" =
+      # [ "python" "cpp" "haskell" "bash=sh" ];
   };
 
   vim.opt = {
@@ -34,6 +34,18 @@ in {
 
     # Let `gf` and other vim builtins find my notes
     suffixesadd = ".md";
+  };
+
+  plugin.setup.telekasten = rec {
+    home = notes_path;
+    dailies = "${home}/daily";
+    weeklies = "${home}/weekly";
+    templates = "${home}/templates";
+
+    tag_notation = "#tag";
+
+    # BUG: https://github.com/renerocksai/telekasten.nvim/issues/95
+    subdirs_in_links = false;
   };
 
   vim.keybindings = {
@@ -61,8 +73,18 @@ in {
 
   output.plugins = with pkgs.vimPlugins; [
     telescope-nvim
-    vimwiki
-    vim-pandoc-syntax
+    # vimwiki
+    # vim-pandoc-syntax
+
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "telekasten.nvim";
+      src = pkgs.fetchFromGitHub {
+        owner = "renerocksai";
+        repo = "telekasten.nvim";
+        rev = "d4321a834828ab8bc4704eb3f6f982ba026b84a8";
+        sha256 = "sha256-Uj86EwtZy99duQ1lRw8m1gfCwvHSbTBpTYBz3ZgKzF0=";
+      };
+    })
   ];
   output.makeWrapper = "--set LUA_PATH '${./.}/?.lua;;'";
 
