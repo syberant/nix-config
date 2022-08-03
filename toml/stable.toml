@@ -22,7 +22,6 @@ packages = [
     "tokei",
 
     # Personal choices
-    "nnn",
     "lf",
     "st",
     "yadm",
