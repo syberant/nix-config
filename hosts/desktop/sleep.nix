@@ -6,14 +6,14 @@
     extraOptions = [ "-detectsleep" ];
 
     # Save energy by entering sleep state
-    killer = "/run/current-system/systemd/bin/systemctl suspend-then-hibernate";
+    killer = "/run/current-system/systemd/bin/systemctl suspend";
     # Time in minutes before `killer` command is run
-    killtime = 15;
+    killtime = 10;
 
     # Lock the screen
     locker = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
     # Time before `locker` command is run
-    time = 10;
+    time = 9;
   };
 
   # Delay between suspending to RAM and suspending to disk when using suspend-then-hibernate
@@ -24,7 +24,7 @@
 
   # First suspend and then hibernate when pressing power key
   services.logind.extraConfig = ''
-    HandlePowerKey=suspend-then-hibernate
-    HandleSuspendKey=suspend-then-hibernate
+    HandlePowerKey=suspend
+    HandleSuspendKey=suspend
   '';
 }
