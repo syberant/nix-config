@@ -83,6 +83,7 @@ packages = [
     "maim",
 
     # Productivity
+    "thunderbird",
     "obsidian",
     "texlive.combined.scheme-full",
     "pandoc",
