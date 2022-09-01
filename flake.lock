@@ -236,11 +236,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1656619061,
-        "narHash": "sha256-S9yIs70EwnooA6nZlM6t5jEPA+q/nslzZFOZ+wn0VJw=",
+        "lastModified": 1661269907,
+        "narHash": "sha256-VJdvD8oAfmksHux3PPbQbz3ycyoz0GDeQnR3ZcwWXU8=",
         "owner": "syberant",
         "repo": "xmonad-sybrand",
-        "rev": "1a47f68e8af260e9155bd58a0f5d0daca2f2d2e9",
+        "rev": "81e3862c1da9783d6da0f969b76401446a5e1584",
         "type": "github"
       },
       "original": {
