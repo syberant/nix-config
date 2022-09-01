@@ -27,4 +27,7 @@
     HandlePowerKey=suspend
     HandleSuspendKey=suspend
   '';
+
+  # Allow wake-on-lan to wake up computer
+  networking.interfaces.enp5s0.wakeOnLan.enable = true;
 }
