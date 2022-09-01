@@ -42,11 +42,6 @@
 
         # Needs overrides for macbook
         tor-browser-bundle-bin
-
-        # For World of Tanks
-        wine-staging
-        winetricks
-        vulkan-loader
   ];
 
   # Block distracting websites
