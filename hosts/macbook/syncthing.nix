@@ -19,6 +19,7 @@
     folders = {
       "/home/${user}/Documents/Radboud_Universiteit_1" = {};
       "/home/${user}/Documents/Radboud_Universiteit_2" = {};
+      "/home/${user}/Documents/Radboud_Universiteit_3" = {};
       "/home/${user}/Documents/CGU_5E" = {};
       "/home/${user}/Documents/CGU_6E" = {};
       "/home/${user}/Documents/Persoonlijk" = {};
