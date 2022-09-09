@@ -100,5 +100,5 @@ packages = [
     # "geogebra6",
 
     # Proprietary stuff,
-    "discord",
+    # "discord",
 ]
