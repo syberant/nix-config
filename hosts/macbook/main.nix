@@ -93,13 +93,13 @@
     config."bar/example".modules-right = lib.mkOrder 50 [ "battery" ];
   };
 
+  home-manager.users.sybrand.home.sessionVariables = {
+    MAGICK_MEMORY_LIMIT = "4GB";
+  };
+
   environment.systemPackages = with pkgs;
     [
       # For debugging intel CPU behaviour.
-      # i7z
-
-      # Disable hardened malloc to fix crashing on iGPU:
-      # https://github.com/NixOS/nixpkgs/issues/146401
-      (tor-browser-bundle-bin.override { useHardenedMalloc = false; })
+      i7z
     ];
 }
