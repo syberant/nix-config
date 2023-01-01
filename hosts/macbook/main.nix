@@ -8,8 +8,6 @@
 
   # Unique ID for zfs
   networking.hostId = "fec9e12c";
-  # Enable trim for SSD
-  services.zfs.trim.enable = true;
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
@@ -20,34 +18,18 @@
 
   # Networking
   networking.hostName = "nixos-macbook"; # Define your hostname.
-  networking.enableB43Firmware = true;
 
   # Allow remote SSH port forwarding
   services.openssh.settings.GatewayPorts = "yes";
 
   services.xserver.enable = lib.mkForce false;
+  services.displayManager.enable = lib.mkForce false;
 
   # Disable shutdown on power key
   # services.logind.extraConfig = ''
   #   HandlePowerKey=ignore
   #   HandleSuspendKey=ignore
   # '';
-
-  # Battery life tweaks
-  # - view usage with powerstat
-  services.tlp = {
-    enable = true;
-    settings = {
-      # force battery mode even on AC
-      TLP_DEFAULT_MODE = "BAT";
-      TLP_PERSISTANT_DEFAULT = 1;
-
-      # manually set performance policy
-      ENERGY_PERF_POLICY_ON_BAT = "power";
-      ENERGY_PERF_POLICY_ON_AC = "balance-performance";
-    };
-  };
-  powerManagement.powertop.enable = true;
 
   services.kmscon.enable = true;
 
