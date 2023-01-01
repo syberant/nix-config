@@ -1,0 +1,2 @@
+# Install cryptsetup
+environment.systemPackages = [ "cryptsetup" ]
