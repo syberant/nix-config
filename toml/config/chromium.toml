@@ -1,0 +1,37 @@
+[programs.chromium]
+enable = true
+extensions = [
+    "naepdomgkenhinolocfifgehidddafch", # Browserpass
+    "chphlpgkkbolifaimnlloiipkdnihall", # OneTab
+
+    # Privacy
+    "fhcgjolkccmbidfldomjliifgaodjagh", # Cookie AutoDelete
+    "pkehgijcmpdhfbdbbnkijodmdjhbjlgp", # Privacy Badger
+    "cjpalhdlnbpafiamejdnhcphjbkeiagm", # uBlock Origin
+]
+
+# See policies here: https://chromeenterprise.google/policies/
+[programs.chromium.extraOpts]
+RestoreOnStartup = 1 # Restore previous session on startup
+URLBlocklist = [
+    "youtube.com",
+    "nos.nl",
+    "bbc.com",
+    "reddit.com",
+    "arstechnica.com"
+]
+
+# Privacy
+SyncDisabled = true
+MetricsReportingEnabled = false
+DefaultCookiesSetting = 4
+ClearBrowsingDataOnExitList = [
+ "browsing_history",
+ "download_history",
+ "cookies_and_other_site_data",
+ "cached_images_and_files",
+ "password_signin",
+ "autofill",
+ "site_settings",
+ "hosted_app_data"
+]
