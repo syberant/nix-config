@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./syncthing.nix
     nixos-hardware.nixosModules.apple-macbook-air-6
     ./hardware-configuration.nix
   ];
