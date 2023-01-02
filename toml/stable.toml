@@ -44,7 +44,7 @@ packages = [
     # Relaxing
     "ytfzf",
     "newsboat",
-    "apple-music-electron", # TODO: update this to newest version and upstream into nixpkgs
+    "cider",
 
     # Utilities for UX
     "xorg.xrandr",
