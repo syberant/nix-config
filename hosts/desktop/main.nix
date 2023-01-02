@@ -35,10 +35,10 @@
   # Use last driver supporting GT 710
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
 
+  programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
         minecraft
         freeciv
-        steam
 
         # Needs overrides for macbook
         tor-browser-bundle-bin
