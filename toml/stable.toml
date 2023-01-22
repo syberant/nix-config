@@ -81,6 +81,7 @@ packages = [
     "sxiv",
     "chromium",
     "maim",
+    "pavucontrol",
 
     # Productivity
     "thunderbird",
@@ -99,6 +100,6 @@ packages = [
     # Mathematics and other study-related program
     # "geogebra6",
 
-    # Proprietary stuff,
+    # Proprietary stuff
     # "discord",
 ]
