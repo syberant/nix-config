@@ -2,9 +2,48 @@ set shell sh
 # set internal field separator (IFS) to "\n" for shell commands
 set ifs "\n"
 
-# Use the xdg standard for opening files
-cmd open &xdg-open $f
 
 # Get syntax highlighting with bat
 set color256 true
 set previewer ~/.config/lf/preview
+
+# z.lua integration
+cmd z-jump ${{
+  lf -remote "send ${id} cd '$(z -e $@)'"
+}}
+# map Z push :z-jump<space>-I<space>
+# map zb push :z-jump<space>-b<space>
+# map zz push :z-jump<space>
+
+# Quicker file opening
+cmd open &{{
+    case $(file --mime-type $fx -b) in
+		application/json|\
+		text/*\
+			) lf -remote "send $id nvim \$f" ;;
+		image/gif\
+			) sxiv -a $fx ;;
+		image/*\
+            ) sxiv $fx ;;
+		video/*\
+			) mpv $fx ;;
+		audio/*\
+			) mpv --profile=builtin-pseudo-gui $fx ;;
+		application/epub*|\
+		application/pdf|\
+		application/postscript\
+			) zathura $fx ;;
+        # Fallback: Use the xdg standard for opening files
+		*\	) xdg-open $fx ;;
+    esac
+}}
+
+# Only exit on :q, :wq
+cmd q quit
+cmd wq quit
+map q
+
+# Keymappings
+map zz push :z-jump<space>
+map c rename
+map d delete
