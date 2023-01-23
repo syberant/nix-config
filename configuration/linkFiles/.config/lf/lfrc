@@ -40,7 +40,7 @@ cmd sort_time :set sortby time; set reverse; set info
 cmd sort_normal :set sortby natural; set noreverse; set info
 
 # Layouts
-cmd single_column :set ratios 1; set nopreview; set info size:time
+cmd single_column :set nopreview; set ratios 1; set info size:time
 cmd normal_layout :set ratios '1:2:3'; set preview; set info
 
 # Only exit on :q, :wq
