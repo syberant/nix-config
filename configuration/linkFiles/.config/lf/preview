@@ -1,8 +1,18 @@
 #!/bin/sh
 
 case "$1" in
-    *.tar*) tar tf "$1";;
-    *.zip) unzip -l "$1";;
-    *.pdf) pdftotext -layout "$1" -;;
-    *) bat -p --color=always --line-range :100 $1;;
+    *.tar.gz) tar -ztvf "$1" ;;
+    *.tar.bz2) tar -jtvf "$1" ;;
+    *.tar) tar -tvf "$1" ;;
+    *.zip) unzip -l "$1" ;;
+    *.pdf) pdftotext -layout "$1" - ;;
+    *.jpg|*.jpeg|*.png) mediainfo "$1" ;;
+    *.opus|*.mp3|*.m4a) mediainfo "$1" ;;
+    *.mp4|*.mkv) mediainfo "$1" ;;
+    *)
+        MIMETYPE=$(file --brief --mime-type "$1")
+        case "$MIMETYPE" in
+            text/*|application/json) bat -p --color=always --line-range :100 "$1" ;;
+            *) file --brief "$1";;
+        esac;;
 esac

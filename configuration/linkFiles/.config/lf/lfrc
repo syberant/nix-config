@@ -4,16 +4,13 @@ set ifs "\n"
 
 
 # Get syntax highlighting with bat
-set color256 true
+# set color256 true
 set previewer ~/.config/lf/preview
 
 # z.lua integration
 cmd z-jump ${{
   lf -remote "send ${id} cd '$(z -e $@)'"
 }}
-# map Z push :z-jump<space>-I<space>
-# map zb push :z-jump<space>-b<space>
-# map zz push :z-jump<space>
 
 # Quicker file opening
 cmd open &{{
@@ -38,12 +35,26 @@ cmd open &{{
     esac
 }}
 
+# Change sorting
+cmd sort_time :set sortby time; set reverse; set info
+cmd sort_normal :set sortby natural; set noreverse; set info
+
+# Layouts
+cmd single_column :set ratios 1; set nopreview; set info size:time
+cmd normal_layout :set ratios '1:2:3'; set preview; set info
+
 # Only exit on :q, :wq
 cmd q quit
 cmd wq quit
 map q
 
 # Keymappings
+map ? ${{ bat --language sh --style='grid,header-filename' ~/.config/lf/lfrc }}
 map zz push :z-jump<space>
+map Z push :z-jump<space>-I<space>
 map c rename
 map d delete
+map sn sort_normal
+map st sort_time
+map Ln normal_layout
+map Ls single_column
