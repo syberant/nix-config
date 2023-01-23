@@ -51,12 +51,14 @@ packages = [
 
     # Utilities for CLI UX
     "fzf",
-    "tig",
     "lazygit",
     "entr",
     "starship",
     "poppler_utils",
     "file",
+    "mediainfo",
+    "massren",
+    "chafa",
 
     # Hardware debugging utilities
     "pciutils",
