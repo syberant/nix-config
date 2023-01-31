@@ -43,17 +43,19 @@ cmd sort_normal :set sortby natural; set noreverse; set info
 cmd single_column :set nopreview; set ratios 1; set info size:time
 cmd normal_layout :set ratios '1:2:3'; set preview; set info
 
-# Only exit on :q, :wq
+# Only exit on :q, :wq, Ctrl-C
 cmd q quit
 cmd wq quit
 map q
+map <c-c> quit
 
 # Keymappings
 map ? ${{ bat --language sh --style='grid,header-filename' ~/.config/lf/lfrc }}
-map zz push :z-jump<space>
-map Z push :z-jump<space>-I<space>
+map Z push :z-jump<space>
+map zz push :z-jump<space>-I<space>
 map c rename
 map d delete
+map x cut
 map sn sort_normal
 map st sort_time
 map Ln normal_layout
