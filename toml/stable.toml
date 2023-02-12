@@ -48,6 +48,7 @@ packages = [
 
     # Utilities for UX
     "xorg.xrandr",
+    "arandr",
 
     # Utilities for CLI UX
     "fzf",
