@@ -20,6 +20,7 @@ packages = [
     # Personal development
     "zeal",
     "tokei",
+    "nixpkgs-review",
 
     # Personal choices
     "lf",
