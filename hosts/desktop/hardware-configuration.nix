@@ -13,7 +13,11 @@
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" "nct6775" ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ zenpower ];
+  boot.blacklistedKernelModules = [
+    # Blacklisting required by zenpower
+    "k10temp"
+  ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/98125eb6-20d3-4707-bbfd-d89875a750ab";

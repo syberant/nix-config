@@ -42,6 +42,9 @@
 
         # Needs overrides for macbook
         tor-browser-bundle-bin
+
+        # See CPU sensor information
+        zenmonitor
   ];
 
   # Block distracting websites
