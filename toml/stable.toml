@@ -18,6 +18,7 @@ packages = [
     "man-pages",
 
     # Personal development
+    "wezterm",
     "zeal",
     "tokei",
     "nixpkgs-review",
