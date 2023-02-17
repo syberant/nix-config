@@ -28,4 +28,7 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/a761b761-69f2-4f0a-9950-d9b18a2b37e2"; }
     ];
+
+  # Enable SSD trim
+  services.fstrim.enable = true;
 }
