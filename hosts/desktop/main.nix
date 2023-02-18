@@ -7,15 +7,20 @@
     ./hardware-configuration.nix
     ./sleep.nix
   ];
-  # Use the GRUB 2 boot loader.
-  #boot.loader.grub.enable = true;
-  #boot.loader.grub.version = 2;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/nvme0n1"; # or "nodev" for efi only
-  /* boot.loader.grub.useOSProber = true; */
+  boot.loader.grub = {
+    # boot.loader.grub.efiSupport = true;
+    # boot.loader.grub.efiInstallAsRemovable = true;
+    # boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+    memtest86.enable = true;
+
+    # Define on which hard drive you want to install Grub.
+    device = "/dev/nvme0n1"; # or "nodev" for efi only
+
+    # Set resolution correctly
+    gfxmodeBios = "2560x1440x32,1920x1080x32,auto";
+    gfxmodeEfi = "2560x1440x32,1920x1080x32,auto";
+  };
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
 
