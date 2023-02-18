@@ -37,8 +37,8 @@
 
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
-        minecraft
-        freeciv
+        # minecraft
+        prismlauncher
 
         # Needs overrides for macbook
         tor-browser-bundle-bin
