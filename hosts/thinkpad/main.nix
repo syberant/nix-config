@@ -3,6 +3,7 @@
 {
   imports = [ ./syncthing.nix ./hardware-configuration.nix ];
 
+  programs.steam.enable = true;
   environment.systemPackages = with pkgs; [ prismlauncher zenmonitor ];
 
   # Power efficiency
@@ -45,6 +46,9 @@
     config."bar/example".modules-right = lib.mkOrder 50 [ "battery" ];
   };
 
+  # Automatically switch between dual- and single-display options
+  services.autorandr.enable = true;
+
   # Configure ytfzf for a 1920x1200 screen
   home-manager.users.sybrand.home.file = {
     ".config/ytfzf/conf.sh" = {
@@ -57,6 +61,9 @@
 
   # Fingerprint reader
   services.fprintd.enable = true;
+
+  # Hibernate/sleep
+  # Encrypted swap: https://unix.stackexchange.com/questions/529047/is-there-a-way-to-have-hibernate-and-encrypted-swap-on-nixos
 
   # Use the GRUB2 boot loader.
   boot.loader.grub = {
