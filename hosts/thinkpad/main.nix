@@ -35,9 +35,24 @@
     };
   };
 
+  # Keyboard config
+  services.xserver.xkbOptions =
+    "altwin:swap_alt_win"; # Swap left alt and super key
+  console.useXkbConfig = true; # use xkbOptions in tty.
+
   services.xserver.sybrand-desktop-environment.polybar = {
     wlanInterface = "wlp1s0";
     config."bar/example".modules-right = lib.mkOrder 50 [ "battery" ];
+  };
+
+  # Configure ytfzf for a 1920x1200 screen
+  home-manager.users.sybrand.home.file = {
+    ".config/ytfzf/conf.sh" = {
+      text = ''
+        video_pref="bestvideo[height<=1200]"
+        pages_to_scrape=2
+      '';
+    };
   };
 
   # Fingerprint reader
@@ -69,21 +84,6 @@
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
   # Use latest kernel compatible with ZFS
   boot.kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
-
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = {
-  #   "eurosign:e";
-  #   "caps:escape" # map caps to escape.
-  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
