@@ -13,6 +13,7 @@
     driSupport = true;
     driSupport32Bit = true;
   };
+  hardware.bluetooth.enable = true;
 
   ################################
   # LOWER LEVEL HARDWARE SUPPORT #
