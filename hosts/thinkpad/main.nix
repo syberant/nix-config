@@ -62,6 +62,9 @@
   # Fingerprint reader
   services.fprintd.enable = true;
 
+  # Bluetooth handler
+  services.blueman.enable = true;
+
   # Hibernate/sleep
   # Encrypted swap: https://unix.stackexchange.com/questions/529047/is-there-a-way-to-have-hibernate-and-encrypted-swap-on-nixos
 
