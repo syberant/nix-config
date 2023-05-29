@@ -4,7 +4,9 @@
   imports = [ ./syncthing.nix ./hardware-configuration.nix ];
 
   programs.steam.enable = true;
-  environment.systemPackages = with pkgs; [ prismlauncher zenmonitor ];
+  environment.systemPackages = with pkgs; [ mate.mate-polkit prismlauncher zenmonitor ];
+
+  security.polkit.enable = true;
 
   # Power efficiency
   powerManagement.cpuFreqGovernor = "powersave";
