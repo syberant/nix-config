@@ -12,6 +12,8 @@
   hardware.opengl = {
     driSupport = true;
     driSupport32Bit = true;
+    # OpenCL
+    extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime ];
   };
   hardware.bluetooth.enable = true;
 
