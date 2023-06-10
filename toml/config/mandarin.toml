@@ -7,5 +7,5 @@ fonts.fonts = [ "noto-fonts-cjk" ]
 services.xserver.layout = "us"
 
 [i18n.inputMethod]
-enabled = "fcitx"
-fcitx.engines = [ "fcitx-engines.libpinyin" ]
+enabled = "fcitx5"
+fcitx5.addons = [ "fcitx5-chinese-addons", "fcitx5-rime" ]
