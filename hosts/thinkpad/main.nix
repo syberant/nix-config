@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-  imports = [ ./syncthing.nix ./hardware-configuration.nix ];
+  imports = [ ./syncthing.nix ./hardware-configuration.nix ./udev.nix ];
 
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [ mate.mate-polkit prismlauncher zenmonitor ];
