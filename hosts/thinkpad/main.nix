@@ -4,7 +4,14 @@
   imports = [ ./syncthing.nix ./hardware-configuration.nix ./udev.nix ];
 
   programs.steam.enable = true;
-  environment.systemPackages = with pkgs; [ mate.mate-polkit prismlauncher zenmonitor ];
+  environment.systemPackages = with pkgs; [
+    mate.mate-polkit
+    prismlauncher
+    zenmonitor
+
+    # Support connecting to Apple AirPort
+    afpfs-ng
+  ];
 
   security.polkit.enable = true;
 
