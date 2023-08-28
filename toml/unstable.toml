@@ -1,4 +1,5 @@
 packages = [
-    # "torbrowser",
+    "tor-browser-bundle-bin",
     "discord",
+    "yt-dlp",
 ]

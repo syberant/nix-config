@@ -47,6 +47,7 @@ packages = [
     "ytfzf",
     "newsboat",
     "cider",
+    "calibre",
 
     # Utilities for UX
     "xorg.xrandr",
