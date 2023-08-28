@@ -1,7 +1,11 @@
+# Use same keyboard config in tty
+console.useXkbConfig = true
+
 # TODO: declaratively configure fcitx
 # Disable default fcitx module
 #disabledModules = [ "i18n/input-method/fcitx.nix" ];
 
+# Add font capable of displaying 汉字
 fonts.fonts = [ "noto-fonts-cjk" ]
 
 services.xserver.layout = "us"
@@ -9,3 +13,6 @@ services.xserver.layout = "us"
 [i18n.inputMethod]
 enabled = "fcitx5"
 fcitx5.addons = [ "fcitx5-chinese-addons", "fcitx5-rime" ]
+
+[services.xserver]
+layout = "us"

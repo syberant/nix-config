@@ -33,6 +33,9 @@
   users.extraGroups.vboxusers.members = [ "sybrand" ];
   virtualisation.virtualbox.host.enable = true;
 
+
+  # Swap left alt and super key
+  services.xserver.xkbOptions = "altwin:swap_alt_win";
   # Get Xserver working
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
