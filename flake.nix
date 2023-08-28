@@ -119,6 +119,12 @@
         modules = [ ./hosts/macbook/main.nix sharedModule ];
       };
 
+      nixosConfigurations.nixos-thinkpad = nixpkgs.lib.nixosSystem {
+        inherit specialArgs system;
+
+        modules = [ ./hosts/thinkpad/main.nix sharedModule ];
+      };
+
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         inherit specialArgs system;
 
