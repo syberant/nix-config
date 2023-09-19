@@ -23,6 +23,7 @@
   };
 
   networking.hostName = "nixos-desktop"; # Define your hostname.
+  hardware.bluetooth.enable = true;
 
   # Unique ID for zfs
   networking.hostId = "b590f6d7";
