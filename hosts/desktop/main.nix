@@ -39,10 +39,8 @@
   services.xserver.xkbOptions = "altwin:swap_alt_win";
   # Get Xserver working
   nixpkgs.config.allowUnfree = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.opengl.driSupport32Bit = true;
-  # Use last driver supporting GT 710
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
 
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
@@ -54,6 +52,10 @@
 
         # See CPU sensor information
         zenmonitor
+
+        # Radeon GPU
+        radeontop lm_sensors
+        corectrl
   ];
 
   # Block distracting websites
