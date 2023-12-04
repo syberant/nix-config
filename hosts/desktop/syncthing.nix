@@ -10,11 +10,11 @@
     # declarative.cert = "";
     # declarative.key = "";
 
-    devices.nixos-macbook = {
+    settings.devices.nixos-macbook = {
       id = "ECDUSSX-C5OOXG6-RBIJK2F-377MBFH-WKCMJ5N-FVEOKG4-PC7A5RY-HUUMIQ7";
     };
 
-    folders = {
+    settings.folders = {
       "/home/${user}/Documents/Radboud_Universiteit_1".devices = [ "nixos-macbook" ];
       "/home/${user}/Documents/Radboud_Universiteit_2".devices = [ "nixos-macbook" ];
       "/home/${user}/Documents/Radboud_Universiteit_3".devices = [ "nixos-macbook" ];

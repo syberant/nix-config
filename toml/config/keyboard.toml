@@ -2,7 +2,7 @@
 console.useXkbConfig = true
 
 # Add font capable of displaying 汉字
-fonts.fonts = [ "noto-fonts-cjk" ]
+fonts.packages = [ "noto-fonts-cjk" ]
 
 
 # TODO: declaratively configure fcitx
