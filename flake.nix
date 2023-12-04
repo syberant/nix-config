@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-git.url = "github:NixOS/nixpkgs";
 
     # (Semi-)official auxiliary repositories
@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager/release-23.11";
       # inputs.nixpkgs.follows = "nixpkgs-git";
       inputs.nixpkgs.follows = "nixpkgs";
     };

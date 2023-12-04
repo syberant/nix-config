@@ -1,33 +1,15 @@
 { pkgs, lib, ... }:
 
+# TODO: Have a look at
+# - https://addons.mozilla.org/en-US/firefox/addon/tabby-window-tab-manager/
+# - https://addons.mozilla.org/en-US/firefox/addon/enhancer-for-youtube/
+
 {
   programs.browserpass.enable = true;
 
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      vimium
-      umatrix
-      ublock-origin
-
-      # Zhongwen Chinese Popup Dictionary
-      (buildFirefoxXpiAddon {
-        pname = "zhongwen";
-        version = "5.10.0";
-
-        addonId = "{dedb3663-6f13-4c6c-bf0f-5bd111cb2c79}";
-        url = "https://addons.mozilla.org/firefox/downloads/file/3701579/zhongwen_the_popular_chinese_learning_tool-5.10.0-an+fx.xpi";
-        sha256 = "Rfn0rs/9jhyjYh8mvggyodsK0APdYATZmf5C5lJh6ow=";
-
-        meta = with lib; {
-          homepage = "https://github.com/cschiller/zhongwen";
-          description = "Official Firefox port of the Zhongwen Chrome extension. Chinese-English dictionary and learning tool.";
-          license = licenses.gpl2;
-          platforms = platforms.all;
-        };
-      })
-    ];
 
     profiles = let
       commonSettings = {
@@ -56,6 +38,43 @@
       personal = {
         id = 0;
         settings = commonSettings;
+
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          vimium
+          umatrix
+          ublock-origin
+
+          # Zhongwen Chinese Popup Dictionary
+          (buildFirefoxXpiAddon {
+            pname = "zhongwen";
+            version = "5.10.0";
+
+            addonId = "{dedb3663-6f13-4c6c-bf0f-5bd111cb2c79}";
+            url =
+              "https://addons.mozilla.org/firefox/downloads/file/3701579/zhongwen_the_popular_chinese_learning_tool-5.10.0-an+fx.xpi";
+            sha256 = "Rfn0rs/9jhyjYh8mvggyodsK0APdYATZmf5C5lJh6ow=";
+
+            meta = with lib; {
+              homepage = "https://github.com/cschiller/zhongwen";
+              description =
+                "Official Firefox port of the Zhongwen Chrome extension. Chinese-English dictionary and learning tool.";
+              license = licenses.gpl2;
+              platforms = platforms.all;
+            };
+          })
+        ];
+
+      };
+
+      focus = {
+        id = 2;
+        settings = commonSettings // {
+          "browser.privatebrowsing.autostart" = true;
+        };
+        userChrome = ''
+          /* Remove tab bar */
+          #tabbrowser-tabs { visibility: collapse !important; }
+        '';
       };
 
       #work = {
