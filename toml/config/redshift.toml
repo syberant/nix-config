@@ -1,3 +1,2 @@
 [services.redshift]
 enable = true
-extraOptions = [ "-l 52.083333:5.116667" ]
