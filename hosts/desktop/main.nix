@@ -55,8 +55,13 @@
 
         # Radeon GPU
         radeontop lm_sensors
-        corectrl
   ];
+
+  # Monitor hardware
+  programs.corectrl = {
+    enable = true;
+    gpuOverclock.enable = true;
+  };
 
   # Block distracting websites
   blacklist_ip.distractions.blockedSites = [
