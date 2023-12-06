@@ -21,6 +21,16 @@
         user = "sybrand";
         hostname = "100.73.233.50";
       };
+
+      "nixos-thinkpad" = {
+        user = "sybrand";
+        hostname = "100.109.178.81";
+      };
+
+      "homeserver" = {
+        user = "sybrand";
+        hostname = "100.107.167.72";
+      };
     };
   };
 }
