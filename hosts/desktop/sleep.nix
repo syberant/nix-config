@@ -8,12 +8,16 @@
     # Save energy by entering sleep state
     killer = "/run/current-system/systemd/bin/systemctl suspend";
     # Time in minutes before `killer` command is run
-    killtime = 10;
+    killtime = 31;
 
     # Lock the screen
     locker = "${pkgs.i3lock-fancy}/bin/i3lock-fancy";
     # Time before `locker` command is run
-    time = 9;
+    time = 30;
+
+    # Send a notification prior to locking
+    enableNotifier = true;
+    notifier = "${pkgs.libnotify}/bin/notify-send 'Locking in 10 seconds'";
   };
 
   # Delay between suspending to RAM and suspending to disk when using suspend-then-hibernate
