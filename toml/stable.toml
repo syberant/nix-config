@@ -103,8 +103,10 @@ packages = [
     "imagemagick",
     "ffmpeg",
 
-    # Mathematics and other study-related program
+    # Misc.
     # "geogebra6",
+    # "kicad", # pcb design
+    # "freecad", " 3d printing design
 
     # Proprietary stuff
     # "discord",
