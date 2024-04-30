@@ -2,6 +2,11 @@ set shell sh
 # set internal field separator (IFS) to "\n" for shell commands
 set ifs "\n"
 
+# Edit and reload the config
+cmd edit-config ${{
+    $EDITOR /etc/nixos/configuration/linkFiles/.config/lf/lfrc
+    lf -remote "send $id source /etc/nixos/configuration/linkFiles/.config/lf/lfrc"
+}}
 
 # Get syntax highlighting with bat
 # set color256 true
@@ -11,6 +16,12 @@ set previewer ~/.config/lf/preview
 cmd z-jump ${{
   lf -remote "send ${id} cd '$(z -e $@)'"
 }}
+
+# Create directory (can have spaces in name)
+cmd mkdir %IFS=" "; mkdir -- "$*"
+
+# Create (empty) file (can have spaces)
+cmd touch %IFS=" "; touch -- "$*"
 
 # Quicker file opening
 cmd open &{{
@@ -43,6 +54,12 @@ cmd sort_normal :set sortby natural; set noreverse; set info
 cmd single_column :set nopreview; set ratios 1; set info size:time
 cmd normal_layout :set ratios '1:2:3'; set preview; set info
 
+# Options for specific directories
+# This does not seem to allow arbitrary commands
+setlocal /home/sybrand/Downloads sortby time
+setlocal /home/sybrand/Downloads reverse
+setlocal /home/sybrand/Downloads info
+
 # Only exit on :q, :wq, Ctrl-C
 cmd q quit
 cmd wq quit
@@ -50,7 +67,7 @@ map q
 map <c-c> quit
 
 # Keymappings
-map ? ${{ bat --language sh --style='grid,header-filename' ~/.config/lf/lfrc }}
+map ? edit-config
 map Z push :z-jump<space>
 map zz push :z-jump<space>-I<space>
 map c rename
@@ -60,3 +77,5 @@ map sn sort_normal
 map st sort_time
 map Ln normal_layout
 map Ls single_column
+map Md push :mkdir<space>
+map Mf push :touch<space>
