@@ -16,8 +16,4 @@
 
   # Let 'nixos-version --json' know about the Git revision of this flake.
   system.configurationRevision = pkgs.lib.mkIf (self ? rev) self.rev;
-
-  # hardware.opengl.driSupport32Bit = true;
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
 }
