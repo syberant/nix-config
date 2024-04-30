@@ -2,8 +2,6 @@
 
 {
   plugin.setup.gitsigns = {
-    # Disable default keybindings
-    keymaps = {};
   };
 
   output.plugins = with pkgs.vimPlugins; [ gitsigns-nvim ];
