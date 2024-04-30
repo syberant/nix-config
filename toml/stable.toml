@@ -46,7 +46,6 @@ packages = [
     # Relaxing
     "ytfzf",
     "newsboat",
-    "cider",
     "calibre",
 
     # Utilities for UX
@@ -91,7 +90,6 @@ packages = [
 
     # Productivity
     "thunderbird",
-    "obsidian",
     "texlive.combined.scheme-full",
     "pandoc",
     "anki",
