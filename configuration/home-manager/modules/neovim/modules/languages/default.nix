@@ -56,7 +56,7 @@ with lib;
 
     -- Setup all LSPs
     local nvim_lsp = require'lspconfig'
-    local servers = {'rust_analyzer', 'rnix', 'clangd', 'pyright'}
+    local servers = {'rust_analyzer', 'nixd', 'clangd', 'pyright'}
     for _, s in ipairs(servers) do
       nvim_lsp[s].setup({
         on_attach = on_attach,
@@ -107,7 +107,7 @@ with lib;
     rust-analyzer
 
     # Nix
-    rnix-lsp
+    nixd
 
     # C++
     clang-tools
