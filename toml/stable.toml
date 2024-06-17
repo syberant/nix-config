@@ -77,7 +77,7 @@ packages = [
     "octave",
 
     # Formatters
-    "nixfmt",
+    "nixfmt-classic",
     "rustfmt",
 
     # Graphical defaults

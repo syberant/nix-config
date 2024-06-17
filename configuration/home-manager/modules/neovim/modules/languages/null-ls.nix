@@ -47,7 +47,7 @@ with lib;
     # Formatters
     stylua
     stylish-haskell
-    nixfmt
+    nixfmt-classic
     rustfmt
     black
 

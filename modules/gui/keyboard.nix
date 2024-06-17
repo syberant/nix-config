@@ -33,7 +33,7 @@ in {
             '';
         };
         caps_lock_to_control = mkIf cfg.caps_lock_to_control {
-            services.xserver.xkbOptions = "ctrl:nocaps";
+            services.xserver.xkb.options = "ctrl:nocaps";
         };
         key_mappings =
             let code = map (a: ''xmodmap -e "keycode '' + a + ''"'') cfg.key_mappings;

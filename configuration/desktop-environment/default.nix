@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 
 {
+  services.displayManager.defaultSession = "none+xmonad";
   services.xserver = {
     enable = true;
     sybrand-desktop-environment = {
@@ -8,7 +9,6 @@
       impureConfig = true;
       polybar.enablePomo = true;
     };
-    displayManager.defaultSession = "none+xmonad";
   };
 
   environment.systemPackages = with pkgs;

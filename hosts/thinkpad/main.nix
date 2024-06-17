@@ -31,7 +31,7 @@
   };
 
   # Trackpad configuration
-  services.xserver.libinput = {
+  services.libinput = {
     enable = true;
 
     touchpad = {
@@ -46,7 +46,7 @@
   };
 
   # Keyboard config
-  services.xserver.xkbOptions =
+  services.xserver.xkb.options =
     "altwin:swap_alt_win"; # Swap left alt and super key
   console.useXkbConfig = true; # use xkbOptions in tty.
 

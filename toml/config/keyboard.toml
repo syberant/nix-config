@@ -13,5 +13,5 @@ fonts.packages = [ "noto-fonts-cjk" ]
 enabled = "fcitx5"
 fcitx5.addons = [ "fcitx5-chinese-addons", "fcitx5-rime" ]
 
-[services.xserver]
+[services.xserver.xkb]
 layout = "us"
