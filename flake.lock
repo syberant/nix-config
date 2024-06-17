@@ -166,8 +166,25 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-git": "nixpkgs-git",
+        "secrets": "secrets",
         "sops-nix": "sops-nix",
         "xmonad-sybrand": "xmonad-sybrand"
+      }
+    },
+    "secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718649820,
+        "narHash": "sha256-yH/CIQQbZRLGVPzrAlABAcwg2DjuPi36unxVQtZBKuM=",
+        "ref": "refs/heads/master",
+        "rev": "3d5e49342c0ac2bc28c615ef31e300724e853031",
+        "revCount": 6,
+        "type": "git",
+        "url": "https://github.com/syberant/secrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/syberant/secrets.git"
       }
     },
     "sops-nix": {
