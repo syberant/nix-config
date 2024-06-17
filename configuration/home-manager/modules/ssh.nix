@@ -29,7 +29,7 @@
 
       "homeserver" = {
         user = "sybrand";
-        hostname = "100.107.167.72";
+        hostname = "100.69.232.99";
       };
     };
   };
