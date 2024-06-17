@@ -10,6 +10,6 @@ trim.enable = true
 # Automatically snapshot important data
 # "Note that you must set the ‘com.sun:auto-snapshot’ property to ‘true’ on all datasets which you wish to auto-snapshot."
 # I have set this for `rpool/home` on my thinkpad.
-[services.zfs.auto-snapshot]
+[services.zfs.autoSnapshot]
 enable = true
 flags = "-k -p --utc"
