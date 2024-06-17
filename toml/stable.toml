@@ -36,7 +36,7 @@ packages = [
     "du-dust",
 
     # Fluff
-    "neofetch",
+    "macchina",
     "cmatrix",
     "xdotool",
     "htop",
