@@ -3,12 +3,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-git.url = "github:NixOS/nixpkgs";
 
+
     # (Semi-)official auxiliary repositories
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    NUR = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    NUR.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       # inputs.nixpkgs.follows = "nixpkgs-git";
@@ -19,6 +17,7 @@
     xmonad-sybrand = {
       url = "github:syberant/xmonad-sybrand";
       # url = "/home/sybrand/Documents/Programmeren/Nix/xmonad";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-neovim = {
       url = "github:syberant/nix-neovim";
@@ -44,7 +43,10 @@
 
     # Misc
     flake-utils.url = "github:numtide/flake-utils";
-    hosts.url = "github:StevenBlack/hosts";
+    hosts = {
+      url = "github:StevenBlack/hosts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-git, nixos-hardware, NUR, home-manager
