@@ -1,12 +1,3 @@
-[services.openssh]
-# Enable the OpenSSH daemon.
-enable = true
-# Disallow password authentication.
-# passwordAuthentication = false
-
-# Configure authorized keys for each individual device with:
-# users.users.<name>.openssh.authorizedKeys.keys = [ "ssh-rsa AAAA03NzaC00c2etc/etc/etcjwrsh8e596z6J0l7 example@host" ];
-
 [networking]
 # Enables wireless support via NetworkManager.
 networkmanager.enable = true

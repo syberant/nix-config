@@ -20,11 +20,15 @@
       "nixos-macbook" = {
         user = "sybrand";
         hostname = "100.73.233.50";
+        identityFile = [ super.sops.secrets.desktop-ssh-key.path ];
+        identitiesOnly = true;
       };
 
       "nixos-thinkpad" = {
         user = "sybrand";
         hostname = "100.109.178.81";
+        identityFile = [ super.sops.secrets.desktop-ssh-key.path ];
+        identitiesOnly = true;
       };
 
       "homeserver" = {
