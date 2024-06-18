@@ -46,6 +46,7 @@
 
   fileSystems."/persist" =
     { device = "rpool/persistence";
+      neededForBoot = true;
       fsType = "zfs";
     };
 

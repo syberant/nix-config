@@ -12,6 +12,7 @@
       # inputs.nixpkgs.follows = "nixpkgs-git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence.url = "github:nix-community/impermanence";
 
     # Own flakes
     xmonad-sybrand = {
@@ -50,7 +51,7 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-git, nixos-hardware, NUR, home-manager
-    , sops-nix, xmonad-sybrand, nix-neovim, secrets, flake-utils, hosts }:
+    , sops-nix, xmonad-sybrand, nix-neovim, secrets, impermanence, flake-utils, hosts }:
 
     let
       # TODO: utilise flake-utils for this
@@ -104,6 +105,7 @@
           home-manager.nixosModules.home-manager
           hm-nixos-as-super
           xmonad-sybrand.nixosModule
+          impermanence.nixosModules.impermanence
           ./configuration/common.nix
         ];
 

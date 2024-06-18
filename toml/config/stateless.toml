@@ -1,2 +1,32 @@
 # Clean /tmp on boot
 boot.tmp.cleanOnBoot = true
+
+# Disallow mutable users
+users.mutableUsers = false
+
+# TODO: Wipe root on boot
+# See: https://discourse.nixos.org/t/impermanence-vs-systemd-initrd-w-tpm-unlocking/25167/2
+
+# Persist certain state across reboots
+# See https://nixos.org/manual/nixos/stable/#ch-system-state for a minimal list
+[environment.persistence."/persist"]
+enable = true # NB: Defaults to true, not needed
+hideMounts = true
+directories = [
+  "/etc/nixos",
+  "/etc/NetworkManager/system-connections",
+  "/var/log",
+  "/var/lib/bluetooth",
+  # TODO:
+  # "/var/lib/nixos",
+  # "/var/lib/fprint",
+  # "/var/lib/systemd",
+]
+files = [
+  "/etc/machine-id",
+  "/etc/zfs/zpool.cache",
+  "/etc/ssh/ssh_host_ed25519_key",
+  "/etc/ssh/ssh_host_ed25519_key.pub",
+  "/etc/ssh/ssh_host_rsa_key",
+  "/etc/ssh/ssh_host_rsa_key.pub",
+]
