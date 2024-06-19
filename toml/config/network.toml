@@ -12,9 +12,6 @@ stevenBlackHosts.enable = true
 useDHCP = false
 #interfaces.wlp3s0.useDHCP = true
 
-[services.tailscale]
-enable = true
-
 [services.openvpn.servers.radboud]
 # TODO: Fix systemd captures stdin so inputting username/password is impossible
 autoStart = false
