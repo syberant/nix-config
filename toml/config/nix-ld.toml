@@ -1,0 +1,12 @@
+# Make running normal Linux binaries possible!
+# All hail nix-ld!
+[programs.nix-ld]
+enable = true
+libraries = [
+    "stdenv.cc.cc",
+    "openssl",
+    "curl",
+    "glibc",
+    "zlib",
+    "nss",
+]
