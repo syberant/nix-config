@@ -75,7 +75,11 @@ packages = [
     "python3",
     "rustup", # Use stateful managing with `rustup` for Rust ¯\_(ツ)_/¯
     "octave",
-    "wasmtime", # Run WebAssembly locally!
+
+    # WebAssembly
+    "wasmtime", # runtime
+    "wabt",
+    "binaryen",
 
     # Formatters
     "nixfmt-classic",
