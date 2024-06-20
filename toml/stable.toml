@@ -34,6 +34,9 @@ packages = [
     "ripgrep",
     "fd",
     "du-dust",
+    "procs",
+    "hyperfine",
+    "bandwhich",
 
     # Fluff
     "macchina",
