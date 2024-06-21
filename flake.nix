@@ -176,6 +176,7 @@
               - flake, the complete flake
               - macbook, NixOS config of ./hosts/macbook
               - desktop, NixOS config of ./hosts/desktop
+              - thinkpad, NixOS config of ./hosts/thinkpad
           ${"''"} {
             inherit flake;
 
@@ -183,6 +184,7 @@
             # Useful for double-checking whether options are set like you expect them to be
             macbook = flake.outputs.nixosConfigurations.nixos-macbook.config;
             desktop = flake.outputs.nixosConfigurations.nixos-desktop.config;
+            thinkpad = flake.outputs.nixosConfigurations.nixos-thinkpad.config;
 
             pkgs = import "${nixpkgs}" {};
             nixpkgs-git = import "${nixpkgs-git}" {};
