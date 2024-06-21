@@ -1,0 +1,2 @@
+# Use "nur.<package>" to get a package
+environment.systemPackages = [ ]

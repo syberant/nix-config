@@ -13,16 +13,8 @@ with pkgs.nur.repos.syberant.lib;
       map ofPkgs (fromTOML (readFile file)).packages;
   in flatten (map fromList [
     {
-      file = ./stable.toml;
-      packages = pkgs;
-    }
-    {
       file = ./unstable.toml;
       packages = nixpkgs-git;
-    }
-    {
-      file = ./nur.toml;
-      packages = pkgs.nur;
     }
   ]);
 }

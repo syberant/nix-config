@@ -1,4 +1,4 @@
-packages = [
+environment.systemPackages = [
     # Some defaults
     "curl",
     "wget",
