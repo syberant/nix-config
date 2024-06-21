@@ -11,8 +11,17 @@
         bold.family = "Source Code Pro";
         italic.family = "Source Code Pro";
         bold_italic.family = "Source Code Pro";
-        size = 12;
+        size = 8;
       };
+
+      # From: https://wiki.archlinux.org/title/Alacritty#Hints
+      # hints.enabled = [
+        # {
+          # regex = "[^ ]+\\.rs:\\d+:\\d+";
+          # command = { program = "nvim"; args = [ "--goto" ]; };
+          # mouse.enabled = true;
+        # }
+      # ];
     };
   };
 }
