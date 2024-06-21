@@ -1,6 +1,9 @@
 [networking]
 # Enables wireless support via NetworkManager.
 networkmanager.enable = true
+# Uses wpa_supplicant as backend by default.
+# (I'd just like to make it explicit because seeing a `wpa_supplicant` process running surprised me)
+networkmanager.wifi.backend = "wpa_supplicant"
 
 # Use StevenBlack's blocklist:
 # https://github.com/StevenBlack/hosts
