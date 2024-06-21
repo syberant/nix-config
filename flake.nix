@@ -168,31 +168,15 @@
           confnix=$(mktemp)
 
           cat >$confnix <<EOF
-          let flake = builtins.getFlake "/etc/nixos";
-          in builtins.trace ${"''"}
-            This REPL loads the following variables:
-              - pkgs, stable version
-              - nixpkgs-git, master branch, often breaks
-              - flake, the complete flake
-              - macbook, NixOS config of ./hosts/macbook
-              - desktop, NixOS config of ./hosts/desktop
-              - thinkpad, NixOS config of ./hosts/thinkpad
-          ${"''"} {
-            inherit flake;
-
-            # Access the NixOS config after evaluation
-            # Useful for double-checking whether options are set like you expect them to be
-            macbook = flake.outputs.nixosConfigurations.nixos-macbook.config;
-            desktop = flake.outputs.nixosConfigurations.nixos-desktop.config;
-            thinkpad = flake.outputs.nixosConfigurations.nixos-thinkpad.config;
-
+          let
+            flake = builtins.getFlake "/etc/nixos";
             pkgs = import "${nixpkgs}" {};
             nixpkgs-git = import "${nixpkgs-git}" {};
-          }
+          in import ${./repl.nix} { inherit flake pkgs nixpkgs-git; }
           EOF
 
           trap "rm $confnix" EXIT
-          nix repl $confnix
+          nix repl --file $confnix
         '';
       };
     });
