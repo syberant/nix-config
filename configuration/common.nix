@@ -2,18 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ self, pkgs, config, lib, ... }:
+{ self, ... }:
 
 {
-  imports = with lib; with builtins; let
-    hasDefault = d: hasAttr "default.nix" (readDir (./. + "/${d}"));
-    isImportable = name: kind: if kind == "directory" then hasDefault name else hasSuffix ".nix" name && name != "common.nix";
-    files = attrNames (filterAttrs isImportable (readDir ./.));
-  in map (f: ./. + "/${f}") files ++ [
+  imports = [
+    ../desktop-environment
+    ../home-manager
     ../toml
-    ../modules/default.nix
+    ../modules
+    ./secrets
+    ./n-system-scripts
   ];
 
   # Let 'nixos-version --json' know about the Git revision of this flake.
-  system.configurationRevision = pkgs.lib.mkIf (self ? rev) self.rev;
+  system.configurationRevision = self.rev or "dirty";
 }

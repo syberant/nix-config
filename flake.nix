@@ -144,7 +144,7 @@
       apps.neovim = let
         configuration = {
           imports =
-            [ ./configuration/home-manager/modules/neovim/configuration.nix ];
+            [ ./home-manager/modules/neovim/configuration.nix ];
 
           output.path.style = nixpkgs.lib.mkForce "pure";
         };
@@ -156,7 +156,7 @@
       apps.zet = flake-utils.lib.mkApp {
         drv = nix-neovim.buildNeovim {
           configuration =
-            ./configuration/home-manager/modules/notes/configuration.nix;
+            ./home-manager/modules/notes/configuration.nix;
         };
         exePath = "/bin/nvim";
       };
