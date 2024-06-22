@@ -8,7 +8,7 @@ with lib;
 with pkgs.nur.repos.syberant.lib;
 
 let
-  getFiles = { dir, suffixes ? [], recursive ? false, allow_default ? true }:
+  getFiles = { dir, suffixes ? [ ], recursive ? false, allow_default ? true }:
     let
       hasDefault = d: hasAttr "default.nix" (builtins.readDir (dir + "/${d}"));
       isImportable = name: kind:
@@ -18,25 +18,37 @@ let
           lists.any (v: hasSuffix v name) suffixes;
       files = attrNames (filterAttrs isImportable (builtins.readDir dir));
     in map (f: dir + "/${f}") files;
-  getAllFiles = dir: getFiles { inherit dir; suffixes = [ "nix" "toml" ]; recursive = true; };
+  getAllFiles = dir:
+    getFiles {
+      inherit dir;
+      suffixes = [ "nix" "toml" ];
+      recursive = true;
+    };
 
-  importFile = file:
-    if hasSuffix "toml" file then
-        importToml file
-      else if hasSuffix "nix" file then
-        file
-      else throw "Unrecognized module file type '${file}', only 'nix' and 'toml' are allowed.";
+  importFileWithHandler = methods: file:
+    let
+      unsupportedType = throw
+        "Unrecognized module file type '${file}', allowed: ${attrNames methods}";
+      suffix = findFirst (a: hasSuffix a file) unsupportedType
+        (attrNames methods);
+      method = methods.${suffix} or unsupportedType;
+    in method file;
+  handlers = {
+    toml = importToml;
+    nix = file: import file;
+    json = lib.importJSON;
+  };
+  importFile = importFileWithHandler handlers;
+
   importFiles = dir: map importFile (getAllFiles dir);
 in {
   imports = importFiles ./config ++ [
     ../desktop-environment
     ../home-manager
-    ../toml
     ../modules
     ./secrets
     ./n-system-scripts
   ];
-
 
   # Let 'nixos-version --json' know about the Git revision of this flake.
   system.configurationRevision = self.rev or "dirty";
