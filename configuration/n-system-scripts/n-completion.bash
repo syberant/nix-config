@@ -3,7 +3,7 @@
 _n_completions() {
     case "${#COMP_WORDS[@]}" in
         "1" | "2")
-            COMPREPLY=($(compgen -W "repl search update impermanence" "${COMP_WORDS[1]}"))
+            COMPREPLY=($(compgen -W "repl search test switch boot update impermanence" "${COMP_WORDS[1]}"))
             ;;
         "3")
             case "${COMP_WORDS[1]}" in

@@ -1,11 +1,32 @@
 #!/usr/bin/env bash
 
+# Exit on error
+set -e
+
+assert_git_not_dirty() {
+    local changed=$(cd /etc/nixos; git diff --name-status)
+
+    if [ -n "$changed" ]; then
+        echo "Git repository is dirty! Commit your changes."
+        echo "$changed"
+        exit 1
+    fi
+}
+
 case $1 in
     "repl")
         nix run /etc/nixos#repl
         ;;
     "search")
         nix search nixpkgs $2;;
+    "test")
+        sudo nixos-rebuild test;;
+    "switch")
+        assert_git_not_dirty
+        sudo nixos-rebuild switch;;
+    "boot")
+        assert_git_not_dirty
+        sudo nixos-rebuild boot;;
     "update")
         cd /etc/nixos
         case $2 in
