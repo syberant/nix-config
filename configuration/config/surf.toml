@@ -1,6 +1,0 @@
-# surf, the suckless browser!
-
-environment.systemPackages = [ "surf" ]
-
-# Fixes surf bug, see https://github.com/NixOS/nixpkgs/issues/32580
-environment.variables.WEBKIT_DISABLE_COMPOSITING_MODE="1"
