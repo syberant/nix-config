@@ -27,6 +27,8 @@ case $1 in
     "boot")
         assert_git_not_dirty
         sudo nixos-rebuild boot;;
+    "analyse-size")
+        nix path-info -rhsS $(readlink /run/current-system) | sort -hk3 | less;;
     "update")
         cd /etc/nixos
         case $2 in
