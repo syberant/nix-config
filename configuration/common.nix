@@ -18,16 +18,6 @@ let
 
       buildInputs = [ pkgs.dhall-nix ];
     });
-  importPureScript = file:
-    import (pkgs.stdenv.mkDerivation {
-      name = "purescript-compiled.nix";
-
-      buildCommand = ''
-        TODO '${file}' > $out
-      '';
-
-      buildInputs = [ pkgs.purenix ];
-    }).nixosModule;
 
   handlers = defaultHandlers // {
     dhall = file:
@@ -57,5 +47,6 @@ in {
     ../modules
     ./secrets
     ./n-system-scripts
+    ./purescript
   ];
 }
