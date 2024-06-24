@@ -44,6 +44,11 @@ in {
     (handlers.dhall ./surf.dhall)
   ];
 
+  nix = {
+    # Disable using `nix-channel`
+    channel.enable = false;
+  };
+
   # Let 'nixos-version --json' know about the Git revision of this flake.
   system.configurationRevision = self.rev or "dirty";
 
