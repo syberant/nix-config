@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ self, lib, pkgs, ... }:
+{ self, lib, pkgs, config, ... }:
 
 with lib;
 with pkgs.nur.repos.syberant.lib;
@@ -46,4 +46,14 @@ in {
 
   # Let 'nixos-version --json' know about the Git revision of this flake.
   system.configurationRevision = self.rev or "dirty";
+
+  system.nixos = {
+    # Set label in GRUB to first 7 characters of the git hash of the last commit.
+    label = let
+      abbreviate = s: concatStrings (take 7 (stringToCharacters s));
+    in abbreviate config.system.configurationRevision;
+
+    # Use tags to keep track of features, these will also be shown in GRUB
+    # tags = [ "tag1" "tag2" ];
+  };
 }
