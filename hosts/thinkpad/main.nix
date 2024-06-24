@@ -3,6 +3,9 @@
 {
   imports = [ ./syncthing.nix ./hardware-configuration.nix ./udev.nix ];
 
+  # Enable fully offline builds
+  system.includeBuildDependencies = true;
+
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
     mate.mate-polkit
