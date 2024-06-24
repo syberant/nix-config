@@ -20,11 +20,14 @@ case $1 in
     "search")
         nix search nixpkgs $2;;
     "test")
+        git add -A -N
         sudo nixos-rebuild test;;
     "switch")
+        git add -A -N
         assert_git_not_dirty
         sudo nixos-rebuild switch;;
     "boot")
+        git add -A -N
         assert_git_not_dirty
         sudo nixos-rebuild boot;;
     "analyse-size")
