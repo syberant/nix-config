@@ -44,6 +44,14 @@ in {
     (handlers.dhall ./surf.dhall)
   ];
 
+  # Include a copy of the flake used to build a generation *inside* that generation
+  # Accessible at /run/current-system/sw/share/self-flake/nested/dir
+  environment = {
+    # TODO: Fix mess with nested dir
+    systemPackages = [ (pkgs.runCommand "nixos-configuration-flake" {} "mkdir -p $out/share/self-flake/nested/dir; cp -r ${self}/* $out/share/self-flake/nested/dir") ];
+    pathsToLink = [ "/share/self-flake" ];
+  };
+
   nix = {
     # Disable using `nix-channel`
     channel.enable = false;
