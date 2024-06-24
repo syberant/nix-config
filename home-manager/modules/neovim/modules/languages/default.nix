@@ -56,7 +56,7 @@ with lib;
 
     -- Setup all LSPs
     local nvim_lsp = require'lspconfig'
-    local servers = {'rust_analyzer', 'nixd', 'clangd', 'pyright'}
+    local servers = {'rust_analyzer', 'nixd', 'clangd', 'pyright', 'dhall_lsp_server'}
     for _, s in ipairs(servers) do
       nvim_lsp[s].setup({
         on_attach = on_attach,
@@ -98,6 +98,9 @@ with lib;
     nvim-lspconfig
     lsp_extensions-nvim
     lsp-status-nvim
+
+    purescript-vim
+    dhall-vim
   ];
 
   output.path.path = with pkgs; [
@@ -108,6 +111,9 @@ with lib;
 
     # Nix
     nixd
+
+    # Dhall
+    dhall-lsp-server
 
     # C++
     clang-tools
