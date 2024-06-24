@@ -31,9 +31,15 @@ let
         config = code;
       };
   };
-  importFile = importFileWithHandler defaultHandlers;
+  importFile = importFileWithHandler handlers;
 
-  importFiles = dir: map importFile (getNixTomlJsonFiles dir);
+  collectFiles = dir:
+    getFiles {
+      inherit dir;
+      suffixes = [ "nix" "toml" "dhall" ];
+    };
+
+  importFiles = dir: map importFile (collectFiles dir);
 in {
   imports = importFiles ./config ++ [
     ../desktop-environment
@@ -41,7 +47,6 @@ in {
     ../modules
     ./secrets
     ./n-system-scripts
-    (handlers.dhall ./surf.dhall)
   ];
 
   # Include a copy of the flake used to build a generation *inside* that generation
