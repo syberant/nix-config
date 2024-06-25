@@ -9,7 +9,26 @@
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox;
+    package = pkgs.firefox.override {
+      # Disables speechd support.
+      # Reduces closure size, amount of running processes and attack surface
+      cfg.speechSynthesisSupport = false;
+    };
+
+    # Stolen from: https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265
+    policies = {
+      DisableTelemetry = true;
+      DisableFirefoxStudies = true;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
+      DisablePocket = true;
+      DisableFirefoxAccounts = true;
+      DisableAccounts = true;
+    };
 
     profiles = let
       commonSettings = {
