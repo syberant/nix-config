@@ -16,8 +16,7 @@
 
     # Own flakes
     xmonad-sybrand = {
-      url = "github:syberant/xmonad-sybrand";
-      # url = "/home/sybrand/Documents/Programmeren/Nix/xmonad";
+      url = "path:./xmonad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-neovim = {

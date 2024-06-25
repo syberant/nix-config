@@ -246,17 +246,14 @@
         ]
       },
       "locked": {
-        "lastModified": 1718634858,
-        "narHash": "sha256-5ArE5Mhb5C9cu/qtAyoDj3sMhG1QZHX/w8irjma8Q/k=",
-        "owner": "syberant",
-        "repo": "xmonad-sybrand",
-        "rev": "01069ff8de0944b5d1d3e6163fc7c5da22c294af",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-bUyPh02B3GtGsfL3YxqxTmc9yWLJUUw4BhbR/ZLNYXQ=",
+        "path": "./xmonad",
+        "type": "path"
       },
       "original": {
-        "owner": "syberant",
-        "repo": "xmonad-sybrand",
-        "type": "github"
+        "path": "./xmonad",
+        "type": "path"
       }
     }
   },
