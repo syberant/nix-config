@@ -52,7 +52,7 @@ in {
       services.xserver = {
         # Keyboard delay
         autoRepeatDelay = 250;
-        xkbOptions = "compose:ralt";
+        xkb.options = "compose:ralt";
       };
 
       # Enable compton

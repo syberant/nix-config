@@ -92,7 +92,7 @@ in {
 
   config = {
     # Some fonts providing extra icons
-    fonts.fonts = with pkgs; [ font-awesome_5 font-awesome_4 ];
+    fonts.packages = with pkgs; [ font-awesome_5 font-awesome_4 ];
 
     services.xserver.sybrand-desktop-environment.polybar = {
       dotfile = format.generate "polybar-config" cfg.config;
