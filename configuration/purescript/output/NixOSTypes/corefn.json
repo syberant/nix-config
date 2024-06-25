@@ -1,0 +1,1 @@
+{"builtWith":"0.15.4","comments":[],"decls":[],"exports":[],"foreign":[],"imports":[{"annotation":{"meta":null,"sourceSpan":{"end":[1,24],"start":[1,1]}},"moduleName":["Prim"]}],"moduleName":["NixOSTypes"],"modulePath":"src/NixOSTypes.purs","reExports":{},"sourceSpan":{"end":[1,24],"start":[1,1]}}

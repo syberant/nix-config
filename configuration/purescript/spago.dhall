@@ -11,7 +11,7 @@ When creating a new Spago project, you can use
 to generate this file without the comments in this block.
 -}
 { name = "purenixos"
-, dependencies = [ "foldable-traversable", "maybe", "prelude" ]
+, dependencies = [ "arrays", "foldable-traversable", "maybe", "prelude" ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs" ]
 , backend = "purenix"
