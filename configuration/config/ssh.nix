@@ -31,6 +31,7 @@
   users.users.sybrand.openssh.authorizedKeys.keyFiles = [
     # Public SSH Key
     (secrets + "/keys/nixos-desktop-ssh.asc")
+    (secrets + "/keys/nixos-thinkpad.asc")
 
     # GPG key, needs to be exported into ssh key first
     # (secrets + "/keys/personal-gpg.asc")
