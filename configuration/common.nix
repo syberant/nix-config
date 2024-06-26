@@ -49,4 +49,7 @@ in {
     ./n-system-scripts
     ./purescript
   ];
+
+  # Fixes bug with typo in maintainer name
+  disabledModules = [ "services/misc/invidious-router.nix" ];
 }
