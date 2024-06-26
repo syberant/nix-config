@@ -247,7 +247,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-f5RCu0s5wjvGfVB7GS1HhDt1Ey6Bcn4xza5PMqAbCaE=",
+        "narHash": "sha256-3j08Xyceiiy5yrAkvFh+IYymgol/mvM6pauGMzKHu1I=",
         "path": "./xmonad",
         "type": "path"
       },

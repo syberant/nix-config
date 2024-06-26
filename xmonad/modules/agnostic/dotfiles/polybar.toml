@@ -61,6 +61,7 @@ font-1 = "FontAwesome5Free:style=Solid:size=11;2"
 font-2 = "FontAwesome:style=Regular:size=11;2"
 font-3 = "FontAwesome5Free:style=Regular:size=11;2"
 font-4 = "FontAwesome5Brands:style=Regular:size=11;2"
+font-5 = "Noto Emoji:scale=15:antialias=false;0"
 
 modules-center = [ "pulseaudio", "mpd" ]
 modules-right = [ "memory", "cpu", "date" ]
