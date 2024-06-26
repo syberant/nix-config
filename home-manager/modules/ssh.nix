@@ -1,6 +1,11 @@
 { super, ... }:
 
-{
+let
+  ip-homeserver = "100.69.232.99";
+  ip-macbook = "100.73.233.50";
+  ip-desktop = "100.90.83.22";
+  ip-thinkpad = "100.109.178.81";
+in {
   programs.ssh = {
     enable = true;
 
@@ -12,28 +17,28 @@
 
       "nixos-desktop" = {
         user = "sybrand";
-        hostname = "100.90.83.22";
+        hostname = ip-desktop;
         identityFile = [ super.sops.secrets.desktop-ssh-key.path ];
         identitiesOnly = true;
       };
 
       "nixos-macbook" = {
         user = "sybrand";
-        hostname = "100.73.233.50";
+        hostname = ip-macbook;
         identityFile = [ super.sops.secrets.desktop-ssh-key.path ];
         identitiesOnly = true;
       };
 
       "nixos-thinkpad" = {
         user = "sybrand";
-        hostname = "100.109.178.81";
+        hostname = ip-thinkpad;
         identityFile = [ super.sops.secrets.desktop-ssh-key.path ];
         identitiesOnly = true;
       };
 
       "homeserver" = {
         user = "sybrand";
-        hostname = "100.69.232.99";
+        hostname = ip-homeserver;
       };
     };
   };

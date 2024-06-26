@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
-{
+let
+  ip-homeserver = "100.69.232.99";
+  ip-macbook = "100.73.233.50";
+  ip-desktop = "100.90.83.22";
+  ip-thinkpad = "100.109.178.81";
+in {
 services.tailscale.enable = true;
 
 # Automate downloading Taildropped files.
@@ -21,4 +26,12 @@ wantedBy = [ "default.target" ];
 serviceConfig.UMask = "0077";
 script = "tailscale file get --verbose --loop --conflict rename \"\${TAILDROPDIR}\"";
 };
+
+  # Puts my devices in the /etc/hosts file
+  networking.hosts = {
+    ${ip-desktop} = [ "nixos-desktop" ];
+    ${ip-macbook} = [ "nixos-macbook" ];
+    ${ip-thinkpad} = [ "nixos-thinkpad" ];
+    ${ip-homeserver} = [ "home-server" ];
+  };
 }
