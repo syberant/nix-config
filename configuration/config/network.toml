@@ -5,9 +5,8 @@ networkmanager.enable = true
 # (I'd just like to make it explicit because seeing a `wpa_supplicant` process running surprised me)
 networkmanager.wifi.backend = "wpa_supplicant"
 
-# Use StevenBlack's blocklist:
-# https://github.com/StevenBlack/hosts
-stevenBlackHosts.enable = true
+# Use StevenBlack's blocklist
+stevenblack.enable = true
 
 # The global useDHCP flag is deprecated, therefore explicitly set to false here.
 # Per-interface useDHCP will be mandatory in the future, so this generated config

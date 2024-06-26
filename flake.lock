@@ -54,26 +54,6 @@
         "type": "github"
       }
     },
-    "hosts": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1719001847,
-        "narHash": "sha256-dt/UEjcTSxkmsC+zZvGS2+Y6c2CFjo6Hn3WAhokFAkk=",
-        "owner": "StevenBlack",
-        "repo": "hosts",
-        "rev": "05a9ae6098bb2f09eb1d35cb440a086a9a85d39c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "StevenBlack",
-        "repo": "hosts",
-        "type": "github"
-      }
-    },
     "impermanence": {
       "locked": {
         "lastModified": 1717932370,
@@ -176,7 +156,6 @@
         "NUR": "NUR",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
-        "hosts": "hosts",
         "impermanence": "impermanence",
         "nix-neovim": "nix-neovim",
         "nixos-hardware": "nixos-hardware",

@@ -43,14 +43,10 @@
 
     # Misc
     flake-utils.url = "github:numtide/flake-utils";
-    hosts = {
-      url = "github:StevenBlack/hosts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-git, nixos-hardware, NUR, home-manager
-    , sops-nix, xmonad-sybrand, nix-neovim, secrets, impermanence, flake-utils, hosts }:
+    , sops-nix, xmonad-sybrand, nix-neovim, secrets, impermanence, flake-utils }:
 
     let
       # TODO: utilise flake-utils for this
@@ -99,7 +95,6 @@
       };
       sharedModule = {
         imports = [
-          hosts.nixosModule
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           hm-nixos-as-super
