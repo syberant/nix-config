@@ -14,6 +14,9 @@ with pkgs.lib;
   nix = {
     # Disable using `nix-channel`
     channel.enable = false;
+
+    # Needed for `nix-shell` and `nix-build`
+    nixPath = [ "nixpkgs=${pkgs.path}" ];
   };
 
   # Let 'nixos-version --json' know about the Git revision of this flake.
