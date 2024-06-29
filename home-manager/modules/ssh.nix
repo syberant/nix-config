@@ -18,22 +18,16 @@ in {
       "nixos-desktop" = {
         user = "sybrand";
         hostname = ip-desktop;
-        identityFile = [ super.sops.secrets.desktop-ssh-key.path ];
-        identitiesOnly = true;
       };
 
       "nixos-macbook" = {
         user = "sybrand";
         hostname = ip-macbook;
-        identityFile = [ super.sops.secrets.desktop-ssh-key.path ];
-        identitiesOnly = true;
       };
 
       "nixos-thinkpad" = {
         user = "sybrand";
         hostname = ip-thinkpad;
-        identityFile = [ super.sops.secrets.desktop-ssh-key.path ];
-        identitiesOnly = true;
       };
 
       "homeserver" = {

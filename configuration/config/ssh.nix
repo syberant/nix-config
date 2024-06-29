@@ -12,7 +12,7 @@
     # WARN: This means you can't SSH into a computer without a VPN!
     # See: https://fzakaria.com/2020/09/17/tailscale-is-magic-even-more-so-with-nixos.html
     # I use Tailscale for this.
-    # openFirewall = false;
+    openFirewall = false;
 
     settings = {
       # Don't allow logging in as root!
@@ -23,17 +23,14 @@
       AllowGroups = [ "users" ];
 
       # Disallow password authentication.
-      # passwordAuthentication = false;
+      PasswordAuthentication = false;
     };
   };
 
   # Always allow login with this key
-  users.users.sybrand.openssh.authorizedKeys.keyFiles = [
+  users.users.sybrand.openssh.authorizedKeys.keys = [
     # Public SSH Key
-    (secrets + "/keys/nixos-desktop-ssh.asc")
-    (secrets + "/keys/nixos-thinkpad.asc")
-
-    # GPG key, needs to be exported into ssh key first
-    # (secrets + "/keys/personal-gpg.asc")
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILbqV8qdwBEBk1NFbIDI5xNbM6lycFrWsw8NIHLHx8Ka sybrand@nixos-thinkpad"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAnmVeGskBS2u4SpwIJVYli6w5ZjTbLfXAyhaxTu2pLR sybrand@nixos-desktop"
   ];
 }
