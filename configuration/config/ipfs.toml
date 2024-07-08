@@ -1,0 +1,4 @@
+# The InterPlanetary FileSystem! It's content-adressed and very cool.
+
+[services.kubo]
+enable = true
