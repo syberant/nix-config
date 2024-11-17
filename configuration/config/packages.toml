@@ -32,6 +32,7 @@ environment.systemPackages = [
     "zeal",
     "tokei",
     "nixpkgs-review",
+    "jetbrains.rust-rover",
 
     # Personal choices
     "lf",
