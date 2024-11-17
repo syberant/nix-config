@@ -225,14 +225,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-3j08Xyceiiy5yrAkvFh+IYymgol/mvM6pauGMzKHu1I=",
-        "path": "./xmonad",
-        "type": "path"
+        "dir": "xmonad",
+        "dirtyRev": "5711990013b99092f95fe512f3e9ea0e49fa2d7f-dirty",
+        "dirtyShortRev": "5711990-dirty",
+        "lastModified": 1720423273,
+        "narHash": "sha256-LY88QVDeRx//EhaXiNetiSjVDEDU5+gqTG/GrDmMnLY=",
+        "type": "git",
+        "url": "file:.?dir=xmonad"
       },
       "original": {
-        "path": "./xmonad",
-        "type": "path"
+        "dir": "xmonad",
+        "type": "git",
+        "url": "file:.?dir=xmonad"
       }
     }
   },
