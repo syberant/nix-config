@@ -50,6 +50,9 @@ case $1 in
             "own-deps")
                 nix flake lock --update-input secrets --update-input xmonad-sybrand --update-input nix-neovim
                 ;;
+            "all")
+                nix flake update
+                ;;
             *)
                 # TODO: Maybe interpret this as a specific dependency and update it?
                 echo "n update: Didn't recognise argument, what should be updated?"
