@@ -29,6 +29,9 @@
       pull.ff = "only";
       init.defaultBranch = "main";
 
+      # https://qsantos.fr/2024/05/01/git-super-power-the-three-way-merge/
+      merge.conflictstyle = "diff3";
+
       credential.helper = let
         dotfile = pkgs.writeText "pass-git-helper-config" ''
           [github.com*]
