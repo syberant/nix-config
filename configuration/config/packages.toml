@@ -1,7 +1,17 @@
 environment.systemPackages = [
+    # Trying out / Experimental
+    "helix",
+    "yazi",
+    "btop",
+    "diskonaut",
+    "hyperfine",
+    "glow",
+    "zellij",
+
     # Some defaults
     "curl",
     "wget",
+    "nmap",
     "vim",
     "git",
     "tree",
@@ -103,6 +113,7 @@ environment.systemPackages = [
     "unzip",
     "libreoffice",
     "mendeley",
+    "kiwix",
 
     # CLI productivity
     "imagemagick",
