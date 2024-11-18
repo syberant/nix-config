@@ -46,6 +46,9 @@ in {
   iptables -A OUTPUT -p tcp -m string --string "arstechnica.com" --algo kmp -j distracting
   '';
 
+  # Block wlan on startup
+  boot.kernelParams = [ "rfkill.default_state=0" ];
+
 
   # Monitor udev events with `udevadm monitor --subsystem-match=usb --property --udev`
   # You can use this to find new vendor and model id's.
