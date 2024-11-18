@@ -17,7 +17,7 @@
     # Own flakes
     xmonad-sybrand = {
       # See: https://github.com/NixOS/nix/issues/3978#issuecomment-1661075896
-      url = "git+file:.?dir=xmonad";
+      url = "path:./xmonad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-neovim = {
