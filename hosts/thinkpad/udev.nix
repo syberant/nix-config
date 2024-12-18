@@ -13,10 +13,14 @@ let
   '';
 
   scriptAdd = mkScript "usb-add" ''
+    ${wifiOn}
+
     ${pkgs.iptables}/bin/iptables -R distracting 1 -j ACCEPT
     echo "Custom USB key inserted, distracting websites allowed" > /dev/kmsg
   '';
   scriptRemove = mkScript "usb-remove" ''
+    ${wifiOff}
+
     ${pkgs.iptables}/bin/iptables -R distracting 1 -j REJECT
     echo "Custom USB key removed, distracting websites blocked" > /dev/kmsg
   '';
