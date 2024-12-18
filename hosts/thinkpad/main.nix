@@ -6,6 +6,12 @@
   # Enable fully offline builds
   system.includeBuildDependencies = true;
 
+  services.ollama = rec {
+    enable = true;
+    models = "/home/sybrand/Media/LLM";
+    writablePaths = [ models ];
+  };
+
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
     mate.mate-polkit
