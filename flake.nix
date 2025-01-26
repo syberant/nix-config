@@ -1,14 +1,17 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-git.url = "github:NixOS/nixpkgs";
 
 
     # (Semi-)official auxiliary repositories
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    NUR.url = "github:nix-community/NUR";
+    NUR = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       # inputs.nixpkgs.follows = "nixpkgs-git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
