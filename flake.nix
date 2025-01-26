@@ -16,9 +16,8 @@
 
     # Own flakes
     xmonad-sybrand = {
-      # See: https://github.com/NixOS/nix/issues/3978#issuecomment-1661075896
       url = "path:./xmonad";
-      inputs.nixpkgs.follows = "nixpkgs";
+      flake = false;
     };
     nix-neovim = {
       url = "github:syberant/nix-neovim";
@@ -59,7 +58,9 @@
           inherit system;
           config.allowUnfree = true;
           overlays = [
-            xmonad-sybrand.overlay
+            (final: prev: {
+              xmonad-sybrand = prev.haskellPackages.callPackage "${xmonad-sybrand}/derivation.nix" {};
+            })
             NUR.overlay
 
             # For temporarily bypassing NUR to get my latest nur-packages
@@ -99,7 +100,8 @@
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           hm-nixos-as-super
-          xmonad-sybrand.nixosModule
+          "${xmonad-sybrand}/modules/xmonad-sybrand.nix"
+          "${xmonad-sybrand}/modules/agnostic/common.nix"
           impermanence.nixosModules.impermanence
           ./configuration/common.nix
         ];

@@ -202,11 +202,7 @@
       }
     },
     "xmonad-sybrand": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
+      "flake": false,
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-3j08Xyceiiy5yrAkvFh+IYymgol/mvM6pauGMzKHu1I=",
