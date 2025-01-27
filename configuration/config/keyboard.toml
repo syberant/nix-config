@@ -2,7 +2,7 @@
 console.useXkbConfig = true
 
 # Add font capable of displaying 汉字
-fonts.packages = [ "noto-fonts-cjk" ]
+fonts.packages = [ "noto-fonts-cjk-sans" ]
 
 
 # TODO: declaratively configure fcitx
@@ -10,7 +10,8 @@ fonts.packages = [ "noto-fonts-cjk" ]
 #disabledModules = [ "i18n/input-method/fcitx.nix" ];
 
 [i18n.inputMethod]
-enabled = "fcitx5"
+enable = true
+type = "fcitx5"
 fcitx5.addons = [ "fcitx5-chinese-addons", "fcitx5-rime" ]
 
 [services.xserver.xkb]

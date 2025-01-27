@@ -9,12 +9,7 @@
   # HIGHER LEVEL HARDWARE SUPPORT #
   #################################
   services.xserver.videoDrivers = [ "amdgpu" ];
-  hardware.opengl = {
-    driSupport = true;
-    driSupport32Bit = true;
-    # OpenCL
-    extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime ];
-  };
+  hardware.graphics.enable32Bit = true;
   hardware.bluetooth.enable = true;
 
   ################################

@@ -6,10 +6,8 @@
   # Enable fully offline builds
   system.includeBuildDependencies = true;
 
-  services.ollama = rec {
+  services.ollama = {
     enable = true;
-    models = "/home/sybrand/Media/LLM";
-    writablePaths = [ models ];
   };
 
   programs.steam.enable = true;
@@ -110,7 +108,7 @@
   # Newer kernel
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
   # Use latest kernel compatible with ZFS
-  boot.kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_12;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

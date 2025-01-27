@@ -174,8 +174,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-git": "nixpkgs-git",
         "secrets": "secrets",
-        "sops-nix": "sops-nix",
-        "xmonad-sybrand": "xmonad-sybrand"
+        "sops-nix": "sops-nix"
       }
     },
     "secrets": {
@@ -248,19 +247,6 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
-      }
-    },
-    "xmonad-sybrand": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-3j08Xyceiiy5yrAkvFh+IYymgol/mvM6pauGMzKHu1I=",
-        "path": "./xmonad",
-        "type": "path"
-      },
-      "original": {
-        "path": "./xmonad",
-        "type": "path"
       }
     }
   },

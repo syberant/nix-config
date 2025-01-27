@@ -49,7 +49,7 @@ in {
       libnotify
       dmenu
       feh
-      rxvt_unicode
+      rxvt-unicode-unwrapped
     ];
   };
 }

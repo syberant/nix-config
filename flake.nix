@@ -18,10 +18,6 @@
     impermanence.url = "github:nix-community/impermanence";
 
     # Own flakes
-    xmonad-sybrand = {
-      url = "path:./xmonad";
-      flake = false;
-    };
     nix-neovim = {
       url = "github:syberant/nix-neovim";
       # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
@@ -49,9 +45,10 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-git, nixos-hardware, NUR, home-manager
-    , sops-nix, xmonad-sybrand, nix-neovim, secrets, impermanence, flake-utils }:
+    , sops-nix, nix-neovim, secrets, impermanence, flake-utils }:
 
     let
+      xmonad-sybrand = ./xmonad;
       # TODO: utilise flake-utils for this
       system = "x86_64-linux";
       specialArgs = {
@@ -64,7 +61,7 @@
             (final: prev: {
               xmonad-sybrand = prev.haskellPackages.callPackage "${xmonad-sybrand}/derivation.nix" {};
             })
-            NUR.overlay
+            NUR.overlays.default
 
             # For temporarily bypassing NUR to get my latest nur-packages
             # (final: prev: {
