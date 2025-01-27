@@ -29,7 +29,6 @@ environment.systemPackages = [
     "man-pages",
 
     # Personal development
-    "wezterm",
     "zeal",
     "tokei",
     "nixpkgs-review",
@@ -111,10 +110,8 @@ environment.systemPackages = [
     "thunderbird",
     "texlive.combined.scheme-full",
     "pandoc",
-    "anki",
     "unzip",
     "libreoffice",
-    "mendeley",
     "kiwix",
 
     # CLI productivity
