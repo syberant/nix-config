@@ -65,6 +65,7 @@ environment.systemPackages = [
     # Utilities for UX
     "xorg.xrandr",
     "arandr",
+    "alsa-utils",
 
     # Utilities for CLI UX
     "fzf",
