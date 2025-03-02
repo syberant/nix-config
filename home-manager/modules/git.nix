@@ -27,10 +27,9 @@
 
     extraConfig = {
       pull.ff = "only";
-      init.defaultBranch = "main";
 
       # https://qsantos.fr/2024/05/01/git-super-power-the-three-way-merge/
-      merge.conflictstyle = "diff3";
+      merge.conflictstyle = "zdiff3";
 
       credential.helper = let
         dotfile = pkgs.writeText "pass-git-helper-config" ''
@@ -44,12 +43,37 @@
         '';
       in "${pkgs.gitAndTools.pass-git-helper}/bin/pass-git-helper -m ${dotfile}";
 
-      commit.template = builtins.toFile "git-commit-template" ''
+      # From: https://blog.gitbutler.com/how-git-core-devs-configure-git/
+      # Clearly makes git better
+      column.ui = "auto";
+      branch.sort = "-committerdate";
+      tag.sort = "version:refname";
+      init.defaultBranch = "main";
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "plain";
+        mnemonicPrefix = true;
+        renames = true;
+      };
+      push = {
+        default = "simple";
+        autoSetupRemote = true;
+        followTags = true;
+      };
+      fetch = {
+        prune = true;
+        pruneTags = true;
+        all = true;
+      };
 
-
-        # Title goes up here, remember to keep it short! Further comments go in the body below.
-
-      '';
+      # Why the hell not?
+      help.autocorrect = "prompt";
+      commit.verbose = true;
+      rebase = {
+        autoSquash = true;
+        autoStash = true;
+        updateRefs = true;
+      };
     };
   };
 }
