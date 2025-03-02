@@ -123,6 +123,7 @@ environment.systemPackages = [
     "imagemagick",
     "ffmpeg",
     "exiftool",
+    "jq",
 
     # Misc.
     # "geogebra6",
