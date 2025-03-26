@@ -27,6 +27,7 @@ environment.systemPackages = [
     "cmake",
     "gcc",
     "man-pages",
+    "glibcInfo", # man(3) C functions
 
     # Personal development
     "zeal",
