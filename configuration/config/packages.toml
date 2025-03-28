@@ -35,6 +35,7 @@ environment.systemPackages = [
     "tokei",
     "nixpkgs-review",
     "jetbrains.rust-rover",
+    "sqlite",
 
     # Lean
     "elan",
