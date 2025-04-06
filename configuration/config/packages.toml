@@ -85,12 +85,14 @@ environment.systemPackages = [
     "massren",
     "chafa",
 
-    # Hardware debugging utilities
+    # Debugging utilities
     "pciutils",
     "usbutils",
     "smartmontools",
-
-    # Software debugging
+    "ngrep",
+    "dstat",
+    "linuxPackages.perf",
+    "perf-tools",
     "xorg.xev",
 
     # Programming languages
