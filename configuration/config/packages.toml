@@ -36,6 +36,7 @@ environment.systemPackages = [
     "nixpkgs-review",
     "jetbrains.rust-rover",
     "sqlite",
+    "rr", # Deterministic debugging (and reverse execution!)
 
     # Lean
     "elan",
