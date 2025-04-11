@@ -90,6 +90,7 @@ environment.systemPackages = [
     "pciutils",
     "usbutils",
     "smartmontools",
+    "nvme-cli",
     "ngrep",
     "dstat",
     "linuxPackages.perf",
