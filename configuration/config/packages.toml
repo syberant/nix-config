@@ -55,7 +55,6 @@ environment.systemPackages = [
     "du-dust",
     "procs",
     "hyperfine",
-    "bandwhich",
 
     # Fluff
     "macchina",
