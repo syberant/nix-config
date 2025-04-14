@@ -94,7 +94,7 @@ environment.systemPackages = [
     "ngrep",
     "dstat",
     "linuxPackages.perf",
-    "perf-tools",
+    "bcc",
     "xorg.xev",
 
     # Programming languages
