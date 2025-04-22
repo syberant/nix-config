@@ -95,6 +95,8 @@ environment.systemPackages = [
     "linuxPackages.perf",
     "bcc",
     "xorg.xev",
+    "wireshark",
+    "tcpdump",
 
     # Programming languages
     "python3",
