@@ -121,7 +121,7 @@ environment.systemPackages = [
 
     # Productivity
     "thunderbird",
-    "texlive.combined.scheme-full",
+    "texlive.combined.scheme-medium",
     "pandoc",
     "unzip",
     "libreoffice",

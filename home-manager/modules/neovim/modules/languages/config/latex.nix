@@ -39,7 +39,7 @@ with lib;
   output.plugins = with pkgs.vimPlugins; [ vimtex ];
 
   output.path.path = with pkgs; [
-    pkgs.texlive.combined.scheme-full
+    pkgs.texlive.combined.scheme-medium
     procps
     zathura
   ];
