@@ -52,7 +52,7 @@ environment.systemPackages = [
     "bat",
     "ripgrep",
     "fd",
-    "du-dust",
+    "dua",
     "procs",
     "hyperfine",
 
