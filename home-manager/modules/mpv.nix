@@ -13,6 +13,8 @@
       hwdec = "auto";
       fullscreen = "yes";
 
+      save-position-on-quit = "yes";
+
       # Cache settings
       cache = "yes";
       cache-secs = 3600;
