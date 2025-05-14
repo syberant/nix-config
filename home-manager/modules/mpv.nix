@@ -12,6 +12,11 @@
       vo = "gpu,";
       hwdec = "auto";
       fullscreen = "yes";
+
+      # Cache settings
+      cache = "yes";
+      cache-secs = 3600;
+      demuxer-max-bytes = "1000m";
     };
 
     bindings = {
