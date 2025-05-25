@@ -8,6 +8,7 @@ environment.systemPackages = [
     "glow",
     "zellij",
     "script-directory",
+    "elinks",
 
     # Some defaults
     "curl",
@@ -84,6 +85,7 @@ environment.systemPackages = [
     "mediainfo",
     "massren",
     "chafa",
+    "xclip",
 
     # Debugging utilities
     "pciutils",
