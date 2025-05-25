@@ -15,6 +15,10 @@
 
       save-position-on-quit = "yes";
 
+      # Force a window so I always have a place to quit some audio
+      # Do it `immediate`ly to not wait on network delays of yt-dlp
+      force-window = "immediate";
+
       # Cache settings
       cache = "yes";
       cache-secs = 3600;
