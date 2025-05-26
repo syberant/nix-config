@@ -62,7 +62,6 @@ environment.systemPackages = [
     "cmatrix",
     "xdotool",
     "htop",
-    "ksystemlog",
     "toipe",
 
     # Relaxing
