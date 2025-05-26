@@ -9,6 +9,7 @@ environment.systemPackages = [
     "zellij",
     "script-directory",
     "elinks",
+    "nix-tree",
 
     # Some defaults
     "curl",
