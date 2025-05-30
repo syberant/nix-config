@@ -118,7 +118,6 @@ environment.systemPackages = [
     "zathura",
     "signal-desktop",
     "sxiv",
-    "chromium",
     "maim",
     "pavucontrol",
 
