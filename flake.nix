@@ -150,14 +150,6 @@
         exePath = "/bin/nvim";
       };
 
-      apps.zet = flake-utils.lib.mkApp {
-        drv = nix-neovim.buildNeovim {
-          configuration =
-            ./home-manager/modules/notes/configuration.nix;
-        };
-        exePath = "/bin/nvim";
-      };
-
       # I find a REPL occasionally very useful in debugging
       apps.repl = flake-utils.lib.mkApp {
         drv = let pkgs = import nixpkgs { inherit system; };
