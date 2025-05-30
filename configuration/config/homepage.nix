@@ -16,14 +16,14 @@
       };
     };
 
-    widgets = {
+    widgets = [{
       search = {
         provider = "duckduckgo";
         target = "_blank";
         focus = "true";
         showSearchSuggestions = true;
       };
-    };
+    }];
 
     bookmarks = [
       {

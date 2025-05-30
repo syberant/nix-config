@@ -28,9 +28,6 @@
     mate.mate-polkit
     prismlauncher
     zenmonitor
-
-    # Support connecting to Apple AirPort
-    afpfs-ng
   ];
 
   security.polkit.enable = true;
