@@ -10,6 +10,7 @@ environment.systemPackages = [
     "script-directory",
     "elinks",
     "nix-tree",
+    "binsider",
 
     # Some defaults
     "curl",
