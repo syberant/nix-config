@@ -6,7 +6,11 @@ let
   ip-desktop = "100.90.83.22";
   ip-thinkpad = "100.109.178.81";
 in {
-services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    # Disable telemetry
+    extraDaemonFlags = [ "--no-logs-no-support" ];
+  };
 
 # Automate downloading Taildropped files.
 # Requires you to have run `tailscale up --operator=$USER`
