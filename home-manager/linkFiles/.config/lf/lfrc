@@ -23,12 +23,24 @@ cmd mkdir %IFS=" "; mkdir -- "$*"
 # Create (empty) file (can have spaces)
 cmd touch %IFS=" "; touch -- "$*"
 
+# Pretty-print JSON files
+cmd jq-preview $jq . $f | bat --paging always --language json
+
+# Edit (text) file
+cmd nvim $nvim $f
+
+# Open TUI HTML browser
+cmd elinks $elinks -force-html $fx
+
 # Quicker file opening
 cmd open &{{
-    case $(file --mime-type $fx -b) in
-		application/json|\
+    case $(file --mime-type $fx -b -L) in
+        text/html\
+            ) lf -remote "send $id elinks" ;;
+		application/json\
+            ) lf -remote "send $id jq-preview" ;;
 		text/*\
-			) lf -remote "send $id nvim \$f" ;;
+			) lf -remote "send $id nvim" ;;
 		image/gif\
 			) sxiv -a $fx ;;
 		image/*\
