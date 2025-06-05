@@ -58,7 +58,7 @@
         id = 0;
         settings = commonSettings;
 
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           vimium
           umatrix
           ublock-origin
