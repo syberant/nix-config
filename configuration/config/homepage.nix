@@ -1,6 +1,6 @@
 {
   services.homepage-dashboard = {
-    enable = true;
+    enable = false;
     openFirewall = false;
 
     # Consider a tailscale widget.
