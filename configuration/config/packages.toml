@@ -10,7 +10,7 @@ environment.systemPackages = [
     "elinks",
     "nix-tree",
     "binsider",
-    "haskellPackages.hell",
+    # "haskellPackages.hell", currently broken?
 
     # Some defaults
     "curl",
