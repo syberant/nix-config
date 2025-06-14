@@ -11,6 +11,8 @@ environment.systemPackages = [
     "nix-tree",
     "binsider",
     # "haskellPackages.hell", currently broken?
+    "taskwarrior3",
+    "taskwarrior-tui",
 
     # Some defaults
     "curl",
