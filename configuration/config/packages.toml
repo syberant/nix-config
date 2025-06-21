@@ -40,6 +40,8 @@ environment.systemPackages = [
     "nixpkgs-review",
     "sqlite",
     "rr", # Deterministic debugging (and reverse execution!)
+    "nil", # Nix LSP
+    "clang-tools", # C/C++ LSP
 
     # Lean
     "elan",
