@@ -36,10 +36,8 @@ environment.systemPackages = [
     "gdb", # Debugging
 
     # Personal development
-    "zeal",
     "tokei",
     "nixpkgs-review",
-    "jetbrains.rust-rover",
     "sqlite",
     "rr", # Deterministic debugging (and reverse execution!)
 
