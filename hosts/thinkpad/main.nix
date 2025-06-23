@@ -9,19 +9,6 @@
   services.ollama = {
     enable = true;
   };
-  services.open-webui = {
-    enable = true;
-
-    port = 8086;
-    environment = {
-      ANONYMIZED_TELEMETRY = "False";
-      DO_NOT_TRACK = "True";
-      SCARF_NO_ANALYTICS = "True";
-
-      OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
-      WEBUI_AUTH = "False";
-    };
-  };
 
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
@@ -87,9 +74,6 @@
 
   # Fingerprint reader
   services.fprintd.enable = true;
-
-  # Bluetooth handler
-  services.blueman.enable = true;
 
   # Hibernate/sleep
   # Encrypted swap: https://unix.stackexchange.com/questions/529047/is-there-a-way-to-have-hibernate-and-encrypted-swap-on-nixos
