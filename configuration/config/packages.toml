@@ -42,6 +42,7 @@ environment.systemPackages = [
     "rr", # Deterministic debugging (and reverse execution!)
     "nil", # Nix LSP
     "clang-tools", # C/C++ LSP
+    "dhall-lsp-server", # Dhall LSP
 
     # Lean
     "elan",
