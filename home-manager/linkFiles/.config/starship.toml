@@ -19,3 +19,7 @@ disabled = true
 untracked_count.enabled = true
 modfied_count.enabled = true
 show_sync_count.enabled = true
+
+[custom.taskwarrior-duetoday]
+when = 'test "$(task count +DUETODAY)" != 0'
+command = 'printf 🚨'
