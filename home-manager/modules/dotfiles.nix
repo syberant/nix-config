@@ -1,17 +1,18 @@
 { config, ... }:
 
-# TODO: find way to automatically link `linkFiles` to home
-{
-  home.file = let linkFiles = ../linkFiles;
-  in {
-    ".config" = {
-      recursive = true;
-      source = "${linkFiles}/.config";
-    };
+let
+  mkSource = file: { source = config.lib.file.mkOutOfStoreSymlink ("/etc/nixos/home-manager/linkFiles/" + file); };
+in {
+  home.file = {
+    ".config/mimeapps.list" = mkSource ".config/mimeapps.list";
+    ".config/starship.toml" = mkSource ".config/starship.toml";
 
-    ".gnupg" = {
-      recursive = true;
-      source = "${linkFiles}/.gnupg";
-    };
+    ".config/lf/lfrc" = mkSource ".config/lf/lfrc";
+    ".config/lf/preview" = mkSource ".config/lf/preview";
+
+    ".config/ncmpcpp/bindings" = mkSource ".config/ncmpcpp/bindings";
+    ".config/ncmpcpp/config" = mkSource ".config/ncmpcpp/config";
+
+    ".gnupg/sshcontrol" = mkSource ".gnupg/sshcontrol";
   };
 }
