@@ -1,0 +1,10 @@
+[editor.lsp]
+display-inlay-hints = true
+
+[editor]
+true-color = true
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "error"

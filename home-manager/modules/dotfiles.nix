@@ -7,6 +7,10 @@ in {
     ".config/mimeapps.list" = mkSource ".config/mimeapps.list";
     ".config/starship.toml" = mkSource ".config/starship.toml";
 
+    ".config/helix/config.toml" = mkSource ".config/helix/config.toml";
+    ".config/lazygit/config.yml" = mkSource ".config/lazygit/config.yml";
+    ".config/elinks/elinks.conf" = mkSource ".config/elinks/elinks.conf";
+
     ".config/lf/lfrc" = mkSource ".config/lf/lfrc";
     ".config/lf/preview" = mkSource ".config/lf/preview";
 
