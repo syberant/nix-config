@@ -21,5 +21,11 @@ modfied_count.enabled = true
 show_sync_count.enabled = true
 
 [custom.taskwarrior-duetoday]
+description = "Shows a 🚨 emoji when there are (Taskwarrior) tasks due today"
 when = 'test "$(task count +DUETODAY)" != 0'
-command = 'printf 🚨'
+symbol = '🚨 '
+
+[custom.taskwarrior-overdue]
+description = "Shows a 💀 emoji when there are overdue (Taskwarrior) tasks"
+when = 'test "$(task count +OVERDUE)" != 0'
+symbol = '💀 '
