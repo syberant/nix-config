@@ -4,7 +4,7 @@
   imports = [ ./syncthing.nix ./hardware-configuration.nix ./udev.nix ];
 
   # Enable fully offline builds
-  system.includeBuildDependencies = true;
+  # system.includeBuildDependencies = true;
 
   services.ollama = {
     enable = true;
