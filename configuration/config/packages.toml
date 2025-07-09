@@ -1,11 +1,8 @@
 environment.systemPackages = [
     # Trying out / Experimental
     "helix",
-    "yazi",
     "btop",
     "hyperfine",
-    "glow",
-    "zellij",
     "script-directory",
     "elinks",
     "nix-tree",
