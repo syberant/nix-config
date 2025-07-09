@@ -6,6 +6,9 @@
   # Enable fully offline builds
   # system.includeBuildDependencies = true;
 
+  # For doing firmware updates
+  services.fwupd.enable = true;
+
   services.ollama = {
     enable = true;
   };
