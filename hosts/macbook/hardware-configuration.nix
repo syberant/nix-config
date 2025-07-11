@@ -8,23 +8,50 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  hardware.cpu.intel.updateMicrocode = true;
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/98ede21f-b1b9-472e-ae5a-4da57dd7c9ec";
-      fsType = "ext4";
+    { device = "zroot/local/empty";
+      fsType = "zfs";
+      neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/AA07-255C";
+    { device = "/dev/disk/by-uuid/FD5D-A798";
       fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  fileSystems."/home" =
+    { device = "zroot/local/home";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
+  fileSystems."/nix" =
+    { device = "zroot/local/nix";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
+  fileSystems."/persist" =
+    { device = "zroot/local/persist";
+      fsType = "zfs";
+      neededForBoot = true;
     };
 
   swapDevices = [ ];
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp0s20u2u4.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

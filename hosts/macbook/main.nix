@@ -23,23 +23,8 @@
   networking.hostName = "nixos-macbook"; # Define your hostname.
   networking.enableB43Firmware = true;
 
-  # Trackpad configuration
-  services.xserver.libinput = {
-    enable = true;
-
-    touchpad = {
-      tapping = false;
-      disableWhileTyping = true;
-      scrollMethod = "twofinger";
-      naturalScrolling = true;
-    };
-  };
-
-  # Bluetooth
-  hardware.bluetooth.enable = true;
-
-  # Webcam
-  hardware.facetimehd.enable = true;
+  services.xserver.enable = lib.mkForce false;
+  services.xserver.sybrand-desktop-environment.enable = lib.mkForce false;
 
   # Disable shutdown on power key
   services.logind.extraConfig = ''
@@ -88,11 +73,6 @@
     "96 = XF86AudioRaiseVolume F12"
   ];
 
-  services.xserver.sybrand-desktop-environment.polybar = {
-    wlanInterface = "wlp3s0";
-    config."bar/example".modules-right = lib.mkOrder 50 [ "battery" ];
-  };
-
   home-manager.users.sybrand.home.sessionVariables = {
     MAGICK_MEMORY_LIMIT = "4GB";
   };
@@ -107,5 +87,5 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.09"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }
