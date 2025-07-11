@@ -23,6 +23,9 @@
   networking.hostName = "nixos-macbook"; # Define your hostname.
   networking.enableB43Firmware = true;
 
+  # Allow remote SSH port forwarding
+  services.openssh.settings.GatewayPorts = "yes";
+
   services.xserver.enable = lib.mkForce false;
 
   # Disable shutdown on power key
