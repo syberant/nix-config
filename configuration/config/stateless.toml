@@ -35,3 +35,7 @@ files = [
   "/etc/ssh/ssh_host_rsa_key",
   "/etc/ssh/ssh_host_rsa_key.pub",
 ]
+
+# Silence warning from sudo
+[security.sudo]
+extraConfig = "Defaults lecture = never"
