@@ -14,8 +14,9 @@
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   fileSystems."/" =
-    { device = "zroot/local/empty";
-      fsType = "zfs";
+    { device = "none";
+      fsType = "tmpfs";
+      options = [ "size=1G" "mode=755" ];
       neededForBoot = true;
     };
 

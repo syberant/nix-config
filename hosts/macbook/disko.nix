@@ -34,13 +34,6 @@ zpool.zroot = {
 
 	datasets = {
 		"local" = { type = "zfs_fs"; options.mountpoint = "none"; };
-		"local/empty" = {
-			type = "zfs_fs";
-			options.mountpoint = "legacy";
-			mountpoint = "/";
-			postCreateHook = "zfs snapshot zroot/local/empty@start";
-			options."com.sun:auto-snapshot" = "false";
-		};
 		"local/var" = {
 			type = "zfs_fs";
 			options.mountpoint = "none";
