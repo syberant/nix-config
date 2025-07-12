@@ -47,7 +47,6 @@ environment.systemPackages = [
     # Personal choices
     "lf",
     "st",
-    "yadm",
     "helix",
 
     # Rust coreutils
