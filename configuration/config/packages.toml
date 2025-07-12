@@ -10,6 +10,7 @@ environment.systemPackages = [
     # "haskellPackages.hell", currently broken?
     "taskwarrior3",
     "taskwarrior-tui",
+    "hledger",
 
     # Some defaults
     "curl",
