@@ -1,12 +1,9 @@
 environment.systemPackages = [
     # Trying out / Experimental
-    "helix",
     "btop",
     "hyperfine",
-    "script-directory",
     "elinks",
     "nix-tree",
-    "binsider",
     # "haskellPackages.hell", currently broken?
     "taskwarrior3",
     "taskwarrior-tui",
@@ -41,6 +38,7 @@ environment.systemPackages = [
     "nil", # Nix LSP
     "clang-tools", # C/C++ LSP
     "dhall-lsp-server", # Dhall LSP
+    "binsider", # Inspect binaries
 
     # Lean
     "elan",
@@ -50,6 +48,7 @@ environment.systemPackages = [
     "lf",
     "st",
     "yadm",
+    "helix",
 
     # Rust coreutils
     "lsd",
@@ -88,6 +87,7 @@ environment.systemPackages = [
     "massren",
     "chafa",
     "xclip",
+    "script-directory",
 
     # Debugging utilities
     "pciutils",
