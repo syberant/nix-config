@@ -4,8 +4,8 @@ set ifs "\n"
 
 # Edit and reload the config
 cmd edit-config ${{
-    $EDITOR /etc/nixos/configuration/linkFiles/.config/lf/lfrc
-    lf -remote "send $id source /etc/nixos/configuration/linkFiles/.config/lf/lfrc"
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
 }}
 
 # Get syntax highlighting with bat
