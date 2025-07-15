@@ -37,6 +37,9 @@ cmd open &{{
     case $(file --mime-type $fx -b -L) in
         text/html\
             ) lf -remote "send $id elinks" ;;
+		text/rtf|\
+			application/vnd.openxmlformats-officedocument.wordprocessingml.document\
+			) pandoc --sandbox --to pdf "$fx" | zathura - ;;
 		application/json\
             ) lf -remote "send $id jq-preview" ;;
 		text/*\
