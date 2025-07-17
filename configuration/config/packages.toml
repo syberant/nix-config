@@ -3,6 +3,7 @@ environment.systemPackages = [
     "btop",
     "hyperfine",
     "elinks",
+    "piper-tts",
     "nix-tree",
     # "haskellPackages.hell", currently broken?
     "taskwarrior3",
