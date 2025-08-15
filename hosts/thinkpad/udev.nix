@@ -61,12 +61,12 @@ in {
     ACTION=="add", SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Philips", ATTRS{idVendor}=="13fe", ATTRS{idProduct}=="5200", RUN+="${scriptAdd}"
     ACTION=="remove", SUBSYSTEMS=="usb", ENV{ID_VENDOR_ID}=="13fe", ENV{ID_MODEL_ID}=="5200", RUN+="${scriptRemove}"
 
-    # Kingston 4GB stick
-    # ACTION=="add", SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Kingston", ATTRS{idVendor}=="0951", ATTRS{idProduct}=="1642", RUN+="${wifiOn}"
-    # ACTION=="remove", SUBSYSTEMS=="usb", ENV{ID_VENDOR_ID}=="0951", ENV{ID_MODEL_ID}=="1642", RUN+="${wifiOff}"
+    # Samsung 64GB stick
+    # ACTION=="add", SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Samsung", ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="6300", RUN+="${wifiOn}"
+    # ACTION=="remove", SUBSYSTEMS=="usb", ENV{ID_VENDOR_ID}=="04e8", ENV{ID_MODEL_ID}=="6300", RUN+="${wifiOff}"
 
-    # 8GB "radio" stick
-    ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="058f", ATTRS{idProduct}=="6387", RUN+="${wifiOn}"
-    ACTION=="remove", SUBSYSTEMS=="usb", ENV{ID_VENDOR_ID}=="058f", ENV{ID_MODEL_ID}=="6387", RUN+="${wifiOff}"
+    # Sandisk 128GB stick
+    ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0781", ATTRS{idProduct}=="55a9", RUN+="${wifiOn}"
+    ACTION=="remove", SUBSYSTEMS=="usb", ENV{ID_VENDOR_ID}=="0781", ENV{ID_MODEL_ID}=="55a9", RUN+="${wifiOff}"
   '';
 }
