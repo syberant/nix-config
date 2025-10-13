@@ -1,5 +1,5 @@
 [Default Applications]
-x-scheme-handler/sgnl=signal-desktop.desktop
+x-scheme-handler/sgnl=signal.desktop
 x-scheme-handler/mailto=userapp-Daily-BHBWB0.desktop
 message/rfc822=userapp-Daily-BHBWB0.desktop
 x-scheme-handler/http=firefox.desktop
@@ -15,6 +15,7 @@ application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 
 application/pdf=org.pwmt.zathura.desktop
+x-scheme-handler/signalcaptcha=signal.desktop
 
 [Added Associations]
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=writer.desktop;firefox.desktop;
