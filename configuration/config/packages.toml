@@ -5,7 +5,9 @@ environment.systemPackages = [
     "elinks",
     "piper-tts",
     "nix-tree",
+    "kodi",
     "racket",
+    "vdirsyncer",
     # "haskellPackages.hell", currently broken?
     "taskwarrior3",
     "taskwarrior-tui",
