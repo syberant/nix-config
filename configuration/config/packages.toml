@@ -1,8 +1,9 @@
 environment.systemPackages = [
     # Trying out / Experimental
+    "typst",
+    # "uutils-coreutils",
     "btop",
     "hyperfine",
-    "elinks",
     "piper-tts",
     "nix-tree",
     "kodi",
@@ -91,6 +92,7 @@ environment.systemPackages = [
     "chafa",
     "xclip",
     "script-directory",
+    "elinks", # CLI browser
 
     # Debugging utilities
     "pciutils",
