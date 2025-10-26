@@ -3,6 +3,8 @@ environment.systemPackages = [
     "fuzzel",
     # Default terminal
     "alacritty",
+    # X11 compatibility
+    "xwayland-satellite",
 ]
 
 [programs.niri]
