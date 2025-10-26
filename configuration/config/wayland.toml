@@ -1,0 +1,12 @@
+environment.systemPackages = [
+    # Dmenu-like launcher/menu
+    "fuzzel",
+    # Default terminal
+    "alacritty",
+]
+
+[programs.niri]
+enable = true
+
+[programs.waybar]
+enable = true
