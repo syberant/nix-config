@@ -2,8 +2,8 @@
 
 {
   home.sessionVariables = {
-    VISUAL = "nvim";
-    EDITOR = "nvim";
+    VISUAL = "hx";
+    EDITOR = "hx";
 
     # Colourise `less` output for man pages.
     # Ideally I'd use something like `bat` but it is broken for man pages currently and does not colourise correctly.
