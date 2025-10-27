@@ -5,6 +5,10 @@ environment.systemPackages = [
     "alacritty",
     # X11 compatibility
     "xwayland-satellite",
+    # Change display brightness, needs some additional rights
+    "brightnessctl",
+    # Allow clipboard management from the CLI
+    "wl-clipboard",
 ]
 
 [programs.niri]
