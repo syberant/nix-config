@@ -1,5 +1,6 @@
 environment.systemPackages = [
     # Trying out / Experimental
+    "zellij",
     "typst",
     "hyperfine",
     "piper-tts",
