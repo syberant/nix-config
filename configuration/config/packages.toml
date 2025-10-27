@@ -47,7 +47,6 @@ environment.systemPackages = [
 
     # Personal choices
     "lf",
-    "st",
     "helix",
 
     # Rust coreutils
@@ -70,7 +69,6 @@ environment.systemPackages = [
 
     # Relaxing
     "ytfzf",
-    "newsboat",
     "calibre",
     "kodi",
 
