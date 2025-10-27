@@ -18,5 +18,7 @@ in {
     ".config/ncmpcpp/config" = mkSource ".config/ncmpcpp/config";
 
     ".gnupg/sshcontrol" = mkSource ".gnupg/sshcontrol";
+
+    ".config/niri/config.kdl" = mkSource ".config/niri/config.kdl";
   };
 }
