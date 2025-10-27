@@ -1,12 +1,9 @@
 environment.systemPackages = [
     # Trying out / Experimental
     "typst",
-    # "uutils-coreutils",
-    "btop",
     "hyperfine",
     "piper-tts",
     "nix-tree",
-    "kodi",
     "racket",
     "vdirsyncer",
     # "haskellPackages.hell", currently broken?
@@ -61,18 +58,21 @@ environment.systemPackages = [
     "dua",
     "procs",
     "hyperfine",
+    # "uutils-coreutils",
 
     # Fluff
     "macchina",
     "cmatrix",
     "xdotool",
     "htop",
+    "btop",
     "toipe",
 
     # Relaxing
     "ytfzf",
     "newsboat",
     "calibre",
+    "kodi",
 
     # Utilities for UX
     "xorg.xrandr",
