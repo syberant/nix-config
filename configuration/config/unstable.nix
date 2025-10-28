@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with nixpkgs-git; [
-    tor-browser-bundle-bin
+    tor-browser
     discord
     yt-dlp
   ];
