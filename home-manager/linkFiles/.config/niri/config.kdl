@@ -314,6 +314,31 @@ window-rule {
     default-column-width {}
 }
 
+// Automatically fullscreen Kodi
+window-rule {
+    match app-id="^Kodi$" title="^Kodi$"
+    open-fullscreen true
+}
+
+// Autostart some messaging apps
+spawn-at-startup "signal-desktop"
+spawn-at-startup "thunderbird"
+workspace "chat" {
+    // TODO: Enable at "next release" after 25.08
+    // layout {
+    //     center-focused-column "always"
+    // }
+}
+window-rule {
+    match app-id="^signal$" title="^Signal$"
+    match app-id="^thunderbird$"
+    match app-id="^discord$"
+
+    open-on-workspace "chat"
+    // Try to prevent this from showing on screensharing etc.
+    block-out-from "screen-capture"
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -360,14 +385,14 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Slash { show-hotkey-overlay; }
-    Mod+Shift+Slash { spawn "alacritty" "-e" "hx" "~/.config/niri/config.kdl"; }
+    Mod+Shift+Slash hotkey-overlay-title="Edit Configuration" { spawn "alacritty" "-e" "hx" "~/.config/niri/config.kdl"; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+T hotkey-overlay-title="Open Tmux Session" { spawn "bash" "-c" "alacritty -e tmux new-session -A -s \"$(tmux ls -F '#{session_name}' | fuzzel --dmenu)\""; }
-    Mod+P hotkey-overlay-title="Copy Password" { spawn "bash" "-c" "echo ~/.password-store\/**/*.gpg | xargs printf '%s\n' | sed 's|/home/sybrand/.password-store/||' | sed 's/.gpg//' | fuzzel --dmenu | xargs pass show --clip"; }
+    Mod+P hotkey-overlay-title="Copy Password: password-store" { spawn "bash" "-c" "echo ~/.password-store\/**/*.gpg | xargs printf '%s\n' | sed 's|/home/sybrand/.password-store/||' | sed 's/.gpg//' | fuzzel --dmenu | xargs pass show --clip"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -547,11 +572,11 @@ binds {
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Shift+F { expand-column-to-available-width; }
 
     // Display this colum in the middle of the screen, particularly useful on very wide monitors
     Mod+C { center-column; }
