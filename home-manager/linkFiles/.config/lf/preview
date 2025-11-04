@@ -6,7 +6,6 @@ case "$1" in
     *.tar) tar -tvf "$1" ;;
     *.zip) unzip -l "$1" ;;
     *.pdf) pdftotext -layout "$1" - ;;
-    *.jpg|*.jpeg|*.png) mediainfo "$1" ;;
     *.opus|*.mp3|*.m4a) mediainfo "$1" ;;
     *.mp4|*.mkv) mediainfo "$1" ;;
     *.rtf|*.docx) pandoc --sandbox --to ansi "$1" ;;
@@ -14,6 +13,7 @@ case "$1" in
         MIMETYPE=$(file --brief --mime-type "$1")
         case "$MIMETYPE" in
             text/*|application/json) bat -p --color=always --line-range :100 "$1" ;;
+            image/*) chafa -s "$2x$3" --animate off --polite on -t 1 --bg black "$1" ;;
             *) file --brief "$1";;
         esac;;
 esac

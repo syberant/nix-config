@@ -11,6 +11,8 @@ cmd edit-config ${{
 # Get syntax highlighting with bat
 # set color256 true
 set previewer ~/.config/lf/preview
+# Enables sixel support
+set sixel true
 
 # z.lua integration
 cmd z-jump ${{
