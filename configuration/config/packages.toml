@@ -1,13 +1,13 @@
 environment.systemPackages = [
     # Trying out / Experimental
+    "foot",
     "zellij",
-    "typst",
     "hyperfine",
     "piper-tts",
-    "nix-tree",
     "racket",
     "vdirsyncer",
     # "haskellPackages.hell", currently broken?
+    "yazi",
     "taskwarrior3",
     "taskwarrior-tui",
 
@@ -127,6 +127,7 @@ environment.systemPackages = [
     # Productivity
     "thunderbird",
     "texlive.combined.scheme-medium",
+    "typst",
     "pandoc",
     "unzip",
     "libreoffice",
