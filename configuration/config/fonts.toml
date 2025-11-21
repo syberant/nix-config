@@ -1,5 +1,5 @@
 [fonts]
-packages = [ "source-code-pro", "font-awesome_5", "font-awesome_4", "noto-fonts-emoji" ]
+packages = [ "source-code-pro", "font-awesome_5", "font-awesome_4", "noto-fonts-emoji", "nerd-fonts.symbols-only" ]
 
 [fonts.fontconfig.defaultFonts]
 monospace = [ "Source Code Pro" ]
