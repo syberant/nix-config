@@ -113,6 +113,11 @@ output "eDP-1" {
     // position x=1280 y=0
 }
 
+overview {
+    // Show slightly more than 2x what fits on the screen.
+    zoom 0.45
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -402,6 +407,8 @@ binds {
     Mod+T hotkey-overlay-title="Open Tmux Session" { spawn-sh "alacritty -e tmux new-session -A -s \"$(tmux ls -F '#{session_name}' | fuzzel --dmenu)\""; }
     Mod+P hotkey-overlay-title="Copy Password: password-store" { spawn-sh "echo ~/.password-store\/**/*.gpg | xargs printf '%s\n' | sed 's|/home/sybrand/.password-store/||' | sed 's/.gpg//' | fuzzel --dmenu | xargs pass show --clip"; }
     Mod+D hotkey-overlay-title="Open Scratchpad" { spawn-sh "alacritty -e tmux new-session -A -s scratchpad"; }
+    Mod+I hotkey-overlay-title="Open org-roam" { spawn-sh "emacs -T notes"; }
+    Mod+B hotkey-overlay-title="sd fzf open" { spawn-sh "sd fzf open"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -441,14 +448,14 @@ binds {
     Mod+Shift+K { move-window-up-or-to-workspace-up; }
     Mod+Shift+L { move-column-right; }
 
-    // My own weird bindings
-    Mod+Ctrl+J { focus-workspace-down; }
-    Mod+Ctrl+K { focus-workspace-up; }
+    // Move focused workspace up and down
+    Mod+Ctrl+J { move-workspace-down; }
+    Mod+Ctrl+K { move-workspace-up; }
+    // Move this workspace to the top.
+    Mod+Shift+Home { move-workspace-to-index 1; }
+    // Move this workspace to the bottom.
+    Mod+Shift+End { move-workspace-to-index 99; }
 
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
-    Mod+Shift+Home { move-column-to-first; }
-    Mod+Shift+End  { move-column-to-last; }
     // Mod+Insert { ; }
 
     // Mod+Shift+Left  { focus-monitor-left; }
