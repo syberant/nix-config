@@ -138,6 +138,7 @@ environment.systemPackages = [
     "ffmpeg",
     "exiftool",
     "jq",
+    "zim-tools",
 
     # Misc.
     # "geogebra6",
