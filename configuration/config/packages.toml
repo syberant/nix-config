@@ -30,7 +30,11 @@ environment.systemPackages = [
     "gcc",
     "man-pages",
     "glibcInfo", # man(3) C functions
-    "gdb", # Debugging
+
+    # Debugging
+    "gdb",
+    "gdbgui",
+    "gef",
 
     # Personal development
     "tokei",
