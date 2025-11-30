@@ -5,6 +5,8 @@ environment.systemPackages = [
     "alacritty",
     # X11 compatibility
     "xwayland-satellite",
+    # Wallpaper daemon
+    "swww",
     # Change display brightness, needs some additional rights
     "brightnessctl",
     # Allow clipboard management from the CLI
