@@ -57,11 +57,6 @@
     "altwin:swap_alt_win"; # Swap left alt and super key
   console.useXkbConfig = true; # use xkbOptions in tty.
 
-  services.xserver.sybrand-desktop-environment.polybar = {
-    wlanInterface = "wlp1s0";
-    config."bar/example".modules-right = lib.mkOrder 50 [ "battery" ];
-  };
-
   # Automatically switch between dual- and single-display options
   services.autorandr.enable = true;
 

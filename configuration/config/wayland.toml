@@ -18,3 +18,7 @@ enable = true
 
 [programs.waybar]
 enable = true
+
+[services.displayManager]
+enable = true
+defaultSession = "none+niri"

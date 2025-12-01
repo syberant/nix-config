@@ -42,7 +42,6 @@ let
   importFiles = dir: map importFile (collectFiles dir);
 in {
   imports = importFiles ./config ++ [
-    ../desktop-environment
     ../home-manager
     ../modules
     ./secrets

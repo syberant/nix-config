@@ -9,7 +9,7 @@ In this config I take advantage of the following projects:
 - [nix-neovim], my own toy project for configuring Neovim with Nix
 
 ## Overview of system
-- Window Manager: [XMonad](https://xmonad.org/)
+- Window Manager: [Niri](https://github.com/YaLTeR/niri)
 - Additional keybindings: [sxhkd](https://github.com/baskerville/sxhkd)
 - Status bar: [polybar](https://polybar.github.io/)
 - PDF viewer: [zathura](https://pwmt.org/projects/zathura/)

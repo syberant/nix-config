@@ -24,7 +24,6 @@
   networking.enableB43Firmware = true;
 
   services.xserver.enable = lib.mkForce false;
-  services.xserver.sybrand-desktop-environment.enable = lib.mkForce false;
 
   # Disable shutdown on power key
   services.logind.extraConfig = ''

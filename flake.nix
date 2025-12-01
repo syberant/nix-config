@@ -48,7 +48,6 @@
     , sops-nix, nix-neovim, secrets, impermanence, flake-utils }:
 
     let
-      xmonad-sybrand = ./xmonad;
       # TODO: utilise flake-utils for this
       system = "x86_64-linux";
       specialArgs = {
@@ -58,9 +57,6 @@
           inherit system;
           config.allowUnfree = true;
           overlays = [
-            (final: prev: {
-              xmonad-sybrand = prev.haskellPackages.callPackage "${xmonad-sybrand}/derivation.nix" {};
-            })
             NUR.overlays.default
 
             # For temporarily bypassing NUR to get my latest nur-packages
@@ -100,8 +96,6 @@
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           hm-nixos-as-super
-          "${xmonad-sybrand}/modules/xmonad-sybrand.nix"
-          "${xmonad-sybrand}/modules/agnostic/common.nix"
           impermanence.nixosModules.impermanence
           ./configuration/common.nix
         ];
