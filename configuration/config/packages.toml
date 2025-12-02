@@ -44,7 +44,9 @@ environment.systemPackages = [
     "nil", # Nix LSP
     "clang-tools", # C/C++ LSP
     "dhall-lsp-server", # Dhall LSP
+    "asm-lsp", # Assembly LSP
     "binsider", # Inspect binaries
+    "nasm", # Sane intel-style assembler
 
     # Lean
     "elan",
