@@ -31,6 +31,12 @@ environment.systemPackages = [
     "man-pages",
     "glibcInfo", # man(3) C functions
 
+    # Cross compiling (mostly LLVM stuff)
+    "clang", # C compiler
+    "lld", # LLVM linker
+    "qemu", # Emulator
+    "llvmPackages.bintools", # llvm-objdump et al.
+
     # Debugging
     "gdb",
     "gdbgui",
