@@ -53,6 +53,7 @@ environment.systemPackages = [
     "asm-lsp", # Assembly LSP
     "binsider", # Inspect binaries
     "nasm", # Sane intel-style assembler
+    "radare2", # Utilities for reverse-engineering
 
     # Lean
     "elan",
