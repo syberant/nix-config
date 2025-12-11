@@ -57,9 +57,6 @@
     "altwin:swap_alt_win"; # Swap left alt and super key
   console.useXkbConfig = true; # use xkbOptions in tty.
 
-  # Automatically switch between dual- and single-display options
-  services.autorandr.enable = true;
-
   # Configure ytfzf for a 1920x1200 screen
   home-manager.users.sybrand.home.file = {
     ".config/ytfzf/conf.sh" = {

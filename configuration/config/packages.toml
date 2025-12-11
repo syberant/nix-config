@@ -87,8 +87,6 @@ environment.systemPackages = [
     "kodi",
 
     # Utilities for UX
-    "xorg.xrandr",
-    "arandr",
     "alsa-utils",
 
     # Utilities for CLI UX
@@ -101,7 +99,6 @@ environment.systemPackages = [
     "mediainfo",
     "massren",
     "chafa",
-    "xclip",
     "script-directory",
     "elinks", # CLI browser
 
