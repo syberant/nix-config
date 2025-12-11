@@ -39,6 +39,26 @@
       fsType = "zfs";
     };
 
+  fileSystems."/home/sybrand/sapiens" =
+    { device = "rpool/home/graph";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/sybrand/.local/share/Steam" =
+    { device = "rpool/home/steam";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/sybrand/Media/Video" =
+    { device = "rpool/media/video";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/sybrand/Media/ZIM" =
+    { device = "rpool/media/zim";
+      fsType = "zfs";
+    };
+
   fileSystems."/persist" =
     { device = "rpool/persistence";
       neededForBoot = true;
