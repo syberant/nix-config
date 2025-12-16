@@ -342,6 +342,9 @@ window-rule {
 // Autostart some messaging apps
 spawn-at-startup "signal-desktop"
 spawn-at-startup "thunderbird"
+// Spawn background
+spawn-at-startup "swww-daemon"
+
 workspace "chat" {
     // TODO: Enable at "next release" after 25.08
     // layout {
