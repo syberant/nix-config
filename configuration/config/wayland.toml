@@ -7,6 +7,13 @@ environment.systemPackages = [
     "xwayland-satellite",
     # Wallpaper daemon
     "swww",
+
+    # Notification daemon
+    # "mako",
+    # Portals
+    "xdg-desktop-portal-gtk", # implements most of the basic functionality, this is the "default fallback portal".
+    "xdg-desktop-portal-gnome", # required for screencasting support.
+
     # Change display brightness, needs some additional rights
     "brightnessctl",
     # Allow clipboard management from the CLI
