@@ -30,6 +30,7 @@ environment.systemPackages = [
     "gcc",
     "man-pages",
     "glibcInfo", # man(3) C functions
+    "screen", # For connecting via a serial console
 
     # Cross compiling (mostly LLVM stuff)
     "clang", # C compiler
