@@ -86,6 +86,7 @@ environment.systemPackages = [
     "ytfzf",
     "calibre",
     "kodi",
+    "audacious", # Music player
 
     # Utilities for UX
     "alsa-utils",

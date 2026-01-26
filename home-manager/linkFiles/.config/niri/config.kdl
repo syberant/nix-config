@@ -342,6 +342,8 @@ window-rule {
 // Autostart some messaging apps
 spawn-at-startup "signal-desktop"
 spawn-at-startup "thunderbird"
+// Autostart music player
+spawn-at-startup "audacious"
 // Spawn background
 spawn-at-startup "swww-daemon"
 
@@ -360,6 +362,15 @@ window-rule {
     open-on-workspace "chat"
     // Try to prevent this from showing on screensharing etc.
     block-out-from "screen-capture"
+}
+workspace "media" {}
+window-rule {
+    match app-id="^mpv$"
+    match app-id="^Audacious$"
+    match app-id="^Kodi$" title="^Kodi$"
+    match app-id="^Tor Browser$"
+
+    open-on-workspace "media"
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
