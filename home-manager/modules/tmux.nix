@@ -106,7 +106,7 @@
       bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
       # Display popups
-      bind C-y display-popup -d "#{pane_current_path}" -w 90% -h 90% -E "lazygit"
+      bind C-g display-popup -d "#{pane_current_path}" -w 90% -h 90% -E "lazygit"
       bind C-n display-popup -d "#{pane_current_path}" -w 90% -h 90% -E "lf"
 
       # Enable mouse support
