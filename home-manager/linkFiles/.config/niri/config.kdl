@@ -80,6 +80,11 @@ gestures {
         off
     }
 }
+cursor {
+    // xcursor-theme "TODO"
+    // xcursor-size ""
+    hide-after-inactive-ms 3000
+}
 
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
