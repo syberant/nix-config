@@ -25,7 +25,7 @@ input {
         }
 
         // Delay in milliseconds before keyboard repeat starts
-        repeat-delay 250
+        repeat-delay 400
         // Rate in characters per second when repeating
         repeat-rate 30
 
