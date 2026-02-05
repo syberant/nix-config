@@ -131,6 +131,7 @@ environment.systemPackages = [
 
     # Graphical defaults
     "zathura",
+    "mupdf", # For viewing extremely large (5k+ pages) PDFs which `zathura` can't handle
     "signal-desktop",
     "sxiv",
     "maim",
