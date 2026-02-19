@@ -41,7 +41,7 @@
           target=science.ru.nl
           skip_username=10
         '';
-      in "${pkgs.gitAndTools.pass-git-helper}/bin/pass-git-helper -m ${dotfile}";
+      in "${pkgs.pass-git-helper}/bin/pass-git-helper -m ${dotfile}";
 
       # From: https://blog.gitbutler.com/how-git-core-devs-configure-git/
       # Clearly makes git better

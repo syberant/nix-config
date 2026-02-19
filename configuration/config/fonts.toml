@@ -3,7 +3,7 @@ packages = [
   "source-code-pro",
   "font-awesome_5",
   "font-awesome_4",
-  "noto-fonts-emoji",
+  "noto-fonts-color-emoji",
   "nerd-fonts.symbols-only",
 
   # Fallback font! See https://shkspr.mobi/blog/2019/04/banish-the-%ef%bf%bd-with-unifont/

@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./brightness.nix
     ./syncthing.nix
     ./hardware-configuration.nix
     ./sleep.nix
@@ -48,7 +47,7 @@
         prismlauncher
 
         # Needs overrides for macbook
-        tor-browser-bundle-bin
+        tor-browser
 
         # See CPU sensor information
         zenmonitor

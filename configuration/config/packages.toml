@@ -95,7 +95,7 @@ environment.systemPackages = [
     "lazygit",
     "entr",
     "starship",
-    "poppler_utils",
+    "poppler-utils",
     "file",
     "mediainfo",
     "massren",
