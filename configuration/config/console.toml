@@ -1,0 +1,5 @@
+[services.kmscon]
+enable = true
+# fonts =
+# hwRender =
+# useXkbConfig =
