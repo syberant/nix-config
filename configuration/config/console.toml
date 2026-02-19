@@ -1,5 +1,5 @@
 [services.kmscon]
-enable = true
+# enable = true
 # fonts =
 # hwRender =
 # useXkbConfig =
