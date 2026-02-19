@@ -2,9 +2,9 @@
 
 let
   ip-homeserver = "100.69.232.99";
-  ip-macbook = "100.73.233.50";
+  ip-macbook = "100.121.185.128";
   ip-desktop = "100.90.83.22";
-  ip-thinkpad = "100.109.178.81";
+  ip-thinkpad = "100.113.91.18";
 in {
   programs.ssh = {
     enable = true;
