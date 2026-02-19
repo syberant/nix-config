@@ -443,7 +443,9 @@ binds {
     Mod+P hotkey-overlay-title="Copy Password: password-store" { spawn-sh "echo ~/.password-store\/**/*.gpg | xargs printf '%s\n' | sed 's|/home/sybrand/.password-store/||' | sed 's/.gpg//' | fuzzel --dmenu | xargs pass show --clip"; }
     Mod+D hotkey-overlay-title="Open Scratchpad" { spawn-sh "alacritty -e tmux new-session -A -s scratchpad"; }
     Mod+I hotkey-overlay-title="Open org-roam" { spawn-sh "emacs -T notes"; }
+    Mod+Y hotkey-overlay-title="Open diary" { spawn-sh "alacritty -e sd sapiens diary"; }
     Mod+B hotkey-overlay-title="sd fzf open" { spawn-sh "sd fzf open"; }
+    Mod+Ctrl+Return hotkey-overlay-title="Rename workspace" { spawn-sh "fuzzel --prompt='Workspace name: ' --dmenu | xargs niri msg action set-workspace-name"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
