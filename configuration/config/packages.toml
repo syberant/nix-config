@@ -103,6 +103,7 @@ environment.systemPackages = [
     "chafa",
     "script-directory",
     "elinks", # CLI browser
+    "qrencode",
 
     # Debugging utilities
     "pciutils",
