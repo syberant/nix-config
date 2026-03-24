@@ -1,0 +1,15 @@
+# Inspired by: https://crescentro.se/posts/compose-key/
+# include the global configuration
+include "%L"
+
+# Emoji
+<Multi_key> <colon> <parenright>                     : "🙂"  # smile
+
+# Arrows
+<Multi_key> <minus> <less>                           : "←"
+<Multi_key> <minus> <greater>                        : "→"
+<Multi_key> <minus> <asciicircum>                    : "↑"
+<Multi_key> <minus> <v>                              : "↓"
+
+# Misc
+<Multi_key> <minus> <minus>                          : "–" # en-dash

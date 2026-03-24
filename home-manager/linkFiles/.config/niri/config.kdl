@@ -21,7 +21,7 @@ input {
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
 
             // My Thinkpad needs this to correctly detect the keys
-            options "altwin:swap_alt_win"
+            options "altwin:swap_alt_win,compose:ralt"
         }
 
         // Delay in milliseconds before keyboard repeat starts

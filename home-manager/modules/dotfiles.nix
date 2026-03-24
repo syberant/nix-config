@@ -19,6 +19,8 @@ in {
 
     ".gnupg/sshcontrol" = mkSource ".gnupg/sshcontrol";
 
+    ".XCompose" = mkSource ".XCompose";
+
     ".config/niri/config.kdl" = mkSource ".config/niri/config.kdl";
 
     ".config/waybar/config.jsonc" = mkSource ".config/waybar/config.jsonc";
