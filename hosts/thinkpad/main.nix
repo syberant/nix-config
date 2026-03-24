@@ -45,7 +45,7 @@
       # Allows to raise the maximum frequency/P-state of some cores if the
       # CPU chip is not fully utilized and below it's intended thermal budget.
       # 0=disable, 1=allow.
-      CPU_BOOST_ON_AC="0";
+      CPU_BOOST_ON_AC="1";
       CPU_BOOST_ON_BAT="0";
 
       PLATFORM_PROFILE_ON_AC="balanced";
@@ -58,7 +58,7 @@
       # Exclude bluetooth devices from USB autosuspend
       USB_EXCLUDE_BTUSB="1";
 
-      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE="bluetooth nfc wifi wwan";
+      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE="nfc wifi wwan";
     };
   };
 
