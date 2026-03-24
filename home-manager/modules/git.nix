@@ -1,31 +1,33 @@
 { pkgs, ... }:
 
 {
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+
+    options = {
+      number = true;
+      syntax-theme = "Monokai Extended";
+      file-style = "bright-yellow";
+    };
+  };
+
   programs.git = {
     enable = true;
 
-    userName = "Sybrand Aarnoutse";
-    userEmail = "sybrand@neuralcoding.com";
+    settings = {
+      user.name = "Sybrand Aarnoutse";
+      user.email = "sybrand@neuralcoding.com";
 
-    delta = {
-      enable = true;
-      options = {
-        number = true;
-        syntax-theme = "Monokai Extended";
-        file-style = "bright-yellow";
+      alias = {
+        ci = "commit";
+        st = "status";
+        lg =
+          "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit";
+        graph =
+          "log --graph --all --pretty=format:'%Cred%h%Creset %ad | [%C(bold blue)%an%Creset] %Cgreen%d%Creset %s' --date=iso";
       };
-    };
 
-    aliases = {
-      ci = "commit";
-      st = "status";
-      lg =
-        "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit";
-      graph =
-        "log --graph --all --pretty=format:'%Cred%h%Creset %ad | [%C(bold blue)%an%Creset] %Cgreen%d%Creset %s' --date=iso";
-    };
-
-    extraConfig = {
       pull.ff = "only";
 
       # https://qsantos.fr/2024/05/01/git-super-power-the-three-way-merge/
