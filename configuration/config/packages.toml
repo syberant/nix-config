@@ -10,6 +10,7 @@ environment.systemPackages = [
     "yazi",
     "taskwarrior3",
     "taskwarrior-tui",
+    "kdePackages.kcharselect",
 
     # Some defaults
     "curl",
