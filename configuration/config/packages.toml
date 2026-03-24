@@ -77,7 +77,6 @@ environment.systemPackages = [
     # Fluff
     "macchina",
     "cmatrix",
-    "xdotool",
     "htop",
     "btop",
     "toipe",
