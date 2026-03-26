@@ -87,6 +87,7 @@ environment.systemPackages = [
     "calibre",
     "kodi",
     "audacious", # Music player
+    "newsboat", # RSS reader
 
     # Utilities for UX
     "alsa-utils",
