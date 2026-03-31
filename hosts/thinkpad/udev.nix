@@ -58,15 +58,15 @@ in {
   # You can use this to find new vendor and model id's.
   services.udev.extraRules = ''
     # Philips USB stick
-    ACTION=="add", SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Philips", ATTRS{idVendor}=="13fe", ATTRS{idProduct}=="5200", RUN+="${scriptAdd}"
-    ACTION=="remove", SUBSYSTEMS=="usb", ENV{ID_VENDOR_ID}=="13fe", ENV{ID_MODEL_ID}=="5200", RUN+="${scriptRemove}"
+    ACTION=="add", SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Philips", ATTRS{idVendor}=="13fe", ATTRS{idProduct}=="5200", RUN+="${wifiOn}"
+    ACTION=="remove", SUBSYSTEMS=="usb", ENV{ID_VENDOR_ID}=="13fe", ENV{ID_MODEL_ID}=="5200", RUN+="${wifiOff}"
 
     # Samsung 64GB stick
     # ACTION=="add", SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Samsung", ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="6300", RUN+="${wifiOn}"
     # ACTION=="remove", SUBSYSTEMS=="usb", ENV{ID_VENDOR_ID}=="04e8", ENV{ID_MODEL_ID}=="6300", RUN+="${wifiOff}"
 
     # Sandisk 128GB stick
-    ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0781", ATTRS{idProduct}=="55a9", RUN+="${wifiOn}"
-    ACTION=="remove", SUBSYSTEMS=="usb", ENV{ID_VENDOR_ID}=="0781", ENV{ID_MODEL_ID}=="55a9", RUN+="${wifiOff}"
+    ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0781", ATTRS{idProduct}=="55a9", RUN+="${scriptAdd}"
+    ACTION=="remove", SUBSYSTEMS=="usb", ENV{ID_VENDOR_ID}=="0781", ENV{ID_MODEL_ID}=="55a9", RUN+="${scriptRemove}"
   '';
 }
