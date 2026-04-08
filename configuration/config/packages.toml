@@ -140,6 +140,7 @@ environment.systemPackages = [
     "pavucontrol",
 
     # Productivity
+    "krita",
     "thunderbird",
     "texlive.combined.scheme-medium",
     "typst",
