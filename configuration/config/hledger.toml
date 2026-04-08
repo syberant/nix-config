@@ -1,2 +1,3 @@
 [environment]
 systemPackages = [ "hledger" ]
+sessionVariables.LEDGER_FILE = "~/Documents/Persoonlijk/Finances/hledger.journal"
