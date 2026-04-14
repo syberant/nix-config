@@ -9,6 +9,8 @@
     initExtra = ''
       # Use starship for prompt
       eval "$(starship init bash)"
+
+      sd wasi fortune || echo "Fortune not found"
     '';
 
     shellAliases = {
