@@ -9,15 +9,13 @@
   # For doing firmware updates
   services.fwupd.enable = true;
 
-  services.ollama = {
-    enable = true;
-  };
 
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
     mate.mate-polkit
     prismlauncher
     zenmonitor
+    llama-cpp
   ];
 
   security.polkit.enable = true;
