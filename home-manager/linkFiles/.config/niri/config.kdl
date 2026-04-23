@@ -105,7 +105,7 @@ output "eDP-1" {
     mode "1920x1200"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1.1
+    scale 1.0
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -123,7 +123,7 @@ output "eDP-1" {
     // position x=1280 y=0
 }
 output "HDMI-A-1" {
-    scale 0.9
+    scale 1.1
     mode "2560x1440@60"
 }
 
@@ -194,7 +194,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 2
+        width 4
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -288,6 +288,13 @@ layout {
         // top 64
         // bottom 64
     }
+
+    tab-indicator {
+        active-color "#ff0000"
+        position "left"
+        place-within-column
+        hide-when-single-tab
+    }
 }
 
 // Add lines like this to spawn processes at startup.
@@ -378,6 +385,11 @@ window-rule {
     open-on-workspace "media"
 }
 
+// Temporary workspaces
+workspace "fs" {}
+workspace "blog" {}
+workspace "misc" {}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -461,6 +473,7 @@ binds {
     // Adjust display brightness
     XF86MonBrightnessUp { spawn "brightnessctl" "set" "5%+"; }
     XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+    Mod+R {spawn-sh "sd niri-rotate"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -572,7 +585,7 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
-    Mod+R { switch-preset-column-width; }
+    // Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
