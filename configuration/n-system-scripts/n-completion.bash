@@ -8,7 +8,7 @@ _n_completions() {
         "3")
             case "${COMP_WORDS[1]}" in
                 "update")
-                    COMPREPLY=($(compgen -W "stable unstable nur misc own-deps" "${COMP_WORDS[2]}"))
+                    COMPREPLY=($(compgen -W "all stable unstable nur misc own-deps" "${COMP_WORDS[2]}"))
                     ;;
             esac
             ;;
