@@ -1,0 +1,85 @@
+prepopulate-query-feeds yes
+confirm-exit yes
+confirm-mark-feed-read no
+# download-full-page
+
+# Don't increase this too much or some feed hosts could hit your IP with a ban hammer
+# I've set it to 2 in case one of my feeds is slow to respond
+reload-threads 2
+
+# I get anxious whenever I see "unread" articles, so I want to always mark everything as read.
+# It combats FOMO and hey, I don't need to read everything.
+run-on-startup mark-all-feeds-read; open
+confirm-mark-all-feeds-read no
+
+browser elinks
+macro v set browser "mpv %u &"; open-in-browser-noninteractively; set browser elinks
+macro f set browser "firefox --private-window"; open-in-browser-noninteractively; set browser elinks
+macro z set browser "curl %u | zathura - &"; open-in-browser-noninteractively; set browser elinks
+macro e set browser "hx ~/.config/newsboat/urls ~/.config/newsboat/config"; open-in-browser; set browser elinks
+
+unbind-key q
+bind q everywhere quit
+bind q feedlist hard-quit
+
+bind * article,articlelist article-feed
+
+# Vim keybindings
+unbind-key h
+unbind-key j
+unbind-key k
+unbind-key l
+bind h articlelist,urlview,article quit
+bind j everywhere down
+bind k everywhere up
+bind l everywhere open
+
+unbind-key u
+bind-key u halfpageup
+bind-key d halfpagedown
+
+unbind-key g # bound to `sort` by default
+unbind-key G # bound to `rev-sort` by default
+bind-key g home
+bind-key G end
+
+# Format
+datetime-format "%d %b %Y"
+feedlist-format "%=80t %T"
+feedlist-title-format "RSS reader - %N %V %?F? matching filter '%F'&?%?T? - tag '%T'&?"
+articlelist-format " %-6L %?T?|%-17T|  ?%t - %D"
+articlelist-title-format "%T %?F? matching filter '%F'&? - %U"
+itemview-title-format "%T - %F"
+
+# Colours
+# /usr/share/doc/newsboat/contrib/colorschemes/light
+color listnormal        black white
+color listnormal_unread black white
+color listfocus         white blue bold
+color listfocus_unread  white blue bold
+color info              white red bold
+color background        black white
+color article           black white
+
+# Colourise subheadings
+highlight feedlist "---.*---" blue default bold
+
+# Highlight certain sites
+# TODO: https://github.com/newsboat/newsboat/issues/2054
+highlight-feed "tags !# \"offline\"" color240 white
+highlight-article "tags # \"humour\"" black color229
+highlight-article "tags # \"rust\"" white black
+highlight-article "tags # \"linux\"" black color220
+highlight-article "tags # \"hardware\"" color82 black
+highlight-article "tags # \"nixos\"" black color87
+
+highlight-article "feedlink =~ \"lobste.rs\"" black color219
+highlight-article "feedlink =~ \"hackaday.com\"" black color46
+highlight-article "feedlink =~ \"media.ccc.de\"" black color249
+
+highlight-article "feedlink =~ \"theatlantic.com\"" black white underline
+highlight-article "feedlink =~ \"arstechnica.com\"" black white underline
+
+highlight-article "author =~ \"Jingles\"" black color196 bold reverse
+highlight-article "link =~ \"youtube.com/watch\"" black color196
+# highlight-article "link =~ \"youtube.com/shorts\"" # What to do here?

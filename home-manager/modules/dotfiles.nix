@@ -16,6 +16,7 @@ in {
 
     ".config/ncmpcpp/bindings" = mkSource ".config/ncmpcpp/bindings";
     ".config/ncmpcpp/config" = mkSource ".config/ncmpcpp/config";
+    ".config/newsboat/config" = mkSource ".config/newsboat/config";
 
     ".gnupg/sshcontrol" = mkSource ".gnupg/sshcontrol";
 
@@ -25,5 +26,7 @@ in {
 
     ".config/waybar/config.jsonc" = mkSource ".config/waybar/config.jsonc";
     ".config/waybar/style.css" = mkSource ".config/waybar/style.css";
+
+    ".cargo/config.toml" = mkSource ".cargo/config.toml";
   };
 }
