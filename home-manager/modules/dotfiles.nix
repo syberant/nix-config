@@ -1,32 +1,32 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   mkSource = file: { source = config.lib.file.mkOutOfStoreSymlink ("/etc/nixos/home-manager/linkFiles/" + file); };
 in {
-  home.file = {
-    ".config/mimeapps.list" = mkSource ".config/mimeapps.list";
-    ".config/starship.toml" = mkSource ".config/starship.toml";
+  home.file = pkgs.lib.listToAttrs (map (file: { name = file; value = mkSource file; }) [
+    ".config/mimeapps.list"
+    ".config/starship.toml"
 
-    ".config/helix/config.toml" = mkSource ".config/helix/config.toml";
-    ".config/lazygit/config.yml" = mkSource ".config/lazygit/config.yml";
-    ".config/elinks/elinks.conf" = mkSource ".config/elinks/elinks.conf";
+    ".config/helix/config.toml" 
+    ".config/lazygit/config.yml"
+    ".config/elinks/elinks.conf"
 
-    ".config/lf/lfrc" = mkSource ".config/lf/lfrc";
-    ".config/lf/preview" = mkSource ".config/lf/preview";
+    ".config/lf/lfrc"
+    ".config/lf/preview"
 
-    ".config/ncmpcpp/bindings" = mkSource ".config/ncmpcpp/bindings";
-    ".config/ncmpcpp/config" = mkSource ".config/ncmpcpp/config";
-    ".config/newsboat/config" = mkSource ".config/newsboat/config";
+    ".config/ncmpcpp/bindings"
+    ".config/ncmpcpp/config"
+    ".config/newsboat/config"
 
-    ".gnupg/sshcontrol" = mkSource ".gnupg/sshcontrol";
+    ".gnupg/sshcontrol"
 
-    ".XCompose" = mkSource ".XCompose";
+    ".XCompose"
 
-    ".config/niri/config.kdl" = mkSource ".config/niri/config.kdl";
+    ".config/niri/config.kdl"
 
-    ".config/waybar/config.jsonc" = mkSource ".config/waybar/config.jsonc";
-    ".config/waybar/style.css" = mkSource ".config/waybar/style.css";
+    ".config/waybar/config.jsonc"
+    ".config/waybar/style.css"
 
-    ".cargo/config.toml" = mkSource ".cargo/config.toml";
-  };
+    ".cargo/config.toml"
+  ]);
 }
