@@ -1,6 +1,6 @@
 {
   services.syncthing = rec {
-    enable = true;
+    enable = false;
     user = "sybrand";
 
     dataDir = "/home/${user}";
