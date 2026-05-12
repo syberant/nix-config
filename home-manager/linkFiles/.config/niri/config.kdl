@@ -377,7 +377,6 @@ window-rule {
 }
 workspace "media" {}
 window-rule {
-    match app-id="^mpv$"
     match app-id="^Audacious$"
     match app-id="^Kodi$" title="^Kodi$"
     match app-id="^Tor Browser$"
