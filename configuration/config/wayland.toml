@@ -18,6 +18,8 @@ environment.systemPackages = [
     "brightnessctl",
     # Allow clipboard management from the CLI
     "wl-clipboard",
+    # Automation with CLI
+    "wlrctl",
 ]
 
 [programs.niri]
