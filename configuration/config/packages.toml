@@ -1,6 +1,8 @@
 environment.systemPackages = [
     # Trying out / Experimental
     "foot",
+    "jj",
+    "jjui",
     # "chawan",
     # "dillo-plus",
     # "qman", # Improved manpage viewer
