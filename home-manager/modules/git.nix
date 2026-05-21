@@ -45,6 +45,9 @@
         '';
       in "${pkgs.pass-git-helper}/bin/pass-git-helper -m ${dotfile}";
 
+      user.signingkey = "33042C1817C783F6";
+      tag.gpgSign = "true";
+
       # From: https://blog.gitbutler.com/how-git-core-devs-configure-git/
       # Clearly makes git better
       column.ui = "auto";
