@@ -18,12 +18,6 @@
     impermanence.url = "github:nix-community/impermanence";
 
     # Own flakes
-    nix-neovim = {
-      url = "github:syberant/nix-neovim";
-      # url = "/home/sybrand/Documents/Programmeren/Nix/nix-neovim";
-      inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.nixpkgs.follows = "nixpkgs-git";
-    };
     # nur-syberant = {
     # url = "/home/sybrand/Documents/Programmeren/Nix/nur-packages";
     # flake = false;
@@ -45,13 +39,13 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-git, nixos-hardware, NUR, home-manager
-    , sops-nix, nix-neovim, secrets, impermanence, flake-utils }:
+    , sops-nix, secrets, impermanence, flake-utils }:
 
     let
       # TODO: utilise flake-utils for this
       system = "x86_64-linux";
       specialArgs = {
-        inherit self nixos-hardware nix-neovim secrets;
+        inherit self nixos-hardware secrets;
 
         pkgs = import nixpkgs {
           inherit system;
@@ -132,18 +126,6 @@
         modules = [ sharedModule { networking.hostId = "e0aa3905"; } ];
       };
     } // flake-utils.lib.eachDefaultSystem (system: {
-      apps.neovim = let
-        configuration = {
-          imports =
-            [ ./home-manager/modules/neovim/configuration.nix ];
-
-          output.path.style = nixpkgs.lib.mkForce "pure";
-        };
-      in flake-utils.lib.mkApp {
-        drv = nix-neovim.buildNeovim { inherit configuration; };
-        exePath = "/bin/nvim";
-      };
-
       # I find a REPL occasionally very useful in debugging
       apps.repl = flake-utils.lib.mkApp {
         drv = let pkgs = import nixpkgs { inherit system; };

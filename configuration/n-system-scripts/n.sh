@@ -48,8 +48,7 @@ case $1 in
                 nix flake lock --update-input sops-nix --update-input flake-utils --update-input hosts
                 ;;
             "own-deps")
-                nix flake lock --update-input secrets --update-input nix-neovim
-                ;;
+                nix flake lock --update-input secrets                ;;
             "all")
                 nix flake update
                 ;;

@@ -15,7 +15,7 @@
 
     shellAliases = {
       "ls" = "lsd --icon=never";
-      vi = "nvim";
+      vi = "$EDITOR";
       open = "xdg-open";
       tt = "taskwarrior-tui";
     };
