@@ -163,6 +163,7 @@ environment.systemPackages = [
     "exiftool",
     "jq",
     "zim-tools",
+    "nushell",
 
     # Misc.
     # "geogebra6",
