@@ -13,10 +13,16 @@ run-on-startup mark-all-feeds-read; open
 confirm-mark-all-feeds-read no
 
 browser elinks
-macro v set browser "mpv %u &"; open-in-browser-noninteractively; set browser elinks
-macro f set browser "firefox --private-window"; open-in-browser-noninteractively; set browser elinks
-macro z set browser "curl %u | zathura - &"; open-in-browser-noninteractively; set browser elinks
-macro e set browser "hx ~/.config/newsboat/urls ~/.config/newsboat/config"; open-in-browser; set browser elinks
+bind-key SPACE macro-prefix
+unbind-key ,
+macro v set browser "setsid --fork mpv %u"; open-in-browser-noninteractively; set browser elinks -- "Open with mpv"
+macro f set browser "firefox --private-window"; open-in-browser-noninteractively; set browser elinks -- "Open with firefox"
+macro z set browser "curl %u | setsid --fork zathura -"; open-in-browser-noninteractively; set browser elinks -- "Open with zathura"
+macro i set browser "curl %u | setsid --fork sxiv -"; open-in-browser-noninteractively; set browser elinks -- "Open with image viewer"
+macro p set browser "setsid --fork mpv --player-operation-mode=pseudo-gui -- %u"; open; one; quit; set browser elinks -- "Play podcast"
+macro b view-dialogs -- "View dialogs (buffers)"
+macro e edit-urls -- "Edit URLs"
+macro c set browser "hx ~/.config/newsboat/config ~/.config/newsboat/urls"; open-in-browser; set browser elinks; reload-urls -- "Edit config"
 
 unbind-key q
 bind q everywhere quit
@@ -43,6 +49,9 @@ unbind-key G # bound to `rev-sort` by default
 bind-key g home
 bind-key G end
 
+unbind-key L
+bind-key L show-urls
+
 # Format
 datetime-format "%d %b %Y"
 feedlist-format "%=80t %T"
@@ -67,11 +76,14 @@ highlight feedlist "---.*---" blue default bold
 # Highlight certain sites
 # TODO: https://github.com/newsboat/newsboat/issues/2054
 highlight-feed "tags !# \"offline\"" color240 white
+highlight-article "age < 0" color240 white
 highlight-article "tags # \"humour\"" black color229
 highlight-article "tags # \"rust\"" white black
 highlight-article "tags # \"linux\"" black color220
 highlight-article "tags # \"hardware\"" color82 black
 highlight-article "tags # \"nixos\"" black color87
+highlight-article "tags # \"podcast\"" white color18
+highlight-article "tags # \"story\"" color22 white
 
 highlight-article "feedlink =~ \"lobste.rs\"" black color219
 highlight-article "feedlink =~ \"hackaday.com\"" black color46
