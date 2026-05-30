@@ -5,7 +5,10 @@
 
 
     # (Semi-)official auxiliary repositories
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     NUR = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";

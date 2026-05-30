@@ -120,7 +120,7 @@ environment.systemPackages = [
     "smartmontools",
     "nvme-cli",
     "ngrep",
-    "linuxPackages.perf",
+    "perf",
     "bcc",
     "xorg.xev",
     "wireshark",
