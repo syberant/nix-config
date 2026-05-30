@@ -3,6 +3,18 @@ add_newline = false
 [character]
 error_symbol = "[✗](bold red)"
 
+[shell]
+disabled = false
+format = '[$indicator]($style)' # No space so that it disappears for bash
+bash_indicator = '' # Don't display for bash as it's my default shell and I don't want the clutter
+nu_indicator = 'λ'
+
+[nix_shell]
+heuristic = true # Attempts to catch the new style `nix shell` subshells
+
+[status]
+disabled = false
+
 [line_break]
 disabled = true
 
