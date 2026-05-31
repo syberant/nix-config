@@ -7,7 +7,10 @@
 
     dataDir = "/home/${user}";
 
-    # TODO
+    # TODO: Truly declarative.
+    # See:
+    # - https://wrycode.com/reproducible-syncthing-deployments/
+    # - https://wes.today/nixos-syncthing/
     # declarative.cert = "";
     # declarative.key = "";
 

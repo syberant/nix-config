@@ -29,10 +29,10 @@
   services.xserver.enable = lib.mkForce false;
 
   # Disable shutdown on power key
-  services.logind.extraConfig = ''
-    HandlePowerKey=ignore
-    HandleSuspendKey=ignore
-  '';
+  # services.logind.extraConfig = ''
+  #   HandlePowerKey=ignore
+  #   HandleSuspendKey=ignore
+  # '';
 
   # Battery life tweaks
   # - view usage with powerstat

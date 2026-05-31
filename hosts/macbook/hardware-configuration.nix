@@ -11,7 +11,7 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "wl" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
   boot.kernelParams = [ "consoleblank=300" ];
 
   fileSystems."/" =
@@ -27,22 +27,25 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  # Imports ZFS pool which will automatically mount its partitions itself.
+  boot.zfs.extraPools = [ "zroot" ];
   fileSystems."/home" =
     { device = "zroot/local/home";
       fsType = "zfs";
-      neededForBoot = true;
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/nix" =
     { device = "zroot/local/nix";
       fsType = "zfs";
-      neededForBoot = true;
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/persist" =
     { device = "zroot/local/persist";
       fsType = "zfs";
       neededForBoot = true;
+      options = [ "zfsutil" ];
     };
 
   swapDevices = [ ];
