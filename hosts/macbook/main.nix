@@ -50,6 +50,8 @@
   };
   powerManagement.powertop.enable = true;
 
+  services.kmscon.enable = true;
+
   # Map keys on startup
   gui.keyboard.key_mappings = [
     "232 = 1 exclam"
