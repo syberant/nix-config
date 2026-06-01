@@ -7,7 +7,7 @@ with pkgs.lib;
   # Accessible at /run/current-system/sw/share/self-flake/nested/dir
   environment = {
     # TODO: Fix mess with nested dir
-    systemPackages = [ (pkgs.runCommand "nixos-configuration-flake" {} "mkdir -p $out/share/self-flake/nested/dir; cp -r ${self}/* $out/share/self-flake/nested/dir") ];
+    systemPackages = [ (pkgs.runCommand "nixos-configuration-flake" {} "mkdir -p $out/share/self-flake/; cp -r ${self}/* $out/share/self-flake/") ];
     pathsToLink = [ "/share/self-flake" ];
   };
 
