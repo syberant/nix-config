@@ -6,6 +6,8 @@
     ./hardware-configuration.nix
   ];
 
+  disabledModules = [ "wayland.toml" "pkgs-gui.toml" ];
+
   # Unique ID for zfs
   networking.hostId = "fec9e12c";
 

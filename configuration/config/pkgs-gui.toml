@@ -1,0 +1,12 @@
+environment.systemPackages = [
+  "zathura",
+  "mupdf",
+  "signal-desktop",
+  "sxiv",
+  "maim",
+  "pavucontrol",
+
+  "krita",
+  "thunderbird",
+  "kiwix",
+]

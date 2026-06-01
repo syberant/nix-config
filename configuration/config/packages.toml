@@ -139,23 +139,12 @@ environment.systemPackages = [
     # Formatters
     "nixfmt-classic",
 
-    # Graphical defaults
-    "zathura",
-    "mupdf", # For viewing extremely large (5k+ pages) PDFs which `zathura` can't handle
-    "signal-desktop",
-    "sxiv",
-    "maim",
-    "pavucontrol",
-
     # Productivity
-    "krita",
-    "thunderbird",
     "texlive.combined.scheme-medium",
     "typst",
     "pandoc",
     "unzip",
     "libreoffice",
-    "kiwix",
 
     # CLI productivity
     "imagemagick",
