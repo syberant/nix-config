@@ -7,4 +7,4 @@ environment.systemPackages = [ "cage" ]
 # enable = true
 # fonts =
 # hwRender =
-# useXkbConfig =
+useXkbConfig = true
