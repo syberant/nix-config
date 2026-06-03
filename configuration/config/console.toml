@@ -1,3 +1,8 @@
+# Add myself to the tty group, required for some programs
+users.users.sybrand.extraGroups = [ "tty" ]
+# Wayland kiosk to run 1 program in fullscreen
+environment.systemPackages = [ "cage" ]
+
 [services.kmscon]
 # enable = true
 # fonts =
