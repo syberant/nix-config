@@ -8,6 +8,8 @@ in {
     ".config/starship.toml"
 
     ".config/helix/config.toml" 
+    ".config/helix/languages.toml"
+
     ".config/lazygit/config.yml"
     ".config/elinks/elinks.conf"
 

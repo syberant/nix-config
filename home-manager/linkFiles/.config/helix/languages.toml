@@ -1,0 +1,14 @@
+# See: https://github.com/helix-editor/helix/issues/14380
+[language-server.lean]
+command = "lake"
+args = ["serve"]
+
+# From: https://writewithharper.com/docs/integrations/helix
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
+[[language]]
+name = "markdown"
+language-servers = ["harper-ls"]
+
