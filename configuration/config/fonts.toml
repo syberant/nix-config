@@ -1,6 +1,7 @@
 [fonts]
 packages = [
   "source-code-pro",
+  "monaspace", # Innovative "texture healing" to decrease the ugliness of monospace fonts
   "font-awesome_5",
   "font-awesome_4",
   "noto-fonts-color-emoji",
