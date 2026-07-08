@@ -1,3 +1,5 @@
+theme = "solarized_light"
+
 [editor.lsp]
 display-inlay-hints = true
 
