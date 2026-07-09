@@ -1,0 +1,45 @@
+[DEFAULT]
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+sync_deletes = no
+timeout = 60
+keepalive = 120
+tls_level = tls_secure
+ssl_version = tls1_2
+
+[general]
+accounts = infiniterecursion, neuralcoding
+pythonfile = ~/.config/offlineimap/script.py
+
+
+
+[Account infiniterecursion]
+localrepository = LocalInfinite
+remoterepository = RemoteInfinite
+readonly = true
+
+[Repository LocalInfinite]
+type = Maildir
+localfolders = ~/Maildir/sybrand@infiniterecursion.eu
+
+[Repository RemoteInfinite]
+type = IMAP
+remotehost = imap.hostinger.com
+remoteuser = sybrand@infiniterecursion.eu
+remotepasseval = from_password_store("mail/sybrand@infiniterecursion.eu")
+
+
+
+[Account neuralcoding]
+localrepository = LocalNeuralcoding
+remoterepository = RemoteNeuralcoding
+readonly = true
+
+[Repository LocalNeuralcoding]
+type = Maildir
+localfolders = ~/Maildir/sybrand@neuralcoding.com
+
+[Repository RemoteNeuralcoding]
+type = IMAP
+remotehost = mail3.sohosted.com
+remoteuser = sybrand@neuralcoding.com
+remotepasseval = from_password_store("mail/sybrand@neuralcoding.com")

@@ -20,6 +20,13 @@ in {
     ".config/ncmpcpp/config"
     ".config/newsboat/config"
 
+    ".config/offlineimap/config"
+    ".config/offlineimap/script.py"
+
+    ".config/aerc/accounts.conf"
+    ".config/aerc/aerc.conf"
+    ".config/aerc/binds.conf"
+
     ".gnupg/sshcontrol"
 
     ".XCompose"

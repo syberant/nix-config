@@ -312,7 +312,6 @@ window-rule {
 
 // Autostart some messaging apps
 spawn-at-startup "signal-desktop"
-spawn-at-startup "thunderbird"
 // Autostart music player
 spawn-at-startup "audacious"
 // Spawn background
