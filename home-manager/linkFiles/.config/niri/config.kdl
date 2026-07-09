@@ -318,10 +318,9 @@ spawn-at-startup "audacious"
 spawn-at-startup "swww-daemon"
 
 workspace "chat" {
-    // TODO: Enable at "next release" after 25.08
-    // layout {
-    //     center-focused-column "always"
-    // }
+    layout {
+        center-focused-column "always"
+    }
 }
 workspace "browser" {}
 window-rule {
