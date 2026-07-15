@@ -415,7 +415,7 @@ binds {
     Mod+D hotkey-overlay-title="Open Scratchpad" { spawn-sh "alacritty -e tmux new-session -A -s scratchpad"; }
     Mod+I hotkey-overlay-title="Open org-roam" { spawn-sh "emacs -T notes"; }
     Mod+Y hotkey-overlay-title="Open diary" { spawn-sh "alacritty -e sd sapiens diary"; }
-    Mod+Ctrl+Return hotkey-overlay-title="Rename workspace" { spawn-sh "fuzzel --prompt='Workspace name: ' --dmenu | xargs niri msg action set-workspace-name"; }
+    Mod+Ctrl+R hotkey-overlay-title="Rename workspace" { spawn-sh "fuzzel --prompt='Workspace name: ' --dmenu | xargs niri msg action set-workspace-name"; }
     // Mod+B hotkey-overlay-title="sd fzf open" { spawn-sh "sd fzf open"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
@@ -545,8 +545,6 @@ binds {
     Mod+Period { expel-window-from-column; }
 
     // Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Ctrl+F { fullscreen-window; }
 
