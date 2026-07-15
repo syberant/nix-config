@@ -313,6 +313,7 @@ window-rule {
 // Autostart some messaging apps
 spawn-at-startup "signal-desktop"
 spawn-at-startup "foot --app-id=mail -e aerc"
+spawn-at-startup "emacs -T notes"
 // Autostart music player
 spawn-at-startup "audacious"
 // Spawn background
