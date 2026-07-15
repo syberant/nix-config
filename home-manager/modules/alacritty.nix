@@ -11,7 +11,7 @@
         bold.family = "Source Code Pro";
         italic.family = "Source Code Pro";
         bold_italic.family = "Source Code Pro";
-        size = 8;
+        size = 10;
       };
 
       # From: https://wiki.archlinux.org/title/Alacritty#Hints
