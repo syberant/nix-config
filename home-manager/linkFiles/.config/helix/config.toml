@@ -10,6 +10,9 @@ end-of-line-diagnostics = "hint"
 # Don't dig down more than 10 directories
 file-picker.max-depth = 10
 
+# Remove soft wrap indicator
+soft-wrap.wrap-indicator = ""
+
 [editor.inline-diagnostics]
 cursor-line = "warning"
 other-lines = "error"
