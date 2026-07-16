@@ -7,6 +7,9 @@ display-inlay-hints = true
 true-color = true
 end-of-line-diagnostics = "hint"
 
+# Don't dig down more than 10 directories
+file-picker.max-depth = 10
+
 [editor.inline-diagnostics]
 cursor-line = "warning"
 other-lines = "error"
