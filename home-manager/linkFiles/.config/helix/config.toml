@@ -16,3 +16,6 @@ soft-wrap.wrap-indicator = ""
 [editor.inline-diagnostics]
 cursor-line = "warning"
 other-lines = "error"
+
+[editor.cursor-shape]
+insert = "bar"
