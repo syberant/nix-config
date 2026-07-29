@@ -35,7 +35,7 @@ unbind-key h
 unbind-key j
 unbind-key k
 unbind-key l
-bind h articlelist,urlview,article quit
+bind h articlelist,urlview,article,searchresultslist quit
 bind j everywhere down
 bind k everywhere up
 bind l everywhere open
