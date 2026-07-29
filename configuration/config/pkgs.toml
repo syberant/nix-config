@@ -46,7 +46,7 @@ environment.systemPackages = [
 
     # Debugging
     "gdb",
-    "gdbgui",
+    "seer",
     "gef",
 
     # Personal development
