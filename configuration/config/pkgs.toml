@@ -64,6 +64,7 @@ environment.systemPackages = [
     "binsider", # Inspect binaries
     "nasm", # Sane intel-style assembler
     "radare2", # Utilities for reverse-engineering
+    "landrun", # Lightweight sandboxing
 
     # Lean
     "elan",
