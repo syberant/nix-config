@@ -30,4 +30,4 @@ enable = true
 
 [services.displayManager]
 enable = true
-defaultSession = "none+niri"
+defaultSession = "niri"
