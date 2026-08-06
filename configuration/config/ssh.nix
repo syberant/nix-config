@@ -22,8 +22,8 @@
       # Only allow logging in regular users
       AllowGroups = [ "users" ];
 
-      # Disallow password authentication.
-      PasswordAuthentication = false;
+      # Allow password authentication.
+      PasswordAuthentication = true;
     };
   };
 
