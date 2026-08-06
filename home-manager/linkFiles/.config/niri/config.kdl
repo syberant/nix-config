@@ -217,7 +217,7 @@ layout {
 
         // Color of the ring on the active monitor.
         // active-color "#7fc8ff"
-        active-gradient from="#ffbbdd" to="#80c8ff"
+        active-gradient from="#ffbbdd" to="#80c8ff" angle=135
 
         // Color of the ring on inactive monitors.
         inactive-color "#505050"
