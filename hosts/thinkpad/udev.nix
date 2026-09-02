@@ -48,6 +48,17 @@ in {
   iptables -A OUTPUT -p tcp -m string --string "nos.nl"          --algo kmp -j distracting
   iptables -A OUTPUT -p tcp -m string --string "bbc.com"         --algo kmp -j distracting
   iptables -A OUTPUT -p tcp -m string --string "arstechnica.com" --algo kmp -j distracting
+
+  # Tor Directory Authorities
+  iptables -A OUTPUT -d 128.31.0.34     -j distracting
+  iptables -A OUTPUT -d 86.59.21.38     -j distracting
+  iptables -A OUTPUT -d 194.109.206.212 -j distracting
+  iptables -A OUTPUT -d 131.188.40.189  -j distracting
+  iptables -A OUTPUT -d 193.23.244.244  -j distracting
+  iptables -A OUTPUT -d 171.25.193.9    -j distracting
+  iptables -A OUTPUT -d 154.35.175.225  -j distracting
+  iptables -A OUTPUT -d 199.58.81.140   -j distracting
+  iptables -A OUTPUT -d 204.13.164.118  -j distracting
   '';
 
   # Block wlan on startup
