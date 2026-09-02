@@ -48,6 +48,8 @@ in {
   iptables -A OUTPUT -p tcp -m string --string "nos.nl"          --algo kmp -j distracting
   iptables -A OUTPUT -p tcp -m string --string "bbc.com"         --algo kmp -j distracting
   iptables -A OUTPUT -p tcp -m string --string "arstechnica.com" --algo kmp -j distracting
+  iptables -A OUTPUT -p tcp -m string --string "lobste.rs"       --algo kmp -j distracting
+  iptables -A OUTPUT -p tcp -m string --string "ycombinator.com" --algo kmp -j distracting
 
   # Tor Directory Authorities
   iptables -A OUTPUT -d 128.31.0.34     -j distracting
