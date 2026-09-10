@@ -118,12 +118,9 @@ environment.systemPackages = [
     "usbutils",
     "smartmontools",
     "nvme-cli",
-    "ngrep",
     "perf",
     "bcc",
     "xorg.xev",
-    "wireshark",
-    "tcpdump",
 
     # Programming languages
     "python3",
