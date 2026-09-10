@@ -1,6 +1,5 @@
 environment.systemPackages = [
     # Trying out / Experimental
-    "foot",
     "jj",
     "jjui",
     # "chawan",
@@ -12,7 +11,6 @@ environment.systemPackages = [
     "racket",
     "vdirsyncer",
     "yazi",
-    "kdePackages.kcharselect",
     "cmus", # Music player
 
     # Some defaults
@@ -44,7 +42,6 @@ environment.systemPackages = [
 
     # Debugging
     "gdb",
-    "seer",
     "gef",
     "bcc", # BPF-based Dynamic Tracing Tools
     "perf",
@@ -95,7 +92,6 @@ environment.systemPackages = [
     "ytfzf",
     "calibre",
     "kodi",
-    "audacious", # Music player
     "newsboat", # RSS reader
 
     # Utilities for UX
@@ -149,12 +145,4 @@ environment.systemPackages = [
     "jq",
     "zim-tools",
     "nushell",
-
-    # Misc.
-    # "geogebra6",
-    # "kicad", # pcb design
-    # "freecad", " 3d printing design
-
-    # Proprietary stuff
-    # "discord",
 ]

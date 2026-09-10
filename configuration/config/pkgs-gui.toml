@@ -1,12 +1,24 @@
 environment.systemPackages = [
+  "foot",
   "zathura",
   "mupdf",
   "signal-desktop",
   "sxiv",
   "maim",
   "pavucontrol",
+  "audacious", # Music player
 
+  "kdePackages.kcharselect",
   "krita",
   "thunderbird",
   "kiwix",
+  "seer",
+
+  # Misc.
+  # "geogebra6",
+  # "kicad", # pcb design
+  # "freecad", " 3d printing design
+
+  # Proprietary stuff
+  # "discord",
 ]
