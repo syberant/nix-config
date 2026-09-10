@@ -11,10 +11,7 @@ environment.systemPackages = [
     "piper-tts",
     "racket",
     "vdirsyncer",
-    # "haskellPackages.hell", currently broken?
     "yazi",
-    "taskwarrior3",
-    "taskwarrior-tui",
     "kdePackages.kcharselect",
     "cmus", # Music player
 
