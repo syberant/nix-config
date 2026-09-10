@@ -46,6 +46,8 @@ environment.systemPackages = [
     "gdb",
     "seer",
     "gef",
+    "bcc", # BPF-based Dynamic Tracing Tools
+    "perf",
 
     # Personal development
     "tokei",
@@ -118,8 +120,6 @@ environment.systemPackages = [
     "usbutils",
     "smartmontools",
     "nvme-cli",
-    "perf",
-    "bcc",
     "xorg.xev",
 
     # Programming languages
