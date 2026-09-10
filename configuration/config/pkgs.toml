@@ -16,6 +16,7 @@ environment.systemPackages = [
     "taskwarrior3",
     "taskwarrior-tui",
     "kdePackages.kcharselect",
+    "cmus", # Music player
 
     # Some defaults
     "curl",
