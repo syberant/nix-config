@@ -7,6 +7,9 @@
   ];
 
   disabledModules = [ "wayland.toml" "pkgs-gui.toml" ];
+  programs.firefox.enable = lib.mkForce false;
+  services.xserver.enable = lib.mkForce false;
+  services.displayManager.enable = lib.mkForce false;
 
   # Unique ID for zfs
   networking.hostId = "fec9e12c";
@@ -23,9 +26,6 @@
 
   # Allow remote SSH port forwarding
   services.openssh.settings.GatewayPorts = "yes";
-
-  services.xserver.enable = lib.mkForce false;
-  services.displayManager.enable = lib.mkForce false;
 
   # Disable shutdown on power key
   # services.logind.extraConfig = ''
