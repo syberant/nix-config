@@ -33,7 +33,11 @@
   #   HandleSuspendKey=ignore
   # '';
 
-  services.kmscon.enable = true;
+  services.cage = {
+    enable = true;
+    user = "sybrand";
+    program = "${pkgs.foot}/bin/foot";
+  };
 
   # Map keys on startup
   gui.keyboard.key_mappings = [
