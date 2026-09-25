@@ -1,0 +1,18 @@
+add -l ~/Media/Music
+
+set continue=true
+set repeat=true
+set repeat_current=false
+set shuffle=tracks
+
+bind -f common space player-pause
+# Volume
+bind -f common + vol +10%
+bind -f common = vol +10%
+bind -f common - vol -10%
+# Seek
+bind -f common left seek -5
+bind -f common right seek +5
+bind -f common > player-next
+bind -f common < player-prev
+

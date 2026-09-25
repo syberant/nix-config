@@ -27,6 +27,8 @@ in {
     ".config/aerc/aerc.conf"
     ".config/aerc/binds.conf"
 
+    ".config/cmus/rc"
+
     ".gnupg/sshcontrol"
 
     ".XCompose"
