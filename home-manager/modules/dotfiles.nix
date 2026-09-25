@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  mkSource = file: { source = config.lib.file.mkOutOfStoreSymlink ("/etc/nixos/home-manager/linkFiles/" + file); };
+  mkSource = file: { source = config.lib.file.mkOutOfStoreSymlink ("/etc/nixos/home-manager/HOME/" + file); };
 in {
   home.file = pkgs.lib.listToAttrs (map (file: { name = file; value = mkSource file; }) [
     ".config/mimeapps.list"
