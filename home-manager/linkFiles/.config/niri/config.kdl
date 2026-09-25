@@ -465,8 +465,8 @@ binds {
     // Move this workspace to the bottom.
     Mod+Shift+End { move-workspace-to-index 99; }
     // Move focused workspace between monitors
-    Mod+Ctrl+H { move-workspace-to-monitor-left; }
-    Mod+Ctrl+L { move-workspace-to-monitor-right; }
+    Mod+Ctrl+H hotkey-overlay-title="Move workspace to left monitor" { move-workspace-to-monitor-left; }
+    Mod+Ctrl+L hotkey-overlay-title="Move workspace to right monitor" { move-workspace-to-monitor-right; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
