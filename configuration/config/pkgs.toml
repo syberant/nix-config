@@ -116,7 +116,6 @@ environment.systemPackages = [
     "usbutils",
     "smartmontools",
     "nvme-cli",
-    "xorg.xev",
 
     # Programming languages
     "python3",
