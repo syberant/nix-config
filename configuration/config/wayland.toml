@@ -6,7 +6,7 @@ environment.systemPackages = [
     # X11 compatibility
     "xwayland-satellite",
     # Wallpaper daemon
-    "swww",
+    "awww",
 
     # Notification daemon
     # "mako",

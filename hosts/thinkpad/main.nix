@@ -12,7 +12,7 @@
 
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
-    mate.mate-polkit
+    mate-polkit
     prismlauncher
     zenmonitor
     llama-cpp

@@ -314,7 +314,7 @@ window-rule {
 spawn-at-startup "foot --app-id=mail -e aerc"
 spawn-at-startup "emacs -T notes"
 // Spawn background
-spawn-at-startup "swww-daemon"
+spawn-at-startup "awww-daemon"
 
 workspace "chat" {
     layout {

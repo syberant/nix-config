@@ -128,7 +128,7 @@ environment.systemPackages = [
     "binaryen",
 
     # Formatters
-    "nixfmt-classic",
+    "nixfmt",
 
     # Productivity
     "texlive.combined.scheme-medium",
