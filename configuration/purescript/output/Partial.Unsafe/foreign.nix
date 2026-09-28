@@ -1,2 +1,0 @@
-
-{ _unsafePartial = f: f {}; }
