@@ -43,15 +43,21 @@ environment.systemPackages = [
     # Debugging
     "gdb",
     "gef",
+    "rr", # Deterministic debugging (and reverse execution!)
     "bcc", # BPF-based Dynamic Tracing Tools
     "perf",
+    "binsider", # Inspect binaries
+    "radare2", # Utilities for reverse-engineering
 
     # Personal development
     "tokei",
     "nixpkgs-review",
     "dix", # Nix closure differ
     "sqlite",
-    "rr", # Deterministic debugging (and reverse execution!)
+    "landrun", # Lightweight sandboxing
+
+    # Editor
+    "helix",
     "nil", # Nix LSP
     "clang-tools", # C/C++ LSP
     "dhall-lsp-server", # Dhall LSP
@@ -59,18 +65,10 @@ environment.systemPackages = [
     # "rumdl", # markdown linter
     "harper", # English grammar LSP
     # "tinymist", # typst LSP
-    "binsider", # Inspect binaries
-    "nasm", # Sane intel-style assembler
-    "radare2", # Utilities for reverse-engineering
-    "landrun", # Lightweight sandboxing
 
     # Lean
     "elan",
     "lean4",
-
-    # Personal choices
-    "lf",
-    "helix",
 
     # Rust coreutils
     "lsd",
@@ -99,6 +97,7 @@ environment.systemPackages = [
     "alsa-utils",
 
     # Utilities for CLI UX
+    "lf",
     "fzf",
     "lazygit",
     "entr",
@@ -112,7 +111,7 @@ environment.systemPackages = [
     "elinks", # CLI browser
     "qrencode",
 
-    # Debugging utilities
+    # Sysadmin utilities
     "pciutils",
     "usbutils",
     "smartmontools",
@@ -122,6 +121,7 @@ environment.systemPackages = [
     "python3",
     "rustup", # Use stateful managing with `rustup` for Rust ¯\_(ツ)_/¯
     "octave",
+    "nasm", # Sane intel-style assembler
 
     # WebAssembly
     "wasmtime", # runtime
