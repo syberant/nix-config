@@ -12,7 +12,6 @@ environment.systemPackages = [
   "thunderbird",
   "seer",
 
-  "calibre",
   "kodi",
 
   # Misc.
