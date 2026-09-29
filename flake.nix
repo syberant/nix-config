@@ -77,11 +77,10 @@
         };
       };
       # https://github.com/cideM/dotfiles/blob/master/flake.nix
-      hm-nixos-as-super = { config, ... }: {
+      hm-nixos-as-super = { lib, config, ... }: {
         # Submodules have merge semantics, making it possible to amend
         # the `home-manager.users` submodule for additional functionality.
-        options.home-manager.users = let lib = specialArgs.pkgs.lib;
-        in lib.mkOption {
+        options.home-manager.users = lib.mkOption {
           type = lib.types.attrsOf (lib.types.submoduleWith {
             modules = [ ];
             # Makes specialArgs available to Home Manager modules as well.
