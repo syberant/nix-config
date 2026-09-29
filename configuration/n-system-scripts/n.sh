@@ -25,24 +25,24 @@ case $1 in
     "switch")
         git add -A -N
         assert_git_not_dirty
-        sudo nixos-rebuild switch;;
+        sudo nixos-rebuild switch
+
+        # Print size of current install
+        nix path-info --closure-size --human-readable /run/current-system
+        ;;
     "boot")
         git add -A -N
         assert_git_not_dirty
         sudo nixos-rebuild boot;;
     "analyse-size")
-        nix path-info -rhsS $(readlink /run/current-system) | sort -hk3 | less;;
+        nix path-info --closure-size --recursive /run/current-system | sort --reverse -nk2 | less;;
     "update")
         cd /etc/nixos
         case $2 in
-            "stable")
-                nix flake lock --update-input nixpkgs --update-input nixos-hardware --update-input home-manager
-                ;;
-            "unstable")
-                nix flake lock --update-input nixpkgs-git
-                ;;
-            "nur")
-                nix flake lock --update-input NUR
+            "nixos")
+                nix flake lock --update-input nixpkgs --update-input nixos-hardware --update-input home-manager \
+                    --update-input nixpkgs-git \
+                    --update-input NUR
                 ;;
             "misc")
                 nix flake lock --update-input sops-nix --update-input flake-utils --update-input hosts
