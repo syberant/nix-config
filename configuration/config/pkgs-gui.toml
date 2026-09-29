@@ -6,12 +6,10 @@ environment.systemPackages = [
   "sxiv",
   "maim",
   "pavucontrol",
-  "audacious", # Music player
 
   "kdePackages.kcharselect",
   "krita",
   "thunderbird",
-  "kiwix",
   "seer",
 
   "calibre",
