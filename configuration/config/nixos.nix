@@ -1,4 +1,4 @@
-{ self, config, pkgs, ... }:
+{ flake-inputs, config, pkgs, ... }:
 
 with pkgs.lib;
 
@@ -7,7 +7,7 @@ with pkgs.lib;
   # Accessible at /run/current-system/sw/share/self-flake/nested/dir
   environment = {
     # TODO: Fix mess with nested dir
-    systemPackages = [ (pkgs.runCommand "nixos-configuration-flake" {} "mkdir -p $out/share/self-flake/; cp -r ${self}/* $out/share/self-flake/") ];
+    systemPackages = [ (pkgs.runCommand "nixos-configuration-flake" {} "mkdir -p $out/share/self-flake/; cp -r ${flake-inputs.self}/* $out/share/self-flake/") ];
     pathsToLink = [ "/share/self-flake" ];
   };
 
@@ -17,7 +17,7 @@ with pkgs.lib;
   };
 
   # Let 'nixos-version --json' know about the Git revision of this flake.
-  system.configurationRevision = self.rev or "dirty";
+  system.configurationRevision = flake-inputs.self.rev or "dirty";
 
   system.nixos = {
     # Set label in GRUB to first 7 characters of the git hash of the last commit.

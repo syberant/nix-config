@@ -46,13 +46,13 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-git, nixos-hardware, NUR, home-manager
-    , sops-nix, secrets, impermanence, flake-utils }:
+    , sops-nix, secrets, impermanence, flake-utils }@flake-inputs:
 
     let
       # TODO: utilise flake-utils for this
       system = "x86_64-linux";
       specialArgs = {
-        inherit self nixos-hardware secrets;
+        inherit flake-inputs;
 
         pkgs = import nixpkgs {
           inherit system;

@@ -1,8 +1,8 @@
-{ lib, pkgs, nixos-hardware, ... }:
+{ lib, pkgs, flake-inputs, ... }:
 
 {
   imports = [
-    nixos-hardware.nixosModules.apple-macbook-air-6
+    flake-inputs.nixos-hardware.nixosModules.apple-macbook-air-6
     ./hardware-configuration.nix
   ];
 

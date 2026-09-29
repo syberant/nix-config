@@ -1,4 +1,4 @@
-{ config, secrets, ... }:
+{ config, flake-inputs, ... }:
 
 let
   # secretsPath = /secrets/nixos-configuration/secrets;
@@ -6,7 +6,7 @@ let
 in {
   sops.validateSopsFiles = false;
 
-  sops.defaultSopsFile = secrets + "/secrets.yaml";
+  sops.defaultSopsFile = flake-inputs.secrets + "/secrets.yaml";
 
   # Allow user to read keys
   users.users.sybrand.extraGroups = [ config.users.groups.keys.name ];
@@ -15,7 +15,7 @@ in {
   sops.secrets.desktop-ssh-key = {
     format = "binary";
     # sopsFile = secretsPath + "/secret-desktop-ssh-key";
-    sopsFile = secrets + "/secrets/secret-desktop-ssh-key";
+    sopsFile = flake-inputs.secrets + "/secrets/secret-desktop-ssh-key";
     owner = user;
   };
 }
