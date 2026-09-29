@@ -49,6 +49,7 @@ environment.systemPackages = [
     # Personal development
     "tokei",
     "nixpkgs-review",
+    "dix", # Nix closure differ
     "sqlite",
     "rr", # Deterministic debugging (and reverse execution!)
     "nil", # Nix LSP
