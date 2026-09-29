@@ -11,30 +11,30 @@ in
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
       "lilo.science.ru.nl" = {
-        user = "sybrandaarnoutse";
-        hostname = "lilo.science.ru.nl";
+        User = "sybrandaarnoutse";
+        HostName = "lilo.science.ru.nl";
       };
 
       "nixos-desktop" = {
-        user = "sybrand";
-        hostname = ip-desktop;
+        User = "sybrand";
+        HostName = ip-desktop;
       };
 
       "nixos-macbook" = {
-        user = "sybrand";
-        hostname = ip-macbook;
+        User = "sybrand";
+        HostName = ip-macbook;
       };
 
       "nixos-thinkpad" = {
-        user = "sybrand";
-        hostname = ip-thinkpad;
+        User = "sybrand";
+        HostName = ip-thinkpad;
       };
 
       "homeserver" = {
-        user = "sybrand";
-        hostname = ip-homeserver;
+        User = "sybrand";
+        HostName = ip-homeserver;
       };
 
       # Default config
