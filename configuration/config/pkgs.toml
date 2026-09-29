@@ -87,8 +87,6 @@ environment.systemPackages = [
     "toipe",
 
     # Relaxing
-    "calibre",
-    "kodi",
     "newsboat", # RSS reader
     "cmus", # Music player
 
