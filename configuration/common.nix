@@ -2,26 +2,44 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ lib, pkgs, ... }:
+{
+  flake-inputs,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
-with pkgs.nur.repos.syberant.lib;
 
 let
-  importFile = importFileWithHandler defaultHandlers;
+  lib-syberant = pkgs.nur.repos.syberant.lib;
 
-  collectFiles = dir:
-    getFiles {
+  importFile = lib-syberant.importFileWithHandler lib-syberant.defaultHandlers;
+
+  collectFiles =
+    dir:
+    lib-syberant.getFiles {
       inherit dir;
-      suffixes = [ "nix" "toml" ];
+      suffixes = [
+        "nix"
+        "toml"
+      ];
     };
 
   importFiles = dir: map importFile (collectFiles dir);
-in {
-  imports = importFiles ./config ++ [
-    ../home-manager
-    ../modules
-    ./secrets
-    ./n-system-scripts
-  ];
+in
+{
+  imports =
+    importFiles ./config
+    ++ [
+      ../home-manager
+      ../modules
+      ./secrets
+      ./n-system-scripts
+    ]
+    ++ (with flake-inputs; [
+      sops-nix.nixosModules.sops
+      home-manager.nixosModules.home-manager
+      impermanence.nixosModules.impermanence
+    ]);
 }

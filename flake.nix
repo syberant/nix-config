@@ -93,19 +93,9 @@
       };
       sharedModule = {
         imports = [
-          sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
           hm-nixos-as-super
-          impermanence.nixosModules.impermanence
           ./configuration/common.nix
         ];
-
-        # Pin nixpkgs in registry
-        nix.registry.nixpkgs.flake = nixpkgs;
-
-        # Pin NIX_PATH
-        nix.nixPath =
-          [ "nixpkgs=${nixpkgs}" "nixos-config=/etc/nixos/configuration.nix" ];
       };
     in {
       nixosConfigurations.nixos-macbook = nixpkgs.lib.nixosSystem {

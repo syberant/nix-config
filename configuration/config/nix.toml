@@ -7,6 +7,9 @@ extraOptions = """
 # Save space
 settings.auto-optimise-store = true
 
+# Pin NIX_PATH
+nixPath = [ "nixpkgs=flake:nixpkgs", "nixos-config=/etc/nixos/configuration.nix" ]
+
 [nix.gc]
 automatic = true
 dates = "monthly"
