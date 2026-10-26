@@ -1,2 +1,6 @@
 [programs]
 kdeconnect.enable = true
+
+# Enable drivers for Wacom drawing tablet.
+[services.xserver.wacom]
+enable = true
