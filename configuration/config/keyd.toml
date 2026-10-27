@@ -4,3 +4,8 @@ enable = true
 [services.keyd.keyboards.default]
 ids = [ "*" ]
 settings.main.capslock = "overload(control, esc)"
+
+# Wacom CTH-460 drawing tablet, this controls the 4 keys on the left side of the tablet.
+[services.keyd.keyboards.wacom]
+ids = [ "056a:00d1:165a18a3" ]
+settings.main = { rightmouse = "C-left", mouseback = "C-up", mouseforward = "C-down", leftmouse = "C-right" }
