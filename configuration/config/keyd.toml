@@ -1,3 +1,6 @@
+# Add `keyd` to path for easier debugging and experimenting
+environment.systemPackages = [ "keyd" ]
+
 [services.keyd]
 enable = true
 
