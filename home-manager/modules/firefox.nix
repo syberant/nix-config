@@ -28,6 +28,8 @@
       DisablePocket = true;
       DisableFirefoxAccounts = true;
       DisableAccounts = true;
+      OfferToSaveLogins = false;
+      DontCheckDefaultBrowser = true;
     };
 
     profiles = let
