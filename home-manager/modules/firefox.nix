@@ -58,6 +58,31 @@
         id = 0;
         settings = commonSettings;
 
+        search = {
+          force = true;
+          default = "ddg";
+          privateDefault = "ddg";
+          order = [ "ddg" "wikipedia" "marginalia"];
+
+          engines = {
+            ddghtml = {
+              name = "DuckDuckGo HTML";
+              urls = [{ template = "https://html.duckduckgo.com/html/"; params = [{name = "q"; value = "{searchTerms}";}];}];
+            };
+
+            marginalia = {
+              name = "Marginalia";
+              urls = [{ template = "https://marginalia-search.com/search"; params = [{name = "query"; value = "{searchTerms}";}];}];
+              definedAliases = [ "@marg" "@m" ];
+            };
+
+            # Disable some builtin options
+            bing.metaData.hidden = true;
+            perplexity.metaData.hidden = true;
+            ebay.metaData.hidden = true;
+          };
+        };
+
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           vimium
           umatrix
