@@ -13,6 +13,10 @@ file-picker.max-depth = 10
 # Remove soft wrap indicator
 soft-wrap.wrap-indicator = ""
 
+[editor.whitespace.render]
+# Only render newline characters
+newline = "all"
+
 [editor.inline-diagnostics]
 cursor-line = "warning"
 other-lines = "error"
