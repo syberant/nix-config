@@ -1,0 +1,17 @@
+# Adjust page to fit width on open
+set adjust-open "width"
+set zoom-step 5
+
+set database sqlite
+
+set statusbar-home-tilde true
+set window-title-basename true
+set window-title-page true
+
+# Increase font size of UI elements
+set font 'monospace normal 16'
+
+map f feedkeys <F5>
+map [presentation] f feedkeys <F5>
+map [presentation] j navigate next
+map [presentation] k navigate previous

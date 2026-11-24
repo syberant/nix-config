@@ -7,6 +7,8 @@ in {
     ".config/mimeapps.list"
     ".config/starship.toml"
 
+    ".config/zathura/zathurarc"
+
     ".config/helix/config.toml" 
     ".config/helix/languages.toml"
 
