@@ -9,8 +9,6 @@
   # For doing firmware updates
   services.fwupd.enable = true;
 
-
-  programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
     mate-polkit
     prismlauncher
